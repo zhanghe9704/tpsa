@@ -1,0 +1,92 @@
+/**
+ * @file da.h
+ * @brief DA wrapper for the extended tpsa code.
+ * @details Defines the DAVector class and the Base class.
+ * @author He Zhang
+ * @email hezhang@jlab.org
+ */
+
+#ifndef DA_H_INCLUDED
+#define DA_H_INCLUDED
+
+#include <memory>
+#include <vector>
+//#include "tpsa_extend.h"
+
+
+/** \brief Differential Algebra (DA) Vector
+ * A TPS vector with methods. Can be used with most numerical operators.
+ *
+ */
+struct DAVector {
+  unsigned int da_vector_;
+  DAVector();
+  DAVector(const DAVector& da_vector);
+  DAVector(DAVector&& da_vector);
+  void print() const;
+  double con() const;
+  unsigned int length() const;
+  void element(unsigned int &i, unsigned int *c, double &elem) const;
+  double element(int i);
+  double element(std::vector<int> idx);
+  void reset();
+  void reset_const(double x = 0);
+  static int dim();
+  DAVector& operator=(const DAVector& da_vector);
+  DAVector& operator=(DAVector&& da_vector);
+  ~DAVector();
+};
+
+/** \brief Bases for DA calculations.
+ * The i-th base can be accessed as base[i], where base is an object of Base.
+ *
+ */
+struct Base {
+  std::vector<DAVector> base;
+  Base(const unsigned int n);
+  Base(){};
+  void set_base(const unsigned int n);
+  void set_base();
+  DAVector operator[](unsigned int i) {return base.at(i);}
+};
+
+extern Base da; // Bases for DA calculations. The i-th base can be accessed as da[i].
+
+//Initialize the environment for DA computation. Call this function before any DA computation.
+int da_init(unsigned int& da_order, unsigned int& num_da_variables, unsigned int& num_da_vectors);
+int da_reduce_order(unsigned int new_order);    //Temporary lower the da order.
+int da_restore_order();                         //Restore the original da order.
+int da_count();                                 //Number of da variable allocated.
+int da_remain();                                //Space (number) available for new da variables.
+
+void da_subscribe_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov);
+void da_subscribe(const DAVector &iv, unsigned int base_id, const DAVector &v, DAVector &ov);
+void da_subscribe(const DAVector &iv, std::vector<unsigned int> &base_id, std::vector<DAVector> &v, DAVector &ov);
+void da_subscribe(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base_id, std::vector<DAVector> &v,
+                  std::vector<DAVector> &ovecs);
+void da_composition(std::vector<DAVector> &ivecs, std::vector<DAVector> &v, std::vector<DAVector> &ovecs);
+void da_composition(std::vector<DAVector> &ivecs, std::vector<double> &v, std::vector<double> &ovecs);
+
+DAVector operator+(const DAVector &da_vector, double real_number);
+DAVector operator+(double real_number, const DAVector &da_vector) ;
+DAVector operator+(const DAVector &da_vector_1, const DAVector &da_vector_2);
+DAVector operator*(const DAVector &da_vector, double real_number);
+DAVector operator*(double real_number, const DAVector &da_vector);
+DAVector operator*(const DAVector &da_vector_1, const DAVector &da_vector_2);
+DAVector operator-(const DAVector &da_vector, double real_number);
+DAVector operator-(double real_number, const DAVector &da_vector);
+DAVector operator-(const DAVector &da_vector_1, const DAVector &da_vector_2);
+DAVector operator/(const DAVector &da_vector, double real_number);
+DAVector operator/(double real_number, const DAVector &da_vector);
+DAVector operator/(const DAVector &da_vector_1, const DAVector &da_vector_2);
+
+DAVector sqrt(const DAVector &da_vector);
+DAVector exp(const DAVector &da_vector);
+DAVector log(const DAVector &da_vector);
+DAVector sin(const DAVector &da_vector);
+DAVector cos(const DAVector &da_vector);
+DAVector pow(const DAVector &da_vector, const int order);
+DAVector pow(const DAVector &da_vector, const double order);
+double abs(const DAVector &da_vector);
+
+#endif // DA_H_INCLUDED
