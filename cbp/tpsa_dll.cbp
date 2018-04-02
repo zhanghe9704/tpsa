@@ -2,37 +2,43 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="tpsa_lib" />
+		<Option title="tpsa_dll" />
 		<Option pch_mode="2" />
 		<Option compiler="gnu_gcc_51_x64_compiler" />
 		<Build>
 			<Target title="Debug">
-				<Option output="../build/lib/Debug/tpsa" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="" />
+				<Option output="../build/dll/Debug/tpsa" prefix_auto="1" extension_auto="1" />
 				<Option object_output="../build/obj/Debug/" />
-				<Option type="2" />
+				<Option type="3" />
 				<Option compiler="gnu_gcc_51_x64_compiler" />
 				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-Wall" />
 					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add option="-DBUILD_DLL" />
 				</Compiler>
+				<Linker>
+					<Add library="user32" />
+				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="../build/lib/Release/tpsa" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="" />
+				<Option output="../build/dll/Release/tpsa" prefix_auto="1" extension_auto="1" />
 				<Option object_output="../build/obj/Release/" />
-				<Option type="2" />
+				<Option type="3" />
 				<Option compiler="gnu_gcc_51_x64_compiler" />
 				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-Wall" />
 					<Add option="-std=c++11" />
+					<Add option="-DBUILD_DLL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="user32" />
 				</Linker>
 			</Target>
 		</Build>
