@@ -18,13 +18,17 @@ This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes
 
 
 
-## How to compile and use this code
+The major change is the memory management. The current memory management works in the following way. Before any TPSA/DA calculation, one needs to reserve the memory for $n$ TPS vector. A memory pool is allocated in the heap, which can be considered as $n$ slots, each for one TPS vector. A linked list is created to reference the  available (unused) slots. Two pointers point to the beginning and the end of the linked list respectively. When a new TPS vector is created, the first slot will be assigned to it and the beginning pointer points to the  following slot in the linked list. When a TPS vector goes out of its scope, the slot will be reset to empty and liked to the end of the list. The end pointer will be updated and point to the new end.  
+
+![Memory management](doc/tpsa_memory_management.png)
 
 
 
-## Math operators and functions
+A new data type DAVector is created as a wrapper of the TPS vector. The following mathematical operator and functions are overloaded for DAVector, so that a variable of DAVector type can be used as a intrinsic type in calculations. 
 
-The following math operators have been overloaded for the DA Vectors.
+
+
+Math operator overloaded
 
 | Left hand | Operator | Right hand |
 | :-------: | :------: | :--------: |
@@ -41,7 +45,7 @@ The following math operators have been overloaded for the DA Vectors.
 | DAVector  |    /     |   double   |
 |  double   |    /     |  DAVector  |
 
-The following math functions support the DA vectors. 
+Math functions overloaded:
 
 - sqrt
 - exp
@@ -50,6 +54,33 @@ The following math functions support the DA vectors.
 - cos
 - pow
 - abs
+
+
+
+
+| Order | No. of terms | DA                    | TPSA                 |
+| ----- | ------------ | --------------------- | -------------------- |
+| 2     | 28           | $7.57\times 10^{-6}$  | $6.25\times 10^{-6}$ |
+| 4     | 210          | $7.50\times 10^{-4}$  | $1.44\times 10^{-2}$ |
+| 6     | 924          | $4.48 \times 10^{-3}$ | $8.39\times 10^{-2}$ |
+| 8     | 3003         | $9.90 \times 10^{-1}$ | $2.55$               |
+| 10    | 8008         | $15.49$               | $44.60$              |
+
+
+
+| Order | DA                   |
+| ----- | -------------------- |
+| 2     | $1.51\times 10^{-5}$ |
+| 4     | $1.04\times 10^{-3}$ |
+| 6     | $4.42\times 10^{-2}$ |
+| 8     | $1.05$               |
+| 10    | $16.04$              |
+
+
+
+## How to compile and use this code
+
+
 
 ## Acknowledgement
 
