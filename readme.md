@@ -1,4 +1,4 @@
-# TPSA Lib
+# C++ TPSA Lib
 
 ## Announcement
 
@@ -14,7 +14,7 @@ For TPSA and DA, please refer to chapter 8 in [*Lecture Notes on Special Topics 
 
 
 
-This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (tpsa.cpp and tpsa.h) are included in this repository. They are untouched, except for a few functions that are commented off and replaced in tpsa_extend.cc. Please get permission from Dr. Lingyun Yang before you redistribute tpsa.cpp and tpsa.h.
+This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (tpsa.cpp and tpsa.h) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in tpsa_extend.cc. Please get permission from Dr. Lingyun Yang before you redistribute tpsa.cpp and tpsa.h.
 
 
 
@@ -56,7 +56,11 @@ Math functions overloaded:
 - abs
 
 
+Some test results for efficiency are presented in the following. They are done in a Windows 10 desktop with Intel Xeon (R) E5-1620 processor at 3.60 GHz. Table 1 shows the time cost for composition of one DA/TPS vector of six bases with six DA/TPS vectors.  First column shows the order of the vectors, second column the number of terms in each vector, third column the time using the DA data type with revised memory management, and the fourth column the time using the original code. Table 2 shows the time of composition of six DA vectors, each having six bases, with the other group of six DA vectors. The composition in group cost less time if compared with separate compositions. 
 
+
+
+Table 1.  Time (in second) of composition 
 
 | Order | No. of terms | DA                    | TPSA                 |
 | ----- | ------------ | --------------------- | -------------------- |
@@ -68,6 +72,8 @@ Math functions overloaded:
 
 
 
+Table 2. Time (in second) of group composition 
+
 | Order | DA                   |
 | ----- | -------------------- |
 | 2     | $1.51\times 10^{-5}$ |
@@ -78,9 +84,22 @@ Math functions overloaded:
 
 
 
+More information is available at doc/doxygen/html/index.html.
+
 ## How to compile and use this code
 
+You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows:
 
+* Download the source files. Include "tpsa_extend.h" and "da.h" in your project and compile. 
+
+* The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
+
+* You can also use cmake to compile the code into both a static library and a dynamic library. This is only tested in Ubuntu 16.04. 
+
+  `cmake .` 
+  `make`
+
+  ​
 
 ## Acknowledgement
 
