@@ -1,0 +1,18 @@
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/da.cc:7: warning: Found unknown command `\email'
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/da.cc:155: warning: The following parameters of da_init(unsigned int &da_order, unsigned int &num_da_variables, unsigned int &num_da_vectors) are not documented:
+  parameter 'num_da_vectors'
+C:/Box Sync/Work/TPSA/tpsa_lib/include/da.h:7: warning: Found unknown command `\email'
+C:/Box Sync/Work/TPSA/tpsa_lib/include/da.h:56: warning: The following parameters of da_init(unsigned int &da_order, unsigned int &num_da_variables, unsigned int &num_da_vectors) are not documented:
+  parameter 'num_da_vectors'
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/tpsa_extend.cc:10: warning: Found unknown command `\email'
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/tpsa_extend.cc:632: warning: argument 'ivecs' of command @param is not found in the argument list of ad_subscribe(const TVEC iv, std::vector< unsigned int > &base_id, std::vector< TVEC > &v, TVEC ov)
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/tpsa_extend.cc:632: warning: argument 'ovecs' of command @param is not found in the argument list of ad_subscribe(const TVEC iv, std::vector< unsigned int > &base_id, std::vector< TVEC > &v, TVEC ov)
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/tpsa_extend.cc:641: warning: The following parameters of ad_subscribe(const TVEC iv, std::vector< unsigned int > &base_id, std::vector< TVEC > &v, TVEC ov) are not documented:
+  parameter 'iv'
+  parameter 'ov'
+C:/Box Sync/Work/TPSA/tpsa_lib/include/tpsa_extend.h:4: warning: Found unknown command `\email'
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/tpsa_extend.cc:632: warning: argument 'ivecs' of command @param is not found in the argument list of ad_subscribe(const TVEC iv, std::vector< unsigned int > &base_id, std::vector< TVEC > &v, TVEC ov)
+C:/Box Sync/Work/TPSA/tpsa_lib/scr/tpsa_extend.cc:632: warning: argument 'ovecs' of command @param is not found in the argument list of ad_subscribe(const TVEC iv, std::vector< unsigned int > &base_id, std::vector< TVEC > &v, TVEC ov)
+C:/Box Sync/Work/TPSA/tpsa_lib/include/tpsa_extend.h:33: warning: The following parameters of ad_subscribe(const TVEC iv, std::vector< unsigned int > &base_id, std::vector< TVEC > &v, TVEC ov) are not documented:
+  parameter 'iv'
+  parameter 'ov'
