@@ -38,5 +38,10 @@ void ad_add(const unsigned int idst, const unsigned int jsrc, unsigned int ov);
 void ad_sub(const unsigned int idst, const unsigned int jsrc, TVEC ov);
 void ad_add_const(const TVEC i, double r, TVEC ov);
 double ad_elem(const TVEC &vec, std::vector<int> &idx);
+int ad_order(); //Return the order of the TPS environment.
+
+int ad_full_length();   //Return the maximum length of a TPS.
+void ad_int(TVEC iv, unsigned int base_id, TVEC ov); //Integrate w.r.t. the specific base.
+int ad_n_element(TVEC v);   //Number of non-zero element!
 #endif // TPSA_EXTEND
 

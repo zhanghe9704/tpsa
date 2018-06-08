@@ -22,6 +22,24 @@ static unsigned int ad_end = 0;  ///< The index of the last available TPS vector
 static std::vector <unsigned int> adlist;
 static TNVND gnd_record = 0; ///< Temporarily record the TSP order, used only when reducing and restoring the TSP order.
 
+/** \brief Return the order of the TPS environment.
+ *
+ * \return order of the TPS environment.
+ *
+ */
+int ad_order() {
+    return gnd;
+}
+
+/** \brief Return the full length of the TPS with the current order and dimension
+ *
+ * \return full length of the TPS
+ *
+ */
+int ad_full_length() {
+    return FULL_VEC_LEN;
+}
+
 /** \brief Reduce the TPS order to the specific value.
  *
  * \param new_order New TPS order. The new order should be lower than the current order.
@@ -30,7 +48,7 @@ static TNVND gnd_record = 0; ///< Temporarily record the TSP order, used only wh
  */
 void ad_change_order(unsigned int new_order) {
     if (0==gnd_record) gnd_record = gnd;
-    if (new_order<gnd) {
+    if (new_order<gnd_record) {
         gnd = new_order;
         FULL_VEC_LEN = comb_num(gnv+gnd, gnd);
     }
@@ -171,7 +189,52 @@ unsigned int get_order_index(unsigned int i) {
     return order_index[i];
 }
 
+/** \brief Integrate a TPS w.r.t. a specific base
+ *
+ * \param iv The TPS to integrate.
+ * \param base_id The base.
+ * \param ov The output TPS.
+ * \return void.
+ *
+ */
+void ad_int(TVEC iv, unsigned int base_id, TVEC ov) {
+    TVEC v;
+    double x = 0;
+    ad_alloc(&v);
+    ad_var(&v, &x, &base_id);
+    ad_mult(&iv, &v, &ov);
 
+    TNVND* p = base;
+    std::vector<unsigned int> c(gnv);
+
+    for (size_t i=0; i<adveclen[ov]; ++i) {
+        if (std::abs(advec[ov][i]) < std::numeric_limits<double>::min()) {
+            p += gnv;
+            continue;
+        }
+        for (size_t j = 0; j < gnv-1; ++j) {
+            c[j] = (unsigned int) (*p-*(p+1));
+            ++p;
+        }
+        c[gnv-1] = (unsigned int)*p++ ;
+        advec[ov][i] /= c[base_id];
+    }
+    ad_free(&v);
+}
+
+/** \brief Return the number of non-zero elements in a TPS.
+ *
+ * \param v The TPS.
+ * \return Number of non-zero elements in the TPS.
+ *
+ */
+int ad_n_element(TVEC v) {
+    int n = 0;
+    for(size_t i=0; i<adveclen[v]; ++i)
+        if (fabs(advec[v][i])>std::numeric_limits<double>::min())
+            ++n;
+    return n;
+}
 
 // ***** The following functions provide alternative ones instead of the original ones in tpsa.cpp. *****
 
@@ -444,13 +507,14 @@ void ad_composition(std::vector<TVEC> &ivecs, std::vector<TVEC> &v, std::vector<
     }
 
     for(auto ov : ovecs) {
-        adveclen[ov] = 0;
+        adveclen[ov] = 1;
         for(int i=order_index[gnd+1]-1; i>=0; --i) {
             if(std::abs(advec[ov][i])>std::numeric_limits<double>::min()) {
                 adveclen[ov] = i+1;
                 break;
             }
         }
+//        std::cout<<ov<<' '<<adveclen[ov]<<std::endl;
     }
 
     //Release the temporary TPS vectors.
@@ -608,7 +672,7 @@ void ad_subscribe(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, 
     }
 
     for(auto ov : ovecs) {
-        adveclen[ov] = 0;
+        adveclen[ov] = 1;
         for(int i=order_index[gnd+1]-1; i>=0; --i) {
             if(std::abs(advec[ov][i])>std::numeric_limits<double>::min()) {
                 adveclen[ov] = i+1;
@@ -749,7 +813,7 @@ void ad_subscribe(const TVEC iv, std::vector<unsigned int> &base_id, std::vector
         }
     }
 
-    adveclen[ov] = 0;
+    adveclen[ov] = 1;
     for(int i=order_index[gnd+1]-1; i>=0; --i) {
         if(std::abs(advec[ov][i])>std::numeric_limits<double>::min()) {
             adveclen[ov] = i+1;
@@ -849,7 +913,7 @@ void ad_subscribe(const TVEC iv, unsigned int base_id, const TVEC v, TVEC ov) {
         }
     }
 
-    adveclen[ov] = 0;
+    adveclen[ov] = 1;
     for(int i=order_index[gnd+1]-1; i>=0; --i) {
         if(std::abs(advec[ov][i])>std::numeric_limits<double>::min()) {
             adveclen[ov] = i+1;
@@ -934,6 +998,7 @@ void ad_subscribe_const(const TVEC iv, unsigned int base_id, double x, TVEC ov) 
         if(std::abs(advec[ov][i])<std::numeric_limits<double>::min()) adveclen[ov] -= 1;
         else break;
     }
+    if (adveclen[ov]==0) adveclen[ov] = 1;
 
     delete[] c;
     delete[] power_x;
@@ -1116,7 +1181,8 @@ void ad_mult(const TVEC* ilhs, const TVEC* irhs, TVEC* idst) {
     unsigned int rhs = *irhs;
     unsigned int dst = *idst;
 
-    memset(advec[dst], 0, adveclen[dst]*sizeof(double));
+    memset(advec[dst], 0, FULL_VEC_LEN*sizeof(double));
+//    memset(advec[dst], 0, adveclen[dst]*sizeof(double));   //This will cause a bug of extra terms in some cases!
 
     adveclen[dst] = adveclen[lhs];
 

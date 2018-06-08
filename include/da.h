@@ -26,12 +26,16 @@ struct DAVector {
   void print() const;
   double con() const;
   unsigned int length() const;
-  void element(unsigned int &i, unsigned int *c, double &elem) const;
+  int n_element() const;
+  void element(unsigned int i, unsigned int *c, double& elem) const;
   double element(int i);
   double element(std::vector<int> idx);
+  void set_element(int *c, double elem);
   void reset();
   void reset_const(double x = 0);
   static int dim();
+  static int order();
+  static int full_length();
   DAVector& operator=(const DAVector& da_vector);
   DAVector& operator=(DAVector&& da_vector);
   ~DAVector();
@@ -53,12 +57,18 @@ struct Base {
 extern Base da; // Bases for DA calculations. The i-th base can be accessed as da[i].
 
 //Initialize the environment for DA computation. Call this function before any DA computation.
-int da_init(unsigned int& da_order, unsigned int& num_da_variables, unsigned int& num_da_vectors);
-int da_reduce_order(unsigned int new_order);    //Temporary lower the da order.
+int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors);
+int da_change_order(unsigned int new_order);    //Temporary lower the da order.
 int da_restore_order();                         //Restore the original da order.
 int da_count();                                 //Number of da variable allocated.
 int da_remain();                                //Space (number) available for new da variables.
-
+int da_full_length();                           //Full length of the da vector.
+//Take derivative w.r.t. a specific base.
+void da_der(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_der);
+//Integrate w.r.t. a specific base.
+void da_int(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_int);
+DAVector da_der(const DAVector &da_vector, unsigned int base_id);   //Take derivative w.r.t. a specific base.
+DAVector da_int(const DAVector &da_vector, unsigned int base_id);   //Integrate w.r.t. a specific base.
 void da_subscribe_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov);
 void da_subscribe(const DAVector &iv, unsigned int base_id, const DAVector &v, DAVector &ov);
 void da_subscribe(const DAVector &iv, std::vector<unsigned int> &base_id, std::vector<DAVector> &v, DAVector &ov);
@@ -89,4 +99,5 @@ DAVector pow(const DAVector &da_vector, const int order);
 DAVector pow(const DAVector &da_vector, const double order);
 double abs(const DAVector &da_vector);
 
+void inv_map(std::vector<DAVector> &ivecs, int dim, std::vector<DAVector> &ovecs);
 #endif // DA_H_INCLUDED
