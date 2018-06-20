@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>tpsa_lib: tpsa_extend.h File Reference</title>
+<title>tpsa_dll: tpsa_extend.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,8 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">tpsa_lib
-   &#160;<span id="projectnumber">1.0.0</span>
+   <div id="projectname">tpsa_dll
    </div>
   </td>
  </tr>
@@ -170,6 +169,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a7e38ededef0fea11002845e3f6e71da7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a7e38ededef0fea11002845e3f6e71da7">ad_elem</a> (const TVEC &amp;vec, std::vector&lt; int &gt; &amp;idx)</td></tr>
 <tr class="memdesc:a7e38ededef0fea11002845e3f6e71da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return value of a specific element in a TPS vector Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz}, the function returns the value of the element (x^nx)*(n^ny)*(z^nz) in vec, the TPS vector. This is an alternative function for the original one in tpsa.cpp.  <a href="#a7e38ededef0fea11002845e3f6e71da7">More...</a><br /></td></tr>
 <tr class="separator:a7e38ededef0fea11002845e3f6e71da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f339295510407632491412a7830a5b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a5f339295510407632491412a7830a5b5">ad_order</a> ()</td></tr>
+<tr class="memdesc:a5f339295510407632491412a7830a5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the order of the TPS environment.  <a href="#a5f339295510407632491412a7830a5b5">More...</a><br /></td></tr>
+<tr class="separator:a5f339295510407632491412a7830a5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81330cd760f80b20de26bcb0f4f40d16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a81330cd760f80b20de26bcb0f4f40d16">ad_full_length</a> ()</td></tr>
+<tr class="memdesc:a81330cd760f80b20de26bcb0f4f40d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the full length of the TPS with the current order and dimension.  <a href="#a81330cd760f80b20de26bcb0f4f40d16">More...</a><br /></td></tr>
+<tr class="separator:a81330cd760f80b20de26bcb0f4f40d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a474ed2a886c17e99926fda12efa497a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a474ed2a886c17e99926fda12efa497a1">ad_int</a> (TVEC iv, unsigned int base_id, TVEC ov)</td></tr>
+<tr class="memdesc:a474ed2a886c17e99926fda12efa497a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate a TPS w.r.t. a specific base.  <a href="#a474ed2a886c17e99926fda12efa497a1">More...</a><br /></td></tr>
+<tr class="separator:a474ed2a886c17e99926fda12efa497a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87dbdd609cc2fa52cfee416eaed8e4d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a87dbdd609cc2fa52cfee416eaed8e4d4">ad_n_element</a> (TVEC v)</td></tr>
+<tr class="memdesc:a87dbdd609cc2fa52cfee416eaed8e4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of non-zero elements in a TPS.  <a href="#a87dbdd609cc2fa52cfee416eaed8e4d4">More...</a><br /></td></tr>
+<tr class="separator:a87dbdd609cc2fa52cfee416eaed8e4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extend the original tpsa.h file by Dr. Lingyun Yang. </p>
@@ -518,6 +529,71 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a81330cd760f80b20de26bcb0f4f40d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81330cd760f80b20de26bcb0f4f40d16">&#9670;&nbsp;</a></span>ad_full_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ad_full_length </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the full length of the TPS with the current order and dimension. </p>
+<dl class="section return"><dt>Returns</dt><dd>full length of the TPS </dd></dl>
+
+</div>
+</div>
+<a id="a474ed2a886c17e99926fda12efa497a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474ed2a886c17e99926fda12efa497a1">&#9670;&nbsp;</a></span>ad_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ad_int </td>
+          <td>(</td>
+          <td class="paramtype">TVEC&#160;</td>
+          <td class="paramname"><em>iv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TVEC&#160;</td>
+          <td class="paramname"><em>ov</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Integrate a TPS w.r.t. a specific base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iv</td><td>The TPS to integrate. </td></tr>
+    <tr><td class="paramname">base_id</td><td>The base. </td></tr>
+    <tr><td class="paramname">ov</td><td>The output TPS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
 <a id="a3efd4d6041ca3ad7bec9865f7dd1bcb6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3efd4d6041ca3ad7bec9865f7dd1bcb6">&#9670;&nbsp;</a></span>ad_mult_c()</h2>
 
@@ -560,6 +636,53 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
+<a id="a87dbdd609cc2fa52cfee416eaed8e4d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87dbdd609cc2fa52cfee416eaed8e4d4">&#9670;&nbsp;</a></span>ad_n_element()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ad_n_element </td>
+          <td>(</td>
+          <td class="paramtype">TVEC&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the number of non-zero elements in a TPS. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The TPS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of non-zero elements in the TPS. </dd></dl>
+
+</div>
+</div>
+<a id="a5f339295510407632491412a7830a5b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f339295510407632491412a7830a5b5">&#9670;&nbsp;</a></span>ad_order()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ad_order </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the order of the TPS environment. </p>
+<dl class="section return"><dt>Returns</dt><dd>order of the TPS environment. </dd></dl>
 
 </div>
 </div>
@@ -954,7 +1077,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="tpsa__extend_8h.html">tpsa_extend.h</a></li>
-    <li class="footer">Generated on Mon Apr 2 2018 16:36:57 for tpsa_lib by
+    <li class="footer">Generated on Wed Jun 20 2018 14:12:32 for tpsa_dll by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
   </ul>

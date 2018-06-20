@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>tpsa_lib: da.h File Reference</title>
+<title>tpsa_dll: da.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,8 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">tpsa_lib
-   &#160;<span id="projectnumber">1.0.0</span>
+   <div id="projectname">tpsa_dll
    </div>
   </td>
  </tr>
@@ -113,13 +112,13 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a19bdd4326324090313dd0a13aac8548a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a19bdd4326324090313dd0a13aac8548a">da_init</a> (unsigned int &amp;da_order, unsigned int &amp;num_da_variables, unsigned int &amp;num_da_vectors)</td></tr>
-<tr class="memdesc:a19bdd4326324090313dd0a13aac8548a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the DA environment. This function initialize the DA environment w.r.t. the given DA order and the number of bases. A memory pool is created for the given number of DA vectors, which should be large enough for perspective calculations. <a class="el" href="struct_base.html" title="Bases for DA calculations. The i-th base can be accessed as base[i], where base is an object of Base...">Base</a> vectors are also created. The i-th base can be accessed as da[i]. This function should be called before any DA calculation.  <a href="#a19bdd4326324090313dd0a13aac8548a">More...</a><br /></td></tr>
-<tr class="separator:a19bdd4326324090313dd0a13aac8548a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9b3ea85012a1110ad7c54ace6fe1fcb"><td class="memItemLeft" align="right" valign="top"><a id="af9b3ea85012a1110ad7c54ace6fe1fcb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#af9b3ea85012a1110ad7c54ace6fe1fcb">da_reduce_order</a> (unsigned int new_order)</td></tr>
-<tr class="memdesc:af9b3ea85012a1110ad7c54ace6fe1fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporarily reduce the DA order. <br /></td></tr>
-<tr class="separator:af9b3ea85012a1110ad7c54ace6fe1fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b96b427352d9ef26ab45696cfd52e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a35b96b427352d9ef26ab45696cfd52e4">da_init</a> (unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors)</td></tr>
+<tr class="memdesc:a35b96b427352d9ef26ab45696cfd52e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the DA environment. This function initialize the DA environment w.r.t. the given DA order and the number of bases. A memory pool is created for the given number of DA vectors, which should be large enough for perspective calculations. <a class="el" href="struct_base.html" title="Bases for DA calculations. The i-th base can be accessed as base[i], where base is an object of Base...">Base</a> vectors are also created. The i-th base can be accessed as da[i]. This function should be called before any DA calculation.  <a href="#a35b96b427352d9ef26ab45696cfd52e4">More...</a><br /></td></tr>
+<tr class="separator:a35b96b427352d9ef26ab45696cfd52e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66dc266cb3b691feba5cc6d2caa0a439"><td class="memItemLeft" align="right" valign="top"><a id="a66dc266cb3b691feba5cc6d2caa0a439"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a66dc266cb3b691feba5cc6d2caa0a439">da_change_order</a> (unsigned int new_order)</td></tr>
+<tr class="memdesc:a66dc266cb3b691feba5cc6d2caa0a439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporarily change the DA order. <br /></td></tr>
+<tr class="separator:a66dc266cb3b691feba5cc6d2caa0a439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a7bb906427228e825194f28c1ab9e7d"><td class="memItemLeft" align="right" valign="top"><a id="a6a7bb906427228e825194f28c1ab9e7d"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a6a7bb906427228e825194f28c1ab9e7d">da_restore_order</a> ()</td></tr>
 <tr class="memdesc:a6a7bb906427228e825194f28c1ab9e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restore the original DA order. <br /></td></tr>
@@ -131,6 +130,22 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h
 <tr class="memitem:a7ce0828d83881579af4e2bf2f1c0ae48"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a7ce0828d83881579af4e2bf2f1c0ae48">da_remain</a> ()</td></tr>
 <tr class="memdesc:a7ce0828d83881579af4e2bf2f1c0ae48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check the remaining capacity in the DA pool.  <a href="#a7ce0828d83881579af4e2bf2f1c0ae48">More...</a><br /></td></tr>
 <tr class="separator:a7ce0828d83881579af4e2bf2f1c0ae48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bdfa781e8d2130cdd9c17fbb72ae63"><td class="memItemLeft" align="right" valign="top"><a id="af5bdfa781e8d2130cdd9c17fbb72ae63"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#af5bdfa781e8d2130cdd9c17fbb72ae63">da_full_length</a> ()</td></tr>
+<tr class="memdesc:af5bdfa781e8d2130cdd9c17fbb72ae63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the full length of the da vector. <br /></td></tr>
+<tr class="separator:af5bdfa781e8d2130cdd9c17fbb72ae63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ccc5e74773f19981185141ac5f89cbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a2ccc5e74773f19981185141ac5f89cbf">da_der</a> (const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;da_vector, unsigned int base_id, <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;da_vector_der)</td></tr>
+<tr class="memdesc:a2ccc5e74773f19981185141ac5f89cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take derivative of a da vector w.r.t. a specific base.  <a href="#a2ccc5e74773f19981185141ac5f89cbf">More...</a><br /></td></tr>
+<tr class="separator:a2ccc5e74773f19981185141ac5f89cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce2e888b1204dc16e0c1f43311b4b85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#afce2e888b1204dc16e0c1f43311b4b85">da_int</a> (const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;da_vector, unsigned int base_id, <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;da_vector_int)</td></tr>
+<tr class="memdesc:afce2e888b1204dc16e0c1f43311b4b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate a da vector w.r.t. a specific base.  <a href="#afce2e888b1204dc16e0c1f43311b4b85">More...</a><br /></td></tr>
+<tr class="separator:afce2e888b1204dc16e0c1f43311b4b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a626191c5eb0ff6d9ad13f14fb0e13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_a_vector.html">DAVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a34a626191c5eb0ff6d9ad13f14fb0e13">da_der</a> (const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;da_vector, unsigned int base_id)</td></tr>
+<tr class="memdesc:a34a626191c5eb0ff6d9ad13f14fb0e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take derivative of a da vector w.r.t. a specific base.  <a href="#a34a626191c5eb0ff6d9ad13f14fb0e13">More...</a><br /></td></tr>
+<tr class="separator:a34a626191c5eb0ff6d9ad13f14fb0e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab36b8038e76c52468949f8707d3d53cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_a_vector.html">DAVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#ab36b8038e76c52468949f8707d3d53cf">da_int</a> (const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;da_vector, unsigned int base_id)</td></tr>
+<tr class="memdesc:ab36b8038e76c52468949f8707d3d53cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate a da vector w.r.t. a specific base.  <a href="#ab36b8038e76c52468949f8707d3d53cf">More...</a><br /></td></tr>
+<tr class="separator:ab36b8038e76c52468949f8707d3d53cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae347fc3345bc03ec47eb045e9fa54e93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#ae347fc3345bc03ec47eb045e9fa54e93">da_subscribe_const</a> (const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;iv, unsigned int base_id, double x, <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;ov)</td></tr>
 <tr class="memdesc:ae347fc3345bc03ec47eb045e9fa54e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe the given value to the specific base in a DA vector.  <a href="#ae347fc3345bc03ec47eb045e9fa54e93">More...</a><br /></td></tr>
 <tr class="separator:ae347fc3345bc03ec47eb045e9fa54e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,6 +224,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h
 <tr class="memitem:ac1322dd7830ae7ca7137be0185a9d4af"><td class="memItemLeft" align="right" valign="top"><a id="ac1322dd7830ae7ca7137be0185a9d4af"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>abs</b> (const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;da_vector)</td></tr>
 <tr class="separator:ac1322dd7830ae7ca7137be0185a9d4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d67f9549d3c2c1f829b065d5f88d9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_a_vector.html">DAVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a75d67f9549d3c2c1f829b065d5f88d9e">erf</a> (<a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;x)</td></tr>
+<tr class="memdesc:a75d67f9549d3c2c1f829b065d5f88d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">error function for a DA vector Calculate the error function value of the input DA vector. The <a class="el" href="da_8cc.html#a75d67f9549d3c2c1f829b065d5f88d9e" title="error function for a DA vector Calculate the error function value of the input DA vector...">erf()</a> in math.h is used to calculate the cosntant apart. 2/sqrt(pi)*exp(-x^2) is the derivative of the error function, by which the high order terms could be calculated.  <a href="#a75d67f9549d3c2c1f829b065d5f88d9e">More...</a><br /></td></tr>
+<tr class="separator:a75d67f9549d3c2c1f829b065d5f88d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3749e2d2d14985277e012363a78d3e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#aa3749e2d2d14985277e012363a78d3e7">inv_map</a> (std::vector&lt; <a class="el" href="struct_d_a_vector.html">DAVector</a> &gt; &amp;ivecs, int dim, std::vector&lt; <a class="el" href="struct_d_a_vector.html">DAVector</a> &gt; &amp;ovecs)</td></tr>
+<tr class="memdesc:aa3749e2d2d14985277e012363a78d3e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the inverse map of a given map.  <a href="#aa3749e2d2d14985277e012363a78d3e7">More...</a><br /></td></tr>
+<tr class="separator:aa3749e2d2d14985277e012363a78d3e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -309,8 +330,91 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a19bdd4326324090313dd0a13aac8548a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19bdd4326324090313dd0a13aac8548a">&#9670;&nbsp;</a></span>da_init()</h2>
+<a id="a2ccc5e74773f19981185141ac5f89cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ccc5e74773f19981185141ac5f89cbf">&#9670;&nbsp;</a></span>da_der() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void da_der </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>da_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>da_vector_der</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Take derivative of a da vector w.r.t. a specific base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">da_vector</td><td>The input da vector. </td></tr>
+    <tr><td class="paramname">base_id</td><td>Id of the base. </td></tr>
+    <tr><td class="paramname">da_vector_der</td><td>The output da vector. Should be different with the input vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a34a626191c5eb0ff6d9ad13f14fb0e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a626191c5eb0ff6d9ad13f14fb0e13">&#9670;&nbsp;</a></span>da_der() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_d_a_vector.html">DAVector</a> da_der </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>da_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Take derivative of a da vector w.r.t. a specific base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">da_vector</td><td>The input da vector. </td></tr>
+    <tr><td class="paramname">base_id</td><td>Id of the base. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>da vector as the derivation result. </dd></dl>
+
+</div>
+</div>
+<a id="a35b96b427352d9ef26ab45696cfd52e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b96b427352d9ef26ab45696cfd52e4">&#9670;&nbsp;</a></span>da_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,19 +422,19 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int da_init </td>
           <td>(</td>
-          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>da_order</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>num_da_variables</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>num_da_vectors</em>&#160;</td>
         </tr>
         <tr>
@@ -350,6 +454,89 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>num_da_vectors Size of the DA memory pool. </dd></dl>
+
+</div>
+</div>
+<a id="afce2e888b1204dc16e0c1f43311b4b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce2e888b1204dc16e0c1f43311b4b85">&#9670;&nbsp;</a></span>da_int() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void da_int </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>da_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>da_vector_int</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Integrate a da vector w.r.t. a specific base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">da_vector</td><td>The input da vector. </td></tr>
+    <tr><td class="paramname">base_id</td><td>Id of the base. </td></tr>
+    <tr><td class="paramname">da_vector_int</td><td>The output da vector. Should be different with the input vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ab36b8038e76c52468949f8707d3d53cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab36b8038e76c52468949f8707d3d53cf">&#9670;&nbsp;</a></span>da_int() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_d_a_vector.html">DAVector</a> da_int </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>da_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Integrate a da vector w.r.t. a specific base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">da_vector</td><td>The input da vector. </td></tr>
+    <tr><td class="paramname">base_id</td><td>Id of the base. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>da vector as the integration result. </dd></dl>
 
 </div>
 </div>
@@ -581,6 +768,78 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a75d67f9549d3c2c1f829b065d5f88d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d67f9549d3c2c1f829b065d5f88d9e">&#9670;&nbsp;</a></span>erf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_d_a_vector.html">DAVector</a> erf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_d_a_vector.html">DAVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>error function for a DA vector Calculate the error function value of the input DA vector. The <a class="el" href="da_8cc.html#a75d67f9549d3c2c1f829b065d5f88d9e" title="error function for a DA vector Calculate the error function value of the input DA vector...">erf()</a> in math.h is used to calculate the cosntant apart. 2/sqrt(pi)*exp(-x^2) is the derivative of the error function, by which the high order terms could be calculated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The input DA vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>erf(x) as a DA vector. </dd></dl>
+
+</div>
+</div>
+<a id="aa3749e2d2d14985277e012363a78d3e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3749e2d2d14985277e012363a78d3e7">&#9670;&nbsp;</a></span>inv_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inv_map </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_d_a_vector.html">DAVector</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ivecs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_d_a_vector.html">DAVector</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ovecs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the inverse map of a given map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ivecs</td><td>Saves the input map with dim da vectors. </td></tr>
+    <tr><td class="paramname">dim</td><td>Number of da vectors and number of bases used in the map. </td></tr>
+    <tr><td class="paramname">ovecs</td><td>Saves the output map. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a3d82aa3a9e60ebd9953b16b9b7614e8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d82aa3a9e60ebd9953b16b9b7614e8e">&#9670;&nbsp;</a></span>da</h2>
@@ -603,7 +862,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="da_8h.html">da.h</a></li>
-    <li class="footer">Generated on Mon Apr 2 2018 16:36:57 for tpsa_lib by
+    <li class="footer">Generated on Wed Jun 20 2018 14:12:32 for tpsa_dll by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
   </ul>

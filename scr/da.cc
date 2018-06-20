@@ -687,5 +687,25 @@ void inv_map(std::vector<DAVector> &ivecs, int dim, std::vector<DAVector> &ovecs
     for(int i=0; i<dim; ++i) {
         ovecs.at(i) = tmp_ovecs.at(i);
     }
+}
 
+
+/** \brief error function for a DA vector
+ * Calculate the error function value of the input DA vector. The erf() in math.h is used to calculate the cosntant
+ * apart. 2/sqrt(pi)*exp(-x^2) is the derivative of the error function, by which the high order terms could be calculated.
+ *
+ * \param x The input DA vector.
+ * \return erf(x) as a DA vector.
+ *
+ */
+DAVector erf(DAVector& x) {
+  double coef = 1.1283791670955125585607;  //coef = 2/sqrt(pi);
+  double cc = x.con();
+  DAVector dal = cc + da[0];
+  dal = exp(-1*dal*dal);
+  dal = da_int(dal, 0);
+  DAVector ada = x - cc;
+  DAVector da_erf;
+  da_subscribe(dal, 0, ada, da_erf);
+  return da_erf*coef + erf(cc);
 }

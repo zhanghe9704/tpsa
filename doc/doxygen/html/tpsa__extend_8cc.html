@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>tpsa_lib: tpsa_extend.cc File Reference</title>
+<title>tpsa_dll: tpsa_extend.cc File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,8 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">tpsa_lib
-   &#160;<span id="projectnumber">1.0.0</span>
+   <div id="projectname">tpsa_dll
    </div>
   </td>
  </tr>
@@ -103,6 +102,12 @@ $(document).ready(function(){initNavTree('tpsa__extend_8cc.html','');});
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5f339295510407632491412a7830a5b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a5f339295510407632491412a7830a5b5">ad_order</a> ()</td></tr>
+<tr class="memdesc:a5f339295510407632491412a7830a5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the order of the TPS environment.  <a href="#a5f339295510407632491412a7830a5b5">More...</a><br /></td></tr>
+<tr class="separator:a5f339295510407632491412a7830a5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81330cd760f80b20de26bcb0f4f40d16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a81330cd760f80b20de26bcb0f4f40d16">ad_full_length</a> ()</td></tr>
+<tr class="memdesc:a81330cd760f80b20de26bcb0f4f40d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the full length of the TPS with the current order and dimension.  <a href="#a81330cd760f80b20de26bcb0f4f40d16">More...</a><br /></td></tr>
+<tr class="separator:a81330cd760f80b20de26bcb0f4f40d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47dba2147bcf776582f429955f9caf37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a47dba2147bcf776582f429955f9caf37">ad_change_order</a> (unsigned int new_order)</td></tr>
 <tr class="memdesc:a47dba2147bcf776582f429955f9caf37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce the TPS order to the specific value.  <a href="#a47dba2147bcf776582f429955f9caf37">More...</a><br /></td></tr>
 <tr class="separator:a47dba2147bcf776582f429955f9caf37"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,6 +138,12 @@ TVEC&#160;</td><td class="memItemRight" valign="bottom"><b>ad_pow_int_pos</b> (c
 <tr class="memitem:a238966ee44318b2286e446d87d061496"><td class="memItemLeft" align="right" valign="top"><a id="a238966ee44318b2286e446d87d061496"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_order_index</b> (unsigned int i)</td></tr>
 <tr class="separator:a238966ee44318b2286e446d87d061496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a474ed2a886c17e99926fda12efa497a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a474ed2a886c17e99926fda12efa497a1">ad_int</a> (TVEC iv, unsigned int base_id, TVEC ov)</td></tr>
+<tr class="memdesc:a474ed2a886c17e99926fda12efa497a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate a TPS w.r.t. a specific base.  <a href="#a474ed2a886c17e99926fda12efa497a1">More...</a><br /></td></tr>
+<tr class="separator:a474ed2a886c17e99926fda12efa497a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87dbdd609cc2fa52cfee416eaed8e4d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a87dbdd609cc2fa52cfee416eaed8e4d4">ad_n_element</a> (TVEC v)</td></tr>
+<tr class="memdesc:a87dbdd609cc2fa52cfee416eaed8e4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of non-zero elements in a TPS.  <a href="#a87dbdd609cc2fa52cfee416eaed8e4d4">More...</a><br /></td></tr>
+<tr class="separator:a87dbdd609cc2fa52cfee416eaed8e4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a949ad6339b5976ea9e6779f6e1d4fe5c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a949ad6339b5976ea9e6779f6e1d4fe5c">ad_count</a> ()</td></tr>
 <tr class="memdesc:a949ad6339b5976ea9e6779f6e1d4fe5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of existing TPS vectors. This is an alternative function for the original one in tpsa.cpp.  <a href="#a949ad6339b5976ea9e6779f6e1d4fe5c">More...</a><br /></td></tr>
 <tr class="separator:a949ad6339b5976ea9e6779f6e1d4fe5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -721,6 +732,71 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_order_ind
 
 </div>
 </div>
+<a id="a81330cd760f80b20de26bcb0f4f40d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81330cd760f80b20de26bcb0f4f40d16">&#9670;&nbsp;</a></span>ad_full_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ad_full_length </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the full length of the TPS with the current order and dimension. </p>
+<dl class="section return"><dt>Returns</dt><dd>full length of the TPS </dd></dl>
+
+</div>
+</div>
+<a id="a474ed2a886c17e99926fda12efa497a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474ed2a886c17e99926fda12efa497a1">&#9670;&nbsp;</a></span>ad_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ad_int </td>
+          <td>(</td>
+          <td class="paramtype">TVEC&#160;</td>
+          <td class="paramname"><em>iv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TVEC&#160;</td>
+          <td class="paramname"><em>ov</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Integrate a TPS w.r.t. a specific base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iv</td><td>The TPS to integrate. </td></tr>
+    <tr><td class="paramname">base_id</td><td>The base. </td></tr>
+    <tr><td class="paramname">ov</td><td>The output TPS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
 <a id="a3aa9e14d323c51a9a88644c03b12ec1e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3aa9e14d323c51a9a88644c03b12ec1e">&#9670;&nbsp;</a></span>ad_mult()</h2>
 
@@ -808,6 +884,53 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_order_ind
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
+<a id="a87dbdd609cc2fa52cfee416eaed8e4d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87dbdd609cc2fa52cfee416eaed8e4d4">&#9670;&nbsp;</a></span>ad_n_element()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ad_n_element </td>
+          <td>(</td>
+          <td class="paramtype">TVEC&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the number of non-zero elements in a TPS. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The TPS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of non-zero elements in the TPS. </dd></dl>
+
+</div>
+</div>
+<a id="a5f339295510407632491412a7830a5b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f339295510407632491412a7830a5b5">&#9670;&nbsp;</a></span>ad_order()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ad_order </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the order of the TPS environment. </p>
+<dl class="section return"><dt>Returns</dt><dd>order of the TPS environment. </dd></dl>
 
 </div>
 </div>
@@ -1255,7 +1378,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_order_ind
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a09a778acda43d94416d3f8eb8c590be.html">scr</a></li><li class="navelem"><a class="el" href="tpsa__extend_8cc.html">tpsa_extend.cc</a></li>
-    <li class="footer">Generated on Mon Apr 2 2018 16:36:57 for tpsa_lib by
+    <li class="footer">Generated on Wed Jun 20 2018 14:12:32 for tpsa_dll by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
   </ul>

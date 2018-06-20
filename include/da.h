@@ -98,6 +98,7 @@ DAVector cos(const DAVector &da_vector);
 DAVector pow(const DAVector &da_vector, const int order);
 DAVector pow(const DAVector &da_vector, const double order);
 double abs(const DAVector &da_vector);
+DAVector erf(DAVector& x);
 
 void inv_map(std::vector<DAVector> &ivecs, int dim, std::vector<DAVector> &ovecs);
 #endif // DA_H_INCLUDED
