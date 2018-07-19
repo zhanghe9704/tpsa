@@ -257,7 +257,7 @@ int da_restore_order(){ad_restore_order(); return 0;}
  *
  */
 void da_subscribe_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov) {
-    ad_subscribe(iv.da_vector_, base_id, x, ov.da_vector_);
+    ad_subscribe_const(iv.da_vector_, base_id, x, ov.da_vector_);
 }
 
 /** \brief Subscribe a DA vector to a specific base in a given DA Vector.
