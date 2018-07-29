@@ -33,6 +33,7 @@ struct DAVector {
   void set_element(int *c, double elem);
   void reset();
   void reset_const(double x = 0);
+  void clean(const double epx);
   static int dim();
   static int order();
   static int full_length();

@@ -1312,3 +1312,20 @@ void ad_c_div(const TVEC* iv, const double* c, TVEC* ivret) {
     ad_free(&ipn);
 }
 
+/** \brief Set the small TPS coefficients as 0 if they are less than eps.
+ * This function replaces the original one in tpsa.cpp.
+ * \param[in] iv A TPS vector.
+ * \param[in] eps A real number.
+ * \return void.
+ */
+void ad_clean(const TVEC& iv, const double eps)
+{
+    unsigned int N = 0;
+    for(size_t i = 0; i < adveclen[iv]; ++i) {
+        if (abs(advec[iv][i]) < abs(eps)) advec[iv][i] = 0;
+        else N = i;
+    }
+    if (adveclen[iv] > N+1) {
+        adveclen[iv] = N+1;
+    }
+}

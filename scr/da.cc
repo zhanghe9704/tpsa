@@ -119,6 +119,10 @@ void DAVector::set_element(int *c, double elem) {
     ad_pok(&da_vector_, c, &n, &elem);
 }
 
+void DAVector::clean(const double eps) {
+    ad_clean(da_vector_, eps);
+}
+
 Base::Base(const unsigned int n) {
     for(unsigned int i = 0; i<n; ++i) {
         DAVector v;
