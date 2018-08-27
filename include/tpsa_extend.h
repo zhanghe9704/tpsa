@@ -22,6 +22,7 @@ void ad_reset_vector(const TVEC iv); //Reset all the elements to zero, still kee
 void ad_change_order(unsigned int new_order);//temporarily lower the TPS order.
 void ad_restore_order();//Restore the original TPS order, which is larger than the current one
 void ad_reserve(const unsigned int n);  //Reserve memory for n TPS vectors.
+void ad_clear(); //Destroy the TPS environment and release memory.
 void ad_assign(unsigned int &i);    //Assign memory to a TPS vector. The length of the vector is zero.
 double ad_con(const TVEC iv); //Return the constant part of the TPS vector
 void ad_reset_const(const TVEC iv, double x); //Reset the TPS vector constant element as x and all other elements zero

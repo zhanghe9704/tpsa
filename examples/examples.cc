@@ -13,5 +13,7 @@ int main() {
     DAVector x = 1 - da[0] +  2*da[1] + 0.5*da[2];
     x.print();
 
+    da_clear();
+
     return 0;
 }
