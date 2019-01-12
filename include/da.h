@@ -59,6 +59,7 @@ extern Base da; // Bases for DA calculations. The i-th base can be accessed as d
 
 //Initialize the environment for DA computation. Call this function before any DA computation.
 int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors);
+void da_clear(); //Destroy the DA environment and release memory.
 int da_change_order(unsigned int new_order);    //Temporary lower the da order.
 int da_restore_order();                         //Restore the original da order.
 int da_count();                                 //Number of da variable allocated.

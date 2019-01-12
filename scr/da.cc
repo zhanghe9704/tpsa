@@ -245,6 +245,17 @@ int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int n
 	return 0;
 }
 
+/** \brief Destroy the DA environment and release memory.
+ * This function should only be called when all the DAVectors are out of scope. Otherwise it will cause a segment fault.
+ * \return void
+ *
+ */
+
+void da_clear() {
+    da.base.clear();
+    ad_clear();
+}
+
 ///Temporarily change the DA order.
 int da_change_order(unsigned int new_order) {ad_change_order(new_order); return 0;}
 

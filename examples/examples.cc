@@ -1,7 +1,5 @@
 #include "../include/da.h"
-#include "../include/tpsa_extend.h"
 
-typedef DAVector DAV;
 int main() {
 
     unsigned int da_dim = 3;

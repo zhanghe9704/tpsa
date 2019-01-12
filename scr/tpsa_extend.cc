@@ -299,6 +299,33 @@ void ad_reserve(const unsigned int n)
     ad_end = n-1;
 }
 
+/** \brief Destroy the TPS environment and release memory.
+ *
+ * \return void
+ *
+ */
+
+void ad_clear() {
+
+    for(int i=0; i<gnv+1; ++i) delete[] H[i];
+    delete[] H;
+    for(int i=0; i<FULL_VEC_LEN; ++i) delete[] prdidx[i];
+    delete[] prdidx;
+    delete[] base;
+    delete[] order_index;
+    gnv = 0;
+    gnd = 0;
+    delete [] advecpool[0];
+    delete [] advecpool;
+    advec.clear();
+    adveclen.clear();
+    adlist.clear();
+
+    ad_flag = 0;
+    ad_end = 0;
+}
+
+
 /** \brief Assign a memory slot for a TPS vector.
  * Assign memory slot for a TPS vector. The length of the vector is zero.
  * This is an alternative function for the original one (ad_alloc) in tpsa.cpp.
