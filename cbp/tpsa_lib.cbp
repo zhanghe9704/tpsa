@@ -38,8 +38,8 @@
 		</Build>
 		<Unit filename="../include/da.h" />
 		<Unit filename="../include/tpsa_extend.h" />
-		<Unit filename="../scr/da.cc" />
-		<Unit filename="../scr/tpsa_extend.cc" />
+		<Unit filename="../src/da.cc" />
+		<Unit filename="../src/tpsa_extend.cc" />
 		<Extensions>
 			<code_completion />
 			<envvars />
