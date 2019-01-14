@@ -4,6 +4,8 @@ var tpsa__extend_8h =
     [ "ad_add_const", "tpsa__extend_8h.html#ae9d4613c00e1d9f0dbfa37fc7d157895", null ],
     [ "ad_assign", "tpsa__extend_8h.html#a1508790fc886cc8c38ffc3f24e380d59", null ],
     [ "ad_change_order", "tpsa__extend_8h.html#a47dba2147bcf776582f429955f9caf37", null ],
+    [ "ad_clean", "tpsa__extend_8h.html#aaa1f6bc39d5815a5f4ae59fea1c1b5ec", null ],
+    [ "ad_clear", "tpsa__extend_8h.html#a8f13b762fd7010669c6a25b641178dde", null ],
     [ "ad_composition", "tpsa__extend_8h.html#a7afc1250d68a57bdb478c0e720f0968c", null ],
     [ "ad_composition", "tpsa__extend_8h.html#a7e38bd6828ebc0ad6c9b95f8db5334c0", null ],
     [ "ad_con", "tpsa__extend_8h.html#abb04463f8347bacf3c2f6683113946bc", null ],

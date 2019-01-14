@@ -6,6 +6,7 @@ var da_8cc =
     [ "abs", "da_8cc.html#ac1322dd7830ae7ca7137be0185a9d4af", null ],
     [ "cos", "da_8cc.html#ab1a052ed75e7a4f6cd0403ad0aaa9d2f", null ],
     [ "da_change_order", "da_8cc.html#a66dc266cb3b691feba5cc6d2caa0a439", null ],
+    [ "da_clear", "da_8cc.html#a4ce8ca67305300c7278dc9f4c56483db", null ],
     [ "da_composition", "da_8cc.html#ae6865e8dd89daf74239153eb2f4f69b9", null ],
     [ "da_composition", "da_8cc.html#adc6fca2f8f28480b828974eb3fc69fee", null ],
     [ "da_count", "da_8cc.html#af27498d9051f38e37638962320f465e2", null ],

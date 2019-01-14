@@ -121,6 +121,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae2355e27911916f0642c9420521cba8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#ae2355e27911916f0642c9420521cba8e">ad_reserve</a> (const unsigned int n)</td></tr>
 <tr class="memdesc:ae2355e27911916f0642c9420521cba8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserve memory for n TPS vectors. Allocate the memory pool for n TPS vectors and initialize the linked list (adlist, ad_flag and ad_end) for memory management. This is an alternative function for the original one in tpsa.cpp.  <a href="#ae2355e27911916f0642c9420521cba8e">More...</a><br /></td></tr>
 <tr class="separator:ae2355e27911916f0642c9420521cba8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f13b762fd7010669c6a25b641178dde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a8f13b762fd7010669c6a25b641178dde">ad_clear</a> ()</td></tr>
+<tr class="memdesc:a8f13b762fd7010669c6a25b641178dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the TPS environment and release memory.  <a href="#a8f13b762fd7010669c6a25b641178dde">More...</a><br /></td></tr>
+<tr class="separator:a8f13b762fd7010669c6a25b641178dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1508790fc886cc8c38ffc3f24e380d59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a1508790fc886cc8c38ffc3f24e380d59">ad_assign</a> (unsigned int &amp;i)</td></tr>
 <tr class="memdesc:a1508790fc886cc8c38ffc3f24e380d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign a memory slot for a TPS vector. Assign memory slot for a TPS vector. The length of the vector is zero. This is an alternative function for the original one (ad_alloc) in tpsa.cpp.  <a href="#a1508790fc886cc8c38ffc3f24e380d59">More...</a><br /></td></tr>
 <tr class="separator:a1508790fc886cc8c38ffc3f24e380d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +175,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f339295510407632491412a7830a5b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a5f339295510407632491412a7830a5b5">ad_order</a> ()</td></tr>
 <tr class="memdesc:a5f339295510407632491412a7830a5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the order of the TPS environment.  <a href="#a5f339295510407632491412a7830a5b5">More...</a><br /></td></tr>
 <tr class="separator:a5f339295510407632491412a7830a5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa1f6bc39d5815a5f4ae59fea1c1b5ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#aaa1f6bc39d5815a5f4ae59fea1c1b5ec">ad_clean</a> (const TVEC &amp;iv, const double eps)</td></tr>
+<tr class="memdesc:aaa1f6bc39d5815a5f4ae59fea1c1b5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the small TPS coefficients as 0 if they are less than eps. This function replaces the original one in tpsa.cpp.  <a href="#aaa1f6bc39d5815a5f4ae59fea1c1b5ec">More...</a><br /></td></tr>
+<tr class="separator:aaa1f6bc39d5815a5f4ae59fea1c1b5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81330cd760f80b20de26bcb0f4f40d16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a81330cd760f80b20de26bcb0f4f40d16">ad_full_length</a> ()</td></tr>
 <tr class="memdesc:a81330cd760f80b20de26bcb0f4f40d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the full length of the TPS with the current order and dimension.  <a href="#a81330cd760f80b20de26bcb0f4f40d16">More...</a><br /></td></tr>
 <tr class="separator:a81330cd760f80b20de26bcb0f4f40d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -330,6 +336,64 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aaa1f6bc39d5815a5f4ae59fea1c1b5ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa1f6bc39d5815a5f4ae59fea1c1b5ec">&#9670;&nbsp;</a></span>ad_clean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ad_clean </td>
+          <td>(</td>
+          <td class="paramtype">const TVEC &amp;&#160;</td>
+          <td class="paramname"><em>iv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>eps</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the small TPS coefficients as 0 if they are less than eps. This function replaces the original one in tpsa.cpp. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">iv</td><td>A TPS vector. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">eps</td><td>A real number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+</div>
+</div>
+<a id="a8f13b762fd7010669c6a25b641178dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f13b762fd7010669c6a25b641178dde">&#9670;&nbsp;</a></span>ad_clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ad_clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy the TPS environment and release memory. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
@@ -1077,7 +1141,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="tpsa__extend_8h.html">tpsa_extend.h</a></li>
-    <li class="footer">Generated on Wed Jun 20 2018 14:12:32 for tpsa_dll by
+    <li class="footer">Generated on Sat Jan 12 2019 11:28:32 for tpsa_dll by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
   </ul>

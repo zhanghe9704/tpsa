@@ -91,15 +91,15 @@ WARN_IF_UNDOCUMENTED   = NO
 WARN_IF_DOC_ERROR      = YES
 WARN_NO_PARAMDOC       = YES
 WARN_FORMAT            = "$file:$line: $text"
-WARN_LOGFILE            = "C:\Box Sync\Work\TPSA\tpsa_lib\cbp\doxygen\doxygen.log"
+WARN_LOGFILE            = "D:\Box Sync\Work\TPSA\tpsa_lib\cbp\doxygen\doxygen.log"
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 INPUT                  = \
-	"..\..\scr\tpsa_extend.cc" \
-	"..\..\include\da.h" \
 	"..\..\scr\da.cc" \
-	"..\..\include\tpsa_extend.h" 
+	"..\..\include\tpsa_extend.h" \
+	"..\..\include\da.h" \
+	"..\..\scr\tpsa_extend.cc" 
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          =
 RECURSIVE              = NO

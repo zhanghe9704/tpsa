@@ -115,6 +115,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a35b96b427352d9ef26ab45696cfd52e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a35b96b427352d9ef26ab45696cfd52e4">da_init</a> (unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors)</td></tr>
 <tr class="memdesc:a35b96b427352d9ef26ab45696cfd52e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the DA environment. This function initialize the DA environment w.r.t. the given DA order and the number of bases. A memory pool is created for the given number of DA vectors, which should be large enough for perspective calculations. <a class="el" href="struct_base.html" title="Bases for DA calculations. The i-th base can be accessed as base[i], where base is an object of Base...">Base</a> vectors are also created. The i-th base can be accessed as da[i]. This function should be called before any DA calculation.  <a href="#a35b96b427352d9ef26ab45696cfd52e4">More...</a><br /></td></tr>
 <tr class="separator:a35b96b427352d9ef26ab45696cfd52e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce8ca67305300c7278dc9f4c56483db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a4ce8ca67305300c7278dc9f4c56483db">da_clear</a> ()</td></tr>
+<tr class="memdesc:a4ce8ca67305300c7278dc9f4c56483db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the DA environment and release memory. This function should only be called when all the DAVectors are out of scope. Otherwise it will cause a segment fault.  <a href="#a4ce8ca67305300c7278dc9f4c56483db">More...</a><br /></td></tr>
+<tr class="separator:a4ce8ca67305300c7278dc9f4c56483db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66dc266cb3b691feba5cc6d2caa0a439"><td class="memItemLeft" align="right" valign="top"><a id="a66dc266cb3b691feba5cc6d2caa0a439"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da_8h.html#a66dc266cb3b691feba5cc6d2caa0a439">da_change_order</a> (unsigned int new_order)</td></tr>
 <tr class="memdesc:a66dc266cb3b691feba5cc6d2caa0a439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporarily change the DA order. <br /></td></tr>
@@ -240,6 +243,26 @@ Variables</h2></td></tr>
 <div class="textblock"><p>DA wrapper for the extended tpsa code. </p>
 <p>Defines the <a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a> class and the <a class="el" href="struct_base.html" title="Bases for DA calculations. The i-th base can be accessed as base[i], where base is an object of Base...">Base</a> class. </p><dl class="section author"><dt>Author</dt><dd>He Zhang  <a href="#" onclick="location.href='mai'+'lto:'+'hez'+'ha'+'ng@'+'jl'+'ab.'+'or'+'g'; return false;">hezha<span style="display: none;">.nosp@m.</span>ng@j<span style="display: none;">.nosp@m.</span>lab.o<span style="display: none;">.nosp@m.</span>rg</a> </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a4ce8ca67305300c7278dc9f4c56483db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce8ca67305300c7278dc9f4c56483db">&#9670;&nbsp;</a></span>da_clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void da_clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy the DA environment and release memory. This function should only be called when all the DAVectors are out of scope. Otherwise it will cause a segment fault. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <a id="ae6865e8dd89daf74239153eb2f4f69b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6865e8dd89daf74239153eb2f4f69b9">&#9670;&nbsp;</a></span>da_composition() <span class="overload">[1/2]</span></h2>
 
@@ -862,7 +885,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="da_8h.html">da.h</a></li>
-    <li class="footer">Generated on Wed Jun 20 2018 14:12:32 for tpsa_dll by
+    <li class="footer">Generated on Sat Jan 12 2019 11:28:32 for tpsa_dll by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
   </ul>

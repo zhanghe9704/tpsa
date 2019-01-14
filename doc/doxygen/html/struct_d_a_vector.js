@@ -4,6 +4,7 @@ var struct_d_a_vector =
     [ "DAVector", "struct_d_a_vector.html#a99e3cd385c2a8ba85a55283446eb47f0", null ],
     [ "DAVector", "struct_d_a_vector.html#aabf1ec2c14ca01aad172c4c85337803c", null ],
     [ "~DAVector", "struct_d_a_vector.html#a7de44a8dd61f38fe5ae0b0c5b2cbd370", null ],
+    [ "clean", "struct_d_a_vector.html#a0afc5d4068338660737f5132caedce6c", null ],
     [ "con", "struct_d_a_vector.html#a00ef34ddb1dce8bead6d43a24b3fb23e", null ],
     [ "element", "struct_d_a_vector.html#a8746be0ebf79a6f1306f134f2c732606", null ],
     [ "element", "struct_d_a_vector.html#aa2cabf406529dff2d2a27c340f60826e", null ],
