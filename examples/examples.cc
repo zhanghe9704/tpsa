@@ -8,7 +8,7 @@ int main() {
 
     da_init(da_order, da_dim, n_vec);
 
-    DAVector x = 1 + da[0];
+    DAVector x = 1 + da[0] + 2*da[1] + 5*da[2];
     x.print();
 
     x = exp(x);

@@ -44,6 +44,16 @@ Math operator overloaded
 | DAVector  |    /     |  DAVector  |
 | DAVector  |    /     |   double   |
 |  double   |    /     |  DAVector  |
+| DAVector  |    =     |  DAVector  |
+| DAVector  |    =     |   double   |
+| DAVector  |    +=    |  DAVector  |
+| DAVector  |    +=    |   double   |
+| DAVector  |    -=    |  DAVector  |
+| DAVector  |    -=    |   double   |
+| DAVector  |    *=    |  DAVector  |
+| DAVector  |    *=    |   double   |
+| DAVector  |    /=    |  DAVector  |
+| DAVector  |    /=    |   double   |
 
 Math functions overloaded:
 
@@ -131,7 +141,7 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   
 
-  gcc examples/examples.cc -o tpsa_exp-I ./include/ -L ./lib -ltpsa -lstdc++ -lm -std=c++11
+  `gcc examples/examples.cc -o tpsa_exp-I ./include/ -L ./lib -ltpsa -lstdc++ -lm -std=c++11`
 
   
 
@@ -165,10 +175,14 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
     2.000000000000000e+00      0  1  0     2   
 
     5.000000000000000e-01       0  0  1     3
+  
+  ......
 
 
 
+### Known Issues
 
+1. sin() and cos() will set the length of the DA vector to be the full length. However, if the number of the bases used in the vector is smaller than the total base number, the real length of the DA vector could be less than the full length. For example, assuming a DA space with three bases (da[0], da[1], and da[2]) and  a vector that only contains one base, such as x = 1 + da[0],  the length of sin(x) or cos(x) will be shorter than the full vector length. This does not necessarily affect the final result of the computation. Needs to fix ad_sin and ad_cos in tpsa.cpp
 
 
 ## Acknowledgement
