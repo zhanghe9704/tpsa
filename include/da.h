@@ -39,6 +39,24 @@ struct DAVector {
   static int full_length();
   DAVector& operator=(const DAVector& da_vector);
   DAVector& operator=(DAVector&& da_vector);
+  DAVector& operator=(double x);
+  DAVector& operator=(int x);
+  DAVector& operator+=(DAVector& da_vector);
+  DAVector& operator+=(DAVector&& da_vector_);
+  DAVector& operator+=(double x);
+  DAVector& operator+=(int x);
+  DAVector& operator-=(DAVector& da_vector);
+  DAVector& operator-=(DAVector&& da_vector_);
+  DAVector& operator-=(double x);
+  DAVector& operator-=(int x);
+  DAVector& operator*=(DAVector& da_vector);
+  DAVector& operator*=(DAVector&& da_vector);
+  DAVector& operator*=(double x);
+  DAVector& operator*=(int x);
+  DAVector& operator/=(DAVector& da_vector);
+  DAVector& operator/=(DAVector&& da_vector);
+  DAVector& operator/=(double x);
+  DAVector& operator/=(int x);
   ~DAVector();
 };
 

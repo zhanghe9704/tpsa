@@ -99,7 +99,77 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
   `cmake .` 
   `make`
 
-  ​
+  
+
+  Here is an example of compiling the code under Ubuntu 16.04. 
+
+  Assume I have cloned the codes to the following folder:
+
+  $HOME/tpsa
+
+  
+
+  Inside the above folder, run:
+
+  `cmake .` 
+
+  The Makefile will be generated. 
+
+  
+
+  Then run:
+
+  `make`
+
+  Both the static lib and the shared lib of tpsa will be generated. You can find the following two files:
+
+  libtpsa.a and libtpsaso.so
+
+  
+
+  Now you can use any of them to compile your file. Here let us compile the examples/examples.cc using libtpsa.a. 
+
+  
+
+  gcc examples/examples.cc -o tpsa_exp-I ./include/ -L ./lib -ltpsa -lstdc++ -lm -std=c++11
+
+  
+
+  You can also use libtpsaso.so. 
+
+  `gcc examples/examples.cc -o tpsa_exp -std=c++11 -linclude -L. -ltpsaso -lstdc++`
+
+  The executable file tpsa_exp will be generated. 
+
+  
+
+  To run the tpsa_exp file, tell the OS where to find the libtpsaso.so:
+
+  `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/tpsa`
+
+  Run the executable:
+
+  ` ./tpsa_exp `
+
+  
+
+  The result is shown as follows:
+  V [16]              Base  [ 4 / 286 ]
+
+  ---------------------------------------------
+
+   1.000000000000000e+00      0  0  0     0  
+
+  -1.000000000000000e+00      1  0  0     1   
+
+    2.000000000000000e+00      0  1  0     2   
+
+    5.000000000000000e-01       0  0  1     3
+
+
+
+
+
 
 ## Acknowledgement
 

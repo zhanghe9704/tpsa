@@ -44,6 +44,48 @@ DAVector& DAVector::operator=(DAVector&& da_vector) {
 
 DAVector& DAVector::operator=(const DAVector &da_vector) { ad_copy(&da_vector.da_vector_, &da_vector_); return *this;}
 
+DAVector& DAVector::operator=(double x) {
+    this->reset_const(x);
+    return *this;
+}
+
+DAVector& DAVector::operator=(int x) {
+    this->reset_const(static_cast<double>(x));
+    return *this;
+}
+
+DAVector& DAVector::operator+=(DAVector& da_vector) {ad_add(&da_vector_, &da_vector.da_vector_); return *this;}
+
+DAVector& DAVector::operator+=(DAVector&& da_vector) {*this = *this + da_vector; return *this;}
+
+DAVector& DAVector::operator+=(double x) {ad_add_const(&da_vector_, &x); return *this;}
+
+DAVector& DAVector::operator+=(int x) {double xx = static_cast<double>(x); ad_add_const(&da_vector_, &xx); *this;}
+
+DAVector& DAVector::operator-=(DAVector& da_vector) {ad_sub(&da_vector_, &da_vector.da_vector_); return *this;}
+
+DAVector& DAVector::operator-=(DAVector&& da_vector) {*this = *this - da_vector; return *this;}
+
+DAVector& DAVector::operator-=(double x) {x*=-1; ad_add_const(&da_vector_, &x); return *this;}
+
+DAVector& DAVector::operator-=(int x) {double xx = static_cast<double>(-x); ad_add_const(&da_vector_, &xx); *this;}
+
+DAVector& DAVector::operator*=(DAVector& da_vector) {*this = *this * da_vector; return *this;}
+
+DAVector& DAVector::operator*=(DAVector&& da_vector) {*this = *this * da_vector; return *this;}
+
+DAVector& DAVector::operator*=(double x){ad_mult_const(&da_vector_, &x); return *this;}
+
+DAVector& DAVector::operator*=(int x){double xx = static_cast<double>(x); ad_mult_const(&da_vector_, &xx); *this;}
+
+DAVector& DAVector::operator/=(DAVector& da_vector) {*this = *this / da_vector; return *this;}
+
+DAVector& DAVector::operator/=(DAVector&& da_vector) {*this = *this / da_vector; return *this;}
+
+DAVector& DAVector::operator/=(double x) {ad_div_c(&da_vector_, &x); return *this;}
+
+DAVector& DAVector::operator/=(int x){double xx = static_cast<double>(x); ad_div_c(&da_vector_, &xx); *this;}
+
 void DAVector::reset() { ad_reset_vector(da_vector_);}   /**< Reset all element to zero, vector length unchanged. */
 /// Reset the value to the given number. Vector length is set to 1.
 void DAVector::reset_const(double x) {ad_reset_const(da_vector_, x);}
