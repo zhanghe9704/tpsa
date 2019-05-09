@@ -141,13 +141,13 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   
 
-  `gcc examples/examples.cc -o tpsa_exp-I ./include/ -L ./lib -ltpsa -lstdc++ -lm -std=c++11`
+  `gcc examples/examples.cc -o tpsa_exp -I ./include/ -L ./lib -ltpsa -lstdc++ -lm -std=c++11`
 
   
 
   You can also use libtpsaso.so. 
 
-  `gcc examples/examples.cc -o tpsa_exp -std=c++11 -linclude -L. -ltpsaso -lstdc++`
+  `gcc examples/examples.cc -o tpsa_exp -std=c++11 -Iinclude -L. -ltpsaso -lstdc++ -lm`
 
   The executable file tpsa_exp will be generated. 
 
