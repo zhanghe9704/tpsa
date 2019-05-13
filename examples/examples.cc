@@ -1,4 +1,5 @@
 #include "../include/da.h"
+#include <cmath>
 
 int main() {
 
@@ -28,6 +29,24 @@ int main() {
     z.print();
 
     x = 3.14159265;
+    x.print();
+
+    DAVector x3 = atan(0.3+da[0]);
+    x3.print();
+
+    x = asin(x3);
+    x.print();
+
+    x = acos(x3);
+    x.print();
+
+    x = sinh(x3);
+    x.print();
+
+    x = cosh(x3);
+    x.print();
+
+    x = tanh(x3);
     x.print();
 
     return 0;

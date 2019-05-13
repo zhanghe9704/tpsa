@@ -27,6 +27,11 @@ DAVector::DAVector(DAVector&& da_vector) {
     ad_free(&da_vector.da_vector_);
 }
 
+DAVector::DAVector(double x) {
+    ad_alloc(&da_vector_);
+    ad_reset_const(da_vector_, x);
+}
+
 DAVector::~DAVector() {
     ad_free(&da_vector_);
 }
@@ -161,6 +166,11 @@ void DAVector::set_element(int *c, double elem) {
     ad_pok(&da_vector_, c, &n, &elem);
 }
 
+/** \brief Set a coefficient in the DA Vector to be zero if the abs of the
+ * coefficient is less than the given eps.
+ * \param[in] the threshold for zero.
+ * \return void.
+ */
 void DAVector::clean(const double eps) {
     ad_clean(da_vector_, eps);
 }
@@ -503,6 +513,91 @@ DAVector cos(const DAVector &da_vector) {
     DAVector res;
     ad_cos(&da_vector.da_vector_, &res.da_vector_);
 	return res;
+}
+
+DAVector tan(const DAVector &da_vector) {
+    DAVector res;
+    res = sin(da_vector)/cos(da_vector);
+    return res;
+}
+
+/** \brief Calculate the arctan of the given DA vector.
+ * Use formula 4.4.34 and 4.4.42 in the Handbook of Mathematical Functions
+ * by Milton Abramowitz and Irene A. Stegun.
+ * Assume z0 is the constant part of the given DA vector z and dz = z - z0.
+ * In 4.4.34, let z1 = z0 and z2 = dz/(1+z*z0), then the right hand size of
+ * 4.4.34 is atan(z). So we get atan(z) = atan(z0) + atan(z2). Use 4.4.42 to
+ * calculate atan(z2).
+ * \param[in] DA vector.
+ * \return DA vector.
+ *
+ */
+DAVector atan(const DAVector &da_vector) {
+    double da_cons = da_vector.con();
+    DAVector da_high = (da_vector - da_cons)/(da_vector*da_cons + 1);
+    DAVector result = atan(da_cons);
+    DAVector da_high2 = da_high*da_high;
+    for(double i=1, j=-1; i<da_vector.order()+1; i+=2) {
+        j *= -1;
+        result += da_high*j/i;
+        da_high *= da_high2;
+    }
+    return result;
+}
+
+DAVector asin(const DAVector &da_vector) {
+    DAVector x = da_vector/(1+sqrt(1-da_vector*da_vector));
+    DAVector result = 2*atan(x);
+    return result;
+}
+
+DAVector acos(const DAVector &da_vector) {
+    double half_pi = 1.57079632679489661923132169163975144209858469968755291048;
+    DAVector result = half_pi-asin(da_vector);
+    return result;
+}
+
+DAVector sinh(const DAVector &da_vector) {
+    double cons = da_vector.con();
+    DAVector pol = da_vector - cons;
+    DAVector high_order = pol;
+    int order = da_vector.order();
+    std::vector<double> coefs(order+1);
+    coefs.at(0) = sinh(cons);
+    coefs.at(1) = cosh(cons);
+    for(int i=2; i<order+1; ++i) {
+        coefs.at(i) = coefs.at(i-2)/(i*(i-1));
+    }
+    DAVector result = coefs.at(0);
+    for(int i=1; i<order+1; ++i) {
+        result += coefs.at(i)*high_order;
+        high_order *= pol;
+    }
+    return result;
+}
+
+DAVector cosh(const DAVector &da_vector) {
+    double cons = da_vector.con();
+    DAVector pol = da_vector - cons;
+    DAVector high_order = pol;
+    int order = da_vector.order();
+    std::vector<double> coefs(order+1);
+    coefs.at(0) = cosh(cons);
+    coefs.at(1) = sinh(cons);
+    for(int i=2; i<order+1; ++i) {
+        coefs.at(i) = coefs.at(i-2)/(i*(i-1));
+    }
+    DAVector result = coefs.at(0);
+    for(int i=1; i<order+1; ++i) {
+        result += coefs.at(i)*high_order;
+        high_order *= pol;
+    }
+    return result;
+}
+
+DAVector tanh(const DAVector &da_vector) {
+    DAVector res = sinh(da_vector)/cosh(da_vector);
+    return res;
 }
 
 double abs(const DAVector &da_vector) {
