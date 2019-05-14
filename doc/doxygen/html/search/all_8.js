@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['n_5felement',['n_element',['../struct_d_a_vector.html#acc7180677f26baf2a1ac32efad7a2bf5',1,'DAVector']]]
+  ['inv_5fmap',['inv_map',['../da_8cc.html#aa3749e2d2d14985277e012363a78d3e7',1,'inv_map(std::vector&lt; DAVector &gt; &amp;ivecs, int dim, std::vector&lt; DAVector &gt; &amp;ovecs):&#160;da.cc'],['../da_8h.html#aa3749e2d2d14985277e012363a78d3e7',1,'inv_map(std::vector&lt; DAVector &gt; &amp;ivecs, int dim, std::vector&lt; DAVector &gt; &amp;ovecs):&#160;da.cc']]]
 ];

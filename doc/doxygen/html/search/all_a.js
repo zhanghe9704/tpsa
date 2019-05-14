@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['reset',['reset',['../struct_d_a_vector.html#a0c85003e3b334ca94135b4874c36f7e3',1,'DAVector']]],
-  ['reset_5fconst',['reset_const',['../struct_d_a_vector.html#a104928f5ba59b6ce42636646670048c4',1,'DAVector']]]
+  ['n_5felement',['n_element',['../struct_d_a_vector.html#acc7180677f26baf2a1ac32efad7a2bf5',1,'DAVector']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['con',['con',['../struct_d_a_vector.html#a00ef34ddb1dce8bead6d43a24b3fb23e',1,'DAVector']]]
+  ['base',['Base',['../struct_base.html#afb04e0c2fd50911ddc8f7899ce3a1f4c',1,'Base::Base(const unsigned int n)'],['../struct_base.html#a5ffe0568374d8b9b4c4ec32953fd6453',1,'Base::Base()']]]
 ];
