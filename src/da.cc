@@ -485,6 +485,16 @@ DAVector operator/(const DAVector &da_vector_1, const DAVector &da_vector_2) {
 	return res;
 }
 
+DAVector operator-(const DAVector &da_vector) {
+    DAVector res;
+    ad_mult_c(da_vector.da_vector_, -1, res.da_vector_);
+    return res;
+}
+
+DAVector operator+(const DAVector &da_vector) {
+    return da_vector;
+}
+
 DAVector sqrt(const DAVector &da_vector) {
     DAVector res;
     ad_sqrt(&da_vector.da_vector_, &res.da_vector_);

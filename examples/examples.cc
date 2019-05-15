@@ -49,5 +49,11 @@ int main() {
     x = tanh(x3);
     x.print();
 
+    x3.print();
+    x = -x3;
+    x.print();
+    x = +x3;
+    x.print();
+
     return 0;
 }
