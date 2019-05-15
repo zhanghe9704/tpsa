@@ -35,9 +35,11 @@ Math operator overloaded
 | DAVector  |    +     |  DAVector  |
 |  double   |    +     |  DAVector  |
 | DAVector  |    +     |   double   |
+|           |    +     |  DAVector  |
 | DAVector  |    -     |  DAVector  |
 | DAVector  |    -     |   double   |
 |  double   |    -     |  DAVector  |
+|           |    -     |  DAVector  |
 | DAVector  |    *     |  DAVector  |
 | DAVector  |    *     |   double   |
 |  double   |    *     |  DAVector  |
@@ -62,8 +64,16 @@ Math functions overloaded:
 - log
 - sin
 - cos
+- tan
+- asin
+- acos
+- atan
+- sinh
+- cosh
+- tanh
 - pow
 - abs
+- erf
 
 
 Some test results for efficiency are presented in the following. They are done in a Windows 10 desktop with Intel Xeon (R) E5-1620 processor at 3.60 GHz. Table 1 shows the time cost for composition of one DA/TPS vector of six bases with six DA/TPS vectors.  First column shows the order of the vectors, second column the number of terms in each vector, third column the time using the DA data type with revised memory management, and the fourth column the time using the original code. Table 2 shows the time of composition of six DA vectors, each having six bases, with the other group of six DA vectors. The composition in group cost less time if compared with separate compositions. 
