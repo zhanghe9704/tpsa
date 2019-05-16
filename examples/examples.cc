@@ -55,5 +55,9 @@ int main() {
     x = +x3;
     x.print();
 
+    x3 = 0.3+da[0]+2*da[1]+3*da[2];
+    x = asin(x3);
+    x.print();
+
     return 0;
 }

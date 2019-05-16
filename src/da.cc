@@ -65,7 +65,7 @@ DAVector& DAVector::operator+=(DAVector&& da_vector) {*this = *this + da_vector;
 
 DAVector& DAVector::operator+=(double x) {ad_add_const(&da_vector_, &x); return *this;}
 
-DAVector& DAVector::operator+=(int x) {double xx = static_cast<double>(x); ad_add_const(&da_vector_, &xx); *this;}
+DAVector& DAVector::operator+=(int x) {double xx = static_cast<double>(x); ad_add_const(&da_vector_, &xx); return *this;}
 
 DAVector& DAVector::operator-=(DAVector& da_vector) {ad_sub(&da_vector_, &da_vector.da_vector_); return *this;}
 
@@ -73,7 +73,7 @@ DAVector& DAVector::operator-=(DAVector&& da_vector) {*this = *this - da_vector;
 
 DAVector& DAVector::operator-=(double x) {x*=-1; ad_add_const(&da_vector_, &x); return *this;}
 
-DAVector& DAVector::operator-=(int x) {double xx = static_cast<double>(-x); ad_add_const(&da_vector_, &xx); *this;}
+DAVector& DAVector::operator-=(int x) {double xx = static_cast<double>(-x); ad_add_const(&da_vector_, &xx); return *this;}
 
 DAVector& DAVector::operator*=(DAVector& da_vector) {*this = *this * da_vector; return *this;}
 
@@ -81,7 +81,7 @@ DAVector& DAVector::operator*=(DAVector&& da_vector) {*this = *this * da_vector;
 
 DAVector& DAVector::operator*=(double x){ad_mult_const(&da_vector_, &x); return *this;}
 
-DAVector& DAVector::operator*=(int x){double xx = static_cast<double>(x); ad_mult_const(&da_vector_, &xx); *this;}
+DAVector& DAVector::operator*=(int x){double xx = static_cast<double>(x); ad_mult_const(&da_vector_, &xx); return *this;}
 
 DAVector& DAVector::operator/=(DAVector& da_vector) {*this = *this / da_vector; return *this;}
 
@@ -89,7 +89,7 @@ DAVector& DAVector::operator/=(DAVector&& da_vector) {*this = *this / da_vector;
 
 DAVector& DAVector::operator/=(double x) {ad_div_c(&da_vector_, &x); return *this;}
 
-DAVector& DAVector::operator/=(int x){double xx = static_cast<double>(x); ad_div_c(&da_vector_, &xx); *this;}
+DAVector& DAVector::operator/=(int x){double xx = static_cast<double>(x); ad_div_c(&da_vector_, &xx); return *this;}
 
 void DAVector::reset() { ad_reset_vector(da_vector_);}   /**< Reset all element to zero, vector length unchanged. */
 /// Reset the value to the given number. Vector length is set to 1.
@@ -556,12 +556,20 @@ DAVector atan(const DAVector &da_vector) {
 }
 
 DAVector asin(const DAVector &da_vector) {
+    double cons = da_vector.con();
+    if(cons<-1 or cons>1) {
+        throw std::domain_error("The constant part of the input DA vector of asin() should be within [-1,1].");
+    }
     DAVector x = da_vector/(1+sqrt(1-da_vector*da_vector));
     DAVector result = 2*atan(x);
     return result;
 }
 
 DAVector acos(const DAVector &da_vector) {
+    double cons = da_vector.con();
+    if(cons<-1 or cons>1) {
+        throw std::domain_error("The constant part of the input DA vector of acos() should be within [-1,1].");
+    }
     double half_pi = 1.57079632679489661923132169163975144209858469968755291048;
     DAVector result = half_pi-asin(da_vector);
     return result;
