@@ -29,9 +29,11 @@ struct DAVector {
   unsigned int length() const;
   int n_element() const;
   void element(unsigned int i, unsigned int *c, double& elem) const;
+  void element(unsigned int i, std::vector<unsigned int>& c, double& elem) const;
   double element(int i);
   double element(std::vector<int> idx);
   void set_element(int *c, double elem);
+  void set_element(std::vector<int> idx, double elem);
   void reset();
   void reset_const(double x = 0);
   void clean(const double epx);
@@ -42,19 +44,19 @@ struct DAVector {
   DAVector& operator=(DAVector&& da_vector);
   DAVector& operator=(double x);
   DAVector& operator=(int x);
-  DAVector& operator+=(DAVector& da_vector);
+  DAVector& operator+=(const DAVector& da_vector);
   DAVector& operator+=(DAVector&& da_vector_);
   DAVector& operator+=(double x);
   DAVector& operator+=(int x);
-  DAVector& operator-=(DAVector& da_vector);
+  DAVector& operator-=(const DAVector& da_vector);
   DAVector& operator-=(DAVector&& da_vector_);
   DAVector& operator-=(double x);
   DAVector& operator-=(int x);
-  DAVector& operator*=(DAVector& da_vector);
+  DAVector& operator*=(const DAVector& da_vector);
   DAVector& operator*=(DAVector&& da_vector);
   DAVector& operator*=(double x);
   DAVector& operator*=(int x);
-  DAVector& operator/=(DAVector& da_vector);
+  DAVector& operator/=(const DAVector& da_vector);
   DAVector& operator/=(DAVector&& da_vector);
   DAVector& operator/=(double x);
   DAVector& operator/=(int x);
@@ -128,7 +130,7 @@ DAVector tanh(const DAVector &da_vector);
 DAVector pow(const DAVector &da_vector, const int order);
 DAVector pow(const DAVector &da_vector, const double order);
 double abs(const DAVector &da_vector);
-DAVector erf(DAVector& x);
+DAVector erf(const DAVector& x);
 
 void inv_map(std::vector<DAVector> &ivecs, int dim, std::vector<DAVector> &ovecs);
 #endif // DA_H_INCLUDED

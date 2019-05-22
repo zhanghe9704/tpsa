@@ -1105,6 +1105,20 @@ void ad_sub(const unsigned int idst, const unsigned int jsrc, TVEC ov) {
     }
 }
 
+/** \brief Return the value and the order pattern of the specific element.
+ * Given the ordinal number of an element, return the value and order pattern of the element. The size of vector c should be
+ * equal to the number of bases. For example, if idx matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases.
+ * \param[in] idx The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] elem The value of the element.
+ * \return
+ *
+ */
+void ad_elem(const TVEC &vec, unsigned int idx, std::vector<unsigned int>& c, double& x) {
+    ad_elem(&vec, &idx, &(*c.begin()), &x);
+}
+
 /** \brief Return value of a specific element in a TPS vector
  * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz}, the function returns the
  * value of the element (x^nx)*(n^ny)*(z^nz) in vec, the TPS vector.
@@ -1116,6 +1130,9 @@ void ad_sub(const unsigned int idst, const unsigned int jsrc, TVEC ov) {
  */
 double ad_elem(const TVEC &vec, std::vector<int> &idx) {
     assert(gnv==idx.size()&&"Error in ad_elem: No. of indexes NOT EQUAL to No. of bases!");
+    for(auto& v: idx) {
+        assert((v<=ad_order() && v>=0 && "Error in ad_elem: value of indexes out of range"));
+    }
     //Find the index of the element
     unsigned int d = 0;
     for (unsigned int i = 0; i < gnv; ++i) {
@@ -1129,6 +1146,38 @@ double ad_elem(const TVEC &vec, std::vector<int> &idx) {
         k += H[gnv-i][b];
     }
     return advec[vec][k];
+}
+
+/** \brief Change the value of a specific element in a TPS vector
+ * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz} and a value x, the function
+ * changes the value of the element (x^nx)*(n^ny)*(z^nz) in vec, the TPS vector, to x.
+ * \param vec A TPS vector.
+ * \param idx Order pattern of the element.
+ * \param x Given value of the element.
+ * \return void.
+ *
+ */
+
+void ad_pok(const TVEC &vec, std::vector<int> &idx, double x) {
+    assert(gnv==idx.size()&&"Error in ad_pok: No. of indexes NOT EQUAL to No. of bases!");
+    for(auto& v: idx) {
+        assert((v<=ad_order() && v>=0 && "Error in ad_pok: value of indexes out of range"));
+    }
+    //Find the index of the element
+    unsigned int d = 0;
+    for (unsigned int i = 0; i < gnv; ++i) {
+        d += idx.at(i);
+    }
+
+    unsigned int k = 0;
+    for (unsigned int i = 0; i < gnv; ++i){
+        auto b = d;
+        d -= idx.at(i);
+        k += H[gnv-i][b];
+    }
+    advec[vec][k] = x;
+    if (k+1>adveclen[vec])
+        adveclen[vec] =  k+1;
 }
 
 // ***** The following functions replace the original ones in tpsa.cpp. *****
