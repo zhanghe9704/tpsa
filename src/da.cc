@@ -59,7 +59,7 @@ DAVector& DAVector::operator=(int x) {
     return *this;
 }
 
-DAVector& DAVector::operator+=(DAVector& da_vector) {ad_add(&da_vector_, &da_vector.da_vector_); return *this;}
+DAVector& DAVector::operator+=(const DAVector& da_vector) {ad_add(&da_vector_, &da_vector.da_vector_); return *this;}
 
 DAVector& DAVector::operator+=(DAVector&& da_vector) {*this = *this + da_vector; return *this;}
 
@@ -67,7 +67,7 @@ DAVector& DAVector::operator+=(double x) {ad_add_const(&da_vector_, &x); return 
 
 DAVector& DAVector::operator+=(int x) {double xx = static_cast<double>(x); ad_add_const(&da_vector_, &xx); return *this;}
 
-DAVector& DAVector::operator-=(DAVector& da_vector) {ad_sub(&da_vector_, &da_vector.da_vector_); return *this;}
+DAVector& DAVector::operator-=(const DAVector& da_vector) {ad_sub(&da_vector_, &da_vector.da_vector_); return *this;}
 
 DAVector& DAVector::operator-=(DAVector&& da_vector) {*this = *this - da_vector; return *this;}
 
@@ -75,7 +75,7 @@ DAVector& DAVector::operator-=(double x) {x*=-1; ad_add_const(&da_vector_, &x); 
 
 DAVector& DAVector::operator-=(int x) {double xx = static_cast<double>(-x); ad_add_const(&da_vector_, &xx); return *this;}
 
-DAVector& DAVector::operator*=(DAVector& da_vector) {*this = *this * da_vector; return *this;}
+DAVector& DAVector::operator*=(const DAVector& da_vector) {*this = *this * da_vector; return *this;}
 
 DAVector& DAVector::operator*=(DAVector&& da_vector) {*this = *this * da_vector; return *this;}
 
@@ -83,7 +83,7 @@ DAVector& DAVector::operator*=(double x){ad_mult_const(&da_vector_, &x); return 
 
 DAVector& DAVector::operator*=(int x){double xx = static_cast<double>(x); ad_mult_const(&da_vector_, &xx); return *this;}
 
-DAVector& DAVector::operator/=(DAVector& da_vector) {*this = *this / da_vector; return *this;}
+DAVector& DAVector::operator/=(const DAVector& da_vector) {*this = *this / da_vector; return *this;}
 
 DAVector& DAVector::operator/=(DAVector&& da_vector) {*this = *this / da_vector; return *this;}
 
@@ -106,6 +106,23 @@ unsigned int DAVector::length() const {
 
 int DAVector::full_length() {
     return ad_full_length();
+}
+
+/** \brief Return the value and the order pattern of the specific element.
+ * Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition,
+ * the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of vector c should be
+ * equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases.
+ * \param[in] i The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] elem The value of the element.
+ * \return
+ *
+ */
+void DAVector::element(unsigned int i, std::vector<unsigned int>& c, double& elem) const {
+    unsigned int ii = i+1;
+    if (i<0) ii = 0;
+  	ad_elem(da_vector_, ii, c, elem);
 }
 
 /** \brief Return the value and the order pattern of the specific element.
@@ -164,6 +181,17 @@ double DAVector::element(std::vector<int>idx) {
 void DAVector::set_element(int *c, double elem) {
     size_t n = DAVector::dim();
     ad_pok(&da_vector_, c, &n, &elem);
+}
+
+/** \brief Set the value of a specific element.
+ *
+ * \param idx The order pattern of the element.
+ * \param elem The value of the element.
+ * \return void.
+ *
+ */
+void DAVector::set_element(std::vector<int> idx, double elem) {
+    ad_pok(da_vector_, idx, elem);
 }
 
 /** \brief Set a coefficient in the DA Vector to be zero if the abs of the
@@ -894,7 +922,7 @@ void inv_map(std::vector<DAVector> &ivecs, int dim, std::vector<DAVector> &ovecs
  * \return erf(x) as a DA vector.
  *
  */
-DAVector erf(DAVector& x) {
+DAVector erf(const DAVector& x) {
   double coef = 1.1283791670955125585607;  //coef = 2/sqrt(pi);
   double cc = x.con();
   DAVector dal = cc + da[0];

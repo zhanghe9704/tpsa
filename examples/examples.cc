@@ -59,6 +59,9 @@ int main() {
     x = asin(x3);
     x.print();
 
+    x = erf(x3);
+    x.print();
+
 
     return 0;
 }
