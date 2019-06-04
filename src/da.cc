@@ -513,18 +513,6 @@ DAVector log(const DAVector &da_vector) {
 	return res;
 }
 
-DAVector sin(const DAVector &da_vector) {
-    DAVector res;
-    ad_sin(&da_vector.da_vector_, &res.da_vector_);
-	return res;
-}
-
-DAVector cos(const DAVector &da_vector) {
-    DAVector res;
-    ad_cos(&da_vector.da_vector_, &res.da_vector_);
-	return res;
-}
-
 DAVector tan(const DAVector &da_vector) {
     DAVector res;
     res = sin(da_vector)/cos(da_vector);
@@ -572,6 +560,44 @@ DAVector acos(const DAVector &da_vector) {
     }
     double half_pi = 1.57079632679489661923132169163975144209858469968755291048;
     DAVector result = half_pi-asin(da_vector);
+    return result;
+}
+
+DAVector sin(const DAVector &da_vector) {
+    double cons = da_vector.con();
+    DAVector pol = da_vector - cons;
+    DAVector high_order = pol;
+    int order = da_vector.order();
+    std::vector<double> coefs(order+1);
+    coefs.at(0) = sin(cons);
+    coefs.at(1) = cos(cons);
+    for(int i=2; i<order+1; ++i) {
+        coefs.at(i) = -coefs.at(i-2)/(i*(i-1));
+    }
+    DAVector result = coefs.at(0);
+    for(int i=1; i<order+1; ++i) {
+        result += coefs.at(i)*high_order;
+        high_order *= pol;
+    }
+    return result;
+}
+
+DAVector cos(const DAVector &da_vector) {
+    double cons = da_vector.con();
+    DAVector pol = da_vector - cons;
+    DAVector high_order = pol;
+    int order = da_vector.order();
+    std::vector<double> coefs(order+1);
+    coefs.at(0) = cos(cons);
+    coefs.at(1) = -sin(cons);
+    for(int i=2; i<order+1; ++i) {
+        coefs.at(i) = -coefs.at(i-2)/(i*(i-1));
+    }
+    DAVector result = coefs.at(0);
+    for(int i=1; i<order+1; ++i) {
+        result += coefs.at(i)*high_order;
+        high_order *= pol;
+    }
     return result;
 }
 
