@@ -189,12 +189,6 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
   ......
 
 
-
-### Known Issues
-
-1. sin() and cos() will set the length of the DA vector to be the full length. However, if the number of the bases used in the vector is smaller than the total base number, the real length of the DA vector could be less than the full length. For example, assuming a DA space with three bases (da[0], da[1], and da[2]) and  a vector that only contains one base, such as x = 1 + da[0],  the length of sin(x) or cos(x) will be shorter than the full vector length. This does not necessarily affect the final result of the computation. Needs to fix ad_sin and ad_cos in tpsa.cpp
-
-
 ## Acknowledgement
 
 Thanks to Dr. Lingyun Yang for providing his tpsa code. 
