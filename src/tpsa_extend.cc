@@ -556,16 +556,16 @@ void ad_composition(std::vector<TVEC> &ivecs, std::vector<TVEC> &v, std::vector<
     delete[] bv;
 }
 
-/** \brief Subscribe a group of TPS vectors to the specific bases of another group of TPS vectors. Result saved into the third group of TPS vectors.
+/** \brief Substitute a group of TPS vectors to the specific bases of another group of TPS vectors. Result saved into the third group of TPS vectors.
  * This is an alternative function for the original one (ad_subst) in tpsa.cpp.
- * \param[in] ivecs The TPS vectors into which other TPS vectors are subscribed.
+ * \param[in] ivecs The TPS vectors into which other TPS vectors are substituted.
  * \param[in] base_id The indexes of the bases.
- * \param[in] v The TPS vectors to be subscribed. The number of the TPS vectors should be equal to the number of indexes.
+ * \param[in] v The TPS vectors to be substituted. The number of the TPS vectors should be equal to the number of indexes.
  * \param[out] ovecs The TPS vectors that save the result.
  * \return void.
  *
  */
-void ad_subscribe(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, std::vector<TVEC> &ovecs) {
+void ad_substitute(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, std::vector<TVEC> &ovecs) {
     assert(base_id.size()==v.size()&&"Error in ad_subscribe: No. of TPS vectors NOT EQUAL to No. of base ids!");
     assert(ivecs.size()==ovecs.size()&&"Error in ad_subscribe: No. of input vectors NOT EQUAL to No. of output vectors!");
     TNVND* p = base;
@@ -722,16 +722,16 @@ void ad_subscribe(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, 
     delete[] bv;
 }
 
-/** \brief Subscribe a group of TPS vectors to the specific bases of a given TPS vector. Save the result into another TPS vector.
+/** \brief Substitute a group of TPS vectors to the specific bases of a given TPS vector. Save the result into another TPS vector.
  * This is an alternative function for the original one (ad_subst) in tpsa.cpp.
- * \param[in] ivecs The TPS vector into which other TPS vectors are subscribed.
+ * \param[in] ivecs The TPS vector into which other TPS vectors are substituted.
  * \param[in] base_id The indexes of the bases.
- * \param[in] v The TPS vectors to be subscribed. The number of the TPS vectors should be equal to the number of indexes.
+ * \param[in] v The TPS vectors to be substituted. The number of the TPS vectors should be equal to the number of indexes.
  * \param[out] ovecs The TPS vector that saves the result.
  * \return void.
  *
  */
-void ad_subscribe(const TVEC iv, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, TVEC ov) {
+void ad_substitute(const TVEC iv, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, TVEC ov) {
 
     assert(base_id.size()==v.size()&&"Error in ad_subscribe: No. of TPS vectors NOT EQUAL to No. of base ids!");
     TNVND* p = base;
@@ -865,16 +865,16 @@ void ad_subscribe(const TVEC iv, std::vector<unsigned int> &base_id, std::vector
     delete[] bv;
 }
 
-/** \brief Subscribe a TPS vector to the specific base of another TPS vector. Save the result into the third TPS vector.
+/** \brief Substitute a TPS vector to the specific base of another TPS vector. Save the result into the third TPS vector.
  * This is an alternative function for the original one (ad_subst) in tpsa.cpp.
- * \param[in] iv The TPS vector into which another TPS vector is subscribed.
+ * \param[in] iv The TPS vector into which another TPS vector is substituted.
  * \param[in] base_id The index of the base.
- * \param[in] v The TPS vector to be subscribed.
+ * \param[in] v The TPS vector to be substituted.
  * \param[out] ov The TPS vector that saves the result.
  * \return void.
  *
  */
-void ad_subscribe(const TVEC iv, unsigned int base_id, const TVEC v, TVEC ov) {
+void ad_substitute(const TVEC iv, unsigned int base_id, const TVEC v, TVEC ov) {
     TNVND* p = base;
     unsigned int* c = new unsigned int[gnv];
     unsigned int* bv = new unsigned int[gnv];
@@ -958,16 +958,16 @@ void ad_subscribe(const TVEC iv, unsigned int base_id, const TVEC v, TVEC ov) {
  	delete[] bv;
 }
 
-/** \brief Subscribe a number to the specific base of a given TPS vector. Save the result into another TPS vector.
+/** \brief Substitute a number to the specific base of a given TPS vector. Save the result into another TPS vector.
  * This is an alternative function for the original one (ad_subst) in tpsa.cpp.
- * \param[in] iv The TPS vector into which the number is subscribed.
+ * \param[in] iv The TPS vector into which the number is substituted.
  * \param[in] base_id The index of the base.
- * \param[in] x The number to be subscribed.
+ * \param[in] x The number to be substituted.
  * \param[out] ov The TPS vector that saves the result.
  * \return void.
  *
  */
-void ad_subscribe_const(const TVEC iv, unsigned int base_id, double x, TVEC ov) {
+void ad_substitute_const(const TVEC iv, unsigned int base_id, double x, TVEC ov) {
     TNVND* p = base;
     unsigned int* c = new unsigned int[gnv];
     double* power_x = new double[gnd+1];

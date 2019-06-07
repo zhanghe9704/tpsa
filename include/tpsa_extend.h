@@ -29,10 +29,10 @@ void ad_reset_const(const TVEC iv, double x); //Reset the TPS vector constant el
 unsigned int ad_remain();       //Space (number) available for new TPS vectors.
 unsigned int ad_count();        //Number of TPS vectors allocated.
 void ad_mult_c(const TVEC iv, double c, TVEC ov); //Multiple the TPS vector iv with a constant number c, result stored in ov.
-void ad_subscribe_const(const TVEC iv, unsigned int base_id, double x, TVEC ov);
-void ad_subscribe(const TVEC iv, unsigned int base_id, const TVEC v, TVEC ov);
-void ad_subscribe(const TVEC iv, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, TVEC ov);
-void ad_subscribe(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, std::vector<TVEC> &ovecs) ;
+void ad_substitute_const(const TVEC iv, unsigned int base_id, double x, TVEC ov);
+void ad_substitute(const TVEC iv, unsigned int base_id, const TVEC v, TVEC ov);
+void ad_substitute(const TVEC iv, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, TVEC ov);
+void ad_substitute(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, std::vector<TVEC> &ovecs) ;
 void ad_composition(std::vector<TVEC> &ivecs, std::vector<TVEC> &v, std::vector<TVEC> &ovecs);
 void ad_composition(std::vector<TVEC> &ivecs, std::vector<double> &v, std::vector<double> &ovecs);
 void ad_add(const unsigned int idst, const unsigned int jsrc, unsigned int ov);

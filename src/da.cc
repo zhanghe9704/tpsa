@@ -343,60 +343,60 @@ int da_change_order(unsigned int new_order) {ad_change_order(new_order); return 
 ///Restore the original DA order.
 int da_restore_order(){ad_restore_order(); return 0;}
 
-/** \brief Subscribe the given value to the specific base in a DA vector.
+/** \brief Substitute the given value to the specific base in a DA vector.
  *
  * \param[in] iv A DA vector.
  * \param[in] base_id The ordinal number of the base.
- * \param[in] x The alue to subscribe.
+ * \param[in] x The alue to substitute.
  * \param[out] ov The DA vector that saves the result.
  * \return void.
  *
  */
-void da_subscribe_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov) {
-    ad_subscribe_const(iv.da_vector_, base_id, x, ov.da_vector_);
+void da_substitute_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov) {
+    ad_substitute_const(iv.da_vector_, base_id, x, ov.da_vector_);
 }
 
-/** \brief Subscribe a DA vector to a specific base in a given DA Vector.
+/** \brief Substitute a DA vector to a specific base in a given DA Vector.
  *
  * \param[in] iv A DA vector.
  * \param[in] base_id The ordinal number of the base.
- * \param[in] v The DA vector to subscribe.
+ * \param[in] v The DA vector to substitute.
  * \param[out] ov The DA vector that saves the result.
  * \return void.
  *
  */
-void da_subscribe(const DAVector &iv, unsigned int base_id, const DAVector &v, DAVector &ov) {
-    ad_subscribe(iv.da_vector_, base_id, v.da_vector_, ov.da_vector_);
+void da_substitute(const DAVector &iv, unsigned int base_id, const DAVector &v, DAVector &ov) {
+    ad_substitute(iv.da_vector_, base_id, v.da_vector_, ov.da_vector_);
 }
 
-/** \brief Subscribe DA vectors to the specific bases in a DA vector.
+/** \brief Substitute DA vectors to the specific bases in a DA vector.
  *
  * \param[in] iv A DA vector.
  * \param[in] base_id The ordinal numbers of the bases.
- * \param[in] v The DA vectors to subscribe. The size of v should be equal to the size of base_id.
+ * \param[in] v The DA vectors to substitute. The size of v should be equal to the size of base_id.
  * \param[out] ov The DA vector that saves the result.
  * \return void.
  *
  */
-void da_subscribe(const DAVector &iv, std::vector<unsigned int> &base_id, std::vector<DAVector> &v, DAVector &ov) {
+void da_substitute(const DAVector &iv, std::vector<unsigned int> &base_id, std::vector<DAVector> &v, DAVector &ov) {
     std::set<unsigned int> check;
     for(auto& id: base_id) check.insert(id);
     assert(check.size()==base_id.size()&&"Duplicate base id in da_subscribe!");
     std::vector<TVEC> ad_v;
     for(auto&& i : v) ad_v.push_back(i.da_vector_);
-    ad_subscribe(iv.da_vector_, base_id, ad_v, ov.da_vector_);
+    ad_substitute(iv.da_vector_, base_id, ad_v, ov.da_vector_);
 }
 
-/** \brief Subscribe DA vectors to the specific bases in a group of DA vectors.
+/** \brief Substitute DA vectors to the specific bases in a group of DA vectors.
  *
  * \param ivecs A group of DA Vectors.
  * \param base_id The ordinal numbers for the bases.
- * \param v The DA vectors to subscribe. The size of v should be equal to the size of base_id.
+ * \param v The DA vectors to substitute. The size of v should be equal to the size of base_id.
  * \param ovecs The DA vectors that saves the result. The size of ovecs should be equal to the size of ivecs.
  * \return
  *
  */
-void da_subscribe(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base_id, std::vector<DAVector> &v,
+void da_substitute(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base_id, std::vector<DAVector> &v,
                   std::vector<DAVector> &ovecs) {
     std::set<unsigned int> check;
     for(auto& id: base_id) check.insert(id);
@@ -405,7 +405,7 @@ void da_subscribe(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base_
     for(auto&& i : v) ad_v.push_back(i.da_vector_);
     for(auto&& i : ivecs) ad_iv.push_back(i.da_vector_);
     for(auto&& i : ovecs) ad_ov.push_back(i.da_vector_);
-    ad_subscribe(ad_iv, base_id, ad_v, ad_ov);
+    ad_substitute(ad_iv, base_id, ad_v, ad_ov);
 }
 
 /** \brief Composition of a group of DA vectors with another group of DA vectors.
@@ -937,6 +937,6 @@ DAVector erf(const DAVector& x) {
   dal = da_int(dal, 0);
   DAVector ada = x - cc;
   DAVector da_erf;
-  da_subscribe(dal, 0, ada, da_erf);
+  da_substitute(dal, 0, ada, da_erf);
   return da_erf*coef + erf(cc);
 }

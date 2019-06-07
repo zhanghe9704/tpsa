@@ -92,10 +92,10 @@ void da_der(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector
 void da_int(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_int);
 DAVector da_der(const DAVector &da_vector, unsigned int base_id);   //Take derivative w.r.t. a specific base.
 DAVector da_int(const DAVector &da_vector, unsigned int base_id);   //Integrate w.r.t. a specific base.
-void da_subscribe_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov);
-void da_subscribe(const DAVector &iv, unsigned int base_id, const DAVector &v, DAVector &ov);
-void da_subscribe(const DAVector &iv, std::vector<unsigned int> &base_id, std::vector<DAVector> &v, DAVector &ov);
-void da_subscribe(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base_id, std::vector<DAVector> &v,
+void da_substitute_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov);
+void da_substitute(const DAVector &iv, unsigned int base_id, const DAVector &v, DAVector &ov);
+void da_substitute(const DAVector &iv, std::vector<unsigned int> &base_id, std::vector<DAVector> &v, DAVector &ov);
+void da_substitute(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base_id, std::vector<DAVector> &v,
                   std::vector<DAVector> &ovecs);
 void da_composition(std::vector<DAVector> &ivecs, std::vector<DAVector> &v, std::vector<DAVector> &ovecs);
 void da_composition(std::vector<DAVector> &ivecs, std::vector<double> &v, std::vector<double> &ovecs);
