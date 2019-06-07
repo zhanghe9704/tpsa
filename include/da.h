@@ -73,7 +73,7 @@ struct Base {
   Base(){};
   void set_base(const unsigned int n);
   void set_base();
-  DAVector operator[](unsigned int i) {return base.at(i);}
+  const DAVector& operator[](unsigned int i) {return base.at(i);}
 };
 
 extern Base da; // Bases for DA calculations. The i-th base can be accessed as da[i].
