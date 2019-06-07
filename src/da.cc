@@ -10,6 +10,7 @@
 #include <cassert>
 #include <cmath>
 #include <limits>
+#include <set>
 #include "../include/tpsa_extend.h"
 
 Base da; /**< Bases for DA calculations. The i-th base can be accessed as da[i].  */
@@ -378,6 +379,9 @@ void da_subscribe(const DAVector &iv, unsigned int base_id, const DAVector &v, D
  *
  */
 void da_subscribe(const DAVector &iv, std::vector<unsigned int> &base_id, std::vector<DAVector> &v, DAVector &ov) {
+    std::set<unsigned int> check;
+    for(auto& id: base_id) check.insert(id);
+    assert(check.size()==base_id.size()&&"Duplicate base id in da_subscribe!");
     std::vector<TVEC> ad_v;
     for(auto&& i : v) ad_v.push_back(i.da_vector_);
     ad_subscribe(iv.da_vector_, base_id, ad_v, ov.da_vector_);
@@ -394,6 +398,9 @@ void da_subscribe(const DAVector &iv, std::vector<unsigned int> &base_id, std::v
  */
 void da_subscribe(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base_id, std::vector<DAVector> &v,
                   std::vector<DAVector> &ovecs) {
+    std::set<unsigned int> check;
+    for(auto& id: base_id) check.insert(id);
+    assert(check.size()==base_id.size()&&"Duplicate base id in da_subscribe!");
     std::vector<TVEC> ad_iv, ad_v, ad_ov;
     for(auto&& i : v) ad_v.push_back(i.da_vector_);
     for(auto&& i : ivecs) ad_iv.push_back(i.da_vector_);

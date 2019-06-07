@@ -609,8 +609,10 @@ void ad_subscribe(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, 
         unsigned int k = 0;
         unsigned int order; //Highest order to be multiplied in the TPS vector v^n.
         unsigned int idx_limit; //Limit of the index of the terms to be multiplied in v^n.
+        auto prc = p;
         for(unsigned int iv = 0; iv<ivecs.size(); ++iv) {
-            if (i>=adveclen[iv]) continue;
+            p = prc;
+            if (i>=adveclen[ivecs.at(iv)]) continue;
             if (std::abs(advec[ivecs.at(iv)][i]) < std::numeric_limits<double>::min()) {
                 p += gnv;
                 continue;
