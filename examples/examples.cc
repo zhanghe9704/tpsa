@@ -1,5 +1,6 @@
 #include "../include/da.h"
 #include <cmath>
+#include <vector>
 
 int main() {
 
@@ -61,6 +62,19 @@ int main() {
 
     x = erf(x3);
     x.print();
+
+   std::vector<DAVector> lx, ly, lz;
+   lx.push_back(da[0]);
+   lx.push_back(da[1]);
+   ly.push_back(1+da[1]);
+   ly.push_back(2+da[0]);
+   lz.push_back(da[0]);
+   lz.push_back(da[1]);
+   std::vector<unsigned int> idx{0,1};
+
+   da_subscribe(lx, idx, ly, lz);
+   lz.at(0).print();
+   lz.at(1).print();
 
 
     return 0;
