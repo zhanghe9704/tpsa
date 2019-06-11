@@ -599,8 +599,8 @@ void ad_substitute(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id,
     unsigned int veclen_max = 0;
     for(auto iv : ivecs)
         if (adveclen[iv]>veclen_max) veclen_max = adveclen[iv];
-
-    for (size_t i=0; i<veclen_max; ++i) { //loop over all elements.
+    p += gnv;
+    for (size_t i=1; i<veclen_max; ++i) { //loop over all elements.
         bool c_flag = true; //Calculate c;
         bool k_flag = true; //Calculate k;
         bool sub_flag = false; //No subscribing.
@@ -699,6 +699,9 @@ void ad_substitute(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id,
             }
         }
     }
+
+    for(auto i=0; i<ivecs.size(); ++i)
+        advec[ovecs.at(i)][0] += advec[ivecs.at(i)][0];
 
     for(auto ov : ovecs) {
         adveclen[ov] = 1;
