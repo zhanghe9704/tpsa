@@ -605,16 +605,18 @@ void ad_substitute(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id,
         bool k_flag = true; //Calculate k;
         bool sub_flag = false; //No subscribing.
         bool product_flag = true; //Calculate the product.
+        int i_count = 0;
         std::fill(rc.begin(), rc.end(), 0);
         unsigned int k = 0;
         unsigned int order; //Highest order to be multiplied in the TPS vector v^n.
         unsigned int idx_limit; //Limit of the index of the terms to be multiplied in v^n.
-        auto prc = p;
         for(unsigned int iv = 0; iv<ivecs.size(); ++iv) {
-            p = prc;
-            if (i>=adveclen[ivecs.at(iv)]) continue;
+            if (i>=adveclen[ivecs.at(iv)]) {
+                ++i_count;
+                continue;
+            }
             if (std::abs(advec[ivecs.at(iv)][i]) < std::numeric_limits<double>::min()) {
-                p += gnv;
+                ++i_count;
                 continue;
             }
             if (c_flag) {
@@ -698,6 +700,7 @@ void ad_substitute(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id,
                 advec[ovecs.at(iv)][i] += advec[ivecs.at(iv)][i];
             }
         }
+        if(i_count == ivecs.size()) p += gnv;
     }
 
     for(auto i=0; i<ivecs.size(); ++i)
