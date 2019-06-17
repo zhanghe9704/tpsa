@@ -1,0 +1,677 @@
+\hypertarget{da_8h}{}\section{include/da.h File Reference}
+\label{da_8h}\index{include/da.h@{include/da.h}}
+
+
+DA wrapper for the extended tpsa code.  
+
+
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}}
+\begin{DoxyCompactList}\small\item\em Differential Algebra (DA) Vector A T\+PS vector with methods. Can be used with most numerical operators. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_base}{Base}}
+\begin{DoxyCompactList}\small\item\em Bases for DA calculations. The i-\/th base can be accessed as base\mbox{[}i\mbox{]}, where base is an object of \mbox{\hyperlink{struct_base}{Base}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{da_8h_a35b96b427352d9ef26ab45696cfd52e4}{da\+\_\+init}} (unsigned int da\+\_\+order, unsigned int num\+\_\+da\+\_\+variables, unsigned int num\+\_\+da\+\_\+vectors)
+\begin{DoxyCompactList}\small\item\em Initialize the DA environment. This function initialize the DA environment w.\+r.\+t. the given DA order and the number of bases. A memory pool is created for the given number of DA vectors, which should be large enough for perspective calculations. \mbox{\hyperlink{struct_base}{Base}} vectors are also created. The i-\/th base can be accessed as da\mbox{[}i\mbox{]}. This function should be called before any DA calculation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_a4ce8ca67305300c7278dc9f4c56483db}{da\+\_\+clear}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the DA environment and release memory. This function should only be called when all the D\+A\+Vectors are out of scope. Otherwise it will cause a segment fault. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{da_8h_a66dc266cb3b691feba5cc6d2caa0a439}{da\+\_\+change\+\_\+order}} (unsigned int new\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Temporarily change the DA order. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{da_8h_a6a7bb906427228e825194f28c1ab9e7d}{da\+\_\+restore\+\_\+order}} ()
+\begin{DoxyCompactList}\small\item\em Restore the original DA order. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{da_8h_af27498d9051f38e37638962320f465e2}{da\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Count the number of existing DA Vectors, including the bases. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{da_8h_a7ce0828d83881579af4e2bf2f1c0ae48}{da\+\_\+remain}} ()
+\begin{DoxyCompactList}\small\item\em Check the remaining capacity in the DA pool. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{da_8h_af5bdfa781e8d2130cdd9c17fbb72ae63}{da\+\_\+full\+\_\+length}} ()
+\begin{DoxyCompactList}\small\item\em Return the full length of the da vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_a2ccc5e74773f19981185141ac5f89cbf}{da\+\_\+der}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, unsigned int base\+\_\+id, \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+der)
+\begin{DoxyCompactList}\small\item\em Take derivative of a da vector w.\+r.\+t. a specific base. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_afce2e888b1204dc16e0c1f43311b4b85}{da\+\_\+int}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, unsigned int base\+\_\+id, \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+int)
+\begin{DoxyCompactList}\small\item\em Integrate a da vector w.\+r.\+t. a specific base. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a34a626191c5eb0ff6d9ad13f14fb0e13}{da\+\_\+der}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, unsigned int base\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Take derivative of a da vector w.\+r.\+t. a specific base. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_ab36b8038e76c52468949f8707d3d53cf}{da\+\_\+int}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, unsigned int base\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Integrate a da vector w.\+r.\+t. a specific base. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_aada7a3f3aba16d78f60b99266b10e5fa}{da\+\_\+substitute\+\_\+const}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&iv, unsigned int base\+\_\+id, double x, \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&ov)
+\begin{DoxyCompactList}\small\item\em Substitute the given value to the specific base in a DA vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_a9fcd9472006662f06ee3229933c01688}{da\+\_\+substitute}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&iv, unsigned int base\+\_\+id, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&v, \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&ov)
+\begin{DoxyCompactList}\small\item\em Substitute a DA vector to a specific base in a given DA Vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_af25c09dac7cce3378e9b32d29b0f3976}{da\+\_\+substitute}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&iv, std\+::vector$<$ unsigned int $>$ \&base\+\_\+id, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&v, \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&ov)
+\begin{DoxyCompactList}\small\item\em Substitute DA vectors to the specific bases in a DA vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_a6d59d2090f0c4361d2178975f2ee30b6}{da\+\_\+substitute}} (std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&ivecs, std\+::vector$<$ unsigned int $>$ \&base\+\_\+id, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&v, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&ovecs)
+\begin{DoxyCompactList}\small\item\em Substitute DA vectors to the specific bases in a group of DA vectors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_ae6865e8dd89daf74239153eb2f4f69b9}{da\+\_\+composition}} (std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&ivecs, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&v, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&ovecs)
+\begin{DoxyCompactList}\small\item\em Composition of a group of DA vectors with another group of DA vectors. Calculate the composition of two groups of DA vectors, and save the result into the third group of DA vectors. Call the first group of DA vectors, ivecs, as f, which includes n DA vectors\+: f\+\_\+1, f\+\_\+2, ..., f\+\_\+n. The second group of DA vectors, v, should contain the same number of DA vectors as the number of DA bases. Call the third group of DA vectors, ovecs, as g, which also includes n DA vectors\+: g\+\_\+1, g\+\_\+2, ..., g\+\_\+n. g = f(v), or g\+\_\+1 = f\+\_\+1(v), g\+\_\+2 = f\+\_\+2(v), ..., g\+\_\+n = f\+\_\+n(v). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_adc6fca2f8f28480b828974eb3fc69fee}{da\+\_\+composition}} (std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&ivecs, std\+::vector$<$ double $>$ \&v, std\+::vector$<$ double $>$ \&ovecs)
+\begin{DoxyCompactList}\small\item\em Submitting all the bases for a group of DA vectors with given values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a380412f4590bd9ad029acab14b71a32c}{operator+}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, double real\+\_\+number)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a76ac349ad9a4f8516abed244410856a7}{operator+}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a6a3acf66023083a1958d945823f10407}{operator+}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+2)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_ad614f651903db08445eb1572764505c5}{operator $\ast$}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, double real\+\_\+number)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a4ec93990006721196ae754b3f72a7055}{operator $\ast$}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a339b29a757255cb8e55a36b6a8d7787a}{operator $\ast$}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+2)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a279411555358efa8242d6e1ab1ba5558}{operator-\/}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, double real\+\_\+number)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a56b3db4bf81646c5fafb77ee67410d94}{operator-\/}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a0b3121d718d77a7721915c819dbf1a03}{operator-\/}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+2)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a079613a06cbb7f8a22a310cc1c4b3eab}{operator/}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, double real\+\_\+number)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_af7fe1688315098b5de5b72a0e28711cd}{operator/}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_aa640afa8a708a5b0c62ec69fcb7651d3}{operator/}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector\+\_\+2)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a1495476caa72ac68ee3b6d23a7bece29}{operator+}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_ac3661f6529213db43aba76db4fec8fb6}{operator-\/}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a2b3463ed8238ad69add0583e50b8dc59}{sqrt}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a33a452b6c1f802b876c0df6c60487861}{exp}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a48795a7128e306aecb580bacf1eab595}{log}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a749f5b1556c7f3d1af5b2d749ca749ee}{sin}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}{cos}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a1cf3c2f3379994543b99ccda65fe9fc6}{tan}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_aa8f78c203424415b0889942673353e64}{asin}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a949cd32d0319b9a4f43bcf6b192cd4a9}{acos}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_acd90e24b73c9d358830e7e69d9d630a6}{atan}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the arctan of the given DA vector. Use formula 4.\+4.\+34 and 4.\+4.\+42 in the Handbook of Mathematical Functions by Milton Abramowitz and Irene A. Stegun. Assume z0 is the constant part of the given DA vector z and dz = z -\/ z0. In 4.\+4.\+34, let z1 = z0 and z2 = dz/(1+z$\ast$z0), then the right hand size of 4.\+4.\+34 is atan(z). So we get atan(z) = atan(z0) + atan(z2). Use 4.\+4.\+42 to calculate atan(z2). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_adc9373b83082540851aedcd529af14a8}{sinh}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a572743c13b696ecef93c10e74237969e}{cosh}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_af63923c4fbe9c11020fc8ea26a2f946b}{tanh}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_ae3b2a03dc6ddba9015479e44672d0da7}{pow}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, const int order)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_a2b9c9a42379d4d6631ba82c1fa2d2981}{pow}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector, const double order)
+\item 
+double \mbox{\hyperlink{da_8h_ac1322dd7830ae7ca7137be0185a9d4af}{abs}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&da\+\_\+vector)
+\item 
+\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \mbox{\hyperlink{da_8h_afe49af6192e3a686283d848f4a832b83}{erf}} (const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&x)
+\begin{DoxyCompactList}\small\item\em error function for a DA vector Calculate the error function value of the input DA vector. The \mbox{\hyperlink{da_8cc_afe49af6192e3a686283d848f4a832b83}{erf()}} in math.\+h is used to calculate the cosntant apart. 2/sqrt(pi)$\ast$exp(-\/x$^\wedge$2) is the derivative of the error function, by which the high order terms could be calculated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{da_8h_aa3749e2d2d14985277e012363a78d3e7}{inv\+\_\+map}} (std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&ivecs, int dim, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&ovecs)
+\begin{DoxyCompactList}\small\item\em Calculate the inverse map of a given map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_base}{Base}} \mbox{\hyperlink{da_8h_a3d82aa3a9e60ebd9953b16b9b7614e8e}{da}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+DA wrapper for the extended tpsa code. 
+
+Defines the \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} class and the \mbox{\hyperlink{struct_base}{Base}} class. \begin{DoxyAuthor}{Author}
+He Zhang @email \href{mailto:hezhang@jlab.org}{\texttt{ hezhang@jlab.\+org}} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{da_8h_ac1322dd7830ae7ca7137be0185a9d4af}\label{da_8h_ac1322dd7830ae7ca7137be0185a9d4af}} 
+\index{da.h@{da.h}!abs@{abs}}
+\index{abs@{abs}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily double abs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a949cd32d0319b9a4f43bcf6b192cd4a9}\label{da_8h_a949cd32d0319b9a4f43bcf6b192cd4a9}} 
+\index{da.h@{da.h}!acos@{acos}}
+\index{acos@{acos}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{acos()}{acos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} acos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_aa8f78c203424415b0889942673353e64}\label{da_8h_aa8f78c203424415b0889942673353e64}} 
+\index{da.h@{da.h}!asin@{asin}}
+\index{asin@{asin}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{asin()}{asin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} asin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_acd90e24b73c9d358830e7e69d9d630a6}\label{da_8h_acd90e24b73c9d358830e7e69d9d630a6}} 
+\index{da.h@{da.h}!atan@{atan}}
+\index{atan@{atan}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{atan()}{atan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} atan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the arctan of the given DA vector. Use formula 4.\+4.\+34 and 4.\+4.\+42 in the Handbook of Mathematical Functions by Milton Abramowitz and Irene A. Stegun. Assume z0 is the constant part of the given DA vector z and dz = z -\/ z0. In 4.\+4.\+34, let z1 = z0 and z2 = dz/(1+z$\ast$z0), then the right hand size of 4.\+4.\+34 is atan(z). So we get atan(z) = atan(z0) + atan(z2). Use 4.\+4.\+42 to calculate atan(z2). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em DA} & vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DA vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}\label{da_8h_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}} 
+\index{da.h@{da.h}!cos@{cos}}
+\index{cos@{cos}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{cos()}{cos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} cos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a572743c13b696ecef93c10e74237969e}\label{da_8h_a572743c13b696ecef93c10e74237969e}} 
+\index{da.h@{da.h}!cosh@{cosh}}
+\index{cosh@{cosh}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{cosh()}{cosh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} cosh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a66dc266cb3b691feba5cc6d2caa0a439}\label{da_8h_a66dc266cb3b691feba5cc6d2caa0a439}} 
+\index{da.h@{da.h}!da\_change\_order@{da\_change\_order}}
+\index{da\_change\_order@{da\_change\_order}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_change\_order()}{da\_change\_order()}}
+{\footnotesize\ttfamily int da\+\_\+change\+\_\+order (\begin{DoxyParamCaption}\item[{unsigned int}]{new\+\_\+order }\end{DoxyParamCaption})}
+
+
+
+Temporarily change the DA order. 
+
+\mbox{\Hypertarget{da_8h_a4ce8ca67305300c7278dc9f4c56483db}\label{da_8h_a4ce8ca67305300c7278dc9f4c56483db}} 
+\index{da.h@{da.h}!da\_clear@{da\_clear}}
+\index{da\_clear@{da\_clear}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_clear()}{da\_clear()}}
+{\footnotesize\ttfamily void da\+\_\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the DA environment and release memory. This function should only be called when all the D\+A\+Vectors are out of scope. Otherwise it will cause a segment fault. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_ae6865e8dd89daf74239153eb2f4f69b9}\label{da_8h_ae6865e8dd89daf74239153eb2f4f69b9}} 
+\index{da.h@{da.h}!da\_composition@{da\_composition}}
+\index{da\_composition@{da\_composition}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_composition()}{da\_composition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void da\+\_\+composition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{ivecs,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{v,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+
+
+Composition of a group of DA vectors with another group of DA vectors. Calculate the composition of two groups of DA vectors, and save the result into the third group of DA vectors. Call the first group of DA vectors, ivecs, as f, which includes n DA vectors\+: f\+\_\+1, f\+\_\+2, ..., f\+\_\+n. The second group of DA vectors, v, should contain the same number of DA vectors as the number of DA bases. Call the third group of DA vectors, ovecs, as g, which also includes n DA vectors\+: g\+\_\+1, g\+\_\+2, ..., g\+\_\+n. g = f(v), or g\+\_\+1 = f\+\_\+1(v), g\+\_\+2 = f\+\_\+2(v), ..., g\+\_\+n = f\+\_\+n(v). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ivecs} & DA vectors. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & DA vectors. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ovecs} & Result DA vectors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_adc6fca2f8f28480b828974eb3fc69fee}\label{da_8h_adc6fca2f8f28480b828974eb3fc69fee}} 
+\index{da.h@{da.h}!da\_composition@{da\_composition}}
+\index{da\_composition@{da\_composition}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_composition()}{da\_composition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void da\+\_\+composition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{ivecs,  }\item[{std\+::vector$<$ double $>$ \&}]{v,  }\item[{std\+::vector$<$ double $>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+
+
+Submitting all the bases for a group of DA vectors with given values. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ivecs} & A group of DA Vectors. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The values for all the bases. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ovecs} & Results. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_af27498d9051f38e37638962320f465e2}\label{da_8h_af27498d9051f38e37638962320f465e2}} 
+\index{da.h@{da.h}!da\_count@{da\_count}}
+\index{da\_count@{da\_count}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_count()}{da\_count()}}
+{\footnotesize\ttfamily int da\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Count the number of existing DA Vectors, including the bases. 
+
+\mbox{\Hypertarget{da_8h_a2ccc5e74773f19981185141ac5f89cbf}\label{da_8h_a2ccc5e74773f19981185141ac5f89cbf}} 
+\index{da.h@{da.h}!da\_der@{da\_der}}
+\index{da\_der@{da\_der}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_der()}{da\_der()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void da\+\_\+der (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{unsigned int}]{base\+\_\+id,  }\item[{\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+der }\end{DoxyParamCaption})}
+
+
+
+Take derivative of a da vector w.\+r.\+t. a specific base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em da\+\_\+vector} & The input da vector. \\
+\hline
+{\em base\+\_\+id} & Id of the base. \\
+\hline
+{\em da\+\_\+vector\+\_\+der} & The output da vector. Should be different with the input vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_a34a626191c5eb0ff6d9ad13f14fb0e13}\label{da_8h_a34a626191c5eb0ff6d9ad13f14fb0e13}} 
+\index{da.h@{da.h}!da\_der@{da\_der}}
+\index{da\_der@{da\_der}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_der()}{da\_der()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} da\+\_\+der (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{unsigned int}]{base\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Take derivative of a da vector w.\+r.\+t. a specific base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em da\+\_\+vector} & The input da vector. \\
+\hline
+{\em base\+\_\+id} & Id of the base. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+da vector as the derivation result. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_af5bdfa781e8d2130cdd9c17fbb72ae63}\label{da_8h_af5bdfa781e8d2130cdd9c17fbb72ae63}} 
+\index{da.h@{da.h}!da\_full\_length@{da\_full\_length}}
+\index{da\_full\_length@{da\_full\_length}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_full\_length()}{da\_full\_length()}}
+{\footnotesize\ttfamily int da\+\_\+full\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the full length of the da vector. 
+
+\mbox{\Hypertarget{da_8h_a35b96b427352d9ef26ab45696cfd52e4}\label{da_8h_a35b96b427352d9ef26ab45696cfd52e4}} 
+\index{da.h@{da.h}!da\_init@{da\_init}}
+\index{da\_init@{da\_init}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_init()}{da\_init()}}
+{\footnotesize\ttfamily int da\+\_\+init (\begin{DoxyParamCaption}\item[{unsigned int}]{da\+\_\+order,  }\item[{unsigned int}]{num\+\_\+da\+\_\+variables,  }\item[{unsigned int}]{num\+\_\+da\+\_\+vectors }\end{DoxyParamCaption})}
+
+
+
+Initialize the DA environment. This function initialize the DA environment w.\+r.\+t. the given DA order and the number of bases. A memory pool is created for the given number of DA vectors, which should be large enough for perspective calculations. \mbox{\hyperlink{struct_base}{Base}} vectors are also created. The i-\/th base can be accessed as da\mbox{[}i\mbox{]}. This function should be called before any DA calculation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em da\+\_\+order} & Highest order of a DA Vector. \\
+\hline
+{\em num\+\_\+da\+\_\+variables} & Number of bases. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+num\+\_\+da\+\_\+vectors Size of the DA memory pool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_afce2e888b1204dc16e0c1f43311b4b85}\label{da_8h_afce2e888b1204dc16e0c1f43311b4b85}} 
+\index{da.h@{da.h}!da\_int@{da\_int}}
+\index{da\_int@{da\_int}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_int()}{da\_int()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void da\+\_\+int (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{unsigned int}]{base\+\_\+id,  }\item[{\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+int }\end{DoxyParamCaption})}
+
+
+
+Integrate a da vector w.\+r.\+t. a specific base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em da\+\_\+vector} & The input da vector. \\
+\hline
+{\em base\+\_\+id} & Id of the base. \\
+\hline
+{\em da\+\_\+vector\+\_\+int} & The output da vector. Should be different with the input vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_ab36b8038e76c52468949f8707d3d53cf}\label{da_8h_ab36b8038e76c52468949f8707d3d53cf}} 
+\index{da.h@{da.h}!da\_int@{da\_int}}
+\index{da\_int@{da\_int}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_int()}{da\_int()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} da\+\_\+int (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{unsigned int}]{base\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Integrate a da vector w.\+r.\+t. a specific base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em da\+\_\+vector} & The input da vector. \\
+\hline
+{\em base\+\_\+id} & Id of the base. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+da vector as the integration result. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_a7ce0828d83881579af4e2bf2f1c0ae48}\label{da_8h_a7ce0828d83881579af4e2bf2f1c0ae48}} 
+\index{da.h@{da.h}!da\_remain@{da\_remain}}
+\index{da\_remain@{da\_remain}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_remain()}{da\_remain()}}
+{\footnotesize\ttfamily int da\+\_\+remain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check the remaining capacity in the DA pool. 
+
+\begin{DoxyReturn}{Returns}
+The maximum number of DA vectors that can be created in the remaining place of the pool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_a6a7bb906427228e825194f28c1ab9e7d}\label{da_8h_a6a7bb906427228e825194f28c1ab9e7d}} 
+\index{da.h@{da.h}!da\_restore\_order@{da\_restore\_order}}
+\index{da\_restore\_order@{da\_restore\_order}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_restore\_order()}{da\_restore\_order()}}
+{\footnotesize\ttfamily int da\+\_\+restore\+\_\+order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Restore the original DA order. 
+
+\mbox{\Hypertarget{da_8h_a9fcd9472006662f06ee3229933c01688}\label{da_8h_a9fcd9472006662f06ee3229933c01688}} 
+\index{da.h@{da.h}!da\_substitute@{da\_substitute}}
+\index{da\_substitute@{da\_substitute}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_substitute()}{da\_substitute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void da\+\_\+substitute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{iv,  }\item[{unsigned int}]{base\+\_\+id,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{v,  }\item[{\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{ov }\end{DoxyParamCaption})}
+
+
+
+Substitute a DA vector to a specific base in a given DA Vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & A DA vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+id} & The ordinal number of the base. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The DA vector to substitute. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & The DA vector that saves the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_af25c09dac7cce3378e9b32d29b0f3976}\label{da_8h_af25c09dac7cce3378e9b32d29b0f3976}} 
+\index{da.h@{da.h}!da\_substitute@{da\_substitute}}
+\index{da\_substitute@{da\_substitute}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_substitute()}{da\_substitute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void da\+\_\+substitute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{iv,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{base\+\_\+id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{v,  }\item[{\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{ov }\end{DoxyParamCaption})}
+
+
+
+Substitute DA vectors to the specific bases in a DA vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & A DA vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+id} & The ordinal numbers of the bases. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The DA vectors to substitute. The size of v should be equal to the size of base\+\_\+id. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & The DA vector that saves the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_a6d59d2090f0c4361d2178975f2ee30b6}\label{da_8h_a6d59d2090f0c4361d2178975f2ee30b6}} 
+\index{da.h@{da.h}!da\_substitute@{da\_substitute}}
+\index{da\_substitute@{da\_substitute}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_substitute()}{da\_substitute()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void da\+\_\+substitute (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{ivecs,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{base\+\_\+id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{v,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+
+
+Substitute DA vectors to the specific bases in a group of DA vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ivecs} & A group of DA Vectors. \\
+\hline
+{\em base\+\_\+id} & The ordinal numbers for the bases. \\
+\hline
+{\em v} & The DA vectors to substitute. The size of v should be equal to the size of base\+\_\+id. \\
+\hline
+{\em ovecs} & The DA vectors that saves the result. The size of ovecs should be equal to the size of ivecs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_aada7a3f3aba16d78f60b99266b10e5fa}\label{da_8h_aada7a3f3aba16d78f60b99266b10e5fa}} 
+\index{da.h@{da.h}!da\_substitute\_const@{da\_substitute\_const}}
+\index{da\_substitute\_const@{da\_substitute\_const}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da\_substitute\_const()}{da\_substitute\_const()}}
+{\footnotesize\ttfamily void da\+\_\+substitute\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{iv,  }\item[{unsigned int}]{base\+\_\+id,  }\item[{double}]{x,  }\item[{\mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{ov }\end{DoxyParamCaption})}
+
+
+
+Substitute the given value to the specific base in a DA vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & A DA vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+id} & The ordinal number of the base. \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & The alue to substitute. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & The DA vector that saves the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_afe49af6192e3a686283d848f4a832b83}\label{da_8h_afe49af6192e3a686283d848f4a832b83}} 
+\index{da.h@{da.h}!erf@{erf}}
+\index{erf@{erf}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{erf()}{erf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} erf (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{x }\end{DoxyParamCaption})}
+
+
+
+error function for a DA vector Calculate the error function value of the input DA vector. The \mbox{\hyperlink{da_8cc_afe49af6192e3a686283d848f4a832b83}{erf()}} in math.\+h is used to calculate the cosntant apart. 2/sqrt(pi)$\ast$exp(-\/x$^\wedge$2) is the derivative of the error function, by which the high order terms could be calculated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input DA vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+erf(x) as a DA vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_a33a452b6c1f802b876c0df6c60487861}\label{da_8h_a33a452b6c1f802b876c0df6c60487861}} 
+\index{da.h@{da.h}!exp@{exp}}
+\index{exp@{exp}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{exp()}{exp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} exp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_aa3749e2d2d14985277e012363a78d3e7}\label{da_8h_aa3749e2d2d14985277e012363a78d3e7}} 
+\index{da.h@{da.h}!inv\_map@{inv\_map}}
+\index{inv\_map@{inv\_map}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{inv\_map()}{inv\_map()}}
+{\footnotesize\ttfamily void inv\+\_\+map (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{ivecs,  }\item[{int}]{dim,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} $>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+
+
+Calculate the inverse map of a given map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ivecs} & Saves the input map with dim da vectors. \\
+\hline
+{\em dim} & Number of da vectors and number of bases used in the map. \\
+\hline
+{\em ovecs} & Saves the output map. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{da_8h_a48795a7128e306aecb580bacf1eab595}\label{da_8h_a48795a7128e306aecb580bacf1eab595}} 
+\index{da.h@{da.h}!log@{log}}
+\index{log@{log}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_ad614f651903db08445eb1572764505c5}\label{da_8h_ad614f651903db08445eb1572764505c5}} 
+\index{da.h@{da.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a4ec93990006721196ae754b3f72a7055}\label{da_8h_a4ec93990006721196ae754b3f72a7055}} 
+\index{da.h@{da.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator $\ast$ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a339b29a757255cb8e55a36b6a8d7787a}\label{da_8h_a339b29a757255cb8e55a36b6a8d7787a}} 
+\index{da.h@{da.h}!operator $\ast$@{operator $\ast$}}
+\index{operator $\ast$@{operator $\ast$}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator $\ast$()}{operator *()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator $\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a380412f4590bd9ad029acab14b71a32c}\label{da_8h_a380412f4590bd9ad029acab14b71a32c}} 
+\index{da.h@{da.h}!operator+@{operator+}}
+\index{operator+@{operator+}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a76ac349ad9a4f8516abed244410856a7}\label{da_8h_a76ac349ad9a4f8516abed244410856a7}} 
+\index{da.h@{da.h}!operator+@{operator+}}
+\index{operator+@{operator+}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator+ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a6a3acf66023083a1958d945823f10407}\label{da_8h_a6a3acf66023083a1958d945823f10407}} 
+\index{da.h@{da.h}!operator+@{operator+}}
+\index{operator+@{operator+}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a1495476caa72ac68ee3b6d23a7bece29}\label{da_8h_a1495476caa72ac68ee3b6d23a7bece29}} 
+\index{da.h@{da.h}!operator+@{operator+}}
+\index{operator+@{operator+}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a279411555358efa8242d6e1ab1ba5558}\label{da_8h_a279411555358efa8242d6e1ab1ba5558}} 
+\index{da.h@{da.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a56b3db4bf81646c5fafb77ee67410d94}\label{da_8h_a56b3db4bf81646c5fafb77ee67410d94}} 
+\index{da.h@{da.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator-\/ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a0b3121d718d77a7721915c819dbf1a03}\label{da_8h_a0b3121d718d77a7721915c819dbf1a03}} 
+\index{da.h@{da.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_ac3661f6529213db43aba76db4fec8fb6}\label{da_8h_ac3661f6529213db43aba76db4fec8fb6}} 
+\index{da.h@{da.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a079613a06cbb7f8a22a310cc1c4b3eab}\label{da_8h_a079613a06cbb7f8a22a310cc1c4b3eab}} 
+\index{da.h@{da.h}!operator/@{operator/}}
+\index{operator/@{operator/}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_af7fe1688315098b5de5b72a0e28711cd}\label{da_8h_af7fe1688315098b5de5b72a0e28711cd}} 
+\index{da.h@{da.h}!operator/@{operator/}}
+\index{operator/@{operator/}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator/ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_aa640afa8a708a5b0c62ec69fcb7651d3}\label{da_8h_aa640afa8a708a5b0c62ec69fcb7651d3}} 
+\index{da.h@{da.h}!operator/@{operator/}}
+\index{operator/@{operator/}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_ae3b2a03dc6ddba9015479e44672d0da7}\label{da_8h_ae3b2a03dc6ddba9015479e44672d0da7}} 
+\index{da.h@{da.h}!pow@{pow}}
+\index{pow@{pow}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{const int}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a2b9c9a42379d4d6631ba82c1fa2d2981}\label{da_8h_a2b9c9a42379d4d6631ba82c1fa2d2981}} 
+\index{da.h@{da.h}!pow@{pow}}
+\index{pow@{pow}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector,  }\item[{const double}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a749f5b1556c7f3d1af5b2d749ca749ee}\label{da_8h_a749f5b1556c7f3d1af5b2d749ca749ee}} 
+\index{da.h@{da.h}!sin@{sin}}
+\index{sin@{sin}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{sin()}{sin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} sin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_adc9373b83082540851aedcd529af14a8}\label{da_8h_adc9373b83082540851aedcd529af14a8}} 
+\index{da.h@{da.h}!sinh@{sinh}}
+\index{sinh@{sinh}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{sinh()}{sinh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} sinh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a2b3463ed8238ad69add0583e50b8dc59}\label{da_8h_a2b3463ed8238ad69add0583e50b8dc59}} 
+\index{da.h@{da.h}!sqrt@{sqrt}}
+\index{sqrt@{sqrt}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{sqrt()}{sqrt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} sqrt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_a1cf3c2f3379994543b99ccda65fe9fc6}\label{da_8h_a1cf3c2f3379994543b99ccda65fe9fc6}} 
+\index{da.h@{da.h}!tan@{tan}}
+\index{tan@{tan}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{tan()}{tan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} tan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8h_af63923c4fbe9c11020fc8ea26a2f946b}\label{da_8h_af63923c4fbe9c11020fc8ea26a2f946b}} 
+\index{da.h@{da.h}!tanh@{tanh}}
+\index{tanh@{tanh}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{tanh()}{tanh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} tanh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{D\+A\+Vector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{da_8h_a3d82aa3a9e60ebd9953b16b9b7614e8e}\label{da_8h_a3d82aa3a9e60ebd9953b16b9b7614e8e}} 
+\index{da.h@{da.h}!da@{da}}
+\index{da@{da}!da.h@{da.h}}
+\subsubsection{\texorpdfstring{da}{da}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_base}{Base}} da}
+
+Bases for DA calculations. The i-\/th base can be accessed as da\mbox{[}i\mbox{]}. 

@@ -1,0 +1,7 @@
+*.layout
+*.depend
+*.so
+*.dll
+build
+examples/bin
+examples/obj

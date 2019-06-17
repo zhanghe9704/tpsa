@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7edavector',['~DAVector',['../struct_d_a_vector.html#a7de44a8dd61f38fe5ae0b0c5b2cbd370',1,'DAVector']]]
+  ['tan',['tan',['../da_8h.html#a1cf3c2f3379994543b99ccda65fe9fc6',1,'tan(const DAVector &amp;da_vector):&#160;da.cc'],['../da_8cc.html#a1cf3c2f3379994543b99ccda65fe9fc6',1,'tan(const DAVector &amp;da_vector):&#160;da.cc']]],
+  ['tanh',['tanh',['../da_8h.html#af63923c4fbe9c11020fc8ea26a2f946b',1,'tanh(const DAVector &amp;da_vector):&#160;da.cc'],['../da_8cc.html#af63923c4fbe9c11020fc8ea26a2f946b',1,'tanh(const DAVector &amp;da_vector):&#160;da.cc']]]
 ];

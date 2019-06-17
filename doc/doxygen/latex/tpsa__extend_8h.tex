@@ -1,0 +1,645 @@
+\hypertarget{tpsa__extend_8h}{}\section{include/tpsa\+\_\+extend.h File Reference}
+\label{tpsa__extend_8h}\index{include/tpsa\_extend.h@{include/tpsa\_extend.h}}
+
+
+Extend the original \mbox{\hyperlink{tpsa_8h}{tpsa.\+h}} file by Dr. Lingyun Yang.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include \char`\"{}tpsa.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{tpsa__extend_8h_aa190b425c565e808b3a63561ab1660c0}{ad\+\_\+dim}} ()
+\begin{DoxyCompactList}\small\item\em Return the number of T\+PS bases. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a49c1069d4a7ba8c2e42d2ad68d31665c}{ad\+\_\+reset\+\_\+vector}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv)
+\begin{DoxyCompactList}\small\item\em Reset all the elements to zero and keep the length unchanged for a given T\+PS vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a47dba2147bcf776582f429955f9caf37}{ad\+\_\+change\+\_\+order}} (unsigned int new\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Reduce the T\+PS order to the specific value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_abda41814af0c98a894cfc1423c755537}{ad\+\_\+restore\+\_\+order}} ()
+\begin{DoxyCompactList}\small\item\em Restore the T\+PS order to the original value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_ae2355e27911916f0642c9420521cba8e}{ad\+\_\+reserve}} (const unsigned int n)
+\begin{DoxyCompactList}\small\item\em Reserve memory for n T\+PS vectors. Allocate the memory pool for n T\+PS vectors and initialize the linked list (adlist, ad\+\_\+flag and ad\+\_\+end) for memory management. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a8f13b762fd7010669c6a25b641178dde}{ad\+\_\+clear}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the T\+PS environment and release memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a1508790fc886cc8c38ffc3f24e380d59}{ad\+\_\+assign}} (unsigned int \&i)
+\begin{DoxyCompactList}\small\item\em Assign a memory slot for a T\+PS vector. Assign memory slot for a T\+PS vector. The length of the vector is zero. This is an alternative function for the original one (ad\+\_\+alloc) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tpsa__extend_8h_abb04463f8347bacf3c2f6683113946bc}{ad\+\_\+con}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv)
+\begin{DoxyCompactList}\small\item\em Find the value of the constant part of a given T\+PS vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_aad5f188d4fe01885a2bef12d35e6e2e4}{ad\+\_\+reset\+\_\+const}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv, double x)
+\begin{DoxyCompactList}\small\item\em Reset the given T\+PS vector to a given constant. The constant part of the given T\+PS vector will be equal to the given constant. All higher order elements are zeros. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{tpsa__extend_8h_a3d6caf7d0308b01b48084f87a5445a4d}{ad\+\_\+remain}} ()
+\begin{DoxyCompactList}\small\item\em Check the remaining capacity in the T\+PS pool. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{tpsa__extend_8h_a949ad6339b5976ea9e6779f6e1d4fe5c}{ad\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Count the number of existing T\+PS vectors. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a3efd4d6041ca3ad7bec9865f7dd1bcb6}{ad\+\_\+mult\+\_\+c}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv, double c, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} ov)
+\begin{DoxyCompactList}\small\item\em Multiply a constant number to a T\+PS vector. Multiply a constant number c to the given T\+PS vector iv, save the result in ov. This function does not change the value of iv, as in ad\+\_\+mult\+\_\+const. This is an alternative function for the original one (ad\+\_\+mult\+\_\+const) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_acd0a417b04a69b4d98e93de5944f5026}{ad\+\_\+substitute\+\_\+const}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv, unsigned int base\+\_\+id, double x, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} ov)
+\begin{DoxyCompactList}\small\item\em Substitute a number to the specific base of a given T\+PS vector. Save the result into another T\+PS vector. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_aa3225577394b78594a11481a65e87883}{ad\+\_\+substitute}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv, unsigned int base\+\_\+id, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} v, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} ov)
+\begin{DoxyCompactList}\small\item\em Substitute a T\+PS vector to the specific base of another T\+PS vector. Save the result into the third T\+PS vector. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a57f74e04e0270104446434c2f495cbbe}{ad\+\_\+substitute}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv, std\+::vector$<$ unsigned int $>$ \&base\+\_\+id, std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&v, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} ov)
+\begin{DoxyCompactList}\small\item\em Substitute a group of T\+PS vectors to the specific bases of a given T\+PS vector. Save the result into another T\+PS vector. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a954cd7261237736c8517a28f4dbe1880}{ad\+\_\+substitute}} (std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&ivecs, std\+::vector$<$ unsigned int $>$ \&base\+\_\+id, std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&v, std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&ovecs)
+\begin{DoxyCompactList}\small\item\em Substitute a group of T\+PS vectors to the specific bases of another group of T\+PS vectors. Result saved into the third group of T\+PS vectors. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a7afc1250d68a57bdb478c0e720f0968c}{ad\+\_\+composition}} (std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&ivecs, std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&v, std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&ovecs)
+\begin{DoxyCompactList}\small\item\em Composition of two groups of T\+PS vectors. Calculate the composition of two groups of T\+PS vectors, and save the result into the third group of T\+PS vectors. Call the first group of T\+PS vectors, ivecs, as f, which includes n T\+PS vectors\+: f\+\_\+1, f\+\_\+2, ..., f\+\_\+n. The second group of T\+PS vectors, v, should contain the same number of T\+PS vectors as the number of T\+PS bases. Call the third group of T\+PS vectors, ovecs, as g, which also includes n T\+PS vectors\+: g\+\_\+1, g\+\_\+2, ..., g\+\_\+n. g = f(v), or g\+\_\+1 = f\+\_\+1(v), g\+\_\+2 = f\+\_\+2(v), ..., g\+\_\+n = f\+\_\+n(v). This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a7e38bd6828ebc0ad6c9b95f8db5334c0}{ad\+\_\+composition}} (std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&ivecs, std\+::vector$<$ double $>$ \&v, std\+::vector$<$ double $>$ \&ovecs)
+\begin{DoxyCompactList}\small\item\em Composition of a group of T\+PS vectors with a group of numbers. Submitting the numbers into the bases of a group of T\+PS vectors, and save the result into another group of T\+PS vectors. Call the first group of T\+PS vectors, ivecs, as f, which includes n T\+PS vectors\+: f\+\_\+1, f\+\_\+2, ..., f\+\_\+n. A group of m numbers are saved in v, where m is equal to the number of T\+PS bases. Call the second group of T\+PS vectors, ovecs, as g, which also includes n T\+PS vectors\+: g\+\_\+1, g\+\_\+2, ..., g\+\_\+n. g = f(v), or g\+\_\+1 = f\+\_\+1(v), g\+\_\+2 = f\+\_\+2(v), ..., g\+\_\+n = f\+\_\+n(v). This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_ac8f3c597a164a6df71c6dbefd7cbf717}{ad\+\_\+add}} (const unsigned int idst, const unsigned int jsrc, unsigned int ov)
+\begin{DoxyCompactList}\small\item\em Summation of two T\+PS vectors and save the result to the third one. Calculate ov = idst + jsrc. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_af9c2a6fb75662fee54af2c661fe34218}{ad\+\_\+sub}} (const unsigned int idst, const unsigned int jsrc, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} ov)
+\begin{DoxyCompactList}\small\item\em Subscribe a T\+PS vector from another T\+PS vector and saves the result to the third T\+PS vector. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_ae9d4613c00e1d9f0dbfa37fc7d157895}{ad\+\_\+add\+\_\+const}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} i, double r, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} ov)
+\begin{DoxyCompactList}\small\item\em Add a number to a T\+SP vector and save the result to another T\+SP vector. Calculate ov = i + r. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tpsa__extend_8h_a7e38ededef0fea11002845e3f6e71da7}{ad\+\_\+elem}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&vec, std\+::vector$<$ int $>$ \&idx)
+\begin{DoxyCompactList}\small\item\em Return value of a specific element in a T\+PS vector Take a T\+PS vector with three bases as an example. Given the order pattern idx = \{nx,ny,nz\}, the function returns the value of the element (x$^\wedge$nx)$\ast$(n$^\wedge$ny)$\ast$(z$^\wedge$nz) in vec, the T\+PS vector. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a54f1ec7b69b89f2b4fcbc75ec5e625f8}{ad\+\_\+elem}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&vec, unsigned int idx, std\+::vector$<$ unsigned int $>$ \&c, double \&x)
+\begin{DoxyCompactList}\small\item\em Return the value and the order pattern of the specific element. Given the ordinal number of an element, return the value and order pattern of the element. The size of vector c should be equal to the number of bases. For example, if idx matches the element (x$^\wedge$nx)$\ast$(n$^\wedge$ny)$\ast$(z$^\wedge$nz), c = \{nx, ny, nz\}, where x, y, and z are the bases. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a793a6dbcd8364f6ee2a6f3b9d228731c}{ad\+\_\+pok}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&vec, std\+::vector$<$ int $>$ \&idx, double x)
+\begin{DoxyCompactList}\small\item\em Change the value of a specific element in a T\+PS vector Take a T\+PS vector with three bases as an example. Given the order pattern idx = \{nx,ny,nz\} and a value x, the function changes the value of the element (x$^\wedge$nx)$\ast$(n$^\wedge$ny)$\ast$(z$^\wedge$nz) in vec, the T\+PS vector, to x. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tpsa__extend_8h_a5f339295510407632491412a7830a5b5}{ad\+\_\+order}} ()
+\begin{DoxyCompactList}\small\item\em Return the order of the T\+PS environment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_aaa1f6bc39d5815a5f4ae59fea1c1b5ec}{ad\+\_\+clean}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&iv, const double eps)
+\begin{DoxyCompactList}\small\item\em Set the small T\+PS coefficients as 0 if they are less than eps. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tpsa__extend_8h_a81330cd760f80b20de26bcb0f4f40d16}{ad\+\_\+full\+\_\+length}} ()
+\begin{DoxyCompactList}\small\item\em Return the full length of the T\+PS with the current order and dimension. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa__extend_8h_a474ed2a886c17e99926fda12efa497a1}{ad\+\_\+int}} (\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} iv, unsigned int base\+\_\+id, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} ov)
+\begin{DoxyCompactList}\small\item\em Integrate a T\+PS w.\+r.\+t. a specific base. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tpsa__extend_8h_a87dbdd609cc2fa52cfee416eaed8e4d4}{ad\+\_\+n\+\_\+element}} (\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} v)
+\begin{DoxyCompactList}\small\item\em Return the number of non-\/zero elements in a T\+PS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Extend the original \mbox{\hyperlink{tpsa_8h}{tpsa.\+h}} file by Dr. Lingyun Yang. 
+
+\begin{DoxyAuthor}{Author}
+He Zhang @email \href{mailto:hezhang@jlab.org}{\texttt{ hezhang@jlab.\+org}} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tpsa__extend_8h_ac8f3c597a164a6df71c6dbefd7cbf717}\label{tpsa__extend_8h_ac8f3c597a164a6df71c6dbefd7cbf717}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_add@{ad\_add}}
+\index{ad\_add@{ad\_add}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_add()}{ad\_add()}}
+{\footnotesize\ttfamily void ad\+\_\+add (\begin{DoxyParamCaption}\item[{const unsigned int}]{idst,  }\item[{const unsigned int}]{jsrc,  }\item[{unsigned int}]{ov }\end{DoxyParamCaption})}
+
+
+
+Summation of two T\+PS vectors and save the result to the third one. Calculate ov = idst + jsrc. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em idst} & T\+PS vector for summation. \\
+\hline
+\mbox{\texttt{ in}}  & {\em jsrc} & T\+PS vector for summation. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & T\+PS vector that saves the summation result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_ae9d4613c00e1d9f0dbfa37fc7d157895}\label{tpsa__extend_8h_ae9d4613c00e1d9f0dbfa37fc7d157895}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_add\_const@{ad\_add\_const}}
+\index{ad\_add\_const@{ad\_add\_const}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_add\_const()}{ad\_add\_const()}}
+{\footnotesize\ttfamily void ad\+\_\+add\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{i,  }\item[{double}]{r,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{ov }\end{DoxyParamCaption})}
+
+
+
+Add a number to a T\+SP vector and save the result to another T\+SP vector. Calculate ov = i + r. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em i} & T\+SP vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & A number. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & T\+SP vector that saves the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a1508790fc886cc8c38ffc3f24e380d59}\label{tpsa__extend_8h_a1508790fc886cc8c38ffc3f24e380d59}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_assign@{ad\_assign}}
+\index{ad\_assign@{ad\_assign}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_assign()}{ad\_assign()}}
+{\footnotesize\ttfamily void ad\+\_\+assign (\begin{DoxyParamCaption}\item[{unsigned int \&}]{i }\end{DoxyParamCaption})}
+
+
+
+Assign a memory slot for a T\+PS vector. Assign memory slot for a T\+PS vector. The length of the vector is zero. This is an alternative function for the original one (ad\+\_\+alloc) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Return a new integer representing the assigned T\+PS vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item The whole T\+PS vector pool was allocated by \mbox{\hyperlink{tpsa_8h_aa4a919c3289f8f538fddc1768b030d69}{ad\+\_\+reserve(n)}}. This command does not actually allocate memory. It only assign a slot to the specific T\+PS vector. -\/Use ad\+\_\+alloc to assign memory slot for an T\+PS vector with value zero and length 1. 
+\end{DoxyItemize}
+\end{DoxyNote}
+\mbox{\Hypertarget{tpsa__extend_8h_a47dba2147bcf776582f429955f9caf37}\label{tpsa__extend_8h_a47dba2147bcf776582f429955f9caf37}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_change\_order@{ad\_change\_order}}
+\index{ad\_change\_order@{ad\_change\_order}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_change\_order()}{ad\_change\_order()}}
+{\footnotesize\ttfamily void ad\+\_\+change\+\_\+order (\begin{DoxyParamCaption}\item[{unsigned int}]{new\+\_\+order }\end{DoxyParamCaption})}
+
+
+
+Reduce the T\+PS order to the specific value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+order} & New T\+PS order. The new order should be lower than the current order. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_aaa1f6bc39d5815a5f4ae59fea1c1b5ec}\label{tpsa__extend_8h_aaa1f6bc39d5815a5f4ae59fea1c1b5ec}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_clean@{ad\_clean}}
+\index{ad\_clean@{ad\_clean}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_clean()}{ad\_clean()}}
+{\footnotesize\ttfamily void ad\+\_\+clean (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&}]{iv,  }\item[{const double}]{eps }\end{DoxyParamCaption})}
+
+
+
+Set the small T\+PS coefficients as 0 if they are less than eps. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & A T\+PS vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em eps} & A real number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a8f13b762fd7010669c6a25b641178dde}\label{tpsa__extend_8h_a8f13b762fd7010669c6a25b641178dde}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_clear@{ad\_clear}}
+\index{ad\_clear@{ad\_clear}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_clear()}{ad\_clear()}}
+{\footnotesize\ttfamily void ad\+\_\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the T\+PS environment and release memory. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a7afc1250d68a57bdb478c0e720f0968c}\label{tpsa__extend_8h_a7afc1250d68a57bdb478c0e720f0968c}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_composition@{ad\_composition}}
+\index{ad\_composition@{ad\_composition}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_composition()}{ad\_composition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void ad\+\_\+composition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{ivecs,  }\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{v,  }\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+
+
+Composition of two groups of T\+PS vectors. Calculate the composition of two groups of T\+PS vectors, and save the result into the third group of T\+PS vectors. Call the first group of T\+PS vectors, ivecs, as f, which includes n T\+PS vectors\+: f\+\_\+1, f\+\_\+2, ..., f\+\_\+n. The second group of T\+PS vectors, v, should contain the same number of T\+PS vectors as the number of T\+PS bases. Call the third group of T\+PS vectors, ovecs, as g, which also includes n T\+PS vectors\+: g\+\_\+1, g\+\_\+2, ..., g\+\_\+n. g = f(v), or g\+\_\+1 = f\+\_\+1(v), g\+\_\+2 = f\+\_\+2(v), ..., g\+\_\+n = f\+\_\+n(v). This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ivecs} & A group of T\+PS vectors, saved as an std\+::vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & A group of T\+PS vectors, saved as an std\+::vector. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ovecs} & A group of T\+PS vectors, saved as an std\+::vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a7e38bd6828ebc0ad6c9b95f8db5334c0}\label{tpsa__extend_8h_a7e38bd6828ebc0ad6c9b95f8db5334c0}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_composition@{ad\_composition}}
+\index{ad\_composition@{ad\_composition}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_composition()}{ad\_composition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void ad\+\_\+composition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{ivecs,  }\item[{std\+::vector$<$ double $>$ \&}]{v,  }\item[{std\+::vector$<$ double $>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+
+
+Composition of a group of T\+PS vectors with a group of numbers. Submitting the numbers into the bases of a group of T\+PS vectors, and save the result into another group of T\+PS vectors. Call the first group of T\+PS vectors, ivecs, as f, which includes n T\+PS vectors\+: f\+\_\+1, f\+\_\+2, ..., f\+\_\+n. A group of m numbers are saved in v, where m is equal to the number of T\+PS bases. Call the second group of T\+PS vectors, ovecs, as g, which also includes n T\+PS vectors\+: g\+\_\+1, g\+\_\+2, ..., g\+\_\+n. g = f(v), or g\+\_\+1 = f\+\_\+1(v), g\+\_\+2 = f\+\_\+2(v), ..., g\+\_\+n = f\+\_\+n(v). This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ivecs} & A group of T\+PS vectors, saved as an std\+::vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & A group of T\+PS vectors, saved as an std\+::vector. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ovecs} & A group of T\+PS vectors, saved as an std\+::vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_abb04463f8347bacf3c2f6683113946bc}\label{tpsa__extend_8h_abb04463f8347bacf3c2f6683113946bc}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_con@{ad\_con}}
+\index{ad\_con@{ad\_con}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_con()}{ad\_con()}}
+{\footnotesize\ttfamily double ad\+\_\+con (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv }\end{DoxyParamCaption})}
+
+
+
+Find the value of the constant part of a given T\+PS vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iv} & A T\+PS vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value of the constant part of the given T\+PS vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a949ad6339b5976ea9e6779f6e1d4fe5c}\label{tpsa__extend_8h_a949ad6339b5976ea9e6779f6e1d4fe5c}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_count@{ad\_count}}
+\index{ad\_count@{ad\_count}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_count()}{ad\_count()}}
+{\footnotesize\ttfamily unsigned int ad\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Count the number of existing T\+PS vectors. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+\begin{DoxyReturn}{Returns}
+The number of existing T\+PS vectors. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_aa190b425c565e808b3a63561ab1660c0}\label{tpsa__extend_8h_aa190b425c565e808b3a63561ab1660c0}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_dim@{ad\_dim}}
+\index{ad\_dim@{ad\_dim}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_dim()}{ad\_dim()}}
+{\footnotesize\ttfamily unsigned int ad\+\_\+dim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the number of T\+PS bases. 
+
+\begin{DoxyReturn}{Returns}
+T\+PS base number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a7e38ededef0fea11002845e3f6e71da7}\label{tpsa__extend_8h_a7e38ededef0fea11002845e3f6e71da7}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_elem@{ad\_elem}}
+\index{ad\_elem@{ad\_elem}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_elem()}{ad\_elem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double ad\+\_\+elem (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&}]{vec,  }\item[{std\+::vector$<$ int $>$ \&}]{idx }\end{DoxyParamCaption})}
+
+
+
+Return value of a specific element in a T\+PS vector Take a T\+PS vector with three bases as an example. Given the order pattern idx = \{nx,ny,nz\}, the function returns the value of the element (x$^\wedge$nx)$\ast$(n$^\wedge$ny)$\ast$(z$^\wedge$nz) in vec, the T\+PS vector. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & A T\+PS vector. \\
+\hline
+{\em idx} & Order pattern of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value of the element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a54f1ec7b69b89f2b4fcbc75ec5e625f8}\label{tpsa__extend_8h_a54f1ec7b69b89f2b4fcbc75ec5e625f8}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_elem@{ad\_elem}}
+\index{ad\_elem@{ad\_elem}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_elem()}{ad\_elem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void ad\+\_\+elem (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&}]{vec,  }\item[{unsigned int}]{idx,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{c,  }\item[{double \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Return the value and the order pattern of the specific element. Given the ordinal number of an element, return the value and order pattern of the element. The size of vector c should be equal to the number of bases. For example, if idx matches the element (x$^\wedge$nx)$\ast$(n$^\wedge$ny)$\ast$(z$^\wedge$nz), c = \{nx, ny, nz\}, where x, y, and z are the bases. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em idx} & The ordinal number of the element. \\
+\hline
+\mbox{\texttt{ out}}  & {\em c} & The order pattern of the element. \\
+\hline
+\mbox{\texttt{ out}}  & {\em elem} & The value of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a81330cd760f80b20de26bcb0f4f40d16}\label{tpsa__extend_8h_a81330cd760f80b20de26bcb0f4f40d16}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_full\_length@{ad\_full\_length}}
+\index{ad\_full\_length@{ad\_full\_length}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_full\_length()}{ad\_full\_length()}}
+{\footnotesize\ttfamily int ad\+\_\+full\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the full length of the T\+PS with the current order and dimension. 
+
+\begin{DoxyReturn}{Returns}
+full length of the T\+PS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a474ed2a886c17e99926fda12efa497a1}\label{tpsa__extend_8h_a474ed2a886c17e99926fda12efa497a1}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_int@{ad\_int}}
+\index{ad\_int@{ad\_int}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_int()}{ad\_int()}}
+{\footnotesize\ttfamily void ad\+\_\+int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv,  }\item[{unsigned int}]{base\+\_\+id,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{ov }\end{DoxyParamCaption})}
+
+
+
+Integrate a T\+PS w.\+r.\+t. a specific base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iv} & The T\+PS to integrate. \\
+\hline
+{\em base\+\_\+id} & The base. \\
+\hline
+{\em ov} & The output T\+PS. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a3efd4d6041ca3ad7bec9865f7dd1bcb6}\label{tpsa__extend_8h_a3efd4d6041ca3ad7bec9865f7dd1bcb6}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_mult\_c@{ad\_mult\_c}}
+\index{ad\_mult\_c@{ad\_mult\_c}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_mult\_c()}{ad\_mult\_c()}}
+{\footnotesize\ttfamily void ad\+\_\+mult\+\_\+c (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv,  }\item[{double}]{c,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{ov }\end{DoxyParamCaption})}
+
+
+
+Multiply a constant number to a T\+PS vector. Multiply a constant number c to the given T\+PS vector iv, save the result in ov. This function does not change the value of iv, as in ad\+\_\+mult\+\_\+const. This is an alternative function for the original one (ad\+\_\+mult\+\_\+const) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & A T\+PS vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & A number. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & The result T\+PS vector as ov = c $\ast$ iv. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a87dbdd609cc2fa52cfee416eaed8e4d4}\label{tpsa__extend_8h_a87dbdd609cc2fa52cfee416eaed8e4d4}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_n\_element@{ad\_n\_element}}
+\index{ad\_n\_element@{ad\_n\_element}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_n\_element()}{ad\_n\_element()}}
+{\footnotesize\ttfamily int ad\+\_\+n\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{v }\end{DoxyParamCaption})}
+
+
+
+Return the number of non-\/zero elements in a T\+PS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The T\+PS. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of non-\/zero elements in the T\+PS. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a5f339295510407632491412a7830a5b5}\label{tpsa__extend_8h_a5f339295510407632491412a7830a5b5}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_order@{ad\_order}}
+\index{ad\_order@{ad\_order}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_order()}{ad\_order()}}
+{\footnotesize\ttfamily int ad\+\_\+order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the order of the T\+PS environment. 
+
+\begin{DoxyReturn}{Returns}
+order of the T\+PS environment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a793a6dbcd8364f6ee2a6f3b9d228731c}\label{tpsa__extend_8h_a793a6dbcd8364f6ee2a6f3b9d228731c}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_pok@{ad\_pok}}
+\index{ad\_pok@{ad\_pok}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_pok()}{ad\_pok()}}
+{\footnotesize\ttfamily void ad\+\_\+pok (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} \&}]{vec,  }\item[{std\+::vector$<$ int $>$ \&}]{idx,  }\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Change the value of a specific element in a T\+PS vector Take a T\+PS vector with three bases as an example. Given the order pattern idx = \{nx,ny,nz\} and a value x, the function changes the value of the element (x$^\wedge$nx)$\ast$(n$^\wedge$ny)$\ast$(z$^\wedge$nz) in vec, the T\+PS vector, to x. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & A T\+PS vector. \\
+\hline
+{\em idx} & Order pattern of the element. \\
+\hline
+{\em x} & Given value of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a3d6caf7d0308b01b48084f87a5445a4d}\label{tpsa__extend_8h_a3d6caf7d0308b01b48084f87a5445a4d}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_remain@{ad\_remain}}
+\index{ad\_remain@{ad\_remain}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_remain()}{ad\_remain()}}
+{\footnotesize\ttfamily unsigned int ad\+\_\+remain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check the remaining capacity in the T\+PS pool. 
+
+\begin{DoxyReturn}{Returns}
+The maximum number of T\+PS vectors that can be created in the remaining place of the pool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_ae2355e27911916f0642c9420521cba8e}\label{tpsa__extend_8h_ae2355e27911916f0642c9420521cba8e}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_reserve@{ad\_reserve}}
+\index{ad\_reserve@{ad\_reserve}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_reserve()}{ad\_reserve()}}
+{\footnotesize\ttfamily void ad\+\_\+reserve (\begin{DoxyParamCaption}\item[{const unsigned int}]{n }\end{DoxyParamCaption})}
+
+
+
+Reserve memory for n T\+PS vectors. Allocate the memory pool for n T\+PS vectors and initialize the linked list (adlist, ad\+\_\+flag and ad\+\_\+end) for memory management. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of T\+PS vectors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_aad5f188d4fe01885a2bef12d35e6e2e4}\label{tpsa__extend_8h_aad5f188d4fe01885a2bef12d35e6e2e4}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_reset\_const@{ad\_reset\_const}}
+\index{ad\_reset\_const@{ad\_reset\_const}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_reset\_const()}{ad\_reset\_const()}}
+{\footnotesize\ttfamily void ad\+\_\+reset\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv,  }\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Reset the given T\+PS vector to a given constant. The constant part of the given T\+PS vector will be equal to the given constant. All higher order elements are zeros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iv} & A T\+PS vector. \\
+\hline
+{\em x} & A number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a49c1069d4a7ba8c2e42d2ad68d31665c}\label{tpsa__extend_8h_a49c1069d4a7ba8c2e42d2ad68d31665c}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_reset\_vector@{ad\_reset\_vector}}
+\index{ad\_reset\_vector@{ad\_reset\_vector}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_reset\_vector()}{ad\_reset\_vector()}}
+{\footnotesize\ttfamily void ad\+\_\+reset\+\_\+vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv }\end{DoxyParamCaption})}
+
+
+
+Reset all the elements to zero and keep the length unchanged for a given T\+PS vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iv} & A T\+PS vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_abda41814af0c98a894cfc1423c755537}\label{tpsa__extend_8h_abda41814af0c98a894cfc1423c755537}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_restore\_order@{ad\_restore\_order}}
+\index{ad\_restore\_order@{ad\_restore\_order}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_restore\_order()}{ad\_restore\_order()}}
+{\footnotesize\ttfamily void ad\+\_\+restore\+\_\+order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Restore the T\+PS order to the original value. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_af9c2a6fb75662fee54af2c661fe34218}\label{tpsa__extend_8h_af9c2a6fb75662fee54af2c661fe34218}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_sub@{ad\_sub}}
+\index{ad\_sub@{ad\_sub}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_sub()}{ad\_sub()}}
+{\footnotesize\ttfamily void ad\+\_\+sub (\begin{DoxyParamCaption}\item[{const unsigned int}]{idst,  }\item[{const unsigned int}]{jsrc,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{ov }\end{DoxyParamCaption})}
+
+
+
+Subscribe a T\+PS vector from another T\+PS vector and saves the result to the third T\+PS vector. This is an alternative function for the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em idst} & The minuend T\+PS vector. \\
+\hline
+\mbox{\texttt{ in}}  & {\em jsrc} & The subtrahend T\+PS vector. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & The T\+PS vector that saves the results. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_aa3225577394b78594a11481a65e87883}\label{tpsa__extend_8h_aa3225577394b78594a11481a65e87883}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_substitute@{ad\_substitute}}
+\index{ad\_substitute@{ad\_substitute}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_substitute()}{ad\_substitute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void ad\+\_\+substitute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv,  }\item[{unsigned int}]{base\+\_\+id,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{v,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{ov }\end{DoxyParamCaption})}
+
+
+
+Substitute a T\+PS vector to the specific base of another T\+PS vector. Save the result into the third T\+PS vector. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & The T\+PS vector into which another T\+PS vector is substituted. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+id} & The index of the base. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The T\+PS vector to be substituted. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & The T\+PS vector that saves the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a57f74e04e0270104446434c2f495cbbe}\label{tpsa__extend_8h_a57f74e04e0270104446434c2f495cbbe}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_substitute@{ad\_substitute}}
+\index{ad\_substitute@{ad\_substitute}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_substitute()}{ad\_substitute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void ad\+\_\+substitute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{base\+\_\+id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{v,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{ov }\end{DoxyParamCaption})}
+
+
+
+Substitute a group of T\+PS vectors to the specific bases of a given T\+PS vector. Save the result into another T\+PS vector. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ivecs} & The T\+PS vector into which other T\+PS vectors are substituted. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+id} & The indexes of the bases. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The T\+PS vectors to be substituted. The number of the T\+PS vectors should be equal to the number of indexes. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ovecs} & The T\+PS vector that saves the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_a954cd7261237736c8517a28f4dbe1880}\label{tpsa__extend_8h_a954cd7261237736c8517a28f4dbe1880}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_substitute@{ad\_substitute}}
+\index{ad\_substitute@{ad\_substitute}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_substitute()}{ad\_substitute()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void ad\+\_\+substitute (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{ivecs,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{base\+\_\+id,  }\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{v,  }\item[{std\+::vector$<$ \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+
+
+Substitute a group of T\+PS vectors to the specific bases of another group of T\+PS vectors. Result saved into the third group of T\+PS vectors. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ivecs} & The T\+PS vectors into which other T\+PS vectors are substituted. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+id} & The indexes of the bases. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The T\+PS vectors to be substituted. The number of the T\+PS vectors should be equal to the number of indexes. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ovecs} & The T\+PS vectors that save the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tpsa__extend_8h_acd0a417b04a69b4d98e93de5944f5026}\label{tpsa__extend_8h_acd0a417b04a69b4d98e93de5944f5026}} 
+\index{tpsa\_extend.h@{tpsa\_extend.h}!ad\_substitute\_const@{ad\_substitute\_const}}
+\index{ad\_substitute\_const@{ad\_substitute\_const}!tpsa\_extend.h@{tpsa\_extend.h}}
+\subsubsection{\texorpdfstring{ad\_substitute\_const()}{ad\_substitute\_const()}}
+{\footnotesize\ttfamily void ad\+\_\+substitute\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{iv,  }\item[{unsigned int}]{base\+\_\+id,  }\item[{double}]{x,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}]{ov }\end{DoxyParamCaption})}
+
+
+
+Substitute a number to the specific base of a given T\+PS vector. Save the result into another T\+PS vector. This is an alternative function for the original one (ad\+\_\+subst) in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & The T\+PS vector into which the number is substituted. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+id} & The index of the base. \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & The number to be substituted. \\
+\hline
+\mbox{\texttt{ out}}  & {\em ov} & The T\+PS vector that saves the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
