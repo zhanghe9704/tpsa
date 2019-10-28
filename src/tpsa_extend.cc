@@ -1029,7 +1029,7 @@ void ad_substitute_const(const TVEC iv, unsigned int base_id, double x, TVEC ov)
         }
     }
 
-    for(unsigned int i=adveclen[ov]-1; i>=0; --i) {
+    for(int i=adveclen[ov]-1; i>=0; --i) {
         if(std::abs(advec[ov][i])<std::numeric_limits<double>::min()) adveclen[ov] -= 1;
         else break;
     }
