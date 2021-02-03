@@ -46,5 +46,8 @@ void ad_clean(const TVEC &iv, const double eps); //Set the coefficients smaller 
 int ad_full_length();   //Return the maximum length of a TPS.
 void ad_int(TVEC iv, unsigned int base_id, TVEC ov); //Integrate w.r.t. the specific base.
 int ad_n_element(TVEC v);   //Number of non-zero element!
+
+////******************** Expose existing methods in tpsa.cc but not in tpsa.h ************************////
+void print_vec(unsigned int ii, std::ostream& os);
 #endif // TPSA_EXTEND
 

@@ -114,7 +114,7 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
 * The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
 
-* You can also use cmake to compile the code into both a static library and a dynamic library. This is only tested in Ubuntu 16.04. 
+* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 16.04 and in Ubuntu 18.04 (WSL2). 
 
   `cmake .` 
   `make`
@@ -151,7 +151,7 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   
 
-  `gcc examples/examples.cc -o tpsa_exp -I ./include/ -L ./lib -ltpsa -lstdc++ -lm -std=c++11`
+  `gcc examples/examples.cc -o tpsa_exp -I ./include/ -L. -ltpsa -lstdc++ -lm -std=c++11`
 
   
 

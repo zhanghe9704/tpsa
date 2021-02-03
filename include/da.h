@@ -10,9 +10,8 @@
 #define DA_H_INCLUDED
 
 #include <memory>
+#include <iostream>
 #include <vector>
-//#include "tpsa_extend.h"
-
 
 /** \brief Differential Algebra (DA) Vector
  * A TPS vector with methods. Can be used with most numerical operators.
@@ -131,6 +130,8 @@ DAVector pow(const DAVector &da_vector, const int order);
 DAVector pow(const DAVector &da_vector, const double order);
 double abs(const DAVector &da_vector);
 DAVector erf(const DAVector& x);
+
+std::ostream& operator<<(std::ostream &os, const DAVector &da_vector);
 
 void inv_map(std::vector<DAVector> &ivecs, int dim, std::vector<DAVector> &ovecs);
 #endif // DA_H_INCLUDED

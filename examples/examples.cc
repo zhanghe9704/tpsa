@@ -1,5 +1,6 @@
 #include "../include/da.h"
 #include <cmath>
+#include <fstream>
 #include <iostream>
 #include <vector>
 
@@ -70,6 +71,12 @@ int main() {
     ly.at(0).print();
     ly.at(1).print();
     ly.at(2).print();
+	
+	//Output a DA vector to file. 
+	std::ofstream fout;
+	fout.open("da_output.txt");
+	fout << z;
+	fout.close();
 
     return 0;
 }

@@ -5,3 +5,13 @@
 build
 examples/bin
 examples/obj
+*.a
+*.so
+CMakeCache.txt
+Makefile
+CMakeFiles
+tpsa_exp
+cmake_install.cmake
+examples/example.cbp
+examples/example.depend
+examples/example.layout

@@ -743,6 +743,11 @@ DAVector pow(const DAVector &da_vector, const double order) {
     return res;
 }
 
+std::ostream& operator<<(std::ostream &os, const DAVector &da_vector) {
+    print_vec(da_vector.da_vector_, os);
+    return os;
+}
+
 void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> &idx, int &d){
 	int imax;
 	double big, dum, sum, temp;
