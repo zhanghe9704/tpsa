@@ -20,7 +20,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="../build/lib/Release/tpsa" prefix_auto="1" extension_auto="1" />
+				<Option output="../windows_x64/tpsa" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="../build/obj/Release/" />
 				<Option type="2" />
@@ -41,9 +41,6 @@
 		<Unit filename="../src/da.cc" />
 		<Unit filename="../src/tpsa_extend.cc" />
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
 				<doxyfile_project project_number="1.0.0" />
