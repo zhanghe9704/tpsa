@@ -13,6 +13,10 @@ int main() {
     //Initialize the DA domain.
     da_init(da_order, da_dim, n_vec);
 
+    da[0].print();
+    da[1].print();
+    da[2].print();
+
     std::cout<<"Fundamental calculations of DA vectors."<<std::endl<<std::endl;
     DAVector x = 1 + da[0] + 2*da[1] + 5*da[2];
     x.print();
@@ -39,6 +43,8 @@ int main() {
     std::vector<unsigned int> idx{0,1};
     da_substitute(y, idx, lv, z);
     z.print();
+
+    std::cout<<"The norm of z is "<<z.norm()<<std::endl;
 
     //Bunch processing for substitutions.
     std::cout<<"Bunch processing for substitutions."<<std::endl<<std::endl;
@@ -71,8 +77,8 @@ int main() {
     ly.at(0).print();
     ly.at(1).print();
     ly.at(2).print();
-	
-	//Output a DA vector to file. 
+
+	//Output a DA vector to file.
 	std::ofstream fout;
 	fout.open("da_output.txt");
 	fout << z;

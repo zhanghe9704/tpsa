@@ -31,6 +31,7 @@ struct DAVector {
   void element(unsigned int i, std::vector<unsigned int>& c, double& elem) const;
   double element(int i);
   double element(std::vector<int> idx);
+  double norm();
   void set_element(int *c, double elem);
   void set_element(std::vector<int> idx, double elem);
   void reset();

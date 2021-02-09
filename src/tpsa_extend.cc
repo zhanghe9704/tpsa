@@ -31,6 +31,24 @@ int ad_order() {
     return gnd;
 }
 
+/** \brief Return the index of the last available slot in the TPS vector pool.
+ *
+ * \return Index of the last available slot in the TPS vector pool.
+ *
+ */
+unsigned int ad_last_note() {
+    return ad_end;
+}
+
+/** \brief Return the index of the next available slot in the TPS vector pool.
+ *
+ * \return Index of the next available slot in the TPS vector pool.
+ *
+ */
+unsigned int ad_next_note() {
+    return ad_flag;
+}
+
 /** \brief Return the full length of the TPS with the current order and dimension
  *
  * \return full length of the TPS
@@ -234,6 +252,20 @@ int ad_n_element(TVEC v) {
         if (fabs(advec[v][i])>std::numeric_limits<double>::min())
             ++n;
     return n;
+}
+
+/** \brief Return the norm of a TPS, e.g. the maximum of the absolute value of the TPS coefficients.
+ *
+ * \param v The TPS.
+ * \return Norm of the TPS.
+ *
+ */
+double ad_norm(TVEC v) {
+    int norm = 0;
+    for(size_t i=0; i<adveclen[v]; ++i) {
+        if(fabs(advec[v][i])>norm) norm = fabs(advec[v][i]);
+    }
+    return norm;
 }
 
 // ***** The following functions provide alternative ones instead of the original ones in tpsa.cpp. *****

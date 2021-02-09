@@ -172,6 +172,14 @@ double DAVector::element(std::vector<int>idx) {
     return ad_elem(da_vector_, idx);
 }
 
+/** \brief Return the norm of the DA vector, e.g. the maximum of the absolute value of the DA coefficients.
+ * \return The norm of the DA vector.
+ *
+ */
+double DAVector::norm() {
+    return ad_norm(da_vector_);
+}
+
 /** \brief Set the value of a specific element.
  *
  * \param c The order pattern of the element.
@@ -220,12 +228,10 @@ Base::Base(const unsigned int n) {
  *
  */
 void Base::set_base(const unsigned int n) {
-    base.clear();
+    base.resize(n);
     for(unsigned int i = 0; i<n; ++i) {
-        DAVector v;
         double zero = 0.0;
-		ad_var(&v.da_vector_, &zero, &i);
-		base.push_back(v);
+		ad_var(&base.at(i).da_vector_, &zero, &i);
     }
 }
 
