@@ -15,4 +15,5 @@ cmake_install.cmake
 examples/example.cbp
 examples/example.depend
 examples/example.layout
+examples/da_output.txt
 windows_x64

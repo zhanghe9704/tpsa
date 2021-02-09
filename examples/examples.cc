@@ -13,6 +13,7 @@ int main() {
     //Initialize the DA domain.
     da_init(da_order, da_dim, n_vec);
 
+    std::cout<<"Print out the base vector."<<std::endl<<std::endl;
     da[0].print();
     da[1].print();
     da[2].print();
@@ -45,6 +46,7 @@ int main() {
     z.print();
 
     std::cout<<"The norm of z is "<<z.norm()<<std::endl;
+    std::cout<<"The weighted norm of z is "<<z.weighted_norm(0.1)<<std::endl;
 
     //Bunch processing for substitutions.
     std::cout<<"Bunch processing for substitutions."<<std::endl<<std::endl;

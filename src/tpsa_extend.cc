@@ -268,6 +268,41 @@ double ad_norm(TVEC v) {
     return norm;
 }
 
+/** \brief Return the weighted  norm of a TPS.
+ * Calculate the absolute value of coef*w^n for each term in a given TPS vector, where coef is the coefficient of the
+ * term, n is the total order of the term and w is the weight. Return the maximum of the calculation.
+ *
+ * \param v The TPS.
+ * \param w The weight.
+ * \return Weighted norm of the TPS.
+ *
+ */
+double ad_weighted_norm(TVEC v, double w) {
+    TNVND* p = base;
+    std::vector<double> ww(gnd+1, 1);
+    for(int i=1; i<gnd+1; ++i) {
+        ww.at(i) = ww.at(i-1)*w;
+    }
+    double* pv = advec[v];
+    double norm = 0;
+    for (size_t i = 0; i < adveclen[v]; ++i) {
+        if (std::abs(pv[i]) < std::numeric_limits<double>::min()) {
+            p += gnv;
+            continue;
+        }
+        double coef = pv[i];
+        int order = 0;
+        for (size_t j = 0; j < gnv-1; ++j) {
+            order += (unsigned int) (*p-*(p+1));
+            ++p;
+        }
+        order += (unsigned int)*p++;
+        double value = fabs(coef*ww.at(order));
+        if(value>norm) norm = value;
+    }
+    return norm;
+}
+
 // ***** The following functions provide alternative ones instead of the original ones in tpsa.cpp. *****
 
 /** \brief Count the number of existing TPS vectors.

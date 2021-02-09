@@ -180,6 +180,16 @@ double DAVector::norm() {
     return ad_norm(da_vector_);
 }
 
+/** \brief Return the weighted norm of the DA vector.
+ * Calculate the absolute value of coef*w^n for each term, where coef is the coefficient of the term, n is the total
+ * order of the term and w is the weight. Return the maximum of the calculation.
+ *  \param w The weight.
+ *  \return The norm of the DA vector.
+ */
+double DAVector::weighted_norm(double w) {
+    return ad_weighted_norm(da_vector_, w);
+}
+
 /** \brief Set the value of a specific element.
  *
  * \param c The order pattern of the element.
