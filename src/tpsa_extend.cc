@@ -261,7 +261,7 @@ int ad_n_element(TVEC v) {
  *
  */
 double ad_norm(TVEC v) {
-    int norm = 0;
+    double norm = 0;
     for(size_t i=0; i<adveclen[v]; ++i) {
         if(fabs(advec[v][i])>norm) norm = fabs(advec[v][i]);
     }

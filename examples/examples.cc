@@ -86,5 +86,11 @@ int main() {
 	fout << z;
 	fout.close();
 
+	z /= 1e5;
+	std::cout<<"z:"<<std::endl;
+	z.print();
+	std::cout<<"norm of z: "<<z.norm()<<std::endl;
+
+
     return 0;
 }
