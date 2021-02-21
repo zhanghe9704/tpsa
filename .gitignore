@@ -17,3 +17,4 @@ examples/example.depend
 examples/example.layout
 examples/da_output.txt
 windows_x64
+*.o

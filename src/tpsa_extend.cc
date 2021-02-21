@@ -1480,3 +1480,50 @@ void ad_clean(const TVEC& iv, const double eps)
         adveclen[iv] = N+1;
     }
 }
+
+
+
+void print_vec(unsigned int ii, std::ostream& os)
+{
+    //unsigned int ii = *iv;
+    TNVND* p = base;
+    //os << "iv= " << ii << std::endl;
+
+    std::ios::fmtflags prevflags = os.flags();
+    double* v = advec[ii];
+
+    int width_base = 2;
+    if (gnd > static_cast<TNVND>(9))  ++width_base;
+
+    int cnt_width = 1;
+    if(adveclen[ii]>9) cnt_width = ceil(log10(adveclen[ii]));
+    cnt_width += 1;
+
+    std::string start (cnt_width, ' ');
+    std::string sep (cnt_width, '-');
+    start.replace(start.end()-1, start.end()-1, 1, 'I');
+    int cnt = 0;
+    os << start;
+    os << "          V [" << ii << "]              Base  [ "
+       << adveclen[ii] << " / " << FULL_VEC_LEN << " ]" << std::endl <<sep
+       << "----------------------------------------------" << std::endl;
+    for (size_t i = 0; i < adveclen[ii]; ++i) {
+//    for (size_t i = 0; i < FULL_VEC_LEN; ++i) {
+        if (std::abs(v[i]) < std::numeric_limits<double>::min()) {
+            p += gnv;
+            continue;
+        }
+        ++cnt;
+        os <<std::setw(cnt_width)<<cnt;
+        os << ' ' << std::setprecision(15)
+           << std::scientific << std::setw(15+8) << v[i] << "    ";
+        for (size_t j = 0; j < gnv-1; ++j) {
+            os << std::setw(width_base) << (unsigned int) (*p-*(p+1));
+            ++p;
+        }
+        os << std::setw(width_base) << (unsigned int)*p++ << std::setw(6) << i << std::endl;
+    }
+    os << std::endl;
+
+    os.flags(prevflags);
+}

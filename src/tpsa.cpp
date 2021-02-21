@@ -2062,45 +2062,45 @@ void print_index(std::ostream& os)
 
 }
 
-void print_vec(unsigned int ii, std::ostream& os)
-{
-    //unsigned int ii = *iv;
-    TNVND* p = base;
-    //os << "iv= " << ii << std::endl;
-
-    std::ios::fmtflags prevflags = os.flags();
-    double* v = advec[ii];
-
-    int width_base = 2;
-    if (gnd > static_cast<TNVND>(9))  ++width_base;
-
-    os << "          V [" << ii << "]              Base  [ "
-       << adveclen[ii] << " / " << FULL_VEC_LEN << " ]" << std::endl
-       << "----------------------------------------------" << std::endl;
-    for (size_t i = 0; i < adveclen[ii]; ++i) {
-//    for (size_t i = 0; i < FULL_VEC_LEN; ++i) {
-        if (std::abs(v[i]) < std::numeric_limits<double>::min()) {
-            p += gnv;
-            continue;
-        }
-        os << ' ' << std::setprecision(15)
-           << std::scientific << std::setw(15+8) << v[i] << "    ";
-        for (size_t j = 0; j < gnv-1; ++j) {
-            os << std::setw(width_base) << (unsigned int) (*p-*(p+1));
-            ++p;
-        }
-        os << std::setw(width_base) << (unsigned int)*p++ << std::setw(6) << i << std::endl;
-    }
-    os << std::endl;
-
-    os.flags(prevflags);
-
- #ifdef DEBUG_ALL
-    //std::cout << "min: " << std::numeric_limits<double>::min() << std::endl;
-    //std::cout << "eps: " << std::numeric_limits<double>::epsilon() << std::endl;
- #endif
-}
-
+//
+//void print_vec(unsigned int ii, std::ostream& os)
+//{
+//    //unsigned int ii = *iv;
+//    TNVND* p = base;
+//    //os << "iv= " << ii << std::endl;
+//
+//    std::ios::fmtflags prevflags = os.flags();
+//    double* v = advec[ii];
+//
+//    int width_base = 2;
+//    if (gnd > static_cast<TNVND>(9))  ++width_base;
+//
+//    os << "          V [" << ii << "]              Base  [ "
+//       << adveclen[ii] << " / " << FULL_VEC_LEN << " ]" << std::endl
+//       << "----------------------------------------------" << std::endl;
+//    for (size_t i = 0; i < adveclen[ii]; ++i) {
+////    for (size_t i = 0; i < FULL_VEC_LEN; ++i) {
+//        if (std::abs(v[i]) < std::numeric_limits<double>::min()) {
+//            p += gnv;
+//            continue;
+//        }
+//        os << ' ' << std::setprecision(15)
+//           << std::scientific << std::setw(15+8) << v[i] << "    ";
+//        for (size_t j = 0; j < gnv-1; ++j) {
+//            os << std::setw(width_base) << (unsigned int) (*p-*(p+1));
+//            ++p;
+//        }
+//        os << std::setw(width_base) << (unsigned int)*p++ << std::setw(6) << i << std::endl;
+//    }
+//    os << std::endl;
+//
+//    os.flags(prevflags);
+//
+// #ifdef DEBUG_ALL
+//    //std::cout << "min: " << std::numeric_limits<double>::min() << std::endl;
+//    //std::cout << "eps: " << std::numeric_limits<double>::epsilon() << std::endl;
+// #endif
+//}
 
 #ifdef MSVC_DLL
 _declspec(dllexport) void _stdcall ad_print(const TVEC* iv)
