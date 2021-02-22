@@ -66,7 +66,7 @@ int ad_full_length() {
  */
 void ad_change_order(unsigned int new_order) {
     if (0==gnd_record) gnd_record = gnd;
-    if (new_order<gnd_record) {
+    if (new_order<=gnd_record) {
         gnd = new_order;
         FULL_VEC_LEN = comb_num(gnv+gnd, gnd);
     }
