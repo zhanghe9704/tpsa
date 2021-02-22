@@ -815,7 +815,7 @@ void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> 
 
 		idx[j]=imax;
 
-		if (a[j][j]<tiny)	a[j][j] = tiny;	//If the pivot element is zero, submitted by a tiny value
+		if (fabs(a[j][j])<tiny)	a[j][j] = tiny;	//If the pivot element is zero, submitted by a tiny value
 
 		if	(j!=(n-1)){						//Divide by the pivot element
 			dum = 1.0/(a[j][j]);
