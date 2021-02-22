@@ -91,6 +91,5 @@ int main() {
 	z.print();
 	std::cout<<"norm of z: "<<z.norm()<<std::endl;
 
-
     return 0;
 }
