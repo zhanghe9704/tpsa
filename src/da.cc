@@ -768,7 +768,6 @@ void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> 
 	int imax;
 	double big, dum, sum, temp;
 	std::vector<double> vv(n);      //the implicit scaling of each row.
-//	double *vv = new double[n];		//the implicit scaling of each row.
 	double tiny = 1.0e-20;
 
 	d = 1; 		//No row interchanges yet.
@@ -777,9 +776,8 @@ void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> 
 		for (int j=0; j<n; ++j){
 			if((temp=fabs(a[i][j]))>big) big = temp;
 		}
-		if (big==0) {			//The largest element is zero
+		if (big<tiny) {			//The largest element is zero
 			std::cout<<"Singular matrix in routine LUDcmp"<<std::endl;
-//			delete[] vv;
 			exit(EXIT_FAILURE);
 		}
 
@@ -817,7 +815,7 @@ void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> 
 
 		idx[j]=imax;
 
-		if (a[j][j]==0)	a[j][j] = tiny;	//If the pivot element is zero, submitted by a tiny value
+		if (a[j][j]<tiny)	a[j][j] = tiny;	//If the pivot element is zero, submitted by a tiny value
 
 		if	(j!=(n-1)){						//Divide by the pivot element
 			dum = 1.0/(a[j][j]);
