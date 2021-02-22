@@ -898,10 +898,11 @@ void inv_map(std::vector<DAVector> &ivecs, int dim, std::vector<DAVector> &ovecs
 
     //nonlinear part of the given map;
     std::vector<DAVector> nlin_map;
+    unsigned int da_order = DAVector::order();
     for(auto& v : ivecs) {
         da_change_order(1);
         DAVector t = v;
-        da_restore_order();
+        da_change_order(da_order);
         t = v - t;
         nlin_map.push_back(t);
     }
