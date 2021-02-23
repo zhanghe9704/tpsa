@@ -15,6 +15,8 @@
 
 Base da; /**< Bases for DA calculations. The i-th base can be accessed as da[i].  */
 
+double DAVector::eps_ = 1e-16;/**<Global threshold of the abs value of DAVector coefficients. */
+
 DAVector::DAVector() {ad_alloc(&da_vector_);}
 
 DAVector::DAVector(const DAVector& da_vector) {
@@ -172,6 +174,23 @@ double DAVector::element(std::vector<int>idx) {
     return ad_elem(da_vector_, idx);
 }
 
+/** \brief Check if all the abs value of the coefficients in the DAVector are smaller than the cut-off value.
+ * \return True or false.
+ *
+ */
+bool DAVector::iszero() {
+    return ad_zero_check(da_vector_, eps_);
+}
+
+/** \brief Check if all the abs value of the coefficients in the DAVector are smaller than the given value eps.
+ * \param eps The value to compare with the abs value of the coefficients.
+ * \return True or false.
+ *
+ */
+bool DAVector::iszero(double eps) {
+    return ad_zero_check(da_vector_, eps);
+}
+
 /** \brief Return the norm of the DA vector, e.g. the maximum of the absolute value of the DA coefficients.
  * \return The norm of the DA vector.
  *
@@ -220,6 +239,14 @@ void DAVector::set_element(std::vector<int> idx, double elem) {
  */
 void DAVector::clean(const double eps) {
     ad_clean(da_vector_, eps);
+}
+
+/** \brief Set a coefficient in the DA Vector to be zero if the abs of the
+ * coefficient is less than the global eps.
+ * \return void.
+ */
+void DAVector::clean() {
+    ad_clean(da_vector_, DAVector::eps());
 }
 
 Base::Base(const unsigned int n) {

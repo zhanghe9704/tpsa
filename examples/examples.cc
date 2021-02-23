@@ -91,5 +91,9 @@ int main() {
 	z.print();
 	std::cout<<"norm of z: "<<z.norm()<<std::endl;
 
+	std::cout<<"DA eps: "<<DAVector::eps()<<std::endl;
+	DAVector::set_eps(1e-20);
+	std::cout<<"Reset DA eps: "<<DAVector::eps()<<std::endl;
+
     return 0;
 }

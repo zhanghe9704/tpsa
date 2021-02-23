@@ -254,6 +254,22 @@ int ad_n_element(TVEC v) {
     return n;
 }
 
+/** \brief Check if all the abs value of the coefficients in v are zero or smaller than a given eps.
+ *
+ * \param v The TPS.
+ * \param eps The value to compare with the abs value of the coefficients. Should be greater than zero.
+ * \return True or false
+ *
+ */
+bool ad_zero_check(TVEC v, double eps) {
+    double zero = std::numeric_limits<double>::min();
+    if(eps>0) zero = eps;
+    for(size_t i=0; i<adveclen[v]; ++i) {
+        if(fabs(advec[v][i])>zero) return false;
+    }
+    return true;
+}
+
 /** \brief Return the norm of a TPS, e.g. the maximum of the absolute value of the TPS coefficients.
  *
  * \param v The TPS.

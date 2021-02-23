@@ -37,10 +37,16 @@ struct DAVector {
   void set_element(std::vector<int> idx, double elem);
   void reset();
   void reset_const(double x = 0);
-  void clean(const double epx);
+  void clean(const double eps);
+  void clean();
+  bool iszero();
+  bool iszero(double eps);
   static int dim();
   static int order();
   static int full_length();
+  static double eps_;
+  static double eps(){return eps_;}
+  static void set_eps(double x){eps_=x;}
   DAVector& operator=(const DAVector& da_vector);
   DAVector& operator=(DAVector&& da_vector);
   DAVector& operator=(double x);
