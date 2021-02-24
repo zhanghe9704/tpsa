@@ -44,9 +44,7 @@ struct DAVector {
   static int dim();
   static int order();
   static int full_length();
-  static double eps_;
-  static double eps(){return eps_;}
-  static void set_eps(double x){eps_=x;}
+  static double eps;
   DAVector& operator=(const DAVector& da_vector);
   DAVector& operator=(DAVector&& da_vector);
   DAVector& operator=(double x);
@@ -93,6 +91,7 @@ int da_restore_order();                         //Restore the original da order.
 int da_count();                                 //Number of da variable allocated.
 int da_remain();                                //Space (number) available for new da variables.
 int da_full_length();                           //Full length of the da vector.
+void da_set_eps(double eps);                    //Set the cut-off value for DA coefficients.
 //Take derivative w.r.t. a specific base.
 void da_der(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_der);
 //Integrate w.r.t. a specific base.

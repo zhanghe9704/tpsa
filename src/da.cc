@@ -15,7 +15,7 @@
 
 Base da; /**< Bases for DA calculations. The i-th base can be accessed as da[i].  */
 
-double DAVector::eps_ = 1e-16;/**<Global threshold of the abs value of DAVector coefficients. */
+double DAVector::eps = 1e-16;/**<Global threshold of the abs value of DAVector coefficients. */
 
 DAVector::DAVector() {ad_alloc(&da_vector_);}
 
@@ -179,7 +179,7 @@ double DAVector::element(std::vector<int>idx) {
  *
  */
 bool DAVector::iszero() {
-    return ad_zero_check(da_vector_, eps_);
+    return ad_zero_check(da_vector_, eps);
 }
 
 /** \brief Check if all the abs value of the coefficients in the DAVector are smaller than the given value eps.
@@ -246,7 +246,7 @@ void DAVector::clean(const double eps) {
  * \return void.
  */
 void DAVector::clean() {
-    ad_clean(da_vector_, DAVector::eps());
+    ad_clean(da_vector_, DAVector::eps);
 }
 
 Base::Base(const unsigned int n) {
@@ -276,6 +276,17 @@ void Base::set_base(const unsigned int n) {
 void Base::set_base() {
     unsigned int n = DAVector::dim();
     set_base(n);
+}
+
+/** \brief Set the cut-off value for DA coefficients.If the abs value of an coefficient is less than eps, it will be
+ * set to zero.
+ * \param eps The cut-off value for DA coefficients. Should be greater than zero.
+ * \return void
+ *
+ */
+void da_set_eps(double eps) {
+    if(eps>0) DAVector::eps = eps;
+    else std::cout<<"Warning: negative value of eps is ignored in da_set_eps!"<<std::endl;
 }
 
 /** \brief Take derivative of a da vector w.r.t. a specific base
