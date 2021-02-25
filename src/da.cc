@@ -178,7 +178,7 @@ double DAVector::element(std::vector<int>idx) {
  * \return True or false.
  *
  */
-bool DAVector::iszero() {
+bool DAVector::iszero() const {
     return ad_zero_check(da_vector_, eps);
 }
 
@@ -187,7 +187,7 @@ bool DAVector::iszero() {
  * \return True or false.
  *
  */
-bool DAVector::iszero(double eps) {
+bool DAVector::iszero(double eps) const{
     return ad_zero_check(da_vector_, eps);
 }
 

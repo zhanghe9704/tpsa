@@ -39,8 +39,8 @@ struct DAVector {
   void reset_const(double x = 0);
   void clean(const double eps);
   void clean();
-  bool iszero();
-  bool iszero(double eps);
+  bool iszero() const;
+  bool iszero(double eps) const;
   static int dim();
   static int order();
   static int full_length();
