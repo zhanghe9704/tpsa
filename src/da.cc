@@ -13,11 +13,19 @@
 #include <set>
 #include "../include/tpsa_extend.h"
 
+using std::complex;
+using std::vector;
+
 Base da; /**< Bases for DA calculations. The i-th base can be accessed as da[i].  */
 
 double DAVector::eps = 1e-16;/**<Global threshold of the abs value of DAVector coefficients. */
 
 DAVector::DAVector() {ad_alloc(&da_vector_);}
+
+//DAVector::DAVector(bool b) {
+//    if(b) ad_alloc(&da_vector_);
+//    else ad_assign(da_vector_);
+//}
 
 DAVector::DAVector(const DAVector& da_vector) {
       ad_alloc(&da_vector_);
@@ -35,7 +43,16 @@ DAVector::DAVector(double x) {
     ad_reset_const(da_vector_, x);
 }
 
+DAVector::DAVector(int i) {
+    ad_alloc(&da_vector_);
+    ad_reset_const(da_vector_, i);
+}
+
 DAVector::~DAVector() {
+    ad_free(&da_vector_);
+}
+
+void DAVector::clear() {
     ad_free(&da_vector_);
 }
 
@@ -172,6 +189,10 @@ double DAVector::element(int i) {
  */
 double DAVector::element(std::vector<int>idx) {
     return ad_elem(da_vector_, idx);
+}
+
+std::vector<int>& DAVector::element_orders(int i) {
+    return ad_element_orders(i);
 }
 
 /** \brief Check if all the abs value of the coefficients in the DAVector are smaller than the cut-off value.
@@ -348,6 +369,11 @@ int da_full_length() {
     return ad_full_length();
 }
 
+///Return the orders of each base as a vector for the i-th element.
+std::vector<int>& da_element_orders(int i) {
+    return ad_element_orders(i);
+}
+
 /// Count the number of existing DA Vectors, including the bases.
 int da_count() {
     return ad_count();
@@ -372,11 +398,12 @@ int da_remain() {
  * \return num_da_vectors Size of the DA memory pool.
  *
  */
-int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors) {
+int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors, bool table) {
     assert(da_order>0&&num_da_variables>0&&num_da_vectors>0&&"Wrong parameters when initialize DA environment!");
 	ad_init(&num_da_variables, &da_order);
 	ad_reserve(&num_da_vectors);
 	da.set_base(num_da_variables);
+	if(table) ad_generate_order_table();
 	return 0;
 }
 
@@ -496,6 +523,138 @@ void da_composition(std::vector<DAVector> &ivecs, std::vector<double> &v, std::v
     ad_composition(ad_iv, v, ovecs);
 }
 
+/** \brief Submitting all the bases for a group of DA vectors with given complex values.
+ *
+ * \param[in] ivecs A group of DA Vectors.
+ * \param[in] v The complex values for all the bases.
+ * \param[out] ovecs Results.
+ * \return void.
+ *
+ */
+void da_composition(std::vector<DAVector> &ivecs, std::vector<std::complex<double>> &v,
+                    std::vector<std::complex<double>> &ovecs) {
+    std::vector<TVEC> ad_iv;
+    for(auto&& i : ivecs) ad_iv.push_back(i.da_vector_);
+    ad_composition(ad_iv, v, ovecs);
+}
+
+complex<DAVector>& complex_da_pow_int_pos(const complex<DAVector>& iv, std::vector<complex<DAVector>> &power_v,
+                                          const int order, int order_rec) {
+    if (abs(power_v.at(order*order_rec))>0) {
+        return power_v.at(order*order_rec);
+    }
+    else if (order==0) {
+        power_v.at(0) = 1;
+        return power_v.at(0);
+    }
+    else if (order==1) {
+        double norm = abs(power_v.at(1*order_rec));
+        if(norm<std::numeric_limits<double>::min()) {
+            power_v.at(1*order_rec) = iv;
+        }
+        return power_v.at(1*order_rec);
+    }
+    else if (order==2) {
+        double norm  = abs(power_v.at(2*order_rec));
+        if(norm<std::numeric_limits<double>::min()) {
+            power_v.at(2*order_rec) = iv*iv;
+        }
+        return power_v.at(2*order_rec);
+    }
+    else if (order&1) { //Odd order
+        unsigned int order_idx = order_rec*2;
+
+        double norm = abs(power_v.at(order_idx));
+        if (norm<std::numeric_limits<double>::min()) power_v.at(order_idx) = iv*iv;
+        complex<DAVector>& vres = power_v.at(order_idx);
+
+        vres = complex_da_pow_int_pos(vres, power_v, order/2, order_idx);
+        power_v.at(order_rec+(order/2)*order_idx) = vres * iv;
+        return power_v.at(order_rec+(order/2)*order_idx);
+    }
+    else {              //Even order
+        unsigned int order_idx = order_rec*2;
+        double norm = abs(power_v.at(order_idx));
+        if (norm<std::numeric_limits<double>::min()) power_v.at(order_idx) = iv * iv;
+        complex<DAVector>& vres = power_v.at(order_idx);
+        return complex_da_pow_int_pos(vres, power_v, order/2, order_idx);
+    }
+}
+
+void da_composition(std::vector<DAVector> &ivecs, std::vector<std::complex<DAVector>> &v,
+                    std::vector<std::complex<DAVector>> &ovecs) {
+    int gnv = DAVector::dim();
+    int gnd = DAVector::order();
+    assert(gnv==v.size()&&"Error in da_composition: No. of DA vectors NOT EQUAL to No. of bases!");
+    assert(ivecs.size()==ovecs.size()&&"Error in da_composition: No. of input vectors NOT EQUAL to No. of output vectors!");
+    vector<vector<complex<DAVector>>>  power_vv(gnv, vector<complex<DAVector>>(gnd+1));
+    for(int i=0; i<gnv; ++i) {
+        power_vv.at(i).at(0) = 1;
+        power_vv.at(i).at(1) = v.at(i);
+    }
+
+    int veclen_max = 0;
+    for(auto& v: ivecs) {
+        if(v.length()>veclen_max) veclen_max = v.length();
+    }
+
+    //Copy the constant part of the input vectors to the output vectors.
+    int vec_size = ivecs.size();
+    for(int iv=0; iv<vec_size; ++iv) {
+        ovecs.at(iv) = ivecs.at(iv).con();
+    }
+    if(!ad_valid_order_table()) ad_generate_order_table();
+    for(int i=1; i<veclen_max; ++i) {//loop over all elements, except for the constant element.
+        auto orders = da_element_orders(i);
+        bool product_flag = true;  //Calculate the product.
+        complex<DAVector> product(1,0);
+        bool c_flag = true;
+        for(int iv=0; iv<vec_size; ++iv) {
+            if(i>= ivecs.at(iv).length()) continue;
+            if (std::abs(ivecs.at(iv).element(i))<std::numeric_limits<double>::min()) continue;
+            if (c_flag) {
+                for(int id=0; id<gnv; ++id) {
+                    if (orders.at(id)>0) {
+                         complex_da_pow_int_pos(v.at(id), power_vv.at(id), orders.at(id), 1);
+                    }
+                }
+                c_flag = false;
+            }
+            double coef = ivecs.at(iv).element(i);
+            if (product_flag) {
+                for(int id=0; id<gnv; ++id) {
+                    int order = orders.at(id);
+                    if(order>0) product *= power_vv.at(id).at(order);
+                }
+                product_flag = false;
+            }
+            ovecs.at(iv) += coef*product;
+        }
+    }
+    for(auto& v: ovecs){
+        v.real().clean();
+        v.imag().clean();
+    }
+}
+
+void da_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<std::complex<DAVector>> &v,
+                    std::vector<std::complex<DAVector>> &ovecs) {
+    assert(DAVector::dim()==v.size()&&"Error in da_composition: No. of DA vectors NOT EQUAL to No. of bases!");
+    assert(ivecs.size()==ovecs.size()&&"Error in da_composition: No. of input vectors NOT EQUAL to No. of output vectors!");
+    int n = ivecs.size();
+    std::vector<DAVector> iv(2*n);
+    for(int i=0; i<n; ++i) {
+        iv.at(2*i) = ivecs.at(i).real();
+        iv.at(2*i+1) = ivecs.at(i).imag();
+    }
+    std::vector<complex<DAVector>> ov(2*n);
+    da_composition(iv, v, ov);
+    complex<double> i1(0,1);
+    for(int i=0; i<n; ++i) {
+        ovecs.at(i) = ov.at(2*i) + i1*ov.at(2*i+1);
+    }
+}
+
 //Overload the operators for DA
 DAVector operator+(const DAVector &da_vector, double real_number) {
 	DAVector res;
@@ -507,6 +666,133 @@ DAVector operator+(double real_number, const DAVector &da_vector) {
     DAVector res;
 	ad_add_const(da_vector.da_vector_, real_number, res.da_vector_);
 	return res;
+}
+
+complex<DAVector> operator+(const DAVector &da_vector, std::complex<double> complex_number) {
+    complex<DAVector> res(complex_number.real()+da_vector, complex_number.imag());
+    return res;
+}
+
+complex<DAVector> operator+( std::complex<double> complex_number, const DAVector &da_vector) {
+    complex<DAVector> res(complex_number.real()+da_vector, complex_number.imag());
+    return res;
+}
+
+complex<DAVector> operator-(const DAVector &da_vector, std::complex<double> complex_number) {
+    complex<DAVector> res(da_vector-complex_number.real(), complex_number.imag());
+    return res;
+}
+
+complex<DAVector> operator-( std::complex<double> complex_number, const DAVector &da_vector) {
+    complex<DAVector> res(complex_number.real()-da_vector, complex_number.imag());
+    return res;
+}
+
+complex<DAVector> operator*(const DAVector &da_vector, std::complex<double> complex_number) {
+    complex<DAVector> res(da_vector*complex_number.real(), da_vector*complex_number.imag());
+    return res;
+}
+
+complex<DAVector> operator*( std::complex<double> complex_number, const DAVector &da_vector) {
+    complex<DAVector> res(complex_number.real()*da_vector, complex_number.imag()*da_vector);
+    return res;
+}
+
+complex<DAVector> operator/(const DAVector &da_vector, std::complex<double> complex_number) {
+    complex<double> c = 1.0/complex_number;
+    complex<DAVector> res(da_vector*c.real(), da_vector*c.imag());
+    return res;
+}
+
+complex<DAVector> operator/( std::complex<double> complex_number, const DAVector &da_vector) {
+    DAVector d = 1.0/da_vector;
+    complex<DAVector> res(complex_number.real()*d, complex_number.imag()*d);
+    return res;
+}
+
+std::complex<DAVector>  operator+(const std::complex<DAVector> &cd_vector, double number) {
+    complex<DAVector> res(cd_vector.real()+number, cd_vector.imag());
+    return res;
+}
+std::complex<DAVector>  operator+(double number, const std::complex<DAVector> &cd_vector) {
+    complex<DAVector> res(cd_vector.real()+number, cd_vector.imag());
+    return res;
+}
+std::complex<DAVector>  operator-(const std::complex<DAVector> &cd_vector, double number) {
+    complex<DAVector> res(cd_vector.real()-number, cd_vector.imag());
+    return res;
+}
+std::complex<DAVector>  operator-(double number, const std::complex<DAVector> &cd_vector) {
+    complex<DAVector> res(number-cd_vector.real(), cd_vector.imag());
+    return res;
+}
+std::complex<DAVector>  operator*(const std::complex<DAVector> &cd_vector, double number) {
+    DAVector rv = cd_vector.real()*number;
+    DAVector iv = cd_vector.imag()*number;
+    complex<DAVector> res(rv, iv);
+    return res;
+}
+std::complex<DAVector>  operator*(double number, const std::complex<DAVector> &cd_vector) {
+    DAVector rv = cd_vector.real()*number;
+    DAVector iv = cd_vector.imag()*number;
+    complex<DAVector> res(rv, iv);
+    return res;
+}
+std::complex<DAVector>  operator/(const std::complex<DAVector> &cd_vector, double number){
+    DAVector rv = cd_vector.real()/number;
+    DAVector iv = cd_vector.imag()/number;
+    complex<DAVector> res(rv, iv);
+    return res;
+}
+std::complex<DAVector>  operator/(double number, const std::complex<DAVector> &cd_vector){
+    DAVector rv = cd_vector.real();
+    DAVector iv = cd_vector.imag();
+    DAVector v = 1/(rv*rv+iv*iv);
+    complex<DAVector> res(number*v*rv, -number*v*iv);
+    return res;
+}
+
+std::complex<DAVector>  operator+(const std::complex<DAVector> &cd_vector, std::complex<double> complex_number) {
+    complex<DAVector> res(cd_vector.real()+complex_number.real(), cd_vector.imag()+complex_number.imag());
+    return res;
+}
+std::complex<DAVector>  operator+(std::complex<double> complex_number, const std::complex<DAVector> &cd_vector) {
+    complex<DAVector> res(cd_vector.real()+complex_number.real(), cd_vector.imag()+complex_number.imag());
+    return res;
+}
+std::complex<DAVector>  operator-(const std::complex<DAVector> &cd_vector, std::complex<double> complex_number){
+    complex<DAVector> res(cd_vector.real()-complex_number.real(), cd_vector.imag()-complex_number.imag());
+    return res;
+}
+std::complex<DAVector>  operator-(std::complex<double> complex_number, const std::complex<DAVector> &cd_vector){
+    complex<DAVector> res(complex_number.real()-cd_vector.real(), complex_number.imag()-cd_vector.imag());
+    return res;
+}
+std::complex<DAVector>  operator*(const std::complex<DAVector> &cd_vector, std::complex<double> complex_number) {
+    complex<DAVector> vr = cd_vector*complex_number.real();
+    complex<DAVector> vi = cd_vector*complex_number.imag();
+    complex<DAVector> res(vr.real()-vi.imag(), vr.imag()+vi.real());
+    return res;
+}
+std::complex<DAVector>  operator*(std::complex<double> complex_number, const std::complex<DAVector> &cd_vector){
+    complex<DAVector> vr = cd_vector*complex_number.real();
+    complex<DAVector> vi = cd_vector*complex_number.imag();
+    complex<DAVector> res(vr.real()-vi.imag(), vr.imag()+vi.real());
+    return res;
+}
+std::complex<DAVector>  operator/(const std::complex<DAVector> &cd_vector, std::complex<double> complex_number) {
+    complex<double> c = 1.0/complex_number;
+    return c*cd_vector;
+}
+std::complex<DAVector>  operator/(std::complex<double> complex_number, const std::complex<DAVector> &cd_vector) {
+    complex<DAVector> v = 1.0/cd_vector;
+    return complex_number*v;
+}
+
+
+bool operator==(const DAVector &da_vector_1, const DAVector &da_vector_2) {
+    DAVector c = da_vector_1 - da_vector_2;
+    return c.iszero();
 }
 
 DAVector operator+(const DAVector &da_vector_1, const DAVector &da_vector_2) {
@@ -739,6 +1025,13 @@ double abs(const DAVector &da_vector) {
     return r;
 }
 
+double abs(const std::complex<DAVector> &complex_dav) {
+    double r1, r2;
+    r1 = abs(complex_dav.real());
+    r2 = abs(complex_dav.imag());
+    return r1>r2?r1:r2;
+}
+
 
 DAVector pow_pos(const DAVector &da_vector, const int order) {
     DAVector res;
@@ -801,6 +1094,12 @@ std::ostream& operator<<(std::ostream &os, const DAVector &da_vector) {
     print_vec(da_vector.da_vector_, os);
     return os;
 }
+
+std::ostream& operator<<(std::ostream &os, const std::complex<DAVector> &cd_vector) {
+    print_vec(cd_vector.real().da_vector_, cd_vector.imag().da_vector_,os);
+    return os;
+}
+
 
 void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> &idx, int &d){
 	int imax;

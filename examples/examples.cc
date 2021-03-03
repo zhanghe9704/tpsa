@@ -4,6 +4,10 @@
 #include <iostream>
 #include <vector>
 
+#include <complex>
+using namespace std::complex_literals;
+using std::complex;
+
 int main() {
 
     unsigned int da_dim = 3;
@@ -91,9 +95,9 @@ int main() {
 	z.print();
 	std::cout<<"norm of z: "<<z.norm()<<std::endl;
 
-	std::cout<<"DA eps: "<<DAVector::eps()<<std::endl;
-	DAVector::set_eps(1e-20);
-	std::cout<<"Reset DA eps: "<<DAVector::eps()<<std::endl;
+	std::cout<<"DA eps: "<<DAVector::eps<<std::endl;
+	da_set_eps(1e-20);
+	std::cout<<"Reset DA eps: "<<DAVector::eps<<std::endl;
 
     return 0;
 }

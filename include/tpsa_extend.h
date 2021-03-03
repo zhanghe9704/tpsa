@@ -11,12 +11,32 @@
 #include <vector>
 #include <limits>
 #include <cmath>
+#include <complex>
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <map>
 #include "tpsa.h"
 
+class ADOrderTable{
+    std::vector<std::vector<int>> order_table;
+    std::map<std::vector<int>, int> order_index;
+    bool valid = false;
+public :
+    void generate_order_table();
+    void clear_order_table();
+    std::vector<std::vector<int>>::iterator table_begin(){return order_table.begin();}
+    std::vector<std::vector<int>>::iterator table_end(){return order_table.end();}
+    std::vector<int>& orders(int i) {return order_table.at(i);}
+    bool valid_table(){return valid;}
+    int find_index(std::vector<int>& orders){return order_index.at(orders);}
+};
+
 ////******************** Additional Methods for TSP Vectors ************************////
+void ad_generate_order_table();
+bool ad_valid_order_table();
+std::vector<int>& ad_element_orders(int i);
+
 unsigned int ad_dim(); //Return the TPS base number.
 void ad_reset_vector(const TVEC iv); //Reset all the elements to zero, still keep the length of the vector.
 void ad_change_order(unsigned int new_order);//temporarily lower the TPS order.
@@ -35,6 +55,7 @@ void ad_substitute(const TVEC iv, std::vector<unsigned int> &base_id, std::vecto
 void ad_substitute(std::vector<TVEC> &ivecs, std::vector<unsigned int> &base_id, std::vector<TVEC> &v, std::vector<TVEC> &ovecs) ;
 void ad_composition(std::vector<TVEC> &ivecs, std::vector<TVEC> &v, std::vector<TVEC> &ovecs);
 void ad_composition(std::vector<TVEC> &ivecs, std::vector<double> &v, std::vector<double> &ovecs);
+void ad_composition(std::vector<TVEC> &ivecs, std::vector<std::complex<double> > &v, std::vector<std::complex<double> > &ovecs);
 void ad_add(const unsigned int idst, const unsigned int jsrc, unsigned int ov);
 void ad_sub(const unsigned int idst, const unsigned int jsrc, TVEC ov);
 void ad_add_const(const TVEC i, double r, TVEC ov);
@@ -51,8 +72,7 @@ double ad_norm(TVEC v); //Norm of the TPS vector.
 double ad_weighted_norm(TVEC v, double w); //Weighted norm of the TPS vector.
 unsigned int ad_last_note();    //Index of the last available slot in the TPS vector pool.
 unsigned int ad_next_note();    //Index of the next available slot in the TPS vector pool.
-
-////******************** Expose existing methods in tpsa.cc but not in tpsa.h ************************////
 void print_vec(unsigned int ii, std::ostream& os);
+void print_vec(unsigned int ii, unsigned int jj, std::ostream& os);
 #endif // TPSA_EXTEND
 

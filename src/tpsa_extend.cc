@@ -22,6 +22,56 @@ static unsigned int ad_end = 0;  ///< The index of the last available TPS vector
 static std::vector <unsigned int> adlist;
 static TNVND gnd_record = 0; ///< Temporarily record the TSP order, used only when reducing and restoring the TSP order.
 
+static ADOrderTable ad_order_table;
+
+void ADOrderTable::generate_order_table() {
+    order_table.clear();
+    order_index.clear();
+    std::vector<int> orders(gnv);
+
+    TNVND* p = base;
+    for (size_t i = 0; i < FULL_VEC_LEN; ++i) {
+        for (size_t j = 0; j < gnv-1; ++j) {
+            orders.at(j) = (int)(*p-*(p+1));
+            ++p;
+        }
+        orders.at(gnv-1) = (int)*p++;
+        order_table.push_back(orders);
+        order_index.insert(std::pair<std::vector<int>, int>(orders,i));
+    }
+}
+
+void ADOrderTable::clear_order_table() {
+    order_table.clear();
+    order_index.clear();
+    valid = false;
+}
+
+std::vector<int>& ad_element_orders(int i) {
+    return ad_order_table.orders(i);
+}
+
+std::vector<std::vector<int>>::iterator ad_order_table_begin() {
+    return ad_order_table.table_begin();
+}
+
+std::vector<std::vector<int>>::iterator ad_order_table_end() {
+    return ad_order_table.table_end();
+}
+
+bool ad_valid_order_table() {
+    return ad_order_table.valid_table();
+}
+
+int ad_find_index(std::vector<int>& orders) {
+    return ad_order_table.find_index(orders);
+}
+
+void ad_generate_order_table()
+{
+    ad_order_table.generate_order_table();
+}
+
 /** \brief Return the order of the TPS environment.
  *
  * \return order of the TPS environment.
@@ -406,6 +456,8 @@ void ad_clear() {
 
     ad_flag = 0;
     ad_end = 0;
+
+    ad_order_table.clear_order_table();
 }
 
 
@@ -433,13 +485,96 @@ void ad_assign(unsigned int &i) {
 /** \brief Composition of a group of TPS vectors with a group of numbers.
  * Submitting the numbers into the bases of a group of TPS vectors, and save the result into another group of TPS vectors.
  * Call the first group of TPS vectors, ivecs, as f, which includes n TPS vectors: f_1, f_2, ..., f_n.
- * A group of m numbers are saved in v, where m is equal to the number of TPS bases.
- * Call the second group of TPS vectors, ovecs, as g, which also includes n TPS vectors: g_1, g_2, ..., g_n.
+ * A group of m complex numbers are saved in v, where m is equal to the number of TPS bases.
+ * Call the second group of TPS vectors, ovecs, as g, which also includes n complex numbers: g_1, g_2, ..., g_n.
  * g = f(v), or g_1 = f_1(v), g_2 = f_2(v), ..., g_n = f_n(v).
  * This is an alternative function for the original one (ad_subst) in tpsa.cpp.
  * \param[in] ivecs A group of TPS vectors, saved as an std::vector.
- * \param[in] v A group of TPS vectors, saved as an std::vector.
- * \param[out] ovecs A group of TPS vectors, saved as an std::vector.
+ * \param[in] v A group of complex numbers, saved as an std::vector.
+ * \param[out] ovecs A group of complex numbers, saved as an std::vector.
+ * \return void.
+ *
+ */
+void ad_composition(std::vector<TVEC> &ivecs, std::vector<std::complex<double> > &v, std::vector<std::complex<double> > &ovecs) {
+    assert(gnv==v.size()&&"Error in ad_composition: No. of TPS vectors NOT EQUAL to No. of bases!");
+    assert(ivecs.size()==ovecs.size()&&"Error in ad_composition: No. of input vectors NOT EQUAL to No. of output vectors!");
+
+    TNVND* p = base;
+    std::vector<unsigned int> c(gnv);
+    std::vector<unsigned int> bv(gnv);
+//    std::vector< std::vector<double> > power_vv (gnv, std::vector<double>(gnd+1));
+    std::vector< std::vector<std::complex<double> > > power_vv (gnv, std::vector<std::complex<double> >(gnd+1));
+    for(auto& power_v : power_vv) {
+        power_v.at(0) = 1;
+    }
+    for (unsigned int idx = 0; idx<gnv; ++idx) {
+//        double val = v.at(idx);
+        std::complex<double> val = v.at(idx);
+        for(unsigned int i = 1; i<gnd+1; ++i) {
+            power_vv.at(idx).at(i) = val*power_vv.at(idx).at(i-1);
+        }
+    }
+    //Find the length of the longest TPS vector.
+    unsigned int veclen_max = 0;
+    for(auto iv : ivecs)
+        if (adveclen[iv]>veclen_max) veclen_max = adveclen[iv];
+
+    //Copy the constant element to output vectors
+    for(unsigned int iv = 0; iv<ivecs.size(); ++iv)
+        ovecs.at(iv) = advec[ivecs.at(iv)][0];
+
+    for (size_t j = 0; j < gnv-1; ++j) {
+        c.at(j) = (unsigned int) (*p-*(p+1));
+        ++p;
+    }
+    c.at(gnv-1) = (unsigned int)*p++ ;
+    unsigned int vec_size = ivecs.size();
+    for (size_t i=1; i<veclen_max; ++i) { //loop over all elements, except for the constant element.
+        bool product_flag = true; //Calculate the product.
+        bool c_flag = true;
+        std::complex<double> product = 1;
+//        double product = 1;
+        unsigned int zero_coef = 0;
+        for(unsigned int iv = 0; iv<vec_size; ++iv) {
+            if (i>=adveclen[ivecs.at(iv)]) {
+                ++zero_coef;
+                continue;
+            }
+            double coef = advec[ivecs.at(iv)][i];
+            if (std::abs(coef) < std::numeric_limits<double>::min()) {
+                ++zero_coef;
+                continue;
+            }
+
+            if(c_flag) {
+                for (size_t j = 0; j < gnv-1; ++j) {
+                    c.at(j) = (unsigned int) (*p-*(p+1));
+                    ++p;
+                }
+                c.at(gnv-1) = (unsigned int)*p++ ;
+                c_flag = false;
+            }
+
+            if (product_flag) {
+                for(unsigned int id=0; id<gnv; ++id) product *= power_vv.at(id).at(c.at(id));
+                product_flag = false;
+            }
+            ovecs.at(iv) += product*coef;
+        }
+        if (zero_coef == vec_size) p += gnv;
+    }
+}
+
+/** \brief Composition of a group of TPS vectors with a group of numbers.
+ * Submitting the numbers into the bases of a group of TPS vectors, and save the result into another group of TPS vectors.
+ * Call the first group of TPS vectors, ivecs, as f, which includes n TPS vectors: f_1, f_2, ..., f_n.
+ * A group of m numbers are saved in v, where m is equal to the number of TPS bases.
+ * Call the second group of TPS vectors, ovecs, as g, which also includes n numbers: g_1, g_2, ..., g_n.
+ * g = f(v), or g_1 = f_1(v), g_2 = f_2(v), ..., g_n = f_n(v).
+ * This is an alternative function for the original one (ad_subst) in tpsa.cpp.
+ * \param[in] ivecs A group of TPS vectors, saved as an std::vector.
+ * \param[in] v A group of numbers, saved as an std::vector.
+ * \param[out] ovecs A group of numbers, saved as an std::vector.
  * \return void.
  *
  */
@@ -1225,6 +1360,9 @@ double ad_elem(const TVEC &vec, std::vector<int> &idx) {
         assert((v<=ad_order() && v>=0 && "Error in ad_elem: value of indexes out of range"));
     }
     //Find the index of the element
+    if(ad_order_table.valid_table()) {
+        return advec[vec][ad_order_table.find_index(idx)];
+    }
     unsigned int d = 0;
     for (unsigned int i = 0; i < gnv; ++i) {
         d += idx.at(i);
@@ -1333,6 +1471,18 @@ void ad_free(const TVEC* i) {
     ad_end = *i;
 }
 
+/** \brief Calcualte the max abs value of the coefficients of the TPS vector.
+ * \param[in] iv TPS vector
+ * \param[out] r The result.
+ *
+ */
+void ad_abs(const TVEC* iv, double* r) {
+    *r = 0;
+    for (size_t i = 0; i < adveclen[*iv]; ++i) {
+        double tmp = std::abs(advec[*iv][i]);
+        if (tmp > *r) *r = tmp;
+    }
+}
 
 /** \brief Internal multiplication of two TPS vectors. Result is saved into the third TPS vector.
  * Calculate idst = ilhs * irhs, where idst should be different from ilhs and irhs.
@@ -1533,6 +1683,55 @@ void print_vec(unsigned int ii, std::ostream& os)
         os <<std::setw(cnt_width)<<cnt;
         os << ' ' << std::setprecision(15)
            << std::scientific << std::setw(15+8) << v[i] << "    ";
+        for (size_t j = 0; j < gnv-1; ++j) {
+            os << std::setw(width_base) << (unsigned int) (*p-*(p+1));
+            ++p;
+        }
+        os << std::setw(width_base) << (unsigned int)*p++ << std::setw(6) << i << std::endl;
+    }
+    os << std::endl;
+
+    os.flags(prevflags);
+}
+
+
+void print_vec(unsigned int ii, unsigned int jj, std::ostream& os)
+{
+    //unsigned int ii = *iv;
+    TNVND* p = base;
+    //os << "iv= " << ii << std::endl;
+
+    std::ios::fmtflags prevflags = os.flags();
+    double* v = advec[ii];
+    double* w = advec[jj];
+
+    int width_base = 2;
+    if (gnd > static_cast<TNVND>(9))  ++width_base;
+
+    int cnt_width = 1;
+    if(adveclen[ii]>9) cnt_width = ceil(log10(adveclen[ii]));
+    cnt_width += 1;
+
+    std::string start (cnt_width, ' ');
+    std::string sep (cnt_width, '-');
+    start.replace(start.end()-1, start.end()-1, 1, 'I');
+    int cnt = 0;
+    os << start;
+    os << "       V [" << ii << "]                  V [" << jj << "]              Base  [ "
+       << adveclen[ii] << " / " << FULL_VEC_LEN << " ]" << std::endl <<sep
+       << "-------------------------------------------------------------------" << std::endl;
+//    for (size_t i = 0; i < adveclen[ii]; ++i) {
+    for (size_t i = 0; i < FULL_VEC_LEN; ++i) {
+        if (std::abs(v[i]) < std::numeric_limits<double>::min() && std::abs(w[i]) < std::numeric_limits<double>::min()) {
+            p += gnv;
+            continue;
+        }
+        ++cnt;
+        os <<std::setw(cnt_width)<<cnt;
+        os << ' ' << std::setprecision(15)
+           << std::scientific << std::setw(15+8) << v[i] << "    "
+           << std::setprecision(15)
+           << std::scientific << std::setw(15+8) << w[i] << "    ";
         for (size_t j = 0; j < gnv-1; ++j) {
             os << std::setw(width_base) << (unsigned int) (*p-*(p+1));
             ++p;

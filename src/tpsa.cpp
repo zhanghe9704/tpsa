@@ -807,19 +807,19 @@ void ad_var(const unsigned int* ivec, const double* x, unsigned int* ibvec)
     //for (size_t k = 1; k < iv; ++k) v[k] = 0;
 }
 
-#ifdef MSVC_DLL
-_declspec(dllexport) void _stdcall ad_abs(const TVEC* iv, double* r)
-#else
-void ad_abs(const TVEC* iv, double* r)
-#endif
-{
-    *r = 0;
-    for (size_t i = 0; i < adveclen[*iv]; ++i) {
-        *r += std::abs(advec[*iv][i]);
-        //std::cout << advec[*iv][i] << ' ';
-    }
-    //std::cout << "abs: " << *r << std::endl;
-}
+//#ifdef MSVC_DLL
+//_declspec(dllexport) void _stdcall ad_abs(const TVEC* iv, double* r)
+//#else
+//void ad_abs(const TVEC* iv, double* r)
+//#endif
+//{
+//    *r = 0;
+//    for (size_t i = 0; i < adveclen[*iv]; ++i) {
+//        *r += std::abs(advec[*iv][i]);
+//        //std::cout << advec[*iv][i] << ' ';
+//    }
+//    //std::cout << "abs: " << *r << std::endl;
+//}
 
 #ifdef MSVC_DLL
 _declspec(dllexport) void _stdcall ad_truncate(const TVEC* iv, const TNVND* d)
