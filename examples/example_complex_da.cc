@@ -67,6 +67,10 @@ int main() {
     da_composition(cmmap, cnmap, comap);
     for(auto& o: comap) std::cout<<o<<std::endl;
 
+    mmap.push_back(x1+0.33*x2);
+    da_composition(cmmap, mmap, comap);
+    for(auto& o: comap) std::cout<<o<<std::endl;
+
     return 0;
 }
 
