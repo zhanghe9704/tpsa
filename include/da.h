@@ -117,7 +117,8 @@ void da_composition(std::vector<DAVector> &ivecs, std::vector<std::complex<DAVec
                     std::vector<std::complex<DAVector>> &ovecs);
 void da_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<std::complex<DAVector>> &v,
                     std::vector<std::complex<DAVector>> &ovecs);
-
+void da_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<DAVector> &v,
+                    std::vector<std::complex<DAVector>> &ovecs);
 DAVector operator+(const DAVector &da_vector, double real_number);
 DAVector operator+(double real_number, const DAVector &da_vector) ;
 DAVector operator+(const DAVector &da_vector_1, const DAVector &da_vector_2);

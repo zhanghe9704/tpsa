@@ -655,6 +655,24 @@ void da_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<std:
     }
 }
 
+void da_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<DAVector> &v,
+                    std::vector<std::complex<DAVector>> &ovecs) {
+    assert(DAVector::dim()==v.size()&&"Error in da_composition: No. of DA vectors NOT EQUAL to No. of bases!");
+    assert(ivecs.size()==ovecs.size()&&"Error in da_composition: No. of input vectors NOT EQUAL to No. of output vectors!");
+    int n = ivecs.size();
+    std::vector<DAVector> iv(2*n);
+    for(int i=0; i<n; ++i) {
+        iv.at(2*i) = ivecs.at(i).real();
+        iv.at(2*i+1) = ivecs.at(i).imag();
+    }
+    std::vector<DAVector> ov(2*n);
+    da_composition(iv, v, ov);
+    complex<double> i1(0,1);
+    for(int i=0; i<n; ++i) {
+        ovecs.at(i) = std::complex<DAVector>(ov.at(2*i), ov.at(2*i+1));
+    }
+}
+
 //Overload the operators for DA
 DAVector operator+(const DAVector &da_vector, double real_number) {
 	DAVector res;
