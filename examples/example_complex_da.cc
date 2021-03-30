@@ -74,6 +74,8 @@ int main() {
     std::cout<<"Composition of complex DA vectors with DA vectors."<<std::endl<<std::endl;
     for(auto& o: comap) std::cout<<o<<std::endl;
 
+    da_clear();
+
     return 0;
 }
 

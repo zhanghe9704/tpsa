@@ -12,7 +12,7 @@ int main() {
 
     unsigned int da_dim = 3;
     unsigned int da_order = 4;
-    unsigned int n_vec = 400;
+    unsigned int n_vec = 100;
 
     //Initialize the DA domain.
     da_init(da_order, da_dim, n_vec);
@@ -98,6 +98,8 @@ int main() {
 	std::cout<<"DA eps: "<<DAVector::eps<<std::endl;
 	da_set_eps(1e-20);
 	std::cout<<"Reset DA eps: "<<DAVector::eps<<std::endl;
+
+	da_clear();
 
     return 0;
 }

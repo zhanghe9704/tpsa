@@ -1465,6 +1465,7 @@ void ad_reset(const TVEC* iv) {
  *
  */
 void ad_free(const TVEC* i) {
+    if(adlist.empty()) return;
     ad_reset(i);
     adlist.at(*i) = adlist.at(ad_end);
     adlist.at(ad_end) = *i;
