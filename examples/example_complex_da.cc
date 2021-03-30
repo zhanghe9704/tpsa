@@ -48,6 +48,7 @@ int main() {
 
     std::vector<complex<double>> omap(2);
     da_composition(mmap, nmap, omap);
+    std::cout<<"Composition of DA vectors with complex numbers."<<std::endl<<std::endl;
     for(auto& o: omap) std::cout<<o<<std::endl;
 
     std::vector<complex<DAVector>> cnmap;
@@ -56,19 +57,21 @@ int main() {
     cnmap.push_back(y1*y2);
 
     std::vector<complex<DAVector>> comap(2);
-    da_composition(mmap, cnmap, comap);
+    cd_composition(mmap, cnmap, comap);
+    std::cout<<"Composition of DA vectors with complex DA vectors."<<std::endl<<std::endl;
     for(auto& o: comap) std::cout<<o<<std::endl;
 
     std::vector<complex<DAVector>> cmmap;
     cmmap.push_back(x1+1i*exp(x1));
     cmmap.push_back(x2+1i*exp(x2));
 
-    std::cout<<da_count()<<' '<<da_remain()<<std::endl;
-    da_composition(cmmap, cnmap, comap);
+    cd_composition(cmmap, cnmap, comap);
+    std::cout<<"Composition of complex DA vectors with complex DA vectors."<<std::endl<<std::endl;
     for(auto& o: comap) std::cout<<o<<std::endl;
 
     mmap.push_back(x1+0.33*x2);
-    da_composition(cmmap, mmap, comap);
+    cd_composition(cmmap, mmap, comap);
+    std::cout<<"Composition of complex DA vectors with DA vectors."<<std::endl<<std::endl;
     for(auto& o: comap) std::cout<<o<<std::endl;
 
     return 0;

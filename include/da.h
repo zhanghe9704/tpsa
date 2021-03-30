@@ -113,11 +113,11 @@ void da_composition(std::vector<DAVector> &ivecs, std::vector<DAVector> &v, std:
 void da_composition(std::vector<DAVector> &ivecs, std::vector<double> &v, std::vector<double> &ovecs);
 void da_composition(std::vector<DAVector> &ivecs, std::vector<std::complex<double>> &v,
                     std::vector<std::complex<double>> &ovecs);
-void da_composition(std::vector<DAVector> &ivecs, std::vector<std::complex<DAVector>> &v,
+void cd_composition(std::vector<DAVector> &ivecs, std::vector<std::complex<DAVector>> &v,
                     std::vector<std::complex<DAVector>> &ovecs);
-void da_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<std::complex<DAVector>> &v,
+void cd_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<std::complex<DAVector>> &v,
                     std::vector<std::complex<DAVector>> &ovecs);
-void da_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<DAVector> &v,
+void cd_composition(std::vector<std::complex<DAVector>> &ivecs, std::vector<DAVector> &v,
                     std::vector<std::complex<DAVector>> &ovecs);
 DAVector operator+(const DAVector &da_vector, double real_number);
 DAVector operator+(double real_number, const DAVector &da_vector) ;
@@ -134,6 +134,13 @@ DAVector operator/(const DAVector &da_vector_1, const DAVector &da_vector_2);
 DAVector operator+(const DAVector &da_vector);
 DAVector operator-(const DAVector &da_vector);
 bool operator==(const DAVector &da_vector_1, const DAVector &da_vector_2);
+inline DAVector& get_real(std::complex<DAVector>& v){return reinterpret_cast<DAVector(&)[2]>(v)[0];}
+inline DAVector& get_imag(std::complex<DAVector>& v){return reinterpret_cast<DAVector(&)[2]>(v)[1];}
+inline const DAVector& get_real(const std::complex<DAVector>& v){return reinterpret_cast<const DAVector(&)[2]>(v)[0];}
+inline const DAVector& get_imag(const std::complex<DAVector>& v){return reinterpret_cast<const DAVector(&)[2]>(v)[1];}
+void cd_copy(std::complex<DAVector>& vs, std::complex<DAVector>& vo);
+void cd_copy(std::complex<double> vs, std::complex<DAVector>& vo);
+void cd_copy(double x, std::complex<DAVector>& vo);
 
 std::complex<DAVector>  operator+(const DAVector &da_vector, std::complex<double> complex_number);
 std::complex<DAVector>  operator+( std::complex<double> complex_number, const DAVector &da_vector);
@@ -161,6 +168,11 @@ std::complex<DAVector>  operator*(const std::complex<DAVector> &cd_vector, std::
 std::complex<DAVector>  operator*(std::complex<double> complex_number, const std::complex<DAVector> &cd_vector);
 std::complex<DAVector>  operator/(const std::complex<DAVector> &cd_vector, std::complex<double> complex_number);
 std::complex<DAVector>  operator/(std::complex<double> complex_number, const std::complex<DAVector> &cd_vector);
+
+std::complex<DAVector> operator+(const std::complex<DAVector> &cd_vector_1, const std::complex<DAVector> &cd_vector_2);
+std::complex<DAVector> operator-(const std::complex<DAVector> &cd_vector_1, const std::complex<DAVector> &cd_vector_2);
+std::complex<DAVector> operator*(const std::complex<DAVector> &cd_vector_1, const std::complex<DAVector> &cd_vector_2);
+std::complex<DAVector> operator/(const std::complex<DAVector> &cd_vector_1, const std::complex<DAVector> &cd_vector_2);
 
 DAVector sqrt(const DAVector &da_vector);
 DAVector exp(const DAVector &da_vector);
