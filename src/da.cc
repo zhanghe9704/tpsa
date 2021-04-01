@@ -434,6 +434,7 @@ int da_restore_order(){ad_restore_order(); return 0;}
  *
  */
 void da_substitute_const(const DAVector &iv, unsigned int base_id, double x, DAVector &ov) {
+    assert(base_id<DAVector::dim()&&"Base id out of range in da_substitute_const!");
     ad_substitute_const(iv.da_vector_, base_id, x, ov.da_vector_);
 }
 
@@ -447,6 +448,7 @@ void da_substitute_const(const DAVector &iv, unsigned int base_id, double x, DAV
  *
  */
 void da_substitute(const DAVector &iv, unsigned int base_id, const DAVector &v, DAVector &ov) {
+    assert(base_id<DAVector::dim()&&"Base id out of range in da_substitute!");
     ad_substitute(iv.da_vector_, base_id, v.da_vector_, ov.da_vector_);
 }
 
@@ -463,6 +465,9 @@ void da_substitute(const DAVector &iv, std::vector<unsigned int> &base_id, std::
     std::set<unsigned int> check;
     for(auto& id: base_id) check.insert(id);
     assert(check.size()==base_id.size()&&"Duplicate base id in da_subscribe!");
+    for(auto id: check) {
+        if (id>=DAVector::dim()) assert(false&&"Base id out of range in da_substitute!");
+    }
     std::vector<TVEC> ad_v;
     for(auto&& i : v) ad_v.push_back(i.da_vector_);
     ad_substitute(iv.da_vector_, base_id, ad_v, ov.da_vector_);
@@ -482,6 +487,9 @@ void da_substitute(std::vector<DAVector> &ivecs, std::vector<unsigned int> &base
     std::set<unsigned int> check;
     for(auto& id: base_id) check.insert(id);
     assert(check.size()==base_id.size()&&"Duplicate base id in da_subscribe!");
+    for(auto id: check) {
+        if (id>=DAVector::dim()) assert(false&&"Base id out of range in da_substitute!");
+    }
     std::vector<TVEC> ad_iv, ad_v, ad_ov;
     for(auto&& i : v) ad_v.push_back(i.da_vector_);
     for(auto&& i : ivecs) ad_iv.push_back(i.da_vector_);
