@@ -1216,7 +1216,8 @@ void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> 
 	int imax;
 	double big, dum, sum, temp;
 	std::vector<double> vv(n);      //the implicit scaling of each row.
-	double tiny = 1.0e-20;
+//	double tiny = 1.0e-20;
+	auto tiny = std::numeric_limits<double>::min();
 
 	d = 1; 		//No row interchanges yet.
 	for (int i=0; i<n; ++i){
