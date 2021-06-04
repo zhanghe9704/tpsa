@@ -111,14 +111,18 @@ int ad_full_length() {
 /** \brief Reduce the TPS order to the specific value.
  *
  * \param new_order New TPS order. The new order should be lower than the current order.
- * \return void
+ * \return 0: TPS order changes; 1: TPS order did NOT change.
  *
  */
-void ad_change_order(unsigned int new_order) {
+int ad_change_order(unsigned int new_order) {
     if (0==gnd_record) gnd_record = gnd;
     if (new_order<=gnd_record) {
         gnd = new_order;
         FULL_VEC_LEN = comb_num(gnv+gnd, gnd);
+        return 0;
+    }
+    else {
+        return 1;
     }
 }
 

@@ -39,7 +39,7 @@ std::vector<int>& ad_element_orders(int i);
 
 unsigned int ad_dim(); //Return the TPS base number.
 void ad_reset_vector(const TVEC iv); //Reset all the elements to zero, still keep the length of the vector.
-void ad_change_order(unsigned int new_order);//temporarily lower the TPS order.
+int ad_change_order(unsigned int new_order);//temporarily lower the TPS order.
 void ad_restore_order();//Restore the original TPS order, which is larger than the current one
 void ad_reserve(const unsigned int n);  //Reserve memory for n TPS vectors.
 void ad_clear(); //Destroy the TPS environment and release memory.
