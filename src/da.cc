@@ -419,7 +419,11 @@ void da_clear() {
 }
 
 ///Temporarily change the DA order.
-int da_change_order(unsigned int new_order) {ad_change_order(new_order); return 0;}
+int da_change_order(unsigned int new_order) {
+    int i = ad_change_order(new_order);
+    if(i==1) std::cout<<"WARNING: Given order is too large. DA order does not change!"<<std::endl;
+    return i;
+}
 
 ///Restore the original DA order.
 int da_restore_order(){ad_restore_order(); return 0;}
