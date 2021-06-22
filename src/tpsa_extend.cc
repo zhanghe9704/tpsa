@@ -1714,7 +1714,9 @@ void print_vec(unsigned int ii, unsigned int jj, std::ostream& os)
     if (gnd > static_cast<TNVND>(9))  ++width_base;
 
     int cnt_width = 1;
-    if(adveclen[ii]>9) cnt_width = ceil(log10(adveclen[ii]));
+    int veclen = adveclen[ii];
+    if (adveclen[jj]>veclen) veclen = adveclen[jj];
+    if(veclen>9) cnt_width = ceil(log10(veclen));
     cnt_width += 1;
 
     std::string start (cnt_width, ' ');
@@ -1723,7 +1725,7 @@ void print_vec(unsigned int ii, unsigned int jj, std::ostream& os)
     int cnt = 0;
     os << start;
     os << "       V [" << ii << "]                  V [" << jj << "]              Base  [ "
-       << adveclen[ii] << " / " << FULL_VEC_LEN << " ]" << std::endl <<sep
+       << veclen << " / " << FULL_VEC_LEN << " ]" << std::endl <<sep
        << "-------------------------------------------------------------------" << std::endl;
 //    for (size_t i = 0; i < adveclen[ii]; ++i) {
     for (size_t i = 0; i < FULL_VEC_LEN; ++i) {
