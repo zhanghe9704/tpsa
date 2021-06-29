@@ -141,6 +141,14 @@ inline const DAVector& get_imag(const std::complex<DAVector>& v){return reinterp
 void cd_copy(std::complex<DAVector>& vs, std::complex<DAVector>& vo);
 void cd_copy(std::complex<double> vs, std::complex<DAVector>& vo);
 void cd_copy(double x, std::complex<DAVector>& vo);
+std::string trim_whitespace(std::string input_line);
+bool read_da_from_file(std::string filename, DAVector& d);
+bool read_cd_from_file(std::string filename, std::complex<DAVector>& cd);
+DAVector devide_by_element(DAVector& t, DAVector& b);
+bool compare_da_vectors(DAVector& a, DAVector& b, double eps=1e-15);
+bool compare_da_with_file(std::string filename, DAVector& d, double eps=1e-15);
+bool compare_cd_vectors(std::complex<DAVector>& a, std::complex<DAVector>&b, double eps=1e-15);
+bool compare_cd_with_file(std::string filename, std::complex<DAVector>& d, double eps=1e-15);
 
 std::complex<DAVector>  operator+(const DAVector &da_vector, std::complex<double> complex_number);
 std::complex<DAVector>  operator+( std::complex<double> complex_number, const DAVector &da_vector);

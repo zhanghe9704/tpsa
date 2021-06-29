@@ -7,14 +7,18 @@
  */
 
 #include "../include/da.h"
+#include <algorithm>
 #include <cassert>
 #include <cmath>
+#include <fstream>
 #include <limits>
+#include <sstream>
 #include <set>
 #include "../include/tpsa_extend.h"
 
 using std::complex;
 using std::vector;
+using std::string;
 
 Base da; /**< Bases for DA calculations. The i-th base can be accessed as da[i].  */
 
@@ -1416,3 +1420,261 @@ void cd_copy(std::complex<DAVector>& vs, std::complex<DAVector>& vo) { get_real(
 void cd_copy(std::complex<double> vs, std::complex<DAVector>& vo) { get_real(vo) = vs.real(); get_imag(vo) = vs.imag();}
 void cd_copy(double x, std::complex<DAVector>& vo) {get_real(vo) = x; get_imag(vo) = 0;}
 
+const std::string k_whitespace = " \n\r\t\v\f"; //\n newline, \r carriage return, \t horizontal tab, \v vertical tab, \f form feed.
+
+
+/** \brief Trim the spaces at the head of the string
+ *
+ * \param input_line The string to trim.
+ * \return The string with all the spaces at the head trimmed.
+ *
+ */
+string ltrim_whitespace(string input_line) {
+    string::size_type st = input_line.find_first_not_of(k_whitespace);
+    return (st == string::npos)? "" : input_line.substr(st);
+}
+
+/** \brief Trim the spaces at the tail of the string
+ *
+ * \param input_line The string to trim.
+ * \return The string with all the spaces at the tail trimmed.
+ *
+ */
+string rtrim_whitespace(string input_line) {
+    string::size_type fi = input_line.find_last_not_of(k_whitespace);
+    return (fi == string::npos)? "" : input_line.substr(0, fi+1);
+}
+
+/** \brief Trim the spaces at the head and the tail of the string
+ *
+ * \param input_line The string to trim.
+ * \return The string with all the spaces at the head and the tail trimmed.
+ *
+ */
+std::string trim_whitespace(std::string input_line) {
+    return rtrim_whitespace(ltrim_whitespace(input_line));
+}
+
+
+/** \brief Read a DA vector from a file
+ *
+ * \param filename The file to read.
+ * \param d The DA vector to save the reading result from the file.
+ * \return True: reading succeeded; False: reading failed.
+ *
+ */
+bool read_da_from_file(string filename, DAVector& d) {
+    d.reset();
+    std::fstream input;
+    input.open(filename, std::ios::in | std::ios::out | std::ios::app);
+    string line;
+
+    bool reading = false;
+    bool read_success = false;
+    int n_terms = 0;
+    while(std::getline(input, line)) {
+        if(!line.empty() && line[line.size()-1] == '\r') line.erase(line.size()-1);
+        if (!line.empty()) {
+            line = trim_whitespace(line);
+            if(reading) {
+                int i = std::stoi(line.substr(line.length()-6));
+                line.erase(line.end()-6, line.end());
+                double elem = 0;
+                std::vector<int> idx;
+
+                std::istringstream iss(line);
+                string word;
+                iss >> word;
+                iss >> word;
+                elem = std::stod(word);
+                while(!iss.eof()) {
+                    int index = 0;
+                    iss >> word;
+                    index = std::stoi(word);
+                    idx.push_back(index);
+                }
+                d.set_element(idx, elem);
+                if(n_terms-i == 1) read_success = true;
+            }
+            else {
+                auto pi = line.find_last_of("/");
+                auto pf = line.find_last_of("[");
+                if(pi!=string::npos && pf!=string::npos) {
+                    n_terms = std::stoi(line.substr(pi+1,pf));
+                    continue;
+                }
+                line.erase(std::remove(line.begin(), line.end(), '-'), line.end());
+                if(line.empty()) {
+                    reading = true;
+                    continue;
+                }
+            }
+        }
+    }
+    return read_success;
+}
+
+
+
+/** \brief Read a complex DA vector from a file
+ *
+ * \param filename The file to read.
+ * \param cd The complex DA vector to save the reading result from the file.
+ * \return True: reading succeeded; False: reading failed.
+ *
+ */
+bool read_cd_from_file(string filename, complex<DAVector>& cd) {
+    DAVector& rl = get_real(cd);
+    DAVector& img = get_imag(cd);
+    rl.reset();
+    img.reset();
+    std::fstream input;
+    input.open(filename, std::ios::in | std::ios::out | std::ios::app);
+    string line;
+
+    bool reading = false;
+    bool read_success = false;
+    int n_terms = 0;
+    while(std::getline(input, line)) {
+        if(!line.empty() && line[line.size()-1] == '\r') line.erase(line.size()-1);
+        if (!line.empty()) {
+            line = trim_whitespace(line);
+            if(reading) {
+                int i = std::stoi(line.substr(line.length()-6));
+                line.erase(line.end()-6, line.end());
+                double elem_rl = 0;
+                double elem_img = 0;
+                std::vector<int> idx;
+
+                std::istringstream iss(line);
+                string word;
+                iss >> word;
+                iss >> word;
+                elem_rl = std::stod(word);
+                iss >> word;
+                elem_img = std::stod(word);
+                while(!iss.eof()) {
+                    int index = 0;
+                    iss >> word;
+                    index = std::stoi(word);
+                    idx.push_back(index);
+                }
+                if(std::abs(elem_rl)>=std::numeric_limits<double>::min()) rl.set_element(idx, elem_rl);
+                if(std::abs(elem_img)>=std::numeric_limits<double>::min()) img.set_element(idx, elem_img);
+                if(n_terms-i == 1) read_success = true;
+            }
+            else {
+                auto pi = line.find_last_of("/");
+                auto pf = line.find_last_of("[");
+                if(pi!=string::npos && pf!=string::npos) {
+                    n_terms = std::stoi(line.substr(pi+1,pf));
+                    continue;
+                }
+                line.erase(std::remove(line.begin(), line.end(), '-'), line.end());
+                if(line.empty()) {
+                    reading = true;
+                    continue;
+                }
+            }
+        }
+    }
+    return read_success;
+}
+
+/** \brief Devide two DA vectors element by element.
+ * Devide DAVector t by DAVector b element by element. If the the element in b is zero, use the respective element in
+ * t as the result for that element.
+ * \param t DA vector.
+ * \param b DA vector.
+ * \return DA vector.
+ *
+ */
+DAVector devide_by_element(DAVector& t, DAVector& b) {
+    DAVector r;
+    for(int i=0; i<DAVector::full_length(); ++i) {
+        double te = t.element(i);
+        double be = b.element(i);
+        if(abs(be)>std::numeric_limits<double>::min()) {
+            r.set_element(r.element_orders(i), te/be);
+        }
+        else {
+            r.set_element(r.element_orders(i), te);
+        }
+    }
+    return r;
+}
+
+/** \brief Compare two DA vectors.
+ * Compare two DA vectors element by element. If the relative error of each element is less than a given value, return
+ * true; otherwise return false.
+ * \param a DA vector.
+ * \param b DA vector.
+ * \param eps Defines the upper limit of the relative errors for all the elements. Should be positive.
+ * \return True or false.
+ *
+ */
+bool compare_da_vectors(DAVector& a, DAVector& b, double eps) {
+    DAVector r;
+    r = a - b;
+    r = devide_by_element(r, b);
+    return r.iszero(eps);
+}
+
+/** \brief Compare a DA vector with another one saved in a file.
+ * \param filename The file that saves a DA vector.
+ * \param d DA vector.
+ * \param eps Defines the upper limit of the relative errors for all the elements. Should be positive.
+ * \return True or false.
+ *
+ */
+bool compare_da_with_file(string filename, DAVector& d, double eps) {
+    bool result = false;
+    DAVector r;
+    int i = read_da_from_file(filename, r);
+    if(i == 0) {
+        std::cout<<"Read_da_from_file failded in compare_da_with_file."<<std::endl;
+        return false;
+    }
+    if( i == 1) {
+        result = compare_da_vectors(r, d, eps);
+    }
+    return result;
+}
+
+/** \brief Compare two complex DA vectors.
+ * Compare two DA vectors element by element. If the relative error of each element is less than a given value, return
+ * true; otherwise return false.
+ * \param a complex DA vector.
+ * \param b complex DA vector.
+ * \param eps Defines the upper limit of the relative errors for all the elements. Should be positive.
+ * \return True or false.
+ *
+ */
+bool compare_cd_vectors(complex<DAVector>& a, complex<DAVector>&b, double eps) {
+    DAVector& a_real = get_real(a);
+    DAVector& a_imag = get_imag(a);
+    DAVector& b_real = get_real(b);
+    DAVector& b_imag = get_imag(b);
+    return compare_da_vectors(a_real, b_real, eps) && compare_da_vectors(a_imag, b_imag, eps);
+}
+
+/** \brief Compare a complex DA vector with another one saved in a file.
+ * \param filename The file that saves a complex DA vector.
+ * \param d complex DA vector.
+ * \param eps Defines the upper limit of the relative errors for all the elements. Should be positive.
+ * \return True or false.
+ *
+ */
+bool compare_cd_with_file(string filename, complex<DAVector>& d, double eps) {
+    bool result = false;
+    complex<DAVector> r;
+    int i = read_cd_from_file(filename, r);
+    if(i == 0) {
+        std::cout<<"Read_cd_from_file failded in compare_cd_with_file."<<std::endl;
+        return false;
+    }
+    if( i == 1) {
+        result = compare_cd_vectors(r, d, eps);
+    }
+    return result;
+}
