@@ -6,7 +6,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## About this code
 
-This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). 
+This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). A Python wrapper of this lib is hosted in [a separate repository](https://github.com/zhanghe9704/tpsa-python). 
 
 
 
@@ -14,7 +14,7 @@ For TPSA and DA, please refer to chapter 8 in [*Lecture Notes on Special Topics 
 
 
 
-This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (tpsa.cpp and tpsa.h) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in tpsa_extend.cc. Please get permission from Dr. Lingyun Yang before you redistribute tpsa.cpp and tpsa.h.
+This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (tpsa.cpp and tpsa.h) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in tpsa_extend.cc. 
 
 
 
@@ -171,22 +171,6 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   ` ./tpsa_exp `
 
-  
-
-  The result is shown as follows:
-  V [16]              Base  [ 4 / 286 ]
-
-  ---------------------------------------------
-
-   1.000000000000000e+00      0  0  0     0  
-
-  -1.000000000000000e+00      1  0  0     1   
-
-    2.000000000000000e+00      0  1  0     2   
-
-    5.000000000000000e-01       0  0  1     3
-  
-  ......
 
 
 ## Acknowledgement
