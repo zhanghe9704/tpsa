@@ -1,5 +1,5 @@
-\hypertarget{tpsa_8h}{}\section{include/tpsa.h File Reference}
-\label{tpsa_8h}\index{include/tpsa.h@{include/tpsa.h}}
+\hypertarget{tpsa_8h}{}\doxysection{E\+:/\+Work/\+Code/tpsa\+\_\+lib/include/tpsa.h File Reference}
+\label{tpsa_8h}\index{E:/Work/Code/tpsa\_lib/include/tpsa.h@{E:/Work/Code/tpsa\_lib/include/tpsa.h}}
 
 
 Automatic Differentiation.  
@@ -11,190 +11,263 @@ Automatic Differentiation.
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$iomanip$>$}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
-\subsection*{Macros}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_ae238361e45b0e20fdb4e83b90fcc7ace}{ad\+\_\+print}}~ad\+\_\+print\+\_\+
+\mbox{\Hypertarget{tpsa_8h_ae238361e45b0e20fdb4e83b90fcc7ace}\label{tpsa_8h_ae238361e45b0e20fdb4e83b90fcc7ace}} 
+\#define {\bfseries ad\+\_\+print}~ad\+\_\+print\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a5227bff9f5bf9eee1c6ebfa4340f9b33}{ad\+\_\+elem}}~ad\+\_\+elem\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a5227bff9f5bf9eee1c6ebfa4340f9b33}\label{tpsa_8h_a5227bff9f5bf9eee1c6ebfa4340f9b33}} 
+\#define {\bfseries ad\+\_\+elem}~ad\+\_\+elem\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_ac2637c1e88c64ceced43dec58b14a448}{ad\+\_\+fill\+\_\+ran}}~ad\+\_\+fill\+\_\+ran\+\_\+
+\mbox{\Hypertarget{tpsa_8h_ac2637c1e88c64ceced43dec58b14a448}\label{tpsa_8h_ac2637c1e88c64ceced43dec58b14a448}} 
+\#define {\bfseries ad\+\_\+fill\+\_\+ran}~ad\+\_\+fill\+\_\+ran\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a48ea1b89b43992c727522773cdfa60da}{ad\+\_\+tra}}~ad\+\_\+tra\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a48ea1b89b43992c727522773cdfa60da}\label{tpsa_8h_a48ea1b89b43992c727522773cdfa60da}} 
+\#define {\bfseries ad\+\_\+tra}~ad\+\_\+tra\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_ac67229063bbfeb839f4b818692ab9eeb}{ad\+\_\+shift}}~ad\+\_\+shift\+\_\+
+\mbox{\Hypertarget{tpsa_8h_ac67229063bbfeb839f4b818692ab9eeb}\label{tpsa_8h_ac67229063bbfeb839f4b818692ab9eeb}} 
+\#define {\bfseries ad\+\_\+shift}~ad\+\_\+shift\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a503d0e7aa9adafb13a331c9b1c259bcb}{ad\+\_\+save\+\_\+block}}~ad\+\_\+save\+\_\+block\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a503d0e7aa9adafb13a331c9b1c259bcb}\label{tpsa_8h_a503d0e7aa9adafb13a331c9b1c259bcb}} 
+\#define {\bfseries ad\+\_\+save\+\_\+block}~ad\+\_\+save\+\_\+block\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a8e1709799654d72a8928fbacb2ae3d9c}{ad\+\_\+read\+\_\+block}}~ad\+\_\+read\+\_\+block\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a8e1709799654d72a8928fbacb2ae3d9c}\label{tpsa_8h_a8e1709799654d72a8928fbacb2ae3d9c}} 
+\#define {\bfseries ad\+\_\+read\+\_\+block}~ad\+\_\+read\+\_\+block\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a3fa86c82256ee6ae03ea0c52f2a984ae}{ad\+\_\+nvar}}~ad\+\_\+nvar\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a3fa86c82256ee6ae03ea0c52f2a984ae}\label{tpsa_8h_a3fa86c82256ee6ae03ea0c52f2a984ae}} 
+\#define {\bfseries ad\+\_\+nvar}~ad\+\_\+nvar\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_af87d678373b14a538cc3a60948047c26}{ad\+\_\+length}}~ad\+\_\+length\+\_\+
+\mbox{\Hypertarget{tpsa_8h_af87d678373b14a538cc3a60948047c26}\label{tpsa_8h_af87d678373b14a538cc3a60948047c26}} 
+\#define {\bfseries ad\+\_\+length}~ad\+\_\+length\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_ab120defc7abb5aa568e045429835d633}{ad\+\_\+derivative}}~ad\+\_\+derivative\+\_\+
+\mbox{\Hypertarget{tpsa_8h_ab120defc7abb5aa568e045429835d633}\label{tpsa_8h_ab120defc7abb5aa568e045429835d633}} 
+\#define {\bfseries ad\+\_\+derivative}~ad\+\_\+derivative\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a6246b982b68a771011facb4c9656d05a}{ad\+\_\+subst}}~ad\+\_\+subst\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a6246b982b68a771011facb4c9656d05a}\label{tpsa_8h_a6246b982b68a771011facb4c9656d05a}} 
+\#define {\bfseries ad\+\_\+subst}~ad\+\_\+subst\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a58435ccae9127f0d3cd45d8a78303e70}{ad\+\_\+cos}}~ad\+\_\+cos\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a58435ccae9127f0d3cd45d8a78303e70}\label{tpsa_8h_a58435ccae9127f0d3cd45d8a78303e70}} 
+\#define {\bfseries ad\+\_\+cos}~ad\+\_\+cos\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a5b37aa10d4dda469592b661811bf30f1}{ad\+\_\+sin}}~ad\+\_\+sin\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a5b37aa10d4dda469592b661811bf30f1}\label{tpsa_8h_a5b37aa10d4dda469592b661811bf30f1}} 
+\#define {\bfseries ad\+\_\+sin}~ad\+\_\+sin\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a4e7885549a85166036f47cb5ce0d0b04}{ad\+\_\+log}}~ad\+\_\+log\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a4e7885549a85166036f47cb5ce0d0b04}\label{tpsa_8h_a4e7885549a85166036f47cb5ce0d0b04}} 
+\#define {\bfseries ad\+\_\+log}~ad\+\_\+log\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_adb41919ee2ac3fc19fa95ef7a43d5935}{ad\+\_\+exp}}~ad\+\_\+exp\+\_\+
+\mbox{\Hypertarget{tpsa_8h_adb41919ee2ac3fc19fa95ef7a43d5935}\label{tpsa_8h_adb41919ee2ac3fc19fa95ef7a43d5935}} 
+\#define {\bfseries ad\+\_\+exp}~ad\+\_\+exp\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_ae10c4031e3cf07c0c48f7f25541eb346}{ad\+\_\+sqrt}}~ad\+\_\+sqrt\+\_\+
+\mbox{\Hypertarget{tpsa_8h_ae10c4031e3cf07c0c48f7f25541eb346}\label{tpsa_8h_ae10c4031e3cf07c0c48f7f25541eb346}} 
+\#define {\bfseries ad\+\_\+sqrt}~ad\+\_\+sqrt\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a447f7354174b7149f2475a77897cc3a6}{ad\+\_\+abs}}~ad\+\_\+abs\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a447f7354174b7149f2475a77897cc3a6}\label{tpsa_8h_a447f7354174b7149f2475a77897cc3a6}} 
+\#define {\bfseries ad\+\_\+abs}~ad\+\_\+abs\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a54914ad5508795fc4c9bc8ef8fcf40c2}{ad\+\_\+div\+\_\+c}}~ad\+\_\+div\+\_\+c\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a54914ad5508795fc4c9bc8ef8fcf40c2}\label{tpsa_8h_a54914ad5508795fc4c9bc8ef8fcf40c2}} 
+\#define {\bfseries ad\+\_\+div\+\_\+c}~ad\+\_\+div\+\_\+c\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a744320128aa542105e1abcdc9a22f46d}{ad\+\_\+c\+\_\+div}}~ad\+\_\+c\+\_\+div\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a744320128aa542105e1abcdc9a22f46d}\label{tpsa_8h_a744320128aa542105e1abcdc9a22f46d}} 
+\#define {\bfseries ad\+\_\+c\+\_\+div}~ad\+\_\+c\+\_\+div\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a146e88c0606b4be4078fe4f3495860db}{ad\+\_\+mult\+\_\+const}}~ad\+\_\+mult\+\_\+const\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a146e88c0606b4be4078fe4f3495860db}\label{tpsa_8h_a146e88c0606b4be4078fe4f3495860db}} 
+\#define {\bfseries ad\+\_\+mult\+\_\+const}~ad\+\_\+mult\+\_\+const\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a6022d678ede6403ff4180c6ca0dedcf1}{ad\+\_\+add\+\_\+const}}~ad\+\_\+add\+\_\+const\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a6022d678ede6403ff4180c6ca0dedcf1}\label{tpsa_8h_a6022d678ede6403ff4180c6ca0dedcf1}} 
+\#define {\bfseries ad\+\_\+add\+\_\+const}~ad\+\_\+add\+\_\+const\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_aa611727e6091a5b2bc29a24553dfa053}{ad\+\_\+div}}~ad\+\_\+div\+\_\+
+\mbox{\Hypertarget{tpsa_8h_aa611727e6091a5b2bc29a24553dfa053}\label{tpsa_8h_aa611727e6091a5b2bc29a24553dfa053}} 
+\#define {\bfseries ad\+\_\+div}~ad\+\_\+div\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a5f5c4d62998804641ad004e6bf1a7354}{ad\+\_\+mult}}~ad\+\_\+mult\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a5f5c4d62998804641ad004e6bf1a7354}\label{tpsa_8h_a5f5c4d62998804641ad004e6bf1a7354}} 
+\#define {\bfseries ad\+\_\+mult}~ad\+\_\+mult\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a1ec0340e4834171b27a77f83d400eecc}{ad\+\_\+sub}}~ad\+\_\+sub\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a1ec0340e4834171b27a77f83d400eecc}\label{tpsa_8h_a1ec0340e4834171b27a77f83d400eecc}} 
+\#define {\bfseries ad\+\_\+sub}~ad\+\_\+sub\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a8fc9dce4f6aa0692a2d1e32b27a77b5d}{ad\+\_\+reset}}~ad\+\_\+reset\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a8fc9dce4f6aa0692a2d1e32b27a77b5d}\label{tpsa_8h_a8fc9dce4f6aa0692a2d1e32b27a77b5d}} 
+\#define {\bfseries ad\+\_\+reset}~ad\+\_\+reset\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a71ec7b1389c2e790b284ead1eae666c0}{ad\+\_\+resetvars}}~ad\+\_\+resetvars\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a71ec7b1389c2e790b284ead1eae666c0}\label{tpsa_8h_a71ec7b1389c2e790b284ead1eae666c0}} 
+\#define {\bfseries ad\+\_\+resetvars}~ad\+\_\+resetvars\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_aeaa81383fe2384d61fb5c63d3991e5fa}{ad\+\_\+pok}}~ad\+\_\+pok\+\_\+
+\mbox{\Hypertarget{tpsa_8h_aeaa81383fe2384d61fb5c63d3991e5fa}\label{tpsa_8h_aeaa81383fe2384d61fb5c63d3991e5fa}} 
+\#define {\bfseries ad\+\_\+pok}~ad\+\_\+pok\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a95e517a9ff53908e49ae26f73b970b89}{ad\+\_\+pek}}~ad\+\_\+pek\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a95e517a9ff53908e49ae26f73b970b89}\label{tpsa_8h_a95e517a9ff53908e49ae26f73b970b89}} 
+\#define {\bfseries ad\+\_\+pek}~ad\+\_\+pek\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a71c813db684b417c7c758064ea6bb2af}{ad\+\_\+truncate}}~ad\+\_\+truncate\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a71c813db684b417c7c758064ea6bb2af}\label{tpsa_8h_a71c813db684b417c7c758064ea6bb2af}} 
+\#define {\bfseries ad\+\_\+truncate}~ad\+\_\+truncate\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a7014fa4b7023b94c104e5dffca189422}{ad\+\_\+var}}~ad\+\_\+var\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a7014fa4b7023b94c104e5dffca189422}\label{tpsa_8h_a7014fa4b7023b94c104e5dffca189422}} 
+\#define {\bfseries ad\+\_\+var}~ad\+\_\+var\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a66dd8ca62d8b56e504b8aa826b688a44}{ad\+\_\+count}}~ad\+\_\+count\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a66dd8ca62d8b56e504b8aa826b688a44}\label{tpsa_8h_a66dd8ca62d8b56e504b8aa826b688a44}} 
+\#define {\bfseries ad\+\_\+count}~ad\+\_\+count\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_afc7f5d700437cd5d5075c9749d1000de}{ad\+\_\+const}}~ad\+\_\+const\+\_\+
+\mbox{\Hypertarget{tpsa_8h_afc7f5d700437cd5d5075c9749d1000de}\label{tpsa_8h_afc7f5d700437cd5d5075c9749d1000de}} 
+\#define {\bfseries ad\+\_\+const}~ad\+\_\+const\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a0b7c9ae87b011ae0a24315a6d8a5276e}{ad\+\_\+free}}~ad\+\_\+free\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a0b7c9ae87b011ae0a24315a6d8a5276e}\label{tpsa_8h_a0b7c9ae87b011ae0a24315a6d8a5276e}} 
+\#define {\bfseries ad\+\_\+free}~ad\+\_\+free\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a4e5eaf1ae8d88cc04c03b4f56516d671}{ad\+\_\+add}}~ad\+\_\+add\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a4e5eaf1ae8d88cc04c03b4f56516d671}\label{tpsa_8h_a4e5eaf1ae8d88cc04c03b4f56516d671}} 
+\#define {\bfseries ad\+\_\+add}~ad\+\_\+add\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a0a365f110aac5ee536de88bcea56dd6d}{ad\+\_\+copy}}~ad\+\_\+copy\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a0a365f110aac5ee536de88bcea56dd6d}\label{tpsa_8h_a0a365f110aac5ee536de88bcea56dd6d}} 
+\#define {\bfseries ad\+\_\+copy}~ad\+\_\+copy\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a899351109fb632f3c3cb54b48876b84b}{ad\+\_\+clean}}~ad\+\_\+clean\+\_\+
+\mbox{\Hypertarget{tpsa_8h_a899351109fb632f3c3cb54b48876b84b}\label{tpsa_8h_a899351109fb632f3c3cb54b48876b84b}} 
+\#define {\bfseries ad\+\_\+clean}~ad\+\_\+clean\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_aa3931b83ed5936001dac6b8103b32770}{ad\+\_\+alloc}}~ad\+\_\+alloc\+\_\+
+\mbox{\Hypertarget{tpsa_8h_aa3931b83ed5936001dac6b8103b32770}\label{tpsa_8h_aa3931b83ed5936001dac6b8103b32770}} 
+\#define {\bfseries ad\+\_\+alloc}~ad\+\_\+alloc\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_aa4a919c3289f8f538fddc1768b030d69}{ad\+\_\+reserve}}~ad\+\_\+reserve\+\_\+
+\mbox{\Hypertarget{tpsa_8h_aa4a919c3289f8f538fddc1768b030d69}\label{tpsa_8h_aa4a919c3289f8f538fddc1768b030d69}} 
+\#define {\bfseries ad\+\_\+reserve}~ad\+\_\+reserve\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_aed2be2f8ed77191784cefe091055d666}{ad\+\_\+init}}~ad\+\_\+init\+\_\+
+\mbox{\Hypertarget{tpsa_8h_aed2be2f8ed77191784cefe091055d666}\label{tpsa_8h_aed2be2f8ed77191784cefe091055d666}} 
+\#define {\bfseries ad\+\_\+init}~ad\+\_\+init\+\_\+
 \item 
-\#define \mbox{\hyperlink{tpsa_8h_a50801497b37359dba0d5fd9789246d33}{A\+D\+\_\+\+HH}}
+\mbox{\Hypertarget{tpsa_8h_a50801497b37359dba0d5fd9789246d33}\label{tpsa_8h_a50801497b37359dba0d5fd9789246d33}} 
+\#define {\bfseries AD\+\_\+\+HH}
 \end{DoxyCompactItemize}
-\subsection*{Typedefs}
+\doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef unsigned int \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}}
+\mbox{\Hypertarget{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}\label{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}} 
+typedef unsigned int \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}}
 \begin{DoxyCompactList}\small\item\em Type of order and number of variables. \end{DoxyCompactList}\item 
-typedef unsigned int \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}
+\mbox{\Hypertarget{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}\label{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}} 
+typedef unsigned int {\bfseries TVEC}
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{tpsa_8h_a409f41a0dbde4928e9d98971c61166ef}{ad\+\_\+reserve}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$n)
-\begin{DoxyCompactList}\small\item\em Reserve space for n T\+PS vectors. Allocate the memory for n T\+PS vectors. This function replaces the original one in the \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a4c98301b0e7c8b1aa700d703aa8628eb}{ad\+\_\+init}} (const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$nv, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$nd)
-\begin{DoxyCompactList}\small\item\em Initialize the T\+P\+SA library. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_aeffa6d9dccbfac61e73a96b32859b5fd}{ad\+\_\+resetvars}} (const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$nv)
-\begin{DoxyCompactList}\small\item\em Reset the base vectors. To avoid confusions when starting a new set of T\+P\+SA calculations, call this before a new \mbox{\hyperlink{tpsa_8cpp_aa473b1ce438a2216ea80d5a4adc9e72e}{ad\+\_\+init()}}. with nv from \mbox{\hyperlink{tpsa_8h_a3fa86c82256ee6ae03ea0c52f2a984ae}{ad\+\_\+nvar(nv)}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a33948c5f7c383bb57d0ac39b3b04d926}{ad\+\_\+alloc}} (\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$i)
-\begin{DoxyCompactList}\small\item\em Assign a memory slot for a T\+PS vector. Assign a memory slot for a T\+PS vector with value zero and length one. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a6d8d829771f1be30f50c50aad872e066}{ad\+\_\+free}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$i)
-\begin{DoxyCompactList}\small\item\em Free the memory slot occupied by the T\+PS vector. Free the memory slot so that it is available for future use by updating adlist and ad\+\_\+end. The freed memory slot is added to the end of the linked list. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a1ba361184441df7ea153eeba31675503}{ad\+\_\+poolsize}} (size\+\_\+t $\ast$n)
+void \mbox{\hyperlink{tpsa_8h_a409f41a0dbde4928e9d98971c61166ef}{ad\+\_\+reserve}} (const TVEC $\ast$n)
+\begin{DoxyCompactList}\small\item\em Reserve space for n TPS vectors. Allocate the memory for n TPS vectors. This function replaces the original one in the \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa_8h_a4c98301b0e7c8b1aa700d703aa8628eb}{ad\+\_\+init}} (const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$nv, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$nd)
+\begin{DoxyCompactList}\small\item\em Initialize the TPSA library. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_aeffa6d9dccbfac61e73a96b32859b5fd}\label{tpsa_8h_aeffa6d9dccbfac61e73a96b32859b5fd}} 
+void \mbox{\hyperlink{tpsa_8h_aeffa6d9dccbfac61e73a96b32859b5fd}{ad\+\_\+resetvars}} (const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$nv)
+\begin{DoxyCompactList}\small\item\em Reset the base vectors. To avoid confusions when starting a new set of TPSA calculations, call this before a new \mbox{\hyperlink{tpsa_8cpp_aa473b1ce438a2216ea80d5a4adc9e72e}{ad\+\_\+init()}}. with nv from ad\+\_\+nvar(nv). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa_8h_a33948c5f7c383bb57d0ac39b3b04d926}{ad\+\_\+alloc}} (TVEC $\ast$i)
+\begin{DoxyCompactList}\small\item\em Assign a memory slot for a TPS vector. Assign a memory slot for a TPS vector with value zero and length one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa_8h_a6d8d829771f1be30f50c50aad872e066}{ad\+\_\+free}} (const TVEC $\ast$i)
+\begin{DoxyCompactList}\small\item\em Free the memory slot occupied by the TPS vector. Free the memory slot so that it is available for future use by updating adlist and ad\+\_\+end. The freed memory slot is added to the end of the linked list. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_a1ba361184441df7ea153eeba31675503}\label{tpsa_8h_a1ba361184441df7ea153eeba31675503}} 
+void {\bfseries ad\+\_\+poolsize} (size\+\_\+t $\ast$n)
 \item 
-void \mbox{\hyperlink{tpsa_8h_ab76aa1315af4aa53b8157ec5508d2277}{ad\+\_\+count}} (\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$n)
-\begin{DoxyCompactList}\small\item\em Allocate space for one T\+PS vector. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_ab11b24a982c3aaa2b042f853405c067c}{ad\+\_\+nvar}} (\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$n)
+void \mbox{\hyperlink{tpsa_8h_ab76aa1315af4aa53b8157ec5508d2277}{ad\+\_\+count}} (TVEC $\ast$n)
+\begin{DoxyCompactList}\small\item\em $\ast$$\ast$ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_ab11b24a982c3aaa2b042f853405c067c}\label{tpsa_8h_ab11b24a982c3aaa2b042f853405c067c}} 
+void {\bfseries ad\+\_\+nvar} (TVEC $\ast$n)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a11405ea05594227a12ae3e79b6b43e8c}{ad\+\_\+length}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, unsigned int $\ast$n)
+\mbox{\Hypertarget{tpsa_8h_a11405ea05594227a12ae3e79b6b43e8c}\label{tpsa_8h_a11405ea05594227a12ae3e79b6b43e8c}} 
+void {\bfseries ad\+\_\+length} (const TVEC $\ast$iv, unsigned int $\ast$n)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a3400693d002828a3dbe5ab9c31497b62}{ad\+\_\+copy}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$i, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$j)
-\begin{DoxyCompactList}\small\item\em Copy T\+PS vector This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_af8f699e5ad097f081829e9f9b695ad05}{ad\+\_\+elem}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ivec, unsigned int $\ast$idx, unsigned int $\ast$c, double $\ast$x)
+void \mbox{\hyperlink{tpsa_8h_a3400693d002828a3dbe5ab9c31497b62}{ad\+\_\+copy}} (const TVEC $\ast$i, const TVEC $\ast$j)
+\begin{DoxyCompactList}\small\item\em Copy TPS vector This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_af8f699e5ad097f081829e9f9b695ad05}\label{tpsa_8h_af8f699e5ad097f081829e9f9b695ad05}} 
+void {\bfseries ad\+\_\+elem} (const TVEC $\ast$ivec, unsigned int $\ast$idx, unsigned int $\ast$c, double $\ast$x)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a0a968076b2ed147f56baceb8357ba282}{ad\+\_\+pek}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ivec, int $\ast$c, size\+\_\+t $\ast$n, double $\ast$x)
+\mbox{\Hypertarget{tpsa_8h_a0a968076b2ed147f56baceb8357ba282}\label{tpsa_8h_a0a968076b2ed147f56baceb8357ba282}} 
+void {\bfseries ad\+\_\+pek} (const TVEC $\ast$ivec, int $\ast$c, size\+\_\+t $\ast$n, double $\ast$x)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a86a57a466c362c2981f2aa35d18db142}{ad\+\_\+pok}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ivec, int $\ast$c, size\+\_\+t $\ast$n, double $\ast$x)
+\mbox{\Hypertarget{tpsa_8h_a86a57a466c362c2981f2aa35d18db142}\label{tpsa_8h_a86a57a466c362c2981f2aa35d18db142}} 
+void {\bfseries ad\+\_\+pok} (const TVEC $\ast$ivec, int $\ast$c, size\+\_\+t $\ast$n, double $\ast$x)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a382152823ae24a2bb5de55a3ebe18896}{ad\+\_\+var}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ii, const double $\ast$x, unsigned int $\ast$iv)
+\mbox{\Hypertarget{tpsa_8h_a382152823ae24a2bb5de55a3ebe18896}\label{tpsa_8h_a382152823ae24a2bb5de55a3ebe18896}} 
+void {\bfseries ad\+\_\+var} (const TVEC $\ast$ii, const double $\ast$x, unsigned int $\ast$iv)
 \item 
-void \mbox{\hyperlink{tpsa_8h_aee3cc81c7c008f5f0fae4f06ffc0611a}{ad\+\_\+abs}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, double $\ast$r)
+void \mbox{\hyperlink{tpsa_8h_aee3cc81c7c008f5f0fae4f06ffc0611a}{ad\+\_\+abs}} (const TVEC $\ast$iv, double $\ast$r)
+\begin{DoxyCompactList}\small\item\em Calcualte the max abs value of the coefficients of the TPS vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_a706f781fd098cc1056f130391a929c86}\label{tpsa_8h_a706f781fd098cc1056f130391a929c86}} 
+void {\bfseries ad\+\_\+truncate} (const TVEC $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$d)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a706f781fd098cc1056f130391a929c86}{ad\+\_\+truncate}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$d)
+\mbox{\Hypertarget{tpsa_8h_a14d7813be2e2ec86a5bd1a6c8f8210c3}\label{tpsa_8h_a14d7813be2e2ec86a5bd1a6c8f8210c3}} 
+void \mbox{\hyperlink{tpsa_8h_a14d7813be2e2ec86a5bd1a6c8f8210c3}{ad\+\_\+clean}} (const TVEC $\ast$iv, const double $\ast$eps)
+\begin{DoxyCompactList}\small\item\em Set the small TPS coefficients as 0 if they are less than eps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa_8h_a0a2160a9f53cddc433066c1714d5d58e}{ad\+\_\+reset}} (const TVEC $\ast$iv)
+\begin{DoxyCompactList}\small\item\em Reset a TPS vector to a constant 0 This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_ac82a373fe2c762ad2640f3b116c937bd}\label{tpsa_8h_ac82a373fe2c762ad2640f3b116c937bd}} 
+void \mbox{\hyperlink{tpsa_8h_ac82a373fe2c762ad2640f3b116c937bd}{ad\+\_\+const}} (const TVEC $\ast$ii, const double $\ast$r)
+\begin{DoxyCompactList}\small\item\em Set a TPS vector as a constant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa_8h_a5ee339f01a2eccb987ca8f3c2f884b79}{ad\+\_\+fill\+\_\+ran}} (const TVEC $\ast$iv, const double $\ast$ratio, const double $\ast$xm)
+\begin{DoxyCompactList}\small\item\em Fill the TPS coefficients as a random number in \mbox{[}0,1\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_abd8f661a94f408204a709131feb0de5d}\label{tpsa_8h_abd8f661a94f408204a709131feb0de5d}} 
+void {\bfseries ad\+\_\+add} (const TVEC $\ast$i, const TVEC $\ast$j)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a14d7813be2e2ec86a5bd1a6c8f8210c3}{ad\+\_\+clean}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const double $\ast$eps)
-\begin{DoxyCompactList}\small\item\em Set the small T\+PS coefficients as 0 if they are less than eps. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a0a2160a9f53cddc433066c1714d5d58e}{ad\+\_\+reset}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv)
-\begin{DoxyCompactList}\small\item\em Reset a T\+PS vector to a constant 0 This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_ac82a373fe2c762ad2640f3b116c937bd}{ad\+\_\+const}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ii, const double $\ast$r)
-\begin{DoxyCompactList}\small\item\em Set a T\+PS vector as a constant. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a5ee339f01a2eccb987ca8f3c2f884b79}{ad\+\_\+fill\+\_\+ran}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const double $\ast$ratio, const double $\ast$xm)
-\begin{DoxyCompactList}\small\item\em Fill the T\+PS coefficients as a random number in \mbox{[}0,1\mbox{]}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_abd8f661a94f408204a709131feb0de5d}{ad\+\_\+add}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$i, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$j)
+\mbox{\Hypertarget{tpsa_8h_af81d709d685093427012234701ba2bb0}\label{tpsa_8h_af81d709d685093427012234701ba2bb0}} 
+void {\bfseries ad\+\_\+add\+\_\+const} (const TVEC $\ast$i, double $\ast$r)
 \item 
-void \mbox{\hyperlink{tpsa_8h_af81d709d685093427012234701ba2bb0}{ad\+\_\+add\+\_\+const}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$i, double $\ast$r)
+\mbox{\Hypertarget{tpsa_8h_aaa3aebaeeaf01b114110aaa347830395}\label{tpsa_8h_aaa3aebaeeaf01b114110aaa347830395}} 
+void {\bfseries ad\+\_\+sub} (const TVEC $\ast$i, const TVEC $\ast$j)
 \item 
-void \mbox{\hyperlink{tpsa_8h_aaa3aebaeeaf01b114110aaa347830395}{ad\+\_\+sub}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$i, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$j)
-\item 
-void \mbox{\hyperlink{tpsa_8h_a9a56fb168aebe7106e2bb84d1c4585c6}{ad\+\_\+mult}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ivlhs, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ivrhs, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ivdst)
+void \mbox{\hyperlink{tpsa_8h_a9a56fb168aebe7106e2bb84d1c4585c6}{ad\+\_\+mult}} (const TVEC $\ast$ivlhs, const TVEC $\ast$ivrhs, TVEC $\ast$ivdst)
 \begin{DoxyCompactList}\small\item\em internal multiplication, dst should be different from lhs and rhs. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_ad563dbfc25b1018ac6c8e3bb1b0ab5ae}{ad\+\_\+mult\+\_\+const}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, double $\ast$c)
+\mbox{\Hypertarget{tpsa_8h_ad563dbfc25b1018ac6c8e3bb1b0ab5ae}\label{tpsa_8h_ad563dbfc25b1018ac6c8e3bb1b0ab5ae}} 
+void \mbox{\hyperlink{tpsa_8h_ad563dbfc25b1018ac6c8e3bb1b0ab5ae}{ad\+\_\+mult\+\_\+const}} (const TVEC $\ast$iv, double $\ast$c)
 \begin{DoxyCompactList}\small\item\em internal multiplication, dst should be different from lhs and rhs. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_ad38ef47aea4f0d5dffd6cfda67eb8f60}{ad\+\_\+div\+\_\+c}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const double $\ast$c)
-\begin{DoxyCompactList}\small\item\em A T\+PS vector divided by a number. Calculate iv = iv / c. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a06ed847b89f12f62ca4e7dfad7d260f2}{ad\+\_\+c\+\_\+div}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const double $\ast$c, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ivret)
-\begin{DoxyCompactList}\small\item\em A real number is divided by a T\+PS vector. Result is saved to another T\+PS vector. Calculate ivret = c / iv. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a7b3c8f7e505c46d491d15981741208f7}{ad\+\_\+div}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ilhs, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$irhs, \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$idst)
+void \mbox{\hyperlink{tpsa_8h_ad38ef47aea4f0d5dffd6cfda67eb8f60}{ad\+\_\+div\+\_\+c}} (const TVEC $\ast$iv, const double $\ast$c)
+\begin{DoxyCompactList}\small\item\em A TPS vector divided by a number. Calculate iv = iv / c. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tpsa_8h_a06ed847b89f12f62ca4e7dfad7d260f2}{ad\+\_\+c\+\_\+div}} (const TVEC $\ast$iv, const double $\ast$c, TVEC $\ast$ivret)
+\begin{DoxyCompactList}\small\item\em A real number is divided by a TPS vector. Result is saved to another TPS vector. Calculate ivret = c / iv. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_a7b3c8f7e505c46d491d15981741208f7}\label{tpsa_8h_a7b3c8f7e505c46d491d15981741208f7}} 
+void {\bfseries ad\+\_\+div} (const TVEC $\ast$ilhs, const TVEC $\ast$irhs, TVEC $\ast$idst)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a5598b044c58daedbc67674fb19f08616}{ad\+\_\+sqrt}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
+\mbox{\Hypertarget{tpsa_8h_a5598b044c58daedbc67674fb19f08616}\label{tpsa_8h_a5598b044c58daedbc67674fb19f08616}} 
+void {\bfseries ad\+\_\+sqrt} (const TVEC $\ast$iv, const TVEC $\ast$iret)
 \item 
-void \mbox{\hyperlink{tpsa_8h_ab1dc42612ace8601f9c361b622f1528a}{ad\+\_\+exp}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
+\mbox{\Hypertarget{tpsa_8h_ab1dc42612ace8601f9c361b622f1528a}\label{tpsa_8h_ab1dc42612ace8601f9c361b622f1528a}} 
+void {\bfseries ad\+\_\+exp} (const TVEC $\ast$iv, const TVEC $\ast$iret)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a02ee3f5882a69c521c23a157323a6d7b}{ad\+\_\+log}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
+\mbox{\Hypertarget{tpsa_8h_a02ee3f5882a69c521c23a157323a6d7b}\label{tpsa_8h_a02ee3f5882a69c521c23a157323a6d7b}} 
+void {\bfseries ad\+\_\+log} (const TVEC $\ast$iv, const TVEC $\ast$iret)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a9bfad92601b7c4c81bb14e51e0016672}{ad\+\_\+sin}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
-\begin{DoxyCompactList}\small\item\em Reset to a constant 0. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a7127c7553acec12be8d4f9d6e39bfa4b}{ad\+\_\+cos}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
+void \mbox{\hyperlink{tpsa_8h_a9bfad92601b7c4c81bb14e51e0016672}{ad\+\_\+sin}} (const TVEC $\ast$iv, const TVEC $\ast$iret)
+\begin{DoxyCompactList}\small\item\em $\ast$$\ast$ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tpsa_8h_a7127c7553acec12be8d4f9d6e39bfa4b}\label{tpsa_8h_a7127c7553acec12be8d4f9d6e39bfa4b}} 
+void {\bfseries ad\+\_\+cos} (const TVEC $\ast$iv, const TVEC $\ast$iret)
 \item 
-void \mbox{\hyperlink{tpsa_8h_af61048119f09f7cd849d4b985eac44b8}{ad\+\_\+derivative}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, unsigned int $\ast$expo, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
+\mbox{\Hypertarget{tpsa_8h_af61048119f09f7cd849d4b985eac44b8}\label{tpsa_8h_af61048119f09f7cd849d4b985eac44b8}} 
+void {\bfseries ad\+\_\+derivative} (const TVEC $\ast$iv, unsigned int $\ast$expo, const TVEC $\ast$iret)
 \item 
-void \mbox{\hyperlink{tpsa_8h_ac54d6dd59ba6d00ab5a802cae7e95cb7}{ad\+\_\+tra}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, unsigned int $\ast$expo, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
+\mbox{\Hypertarget{tpsa_8h_ac54d6dd59ba6d00ab5a802cae7e95cb7}\label{tpsa_8h_ac54d6dd59ba6d00ab5a802cae7e95cb7}} 
+void \mbox{\hyperlink{tpsa_8h_ac54d6dd59ba6d00ab5a802cae7e95cb7}{ad\+\_\+tra}} (const TVEC $\ast$iv, unsigned int $\ast$expo, const TVEC $\ast$iret)
 \begin{DoxyCompactList}\small\item\em similar to ad\+\_\+derivative, but doesn\textquotesingle{}t multiply the exponent part of x\+\_\+\{expo\} \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_ae0c407dd096f879f49d4cd721dd07f25}{ad\+\_\+shift}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, unsigned int $\ast$ishift, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret, const double $\ast$eps)
+\mbox{\Hypertarget{tpsa_8h_ae0c407dd096f879f49d4cd721dd07f25}\label{tpsa_8h_ae0c407dd096f879f49d4cd721dd07f25}} 
+void {\bfseries ad\+\_\+shift} (const TVEC $\ast$iv, unsigned int $\ast$ishift, const TVEC $\ast$iret, const double $\ast$eps)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a09aa102513f3273ca4b7a3cb62bdd66e}{ad\+\_\+read\+\_\+block}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, double $\ast$v, \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$J, const unsigned int $\ast$N)
+\mbox{\Hypertarget{tpsa_8h_a09aa102513f3273ca4b7a3cb62bdd66e}\label{tpsa_8h_a09aa102513f3273ca4b7a3cb62bdd66e}} 
+void {\bfseries ad\+\_\+read\+\_\+block} (const TVEC $\ast$iv, double $\ast$v, \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$J, const unsigned int $\ast$N)
 \item 
-void \mbox{\hyperlink{tpsa_8h_aca7a526b73aeeced3288a61f655171a2}{ad\+\_\+save\+\_\+block}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const double $\ast$v, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$J, const unsigned int $\ast$N)
+\mbox{\Hypertarget{tpsa_8h_aca7a526b73aeeced3288a61f655171a2}\label{tpsa_8h_aca7a526b73aeeced3288a61f655171a2}} 
+void \mbox{\hyperlink{tpsa_8h_aca7a526b73aeeced3288a61f655171a2}{ad\+\_\+save\+\_\+block}} (const TVEC $\ast$iv, const double $\ast$v, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$J, const unsigned int $\ast$N)
 \begin{DoxyCompactList}\small\item\em blind set, assuming order of J is right. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_a65092c4b3f2bf12d906d112246494486}{ad\+\_\+rev}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv)
+\mbox{\Hypertarget{tpsa_8h_a65092c4b3f2bf12d906d112246494486}\label{tpsa_8h_a65092c4b3f2bf12d906d112246494486}} 
+void {\bfseries ad\+\_\+rev} (const TVEC $\ast$iv)
 \item 
-void \mbox{\hyperlink{tpsa_8h_aa8ed335e25f9d0589f41e917ea800b59}{ad\+\_\+subst}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$ibv, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$nbv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret)
+\mbox{\Hypertarget{tpsa_8h_aa8ed335e25f9d0589f41e917ea800b59}\label{tpsa_8h_aa8ed335e25f9d0589f41e917ea800b59}} 
+void {\bfseries ad\+\_\+subst} (const TVEC $\ast$iv, const TVEC $\ast$ibv, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$nbv, const TVEC $\ast$iret)
 \item 
-void \mbox{\hyperlink{tpsa_8h_aea6f5f202219d5b79e5c8faefe6f90ec}{ad\+\_\+inverse}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iva, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$nva, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iret, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$nret)
+\mbox{\Hypertarget{tpsa_8h_aea6f5f202219d5b79e5c8faefe6f90ec}\label{tpsa_8h_aea6f5f202219d5b79e5c8faefe6f90ec}} 
+void {\bfseries ad\+\_\+inverse} (const TVEC $\ast$iva, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$nva, const TVEC $\ast$iret, const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$nret)
 \item 
+\mbox{\Hypertarget{tpsa_8h_ad087b206b0ec782659ee6390d5c0b9f2}\label{tpsa_8h_ad087b206b0ec782659ee6390d5c0b9f2}} 
 void \mbox{\hyperlink{tpsa_8h_ad087b206b0ec782659ee6390d5c0b9f2}{print\+\_\+index}} (std\+::ostream \&os)
 \begin{DoxyCompactList}\small\item\em Print out ad vector represented by i. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{tpsa_8h_ac5783f6405288de7571d5e13aa6a27fe}{ad\+\_\+print}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv)
+\mbox{\Hypertarget{tpsa_8h_ac5783f6405288de7571d5e13aa6a27fe}\label{tpsa_8h_ac5783f6405288de7571d5e13aa6a27fe}} 
+void {\bfseries ad\+\_\+print} (const TVEC $\ast$iv)
 \item 
-void \mbox{\hyperlink{tpsa_8h_a94b265d49d389555d2e333032715eaa2}{ad\+\_\+print\+\_\+array}} (const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$iv, const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$nv)
+\mbox{\Hypertarget{tpsa_8h_a94b265d49d389555d2e333032715eaa2}\label{tpsa_8h_a94b265d49d389555d2e333032715eaa2}} 
+void {\bfseries ad\+\_\+print\+\_\+array} (const TVEC $\ast$iv, const TVEC $\ast$nv)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 Automatic Differentiation. 
 
 \begin{DoxyVersion}{Version}
@@ -208,356 +281,73 @@ Lingyun Yang, \href{http://www.lingyunyang.com/}{\texttt{ http\+://www.\+lingyun
 \end{DoxyAuthor}
 
 
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{tpsa_8h_a447f7354174b7149f2475a77897cc3a6}\label{tpsa_8h_a447f7354174b7149f2475a77897cc3a6}} 
-\index{tpsa.h@{tpsa.h}!ad\_abs@{ad\_abs}}
-\index{ad\_abs@{ad\_abs}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_abs}{ad\_abs}}
-{\footnotesize\ttfamily \#define ad\+\_\+abs~ad\+\_\+abs\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a4e5eaf1ae8d88cc04c03b4f56516d671}\label{tpsa_8h_a4e5eaf1ae8d88cc04c03b4f56516d671}} 
-\index{tpsa.h@{tpsa.h}!ad\_add@{ad\_add}}
-\index{ad\_add@{ad\_add}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_add}{ad\_add}}
-{\footnotesize\ttfamily \#define ad\+\_\+add~ad\+\_\+add\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a6022d678ede6403ff4180c6ca0dedcf1}\label{tpsa_8h_a6022d678ede6403ff4180c6ca0dedcf1}} 
-\index{tpsa.h@{tpsa.h}!ad\_add\_const@{ad\_add\_const}}
-\index{ad\_add\_const@{ad\_add\_const}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_add\_const}{ad\_add\_const}}
-{\footnotesize\ttfamily \#define ad\+\_\+add\+\_\+const~ad\+\_\+add\+\_\+const\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_aa3931b83ed5936001dac6b8103b32770}\label{tpsa_8h_aa3931b83ed5936001dac6b8103b32770}} 
-\index{tpsa.h@{tpsa.h}!ad\_alloc@{ad\_alloc}}
-\index{ad\_alloc@{ad\_alloc}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_alloc}{ad\_alloc}}
-{\footnotesize\ttfamily \#define ad\+\_\+alloc~ad\+\_\+alloc\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a744320128aa542105e1abcdc9a22f46d}\label{tpsa_8h_a744320128aa542105e1abcdc9a22f46d}} 
-\index{tpsa.h@{tpsa.h}!ad\_c\_div@{ad\_c\_div}}
-\index{ad\_c\_div@{ad\_c\_div}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_c\_div}{ad\_c\_div}}
-{\footnotesize\ttfamily \#define ad\+\_\+c\+\_\+div~ad\+\_\+c\+\_\+div\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a899351109fb632f3c3cb54b48876b84b}\label{tpsa_8h_a899351109fb632f3c3cb54b48876b84b}} 
-\index{tpsa.h@{tpsa.h}!ad\_clean@{ad\_clean}}
-\index{ad\_clean@{ad\_clean}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_clean}{ad\_clean}}
-{\footnotesize\ttfamily \#define ad\+\_\+clean~ad\+\_\+clean\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_afc7f5d700437cd5d5075c9749d1000de}\label{tpsa_8h_afc7f5d700437cd5d5075c9749d1000de}} 
-\index{tpsa.h@{tpsa.h}!ad\_const@{ad\_const}}
-\index{ad\_const@{ad\_const}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_const}{ad\_const}}
-{\footnotesize\ttfamily \#define ad\+\_\+const~ad\+\_\+const\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a0a365f110aac5ee536de88bcea56dd6d}\label{tpsa_8h_a0a365f110aac5ee536de88bcea56dd6d}} 
-\index{tpsa.h@{tpsa.h}!ad\_copy@{ad\_copy}}
-\index{ad\_copy@{ad\_copy}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_copy}{ad\_copy}}
-{\footnotesize\ttfamily \#define ad\+\_\+copy~ad\+\_\+copy\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a58435ccae9127f0d3cd45d8a78303e70}\label{tpsa_8h_a58435ccae9127f0d3cd45d8a78303e70}} 
-\index{tpsa.h@{tpsa.h}!ad\_cos@{ad\_cos}}
-\index{ad\_cos@{ad\_cos}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_cos}{ad\_cos}}
-{\footnotesize\ttfamily \#define ad\+\_\+cos~ad\+\_\+cos\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a66dd8ca62d8b56e504b8aa826b688a44}\label{tpsa_8h_a66dd8ca62d8b56e504b8aa826b688a44}} 
-\index{tpsa.h@{tpsa.h}!ad\_count@{ad\_count}}
-\index{ad\_count@{ad\_count}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_count}{ad\_count}}
-{\footnotesize\ttfamily \#define ad\+\_\+count~ad\+\_\+count\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_ab120defc7abb5aa568e045429835d633}\label{tpsa_8h_ab120defc7abb5aa568e045429835d633}} 
-\index{tpsa.h@{tpsa.h}!ad\_derivative@{ad\_derivative}}
-\index{ad\_derivative@{ad\_derivative}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_derivative}{ad\_derivative}}
-{\footnotesize\ttfamily \#define ad\+\_\+derivative~ad\+\_\+derivative\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_aa611727e6091a5b2bc29a24553dfa053}\label{tpsa_8h_aa611727e6091a5b2bc29a24553dfa053}} 
-\index{tpsa.h@{tpsa.h}!ad\_div@{ad\_div}}
-\index{ad\_div@{ad\_div}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_div}{ad\_div}}
-{\footnotesize\ttfamily \#define ad\+\_\+div~ad\+\_\+div\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a54914ad5508795fc4c9bc8ef8fcf40c2}\label{tpsa_8h_a54914ad5508795fc4c9bc8ef8fcf40c2}} 
-\index{tpsa.h@{tpsa.h}!ad\_div\_c@{ad\_div\_c}}
-\index{ad\_div\_c@{ad\_div\_c}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_div\_c}{ad\_div\_c}}
-{\footnotesize\ttfamily \#define ad\+\_\+div\+\_\+c~ad\+\_\+div\+\_\+c\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a5227bff9f5bf9eee1c6ebfa4340f9b33}\label{tpsa_8h_a5227bff9f5bf9eee1c6ebfa4340f9b33}} 
-\index{tpsa.h@{tpsa.h}!ad\_elem@{ad\_elem}}
-\index{ad\_elem@{ad\_elem}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_elem}{ad\_elem}}
-{\footnotesize\ttfamily \#define ad\+\_\+elem~ad\+\_\+elem\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_adb41919ee2ac3fc19fa95ef7a43d5935}\label{tpsa_8h_adb41919ee2ac3fc19fa95ef7a43d5935}} 
-\index{tpsa.h@{tpsa.h}!ad\_exp@{ad\_exp}}
-\index{ad\_exp@{ad\_exp}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_exp}{ad\_exp}}
-{\footnotesize\ttfamily \#define ad\+\_\+exp~ad\+\_\+exp\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_ac2637c1e88c64ceced43dec58b14a448}\label{tpsa_8h_ac2637c1e88c64ceced43dec58b14a448}} 
-\index{tpsa.h@{tpsa.h}!ad\_fill\_ran@{ad\_fill\_ran}}
-\index{ad\_fill\_ran@{ad\_fill\_ran}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_fill\_ran}{ad\_fill\_ran}}
-{\footnotesize\ttfamily \#define ad\+\_\+fill\+\_\+ran~ad\+\_\+fill\+\_\+ran\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a0b7c9ae87b011ae0a24315a6d8a5276e}\label{tpsa_8h_a0b7c9ae87b011ae0a24315a6d8a5276e}} 
-\index{tpsa.h@{tpsa.h}!ad\_free@{ad\_free}}
-\index{ad\_free@{ad\_free}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_free}{ad\_free}}
-{\footnotesize\ttfamily \#define ad\+\_\+free~ad\+\_\+free\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a50801497b37359dba0d5fd9789246d33}\label{tpsa_8h_a50801497b37359dba0d5fd9789246d33}} 
-\index{tpsa.h@{tpsa.h}!AD\_HH@{AD\_HH}}
-\index{AD\_HH@{AD\_HH}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{AD\_HH}{AD\_HH}}
-{\footnotesize\ttfamily \#define A\+D\+\_\+\+HH}
-
-\mbox{\Hypertarget{tpsa_8h_aed2be2f8ed77191784cefe091055d666}\label{tpsa_8h_aed2be2f8ed77191784cefe091055d666}} 
-\index{tpsa.h@{tpsa.h}!ad\_init@{ad\_init}}
-\index{ad\_init@{ad\_init}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_init}{ad\_init}}
-{\footnotesize\ttfamily \#define ad\+\_\+init~ad\+\_\+init\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_af87d678373b14a538cc3a60948047c26}\label{tpsa_8h_af87d678373b14a538cc3a60948047c26}} 
-\index{tpsa.h@{tpsa.h}!ad\_length@{ad\_length}}
-\index{ad\_length@{ad\_length}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_length}{ad\_length}}
-{\footnotesize\ttfamily \#define ad\+\_\+length~ad\+\_\+length\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a4e7885549a85166036f47cb5ce0d0b04}\label{tpsa_8h_a4e7885549a85166036f47cb5ce0d0b04}} 
-\index{tpsa.h@{tpsa.h}!ad\_log@{ad\_log}}
-\index{ad\_log@{ad\_log}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_log}{ad\_log}}
-{\footnotesize\ttfamily \#define ad\+\_\+log~ad\+\_\+log\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a5f5c4d62998804641ad004e6bf1a7354}\label{tpsa_8h_a5f5c4d62998804641ad004e6bf1a7354}} 
-\index{tpsa.h@{tpsa.h}!ad\_mult@{ad\_mult}}
-\index{ad\_mult@{ad\_mult}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_mult}{ad\_mult}}
-{\footnotesize\ttfamily \#define ad\+\_\+mult~ad\+\_\+mult\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a146e88c0606b4be4078fe4f3495860db}\label{tpsa_8h_a146e88c0606b4be4078fe4f3495860db}} 
-\index{tpsa.h@{tpsa.h}!ad\_mult\_const@{ad\_mult\_const}}
-\index{ad\_mult\_const@{ad\_mult\_const}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_mult\_const}{ad\_mult\_const}}
-{\footnotesize\ttfamily \#define ad\+\_\+mult\+\_\+const~ad\+\_\+mult\+\_\+const\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a3fa86c82256ee6ae03ea0c52f2a984ae}\label{tpsa_8h_a3fa86c82256ee6ae03ea0c52f2a984ae}} 
-\index{tpsa.h@{tpsa.h}!ad\_nvar@{ad\_nvar}}
-\index{ad\_nvar@{ad\_nvar}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_nvar}{ad\_nvar}}
-{\footnotesize\ttfamily \#define ad\+\_\+nvar~ad\+\_\+nvar\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a95e517a9ff53908e49ae26f73b970b89}\label{tpsa_8h_a95e517a9ff53908e49ae26f73b970b89}} 
-\index{tpsa.h@{tpsa.h}!ad\_pek@{ad\_pek}}
-\index{ad\_pek@{ad\_pek}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_pek}{ad\_pek}}
-{\footnotesize\ttfamily \#define ad\+\_\+pek~ad\+\_\+pek\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_aeaa81383fe2384d61fb5c63d3991e5fa}\label{tpsa_8h_aeaa81383fe2384d61fb5c63d3991e5fa}} 
-\index{tpsa.h@{tpsa.h}!ad\_pok@{ad\_pok}}
-\index{ad\_pok@{ad\_pok}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_pok}{ad\_pok}}
-{\footnotesize\ttfamily \#define ad\+\_\+pok~ad\+\_\+pok\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_ae238361e45b0e20fdb4e83b90fcc7ace}\label{tpsa_8h_ae238361e45b0e20fdb4e83b90fcc7ace}} 
-\index{tpsa.h@{tpsa.h}!ad\_print@{ad\_print}}
-\index{ad\_print@{ad\_print}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_print}{ad\_print}}
-{\footnotesize\ttfamily \#define ad\+\_\+print~ad\+\_\+print\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a8e1709799654d72a8928fbacb2ae3d9c}\label{tpsa_8h_a8e1709799654d72a8928fbacb2ae3d9c}} 
-\index{tpsa.h@{tpsa.h}!ad\_read\_block@{ad\_read\_block}}
-\index{ad\_read\_block@{ad\_read\_block}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_read\_block}{ad\_read\_block}}
-{\footnotesize\ttfamily \#define ad\+\_\+read\+\_\+block~ad\+\_\+read\+\_\+block\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_aa4a919c3289f8f538fddc1768b030d69}\label{tpsa_8h_aa4a919c3289f8f538fddc1768b030d69}} 
-\index{tpsa.h@{tpsa.h}!ad\_reserve@{ad\_reserve}}
-\index{ad\_reserve@{ad\_reserve}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_reserve}{ad\_reserve}}
-{\footnotesize\ttfamily \#define ad\+\_\+reserve~ad\+\_\+reserve\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a8fc9dce4f6aa0692a2d1e32b27a77b5d}\label{tpsa_8h_a8fc9dce4f6aa0692a2d1e32b27a77b5d}} 
-\index{tpsa.h@{tpsa.h}!ad\_reset@{ad\_reset}}
-\index{ad\_reset@{ad\_reset}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_reset}{ad\_reset}}
-{\footnotesize\ttfamily \#define ad\+\_\+reset~ad\+\_\+reset\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a71ec7b1389c2e790b284ead1eae666c0}\label{tpsa_8h_a71ec7b1389c2e790b284ead1eae666c0}} 
-\index{tpsa.h@{tpsa.h}!ad\_resetvars@{ad\_resetvars}}
-\index{ad\_resetvars@{ad\_resetvars}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_resetvars}{ad\_resetvars}}
-{\footnotesize\ttfamily \#define ad\+\_\+resetvars~ad\+\_\+resetvars\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a503d0e7aa9adafb13a331c9b1c259bcb}\label{tpsa_8h_a503d0e7aa9adafb13a331c9b1c259bcb}} 
-\index{tpsa.h@{tpsa.h}!ad\_save\_block@{ad\_save\_block}}
-\index{ad\_save\_block@{ad\_save\_block}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_save\_block}{ad\_save\_block}}
-{\footnotesize\ttfamily \#define ad\+\_\+save\+\_\+block~ad\+\_\+save\+\_\+block\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_ac67229063bbfeb839f4b818692ab9eeb}\label{tpsa_8h_ac67229063bbfeb839f4b818692ab9eeb}} 
-\index{tpsa.h@{tpsa.h}!ad\_shift@{ad\_shift}}
-\index{ad\_shift@{ad\_shift}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_shift}{ad\_shift}}
-{\footnotesize\ttfamily \#define ad\+\_\+shift~ad\+\_\+shift\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a5b37aa10d4dda469592b661811bf30f1}\label{tpsa_8h_a5b37aa10d4dda469592b661811bf30f1}} 
-\index{tpsa.h@{tpsa.h}!ad\_sin@{ad\_sin}}
-\index{ad\_sin@{ad\_sin}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_sin}{ad\_sin}}
-{\footnotesize\ttfamily \#define ad\+\_\+sin~ad\+\_\+sin\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_ae10c4031e3cf07c0c48f7f25541eb346}\label{tpsa_8h_ae10c4031e3cf07c0c48f7f25541eb346}} 
-\index{tpsa.h@{tpsa.h}!ad\_sqrt@{ad\_sqrt}}
-\index{ad\_sqrt@{ad\_sqrt}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_sqrt}{ad\_sqrt}}
-{\footnotesize\ttfamily \#define ad\+\_\+sqrt~ad\+\_\+sqrt\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a1ec0340e4834171b27a77f83d400eecc}\label{tpsa_8h_a1ec0340e4834171b27a77f83d400eecc}} 
-\index{tpsa.h@{tpsa.h}!ad\_sub@{ad\_sub}}
-\index{ad\_sub@{ad\_sub}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_sub}{ad\_sub}}
-{\footnotesize\ttfamily \#define ad\+\_\+sub~ad\+\_\+sub\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a6246b982b68a771011facb4c9656d05a}\label{tpsa_8h_a6246b982b68a771011facb4c9656d05a}} 
-\index{tpsa.h@{tpsa.h}!ad\_subst@{ad\_subst}}
-\index{ad\_subst@{ad\_subst}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_subst}{ad\_subst}}
-{\footnotesize\ttfamily \#define ad\+\_\+subst~ad\+\_\+subst\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a48ea1b89b43992c727522773cdfa60da}\label{tpsa_8h_a48ea1b89b43992c727522773cdfa60da}} 
-\index{tpsa.h@{tpsa.h}!ad\_tra@{ad\_tra}}
-\index{ad\_tra@{ad\_tra}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_tra}{ad\_tra}}
-{\footnotesize\ttfamily \#define ad\+\_\+tra~ad\+\_\+tra\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a71c813db684b417c7c758064ea6bb2af}\label{tpsa_8h_a71c813db684b417c7c758064ea6bb2af}} 
-\index{tpsa.h@{tpsa.h}!ad\_truncate@{ad\_truncate}}
-\index{ad\_truncate@{ad\_truncate}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_truncate}{ad\_truncate}}
-{\footnotesize\ttfamily \#define ad\+\_\+truncate~ad\+\_\+truncate\+\_\+}
-
-\mbox{\Hypertarget{tpsa_8h_a7014fa4b7023b94c104e5dffca189422}\label{tpsa_8h_a7014fa4b7023b94c104e5dffca189422}} 
-\index{tpsa.h@{tpsa.h}!ad\_var@{ad\_var}}
-\index{ad\_var@{ad\_var}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_var}{ad\_var}}
-{\footnotesize\ttfamily \#define ad\+\_\+var~ad\+\_\+var\+\_\+}
-
-
-
-\subsection{Typedef Documentation}
-\mbox{\Hypertarget{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}\label{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}} 
-\index{tpsa.h@{tpsa.h}!TNVND@{TNVND}}
-\index{TNVND@{TNVND}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{TNVND}{TNVND}}
-{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}}}
-
-
-
-Type of order and number of variables. 
-
-\mbox{\Hypertarget{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}\label{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}} 
-\index{tpsa.h@{tpsa.h}!TVEC@{TVEC}}
-\index{TVEC@{TVEC}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{TVEC}{TVEC}}
-{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}}}
-
-
-
-\subsection{Function Documentation}
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{tpsa_8h_aee3cc81c7c008f5f0fae4f06ffc0611a}\label{tpsa_8h_aee3cc81c7c008f5f0fae4f06ffc0611a}} 
 \index{tpsa.h@{tpsa.h}!ad\_abs@{ad\_abs}}
 \index{ad\_abs@{ad\_abs}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_abs()}{ad\_abs()}}
-{\footnotesize\ttfamily void ad\+\_\+abs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{double $\ast$}]{r }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_abs()}{ad\_abs()}}
+{\footnotesize\ttfamily void ad\+\_\+abs (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{iv,  }\item[{double $\ast$}]{r }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{tpsa_8h_abd8f661a94f408204a709131feb0de5d}\label{tpsa_8h_abd8f661a94f408204a709131feb0de5d}} 
-\index{tpsa.h@{tpsa.h}!ad\_add@{ad\_add}}
-\index{ad\_add@{ad\_add}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_add()}{ad\_add()}}
-{\footnotesize\ttfamily void ad\+\_\+add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{i,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{j }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{tpsa_8h_af81d709d685093427012234701ba2bb0}\label{tpsa_8h_af81d709d685093427012234701ba2bb0}} 
-\index{tpsa.h@{tpsa.h}!ad\_add\_const@{ad\_add\_const}}
-\index{ad\_add\_const@{ad\_add\_const}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_add\_const()}{ad\_add\_const()}}
-{\footnotesize\ttfamily void ad\+\_\+add\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{i,  }\item[{double $\ast$}]{r }\end{DoxyParamCaption})}
 
+Calcualte the max abs value of the coefficients of the TPS vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iv} & TPS vector \\
+\hline
+\mbox{\texttt{ out}}  & {\em r} & The result. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{tpsa_8h_a33948c5f7c383bb57d0ac39b3b04d926}\label{tpsa_8h_a33948c5f7c383bb57d0ac39b3b04d926}} 
 \index{tpsa.h@{tpsa.h}!ad\_alloc@{ad\_alloc}}
 \index{ad\_alloc@{ad\_alloc}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_alloc()}{ad\_alloc()}}
-{\footnotesize\ttfamily void ad\+\_\+alloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{i }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_alloc()}{ad\_alloc()}}
+{\footnotesize\ttfamily void ad\+\_\+alloc (\begin{DoxyParamCaption}\item[{TVEC $\ast$}]{i }\end{DoxyParamCaption})}
 
 
 
-Assign a memory slot for a T\+PS vector. Assign a memory slot for a T\+PS vector with value zero and length one. 
+Assign a memory slot for a TPS vector. Assign a memory slot for a TPS vector with value zero and length one. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & return a new integer representing the allocated T\+PS vector. \\
+{\em i} & return a new integer representing the allocated TPS vector. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
-This function do not allocate memory. The memory pool was allocated by \mbox{\hyperlink{tpsa_8h_aa4a919c3289f8f538fddc1768b030d69}{ad\+\_\+reserve(n)}}. 
+This function do not allocate memory. The memory pool was allocated by ad\+\_\+reserve(n). 
 \end{DoxyNote}
 \mbox{\Hypertarget{tpsa_8h_a06ed847b89f12f62ca4e7dfad7d260f2}\label{tpsa_8h_a06ed847b89f12f62ca4e7dfad7d260f2}} 
 \index{tpsa.h@{tpsa.h}!ad\_c\_div@{ad\_c\_div}}
 \index{ad\_c\_div@{ad\_c\_div}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_c\_div()}{ad\_c\_div()}}
-{\footnotesize\ttfamily void ad\+\_\+c\+\_\+div (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const double $\ast$}]{c,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ivret }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_c\_div()}{ad\_c\_div()}}
+{\footnotesize\ttfamily void ad\+\_\+c\+\_\+div (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{iv,  }\item[{const double $\ast$}]{c,  }\item[{TVEC $\ast$}]{ivret }\end{DoxyParamCaption})}
 
 
 
-A real number is divided by a T\+PS vector. Result is saved to another T\+PS vector. Calculate ivret = c / iv. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+A real number is divided by a TPS vector. Result is saved to another TPS vector. Calculate ivret = c / iv. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em iv} & A T\+PS vector. \\
+\mbox{\texttt{ in}}  & {\em iv} & A TPS vector. \\
 \hline
 \mbox{\texttt{ in}}  & {\em c} & A real number. \\
 \hline
-\mbox{\texttt{ out}}  & {\em ivret} & A T\+PS vector that saves the result. \\
+\mbox{\texttt{ out}}  & {\em ivret} & A TPS vector that saves the result. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 void. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{tpsa_8h_a14d7813be2e2ec86a5bd1a6c8f8210c3}\label{tpsa_8h_a14d7813be2e2ec86a5bd1a6c8f8210c3}} 
-\index{tpsa.h@{tpsa.h}!ad\_clean@{ad\_clean}}
-\index{ad\_clean@{ad\_clean}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_clean()}{ad\_clean()}}
-{\footnotesize\ttfamily void ad\+\_\+clean (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const double $\ast$}]{eps }\end{DoxyParamCaption})}
-
-
-
-Set the small T\+PS coefficients as 0 if they are less than eps. 
-
-\mbox{\Hypertarget{tpsa_8h_ac82a373fe2c762ad2640f3b116c937bd}\label{tpsa_8h_ac82a373fe2c762ad2640f3b116c937bd}} 
-\index{tpsa.h@{tpsa.h}!ad\_const@{ad\_const}}
-\index{ad\_const@{ad\_const}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_const()}{ad\_const()}}
-{\footnotesize\ttfamily void ad\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ii,  }\item[{const double $\ast$}]{r }\end{DoxyParamCaption})}
-
-
-
-Set a T\+PS vector as a constant. 
-
 \mbox{\Hypertarget{tpsa_8h_a3400693d002828a3dbe5ab9c31497b62}\label{tpsa_8h_a3400693d002828a3dbe5ab9c31497b62}} 
 \index{tpsa.h@{tpsa.h}!ad\_copy@{ad\_copy}}
 \index{ad\_copy@{ad\_copy}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_copy()}{ad\_copy()}}
-{\footnotesize\ttfamily void ad\+\_\+copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{isrc,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{idst }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_copy()}{ad\_copy()}}
+{\footnotesize\ttfamily void ad\+\_\+copy (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{isrc,  }\item[{const TVEC $\ast$}]{idst }\end{DoxyParamCaption})}
 
 
 
-Copy T\+PS vector This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+Copy TPS vector This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -566,56 +356,31 @@ Copy T\+PS vector This function replaces the original one in \mbox{\hyperlink{tp
 \mbox{\texttt{ out}}  & {\em idst} & destination \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{tpsa_8h_a7127c7553acec12be8d4f9d6e39bfa4b}\label{tpsa_8h_a7127c7553acec12be8d4f9d6e39bfa4b}} 
-\index{tpsa.h@{tpsa.h}!ad\_cos@{ad\_cos}}
-\index{ad\_cos@{ad\_cos}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_cos()}{ad\_cos()}}
-{\footnotesize\ttfamily void ad\+\_\+cos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{tpsa_8h_ab76aa1315af4aa53b8157ec5508d2277}\label{tpsa_8h_ab76aa1315af4aa53b8157ec5508d2277}} 
 \index{tpsa.h@{tpsa.h}!ad\_count@{ad\_count}}
 \index{ad\_count@{ad\_count}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_count()}{ad\_count()}}
-{\footnotesize\ttfamily void ad\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{n }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_count()}{ad\_count()}}
+{\footnotesize\ttfamily void ad\+\_\+count (\begin{DoxyParamCaption}\item[{TVEC $\ast$}]{n }\end{DoxyParamCaption})}
 
 
 
-Allocate space for one T\+PS vector. 
+$\ast$$\ast$ 
 
+Allocate space for one TPS vector. $\ast$$\ast$ Copy TPS vector
 
-\begin{DoxyParams}{Parameters}
-{\em i} & return a new integer representing the allocated T\+PS vector.\+Copy T\+PS vector \\
-\hline
-{\em isrc} & source \\
-\hline
-{\em idst} & destination\+Count how many vectors has been allocated \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{tpsa_8h_af61048119f09f7cd849d4b985eac44b8}\label{tpsa_8h_af61048119f09f7cd849d4b985eac44b8}} 
-\index{tpsa.h@{tpsa.h}!ad\_derivative@{ad\_derivative}}
-\index{ad\_derivative@{ad\_derivative}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_derivative()}{ad\_derivative()}}
-{\footnotesize\ttfamily void ad\+\_\+derivative (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{unsigned int $\ast$}]{expo,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a7b3c8f7e505c46d491d15981741208f7}\label{tpsa_8h_a7b3c8f7e505c46d491d15981741208f7}} 
-\index{tpsa.h@{tpsa.h}!ad\_div@{ad\_div}}
-\index{ad\_div@{ad\_div}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_div()}{ad\_div()}}
-{\footnotesize\ttfamily void ad\+\_\+div (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ilhs,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{irhs,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{idst }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_ad38ef47aea4f0d5dffd6cfda67eb8f60}\label{tpsa_8h_ad38ef47aea4f0d5dffd6cfda67eb8f60}} 
+Count how many vectors has been allocated \mbox{\Hypertarget{tpsa_8h_ad38ef47aea4f0d5dffd6cfda67eb8f60}\label{tpsa_8h_ad38ef47aea4f0d5dffd6cfda67eb8f60}} 
 \index{tpsa.h@{tpsa.h}!ad\_div\_c@{ad\_div\_c}}
 \index{ad\_div\_c@{ad\_div\_c}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_div\_c()}{ad\_div\_c()}}
-{\footnotesize\ttfamily void ad\+\_\+div\+\_\+c (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const double $\ast$}]{c }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_div\_c()}{ad\_div\_c()}}
+{\footnotesize\ttfamily void ad\+\_\+div\+\_\+c (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{iv,  }\item[{const double $\ast$}]{c }\end{DoxyParamCaption})}
 
 
 
-A T\+PS vector divided by a number. Calculate iv = iv / c. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+A TPS vector divided by a number. Calculate iv = iv / c. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em iv} & A T\+PS vector. \\
+{\em iv} & A TPS vector. \\
 \hline
 {\em c} & a real number. \\
 \hline
@@ -623,41 +388,29 @@ A T\+PS vector divided by a number. Calculate iv = iv / c. This function replace
 \begin{DoxyReturn}{Returns}
 void. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{tpsa_8h_af8f699e5ad097f081829e9f9b695ad05}\label{tpsa_8h_af8f699e5ad097f081829e9f9b695ad05}} 
-\index{tpsa.h@{tpsa.h}!ad\_elem@{ad\_elem}}
-\index{ad\_elem@{ad\_elem}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_elem()}{ad\_elem()}}
-{\footnotesize\ttfamily void ad\+\_\+elem (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ivec,  }\item[{unsigned int $\ast$}]{idx,  }\item[{unsigned int $\ast$}]{c,  }\item[{double $\ast$}]{x }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_ab1dc42612ace8601f9c361b622f1528a}\label{tpsa_8h_ab1dc42612ace8601f9c361b622f1528a}} 
-\index{tpsa.h@{tpsa.h}!ad\_exp@{ad\_exp}}
-\index{ad\_exp@{ad\_exp}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_exp()}{ad\_exp()}}
-{\footnotesize\ttfamily void ad\+\_\+exp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{tpsa_8h_a5ee339f01a2eccb987ca8f3c2f884b79}\label{tpsa_8h_a5ee339f01a2eccb987ca8f3c2f884b79}} 
 \index{tpsa.h@{tpsa.h}!ad\_fill\_ran@{ad\_fill\_ran}}
 \index{ad\_fill\_ran@{ad\_fill\_ran}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_fill\_ran()}{ad\_fill\_ran()}}
-{\footnotesize\ttfamily void ad\+\_\+fill\+\_\+ran (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const double $\ast$}]{ratio,  }\item[{const double $\ast$}]{xm }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_fill\_ran()}{ad\_fill\_ran()}}
+{\footnotesize\ttfamily void ad\+\_\+fill\+\_\+ran (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{iv,  }\item[{const double $\ast$}]{ratio,  }\item[{const double $\ast$}]{xm }\end{DoxyParamCaption})}
 
 
 
-Fill the T\+PS coefficients as a random number in \mbox{[}0,1\mbox{]}. 
+Fill the TPS coefficients as a random number in \mbox{[}0,1\mbox{]}. 
 
 The length(highest nonzero coefficients) is not changed. \mbox{\Hypertarget{tpsa_8h_a6d8d829771f1be30f50c50aad872e066}\label{tpsa_8h_a6d8d829771f1be30f50c50aad872e066}} 
 \index{tpsa.h@{tpsa.h}!ad\_free@{ad\_free}}
 \index{ad\_free@{ad\_free}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_free()}{ad\_free()}}
-{\footnotesize\ttfamily void ad\+\_\+free (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{i }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_free()}{ad\_free()}}
+{\footnotesize\ttfamily void ad\+\_\+free (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{i }\end{DoxyParamCaption})}
 
 
 
-Free the memory slot occupied by the T\+PS vector. Free the memory slot so that it is available for future use by updating adlist and ad\+\_\+end. The freed memory slot is added to the end of the linked list. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+Free the memory slot occupied by the TPS vector. Free the memory slot so that it is available for future use by updating adlist and ad\+\_\+end. The freed memory slot is added to the end of the linked list. This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em i} & T\+PS vector \\
+{\em i} & TPS vector \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -666,43 +419,25 @@ This function does not delete any memory.
 \mbox{\Hypertarget{tpsa_8h_a4c98301b0e7c8b1aa700d703aa8628eb}\label{tpsa_8h_a4c98301b0e7c8b1aa700d703aa8628eb}} 
 \index{tpsa.h@{tpsa.h}!ad\_init@{ad\_init}}
 \index{ad\_init@{ad\_init}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_init()}{ad\_init()}}
-{\footnotesize\ttfamily void ad\+\_\+init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{nvar,  }\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{nord }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_init()}{ad\_init()}}
+{\footnotesize\ttfamily void ad\+\_\+init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$}]{nvar,  }\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{TNVND}} $\ast$}]{nord }\end{DoxyParamCaption})}
 
 
 
-Initialize the T\+P\+SA library. 
+Initialize the TPSA library. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em nvar} & number of variables \\
 \hline
-{\em nord} & highest order of T\+PS.\\
+{\em nord} & highest order of TPS.\\
 \hline
 \end{DoxyParams}
-This must be called before any use of T\+PS vector, and followed by ad\+\_\+reserve \mbox{\Hypertarget{tpsa_8h_aea6f5f202219d5b79e5c8faefe6f90ec}\label{tpsa_8h_aea6f5f202219d5b79e5c8faefe6f90ec}} 
-\index{tpsa.h@{tpsa.h}!ad\_inverse@{ad\_inverse}}
-\index{ad\_inverse@{ad\_inverse}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_inverse()}{ad\_inverse()}}
-{\footnotesize\ttfamily void ad\+\_\+inverse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iva,  }\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{nva,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret,  }\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{nret }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a11405ea05594227a12ae3e79b6b43e8c}\label{tpsa_8h_a11405ea05594227a12ae3e79b6b43e8c}} 
-\index{tpsa.h@{tpsa.h}!ad\_length@{ad\_length}}
-\index{ad\_length@{ad\_length}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_length()}{ad\_length()}}
-{\footnotesize\ttfamily void ad\+\_\+length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{unsigned int $\ast$}]{n }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a02ee3f5882a69c521c23a157323a6d7b}\label{tpsa_8h_a02ee3f5882a69c521c23a157323a6d7b}} 
-\index{tpsa.h@{tpsa.h}!ad\_log@{ad\_log}}
-\index{ad\_log@{ad\_log}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_log()}{ad\_log()}}
-{\footnotesize\ttfamily void ad\+\_\+log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a9a56fb168aebe7106e2bb84d1c4585c6}\label{tpsa_8h_a9a56fb168aebe7106e2bb84d1c4585c6}} 
+This must be called before any use of TPS vector, and followed by ad\+\_\+reserve \mbox{\Hypertarget{tpsa_8h_a9a56fb168aebe7106e2bb84d1c4585c6}\label{tpsa_8h_a9a56fb168aebe7106e2bb84d1c4585c6}} 
 \index{tpsa.h@{tpsa.h}!ad\_mult@{ad\_mult}}
 \index{ad\_mult@{ad\_mult}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_mult()}{ad\_mult()}}
-{\footnotesize\ttfamily void ad\+\_\+mult (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ilhs,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{irhs,  }\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{idst }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_mult()}{ad\_mult()}}
+{\footnotesize\ttfamily void ad\+\_\+mult (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{ilhs,  }\item[{const TVEC $\ast$}]{irhs,  }\item[{TVEC $\ast$}]{idst }\end{DoxyParamCaption})}
 
 
 
@@ -712,81 +447,29 @@ internal multiplication, dst should be different from lhs and rhs.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em ilhs} & T\+PS vector \\
+\mbox{\texttt{ in}}  & {\em ilhs} & TPS vector \\
 \hline
-\mbox{\texttt{ in}}  & {\em irhs} & T\+PS vector \\
+\mbox{\texttt{ in}}  & {\em irhs} & TPS vector \\
 \hline
-\mbox{\texttt{ out}}  & {\em idst} & T\+PS vector that saves the result. \\
+\mbox{\texttt{ out}}  & {\em idst} & TPS vector that saves the result. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
-\mbox{\Hypertarget{tpsa_8h_ad563dbfc25b1018ac6c8e3bb1b0ab5ae}\label{tpsa_8h_ad563dbfc25b1018ac6c8e3bb1b0ab5ae}} 
-\index{tpsa.h@{tpsa.h}!ad\_mult\_const@{ad\_mult\_const}}
-\index{ad\_mult\_const@{ad\_mult\_const}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_mult\_const()}{ad\_mult\_const()}}
-{\footnotesize\ttfamily void ad\+\_\+mult\+\_\+const (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{double $\ast$}]{c }\end{DoxyParamCaption})}
-
-
-
-internal multiplication, dst should be different from lhs and rhs. 
-
-\mbox{\Hypertarget{tpsa_8h_ab11b24a982c3aaa2b042f853405c067c}\label{tpsa_8h_ab11b24a982c3aaa2b042f853405c067c}} 
-\index{tpsa.h@{tpsa.h}!ad\_nvar@{ad\_nvar}}
-\index{ad\_nvar@{ad\_nvar}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_nvar()}{ad\_nvar()}}
-{\footnotesize\ttfamily void ad\+\_\+nvar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{n }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a0a968076b2ed147f56baceb8357ba282}\label{tpsa_8h_a0a968076b2ed147f56baceb8357ba282}} 
-\index{tpsa.h@{tpsa.h}!ad\_pek@{ad\_pek}}
-\index{ad\_pek@{ad\_pek}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_pek()}{ad\_pek()}}
-{\footnotesize\ttfamily void ad\+\_\+pek (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ivec,  }\item[{int $\ast$}]{c,  }\item[{size\+\_\+t $\ast$}]{n,  }\item[{double $\ast$}]{x }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a86a57a466c362c2981f2aa35d18db142}\label{tpsa_8h_a86a57a466c362c2981f2aa35d18db142}} 
-\index{tpsa.h@{tpsa.h}!ad\_pok@{ad\_pok}}
-\index{ad\_pok@{ad\_pok}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_pok()}{ad\_pok()}}
-{\footnotesize\ttfamily void ad\+\_\+pok (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{ivec,  }\item[{int $\ast$}]{c,  }\item[{size\+\_\+t $\ast$}]{n,  }\item[{double $\ast$}]{x }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a1ba361184441df7ea153eeba31675503}\label{tpsa_8h_a1ba361184441df7ea153eeba31675503}} 
-\index{tpsa.h@{tpsa.h}!ad\_poolsize@{ad\_poolsize}}
-\index{ad\_poolsize@{ad\_poolsize}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_poolsize()}{ad\_poolsize()}}
-{\footnotesize\ttfamily void ad\+\_\+poolsize (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{n }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_ac5783f6405288de7571d5e13aa6a27fe}\label{tpsa_8h_ac5783f6405288de7571d5e13aa6a27fe}} 
-\index{tpsa.h@{tpsa.h}!ad\_print@{ad\_print}}
-\index{ad\_print@{ad\_print}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_print()}{ad\_print()}}
-{\footnotesize\ttfamily void ad\+\_\+print (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a94b265d49d389555d2e333032715eaa2}\label{tpsa_8h_a94b265d49d389555d2e333032715eaa2}} 
-\index{tpsa.h@{tpsa.h}!ad\_print\_array@{ad\_print\_array}}
-\index{ad\_print\_array@{ad\_print\_array}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_print\_array()}{ad\_print\_array()}}
-{\footnotesize\ttfamily void ad\+\_\+print\+\_\+array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{nv }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a09aa102513f3273ca4b7a3cb62bdd66e}\label{tpsa_8h_a09aa102513f3273ca4b7a3cb62bdd66e}} 
-\index{tpsa.h@{tpsa.h}!ad\_read\_block@{ad\_read\_block}}
-\index{ad\_read\_block@{ad\_read\_block}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_read\_block()}{ad\_read\_block()}}
-{\footnotesize\ttfamily void ad\+\_\+read\+\_\+block (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{double $\ast$}]{v,  }\item[{\mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{J,  }\item[{const unsigned int $\ast$}]{N }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{tpsa_8h_a409f41a0dbde4928e9d98971c61166ef}\label{tpsa_8h_a409f41a0dbde4928e9d98971c61166ef}} 
 \index{tpsa.h@{tpsa.h}!ad\_reserve@{ad\_reserve}}
 \index{ad\_reserve@{ad\_reserve}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_reserve()}{ad\_reserve()}}
+\doxysubsubsection{\texorpdfstring{ad\_reserve()}{ad\_reserve()}}
 {\footnotesize\ttfamily void ad\+\_\+reserve (\begin{DoxyParamCaption}\item[{const unsigned int $\ast$}]{n }\end{DoxyParamCaption})}
 
 
 
-Reserve space for n T\+PS vectors. Allocate the memory for n T\+PS vectors. This function replaces the original one in the \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+Reserve space for n TPS vectors. Allocate the memory for n TPS vectors. This function replaces the original one in the \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em n} & Number of T\+PS vectors. \\
+{\em n} & Number of TPS vectors. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -795,107 +478,26 @@ void.
 \mbox{\Hypertarget{tpsa_8h_a0a2160a9f53cddc433066c1714d5d58e}\label{tpsa_8h_a0a2160a9f53cddc433066c1714d5d58e}} 
 \index{tpsa.h@{tpsa.h}!ad\_reset@{ad\_reset}}
 \index{ad\_reset@{ad\_reset}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_reset()}{ad\_reset()}}
-{\footnotesize\ttfamily void ad\+\_\+reset (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_reset()}{ad\_reset()}}
+{\footnotesize\ttfamily void ad\+\_\+reset (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{iv }\end{DoxyParamCaption})}
 
 
 
-Reset a T\+PS vector to a constant 0 This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
+Reset a TPS vector to a constant 0 This function replaces the original one in \mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em iv} & T\+PS vector. \\
+{\em iv} & TPS vector. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{tpsa_8h_aeffa6d9dccbfac61e73a96b32859b5fd}\label{tpsa_8h_aeffa6d9dccbfac61e73a96b32859b5fd}} 
-\index{tpsa.h@{tpsa.h}!ad\_resetvars@{ad\_resetvars}}
-\index{ad\_resetvars@{ad\_resetvars}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_resetvars()}{ad\_resetvars()}}
-{\footnotesize\ttfamily void ad\+\_\+resetvars (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{nv }\end{DoxyParamCaption})}
-
-
-
-Reset the base vectors. To avoid confusions when starting a new set of T\+P\+SA calculations, call this before a new \mbox{\hyperlink{tpsa_8cpp_aa473b1ce438a2216ea80d5a4adc9e72e}{ad\+\_\+init()}}. with nv from \mbox{\hyperlink{tpsa_8h_a3fa86c82256ee6ae03ea0c52f2a984ae}{ad\+\_\+nvar(nv)}}. 
-
-\mbox{\Hypertarget{tpsa_8h_a65092c4b3f2bf12d906d112246494486}\label{tpsa_8h_a65092c4b3f2bf12d906d112246494486}} 
-\index{tpsa.h@{tpsa.h}!ad\_rev@{ad\_rev}}
-\index{ad\_rev@{ad\_rev}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_rev()}{ad\_rev()}}
-{\footnotesize\ttfamily void ad\+\_\+rev (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_aca7a526b73aeeced3288a61f655171a2}\label{tpsa_8h_aca7a526b73aeeced3288a61f655171a2}} 
-\index{tpsa.h@{tpsa.h}!ad\_save\_block@{ad\_save\_block}}
-\index{ad\_save\_block@{ad\_save\_block}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_save\_block()}{ad\_save\_block()}}
-{\footnotesize\ttfamily void ad\+\_\+save\+\_\+block (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const double $\ast$}]{v,  }\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{J,  }\item[{const unsigned int $\ast$}]{N }\end{DoxyParamCaption})}
-
-
-
-blind set, assuming order of J is right. 
-
-\mbox{\Hypertarget{tpsa_8h_ae0c407dd096f879f49d4cd721dd07f25}\label{tpsa_8h_ae0c407dd096f879f49d4cd721dd07f25}} 
-\index{tpsa.h@{tpsa.h}!ad\_shift@{ad\_shift}}
-\index{ad\_shift@{ad\_shift}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_shift()}{ad\_shift()}}
-{\footnotesize\ttfamily void ad\+\_\+shift (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{unsigned int $\ast$}]{ishift,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret,  }\item[{const double $\ast$}]{eps }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{tpsa_8h_a9bfad92601b7c4c81bb14e51e0016672}\label{tpsa_8h_a9bfad92601b7c4c81bb14e51e0016672}} 
 \index{tpsa.h@{tpsa.h}!ad\_sin@{ad\_sin}}
 \index{ad\_sin@{ad\_sin}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_sin()}{ad\_sin()}}
-{\footnotesize\ttfamily void ad\+\_\+sin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ad\_sin()}{ad\_sin()}}
+{\footnotesize\ttfamily void ad\+\_\+sin (\begin{DoxyParamCaption}\item[{const TVEC $\ast$}]{iv,  }\item[{const TVEC $\ast$}]{iret }\end{DoxyParamCaption})}
 
 
 
-Reset to a constant 0. 
+$\ast$$\ast$ 
 
-\mbox{\Hypertarget{tpsa_8h_a5598b044c58daedbc67674fb19f08616}\label{tpsa_8h_a5598b044c58daedbc67674fb19f08616}} 
-\index{tpsa.h@{tpsa.h}!ad\_sqrt@{ad\_sqrt}}
-\index{ad\_sqrt@{ad\_sqrt}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_sqrt()}{ad\_sqrt()}}
-{\footnotesize\ttfamily void ad\+\_\+sqrt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_aaa3aebaeeaf01b114110aaa347830395}\label{tpsa_8h_aaa3aebaeeaf01b114110aaa347830395}} 
-\index{tpsa.h@{tpsa.h}!ad\_sub@{ad\_sub}}
-\index{ad\_sub@{ad\_sub}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_sub()}{ad\_sub()}}
-{\footnotesize\ttfamily void ad\+\_\+sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{i,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{j }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_aa8ed335e25f9d0589f41e917ea800b59}\label{tpsa_8h_aa8ed335e25f9d0589f41e917ea800b59}} 
-\index{tpsa.h@{tpsa.h}!ad\_subst@{ad\_subst}}
-\index{ad\_subst@{ad\_subst}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_subst()}{ad\_subst()}}
-{\footnotesize\ttfamily void ad\+\_\+subst (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ibv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{nbv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_ac54d6dd59ba6d00ab5a802cae7e95cb7}\label{tpsa_8h_ac54d6dd59ba6d00ab5a802cae7e95cb7}} 
-\index{tpsa.h@{tpsa.h}!ad\_tra@{ad\_tra}}
-\index{ad\_tra@{ad\_tra}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_tra()}{ad\_tra()}}
-{\footnotesize\ttfamily void ad\+\_\+tra (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{unsigned int $\ast$}]{expo,  }\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iret }\end{DoxyParamCaption})}
-
-
-
-similar to ad\+\_\+derivative, but doesn\textquotesingle{}t multiply the exponent part of x\+\_\+\{expo\} 
-
-\mbox{\Hypertarget{tpsa_8h_a706f781fd098cc1056f130391a929c86}\label{tpsa_8h_a706f781fd098cc1056f130391a929c86}} 
-\index{tpsa.h@{tpsa.h}!ad\_truncate@{ad\_truncate}}
-\index{ad\_truncate@{ad\_truncate}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_truncate()}{ad\_truncate()}}
-{\footnotesize\ttfamily void ad\+\_\+truncate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{iv,  }\item[{const \mbox{\hyperlink{tpsa_8h_a015d1e5f2a6fc8bd756badae78e77360}{T\+N\+V\+ND}} $\ast$}]{d }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_a382152823ae24a2bb5de55a3ebe18896}\label{tpsa_8h_a382152823ae24a2bb5de55a3ebe18896}} 
-\index{tpsa.h@{tpsa.h}!ad\_var@{ad\_var}}
-\index{ad\_var@{ad\_var}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{ad\_var()}{ad\_var()}}
-{\footnotesize\ttfamily void ad\+\_\+var (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{tpsa_8h_a36fc79ba14099c25d212e5412c95806f}{T\+V\+EC}} $\ast$}]{ii,  }\item[{const double $\ast$}]{x,  }\item[{unsigned int $\ast$}]{iv }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{tpsa_8h_ad087b206b0ec782659ee6390d5c0b9f2}\label{tpsa_8h_ad087b206b0ec782659ee6390d5c0b9f2}} 
-\index{tpsa.h@{tpsa.h}!print\_index@{print\_index}}
-\index{print\_index@{print\_index}!tpsa.h@{tpsa.h}}
-\subsubsection{\texorpdfstring{print\_index()}{print\_index()}}
-{\footnotesize\ttfamily void print\+\_\+index (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
-
-
-
-Print out ad vector represented by i. 
-
+Reset to a constant 0 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_5forder_5findex',['get_order_index',['../tpsa__extend_8cc.html#a238966ee44318b2286e446d87d061496',1,'tpsa_extend.cc']]]
+  ['n_5felement_187',['n_element',['../struct_d_a_vector.html#acc7180677f26baf2a1ac32efad7a2bf5',1,'DAVector']]],
+  ['norm_188',['norm',['../struct_d_a_vector.html#abe5e73d838b0178ecfa6910052a59fda',1,'DAVector']]]
 ];

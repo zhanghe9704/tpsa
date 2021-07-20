@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tan',['tan',['../da_8h.html#a1cf3c2f3379994543b99ccda65fe9fc6',1,'tan(const DAVector &amp;da_vector):&#160;da.cc'],['../da_8cc.html#a1cf3c2f3379994543b99ccda65fe9fc6',1,'tan(const DAVector &amp;da_vector):&#160;da.cc']]],
-  ['tanh',['tanh',['../da_8h.html#af63923c4fbe9c11020fc8ea26a2f946b',1,'tanh(const DAVector &amp;da_vector):&#160;da.cc'],['../da_8cc.html#af63923c4fbe9c11020fc8ea26a2f946b',1,'tanh(const DAVector &amp;da_vector):&#160;da.cc']]]
+  ['valid_5ftable_356',['valid_table',['../class_a_d_order_table.html#a1ae92006848dde2da52dee919d46ac27',1,'ADOrderTable']]]
 ];
