@@ -29,6 +29,7 @@ int main() {
     auto y1 = x1 + x2*1i;
     auto y2 = x3 + x4*1i;
 
+
     std::cout<<"y1: "<<std::endl<<y1<<std::endl;
     std::cout<<"y2: "<<std::endl<<y2<<std::endl;
 
@@ -73,23 +74,6 @@ int main() {
     cd_composition(cmmap, mmap, comap);
     std::cout<<"Composition of complex DA vectors with DA vectors."<<std::endl<<std::endl;
     for(auto& o: comap) std::cout<<o<<std::endl;
-
-    std::cout<<"Test math functions."<<std::endl;
-//    std::cout<<sin(y1)<<std::endl;
-//    std::cout<<cos(y1)<<std::endl;
-//    std::cout<<tan(y1)<<std::endl;
-////    std::cout<<sqrt(y1)<<std::endl;
-//    std::cout<<exp(y1)<<std::endl;
-//    std::cout<<sinh(y1)<<std::endl;
-//    std::cout<<cosh(y1)<<std::endl;
-//    std::cout<<tanh(y1)<<std::endl;
-////    std::cout<<log(y1)<<std::endl;
-////    std::cout<<asin(y1)<<std::endl;
-////    std::cout<<acos(y1)<<std::endl;
-
-    std::cout<<y1<<std::endl;
-
-
 
     da_clear();
 

@@ -805,7 +805,7 @@ std::complex<DAVector>  operator-(const std::complex<DAVector> &cd_vector, doubl
     return res;
 }
 std::complex<DAVector>  operator-(double number, const std::complex<DAVector> &cd_vector) {
-    complex<DAVector> res(number-get_real(cd_vector), get_imag(cd_vector));
+    complex<DAVector> res(number-get_real(cd_vector), -1*get_imag(cd_vector));
 //    complex<DAVector> res(number-cd_vector.real(), cd_vector.imag());
     return res;
 }
@@ -987,8 +987,16 @@ DAVector operator+(const DAVector &da_vector) {
 }
 
 DAVector sqrt(const DAVector &da_vector) {
-    DAVector res;
-    ad_sqrt(&da_vector.da_vector_, &res.da_vector_);
+    DAVector res(0);
+    if(std::abs(da_vector.con())<std::numeric_limits<double>::min()){
+         if(!da_vector.iszero()) {
+             std::cout << "Warning: sqrt not defined because the constant part of the DA vector is zero." <<std::endl;
+             res.reset_const(NAN);
+         }
+    }
+    else {
+         ad_sqrt(&da_vector.da_vector_, &res.da_vector_);
+    }
 	return res;
 }
 
@@ -1000,7 +1008,10 @@ DAVector exp(const DAVector &da_vector) {
 
 DAVector log(const DAVector &da_vector) {
     DAVector res;
-    ad_log(&da_vector.da_vector_, &res.da_vector_);
+    if(std::abs(da_vector.con())<std::numeric_limits<double>::min()) {
+        res.reset_const(-INFINITY);
+    }
+    else ad_log(&da_vector.da_vector_, &res.da_vector_);
 	return res;
 }
 
@@ -1171,7 +1182,7 @@ DAVector pow_pos(const DAVector &da_vector, const int order) {
 DAVector pow(const DAVector &da_vector, const int order) {
     DAVector res;
     if (order<0) {
-        if (da_vector.con()==0) {
+        if (std::abs(da_vector.con())<std::numeric_limits<double>::min()) {
             res.reset_const(INFINITY);
             return res;
         }
@@ -1208,6 +1219,194 @@ DAVector pow(const DAVector &da_vector, const double order) {
     return res;
 }
 
+DAVector asinh(const DAVector& da_vector) {
+    return log(da_vector+sqrt(da_vector*da_vector+1));
+}
+
+DAVector acosh(const DAVector& da_vector) {
+    DAVector res;
+    if(da_vector.con()>=1) {
+        res = log(da_vector+sqrt(da_vector*da_vector-1));
+    }
+    else {
+        throw std::domain_error("Error in ACOSH: the constant part of the DA vector should be in [1, +inf).");
+    }
+    return res;
+}
+
+DAVector atanh(const DAVector& da_vector) {
+    DAVector res;
+    if(da_vector.con()>-1 && da_vector.con()<1) {
+        res = log((1+da_vector)/(1-da_vector))/2;
+    }
+    else {
+        throw std::domain_error("Error in ATANH: the constant part of the DA vector should be in (-1,1).");
+    }
+    return res;
+}
+
+std::complex<DAVector> sqrt(const std::complex<DAVector>& c) {
+    const DAVector& rc = get_real(c);
+    const DAVector& ic = get_imag(c);
+
+    DAVector r = sqrt(rc*rc+ic*ic);
+    if(std::abs(ic.con())<std::numeric_limits<double>::min() && rc.con()<std::numeric_limits<double>::min()) {
+        const std::complex<double> ui(0.0,1.0);
+        const double pi = 3.141592653589793238462643383279;
+        const double half_pi = 1.57079632679489661923132169163975144209858469968755291048;
+        DAVector theta(half_pi);
+        if(!rc.iszero()) theta += atan(ic/rc)/2;
+        std::complex<DAVector> res = sqrt(r)*exp(ui*theta);
+        return res;
+    }
+    else {
+        std::complex<DAVector> cr = c + r;
+        DAVector& rcr = get_real(cr);
+        DAVector& icr = get_imag(cr);
+        std::complex<DAVector> res = sqrt(r)*cr/sqrt(rcr*rcr+icr*icr);
+        return res;
+    }
+}
+
+DAVector atan2(const DAVector& y, const DAVector& x) {
+    DAVector res;
+    double cx = x.con();
+    double cy = y.con();
+    if(cx>=std::numeric_limits<double>::min()) {    //cx>0
+        res = 2*atan(y/(x+sqrt(x*x+y*y)));
+    }
+    else {
+        if(std::abs(cy)>std::numeric_limits<double>::min()) {   //cx<=0, cy!=0
+            res = 2*atan((sqrt(x*x+y*y)-x)/y);
+        }
+        else {
+            if(std::abs(cx)<std::numeric_limits<double>::min()) { //cx==0, cy==0
+                throw std::domain_error("Error: ATAN2 undefined.  Zero constant part for both the DA vectors.");
+            }
+            else { //cx<0, cy==0
+                double pi = 3.141592653589793238462643383279;
+                res = atan(y/x) + pi;
+            }
+        }
+    }
+    return res;
+}
+
+std::complex<DAVector> log(const std::complex<DAVector>& c) {
+    std::complex<DAVector> res;
+    const DAVector& rc = get_real(c);
+    const DAVector& ic = get_imag(c);
+
+    DAVector r2 = rc*rc+ic*ic;
+    if(std::abs(r2.con()>std::numeric_limits<double>::min())) {
+        get_real(res) = log(sqrt(rc*rc+ic*ic));
+        get_imag(res) = atan2(ic, rc);
+    }
+    else{
+        if(rc.iszero() && ic.iszero()) {
+            get_real(res).reset_const(-INFINITY);
+            get_imag(res) = 0;
+        }
+        else {
+            get_real(res) = 0;
+            get_imag(res) = atan2(ic, rc);
+        }
+    }
+    return res;
+}
+
+std::complex<DAVector> asin(const std::complex<DAVector>& c) {
+    const std::complex<double> ui(0.0,1.0);
+    return -ui*log(ui*c+sqrt(1-c*c));
+}
+
+std::complex<DAVector> acos(const std::complex<DAVector>& c) {
+    const std::complex<double> ui(0.0,1.0);
+    double half_pi = 1.57079632679489661923132169163975144209858469968755291048;
+    return half_pi+ui*log(ui*c+sqrt(1-c*c));
+}
+
+std::complex<DAVector> atan(const std::complex<DAVector>& c) {
+    const std::complex<double> ui(0.0,1.0);
+    return ui*(log(1-ui*c)-log(1+ui*c))/2;
+}
+
+std::complex<DAVector> asinh(const std::complex<DAVector>& c) {
+    return log(c+sqrt(c*c+1));
+}
+
+std::complex<DAVector> acosh(const std::complex<DAVector>& c) {
+    return log(c+sqrt(c*c-1));
+}
+
+std::complex<DAVector> atanh(const std::complex<DAVector>& c) {
+    return (log(1+c)-log(1-c))/2;
+}
+
+std::complex<DAVector> pow_pos(const std::complex<DAVector> &cd_vector, const int order) {
+    std::complex<DAVector> res;
+    if (order==0) {
+        get_real(res).reset_const(1);
+        get_imag(res).reset_const(1);
+    }
+    else if (order==1) {
+        res = cd_vector;
+    }
+    else if (order&1) { //Odd order
+        res = cd_vector * pow_pos(cd_vector*cd_vector, order/2);
+    }
+    else { //Even order
+        res = pow_pos(cd_vector*cd_vector, order/2);
+    }
+    return res;
+}
+
+std::complex<DAVector> pow(const std::complex<DAVector> &cd_vector, const int order) {
+    std::complex<DAVector> res;
+    if (order<0) {
+        if (get_real(cd_vector).con()<std::numeric_limits<double>::min() &&
+                get_imag(cd_vector).con()<std::numeric_limits<double>::min() ) {
+            get_real(res).reset_const(INFINITY);
+            get_imag(res).reset_const(INFINITY);
+        }
+        else {
+            res = pow_pos(cd_vector, -order);
+            res = 1/res;
+        }
+    }
+    else {
+        res = pow_pos(cd_vector, order);
+    }
+    return res;
+}
+
+
+std::complex<DAVector> pow(const std::complex<DAVector> &cd_vector, const double order) {
+    std::complex<DAVector> res;
+    std::cout<<"pow cd"<<order<<" "<<std::floor(order)<<" "<<std::endl<<cd_vector<<std::endl;
+    if (std::floor(order) == order) {//order is integer
+        res = pow(cd_vector, static_cast<int>(order));
+    }
+    else {
+        res = exp(order*log(cd_vector));    //Is there a better way?
+    }
+
+    return res;
+}
+
+std::complex<DAVector> pow(const std::complex<DAVector> &cd_vector, std::complex<DAVector> order) {
+    return exp(order*log(cd_vector));    //Is there a better way?
+}
+
+std::complex<DAVector> pow(const std::complex<DAVector> &cd_vector, std::complex<double> order) {
+    return exp(order*log(cd_vector));    //Is there a better way?
+}
+
+std::complex<DAVector> pow(const std::complex<DAVector> &cd_vector, std::complex<int> order) {
+    return exp(order*log(cd_vector));    //Is there a better way?
+}
+
+
 std::ostream& operator<<(std::ostream &os, const DAVector &da_vector) {
     print_vec(da_vector.da_vector_, os);
     return os;
@@ -1221,7 +1420,7 @@ std::ostream& operator<<(std::ostream &os, const std::complex<DAVector> &cd_vect
 
 
 void _ludcmp(std::vector<std::vector<double>> &a, const int n, std::vector<int> &idx, int &d){
-	int imax;
+	int imax = 0;
 	double big, dum, sum, temp;
 	std::vector<double> vv(n);      //the implicit scaling of each row.
 //	double tiny = 1.0e-20;
@@ -1594,7 +1793,7 @@ DAVector devide_by_element(DAVector& t, DAVector& b) {
     for(int i=0; i<DAVector::full_length(); ++i) {
         double te = t.element(i);
         double be = b.element(i);
-        if(abs(be)>std::numeric_limits<double>::min()) {
+        if(std::abs(be)>std::numeric_limits<double>::min()) {
             r.set_element(r.element_orders(i), te/be);
         }
         else {
