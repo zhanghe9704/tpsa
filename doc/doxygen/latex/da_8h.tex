@@ -279,11 +279,26 @@ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries 
 \mbox{\Hypertarget{da_8h_af63923c4fbe9c11020fc8ea26a2f946b}\label{da_8h_af63923c4fbe9c11020fc8ea26a2f946b}} 
 \mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries tanh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
+\mbox{\Hypertarget{da_8h_abbcdf340f5a9bd6a3b3adf395e721036}\label{da_8h_abbcdf340f5a9bd6a3b3adf395e721036}} 
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries asinh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\item 
+\mbox{\Hypertarget{da_8h_a53b6cccfdd1803d43c00602b8a8d454f}\label{da_8h_a53b6cccfdd1803d43c00602b8a8d454f}} 
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries acosh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\item 
+\mbox{\Hypertarget{da_8h_aabc5bf90a94bb8598eda40e183d1710d}\label{da_8h_aabc5bf90a94bb8598eda40e183d1710d}} 
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries atanh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\item 
 \mbox{\Hypertarget{da_8h_ae3b2a03dc6ddba9015479e44672d0da7}\label{da_8h_ae3b2a03dc6ddba9015479e44672d0da7}} 
 \mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries pow} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const int order)
 \item 
 \mbox{\Hypertarget{da_8h_a2b9c9a42379d4d6631ba82c1fa2d2981}\label{da_8h_a2b9c9a42379d4d6631ba82c1fa2d2981}} 
 \mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries pow} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const double order)
+\item 
+\mbox{\Hypertarget{da_8h_aae842e5d13643d4e1caae77c9fce1090}\label{da_8h_aae842e5d13643d4e1caae77c9fce1090}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const int order)
+\item 
+\mbox{\Hypertarget{da_8h_a22d8a754191478a5a0d566c2479692a1}\label{da_8h_a22d8a754191478a5a0d566c2479692a1}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const double order)
 \item 
 \mbox{\Hypertarget{da_8h_ac1322dd7830ae7ca7137be0185a9d4af}\label{da_8h_ac1322dd7830ae7ca7137be0185a9d4af}} 
 double {\bfseries abs} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
@@ -293,6 +308,33 @@ double {\bfseries abs} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vect
 \item 
 \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8h_afe49af6192e3a686283d848f4a832b83}{erf}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&x)
 \begin{DoxyCompactList}\small\item\em error function for a DA vector Calculate the error function value of the input DA vector. The \mbox{\hyperlink{da_8cc_afe49af6192e3a686283d848f4a832b83}{erf()}} in math.\+h is used to calculate the cosntant apart. 2/sqrt(pi)$\ast$exp(-\/x$^\wedge$2) is the derivative of the error function, by which the high order terms could be calculated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{da_8h_abecb8684a98269069a40cefa2fd3d426}\label{da_8h_abecb8684a98269069a40cefa2fd3d426}} 
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries atan2} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&y, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&x)
+\item 
+\mbox{\Hypertarget{da_8h_a8090480320101808ffb0afc163cccaaf}\label{da_8h_a8090480320101808ffb0afc163cccaaf}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries sqrt} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
+\mbox{\Hypertarget{da_8h_a95fb39ec63ad6a2e0820d8b34c6dbc3a}\label{da_8h_a95fb39ec63ad6a2e0820d8b34c6dbc3a}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries log} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
+\mbox{\Hypertarget{da_8h_a056315de2f4e9ed8eecabf986287696f}\label{da_8h_a056315de2f4e9ed8eecabf986287696f}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries asin} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
+\mbox{\Hypertarget{da_8h_adbac11505d4d68496396838c0d6d08dd}\label{da_8h_adbac11505d4d68496396838c0d6d08dd}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries acos} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
+\mbox{\Hypertarget{da_8h_a0021d6e2db555ed124e8517d054ae221}\label{da_8h_a0021d6e2db555ed124e8517d054ae221}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries atan} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
+\mbox{\Hypertarget{da_8h_a9c910558ba980dd0555191686e12ac4c}\label{da_8h_a9c910558ba980dd0555191686e12ac4c}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries asinh} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
+\mbox{\Hypertarget{da_8h_a6f41d8802cdb1d337c71e4cabb3e39c7}\label{da_8h_a6f41d8802cdb1d337c71e4cabb3e39c7}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries acosh} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
+\mbox{\Hypertarget{da_8h_a2811275f4739cedda8a457824726e05a}\label{da_8h_a2811275f4739cedda8a457824726e05a}} 
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries atanh} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+\item 
 \mbox{\Hypertarget{da_8h_a9bff008e98350cfb096c984c04bbd872}\label{da_8h_a9bff008e98350cfb096c984c04bbd872}} 
 std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 

@@ -6,7 +6,7 @@ var indexSectionsWithContent =
   3: "_acdeilnprstw",
   4: "de",
   5: "t",
-  6: "c"
+  6: "cl"
 };
 
 var indexSectionNames =

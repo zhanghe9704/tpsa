@@ -86,14 +86,14 @@ $(document).ready(function(){initNavTree('md__e___work__code_tpsa_lib_readme.htm
 <div class="title">C++ TPSA Lib </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md10"></a>
 Announcement</h1>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 About this code</h1>
-<p>This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA).</p>
+<p>This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). A Python wrapper of this lib is hosted in <a href="https://github.com/zhanghe9704/tpsa-python">a separate repository</a>.</p>
 <p>For TPSA and DA, please refer to chapter 8 in <a href="http://inspirehep.net/record/595287/files/slac-pub-9574.pdf"><em>Lecture Notes on Special Topics in Accelerator Physics</em></a> by Prof. Alex Chao and chapter 2 in <a href="http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book"><em>Modern Map Methods in Particle Beam Physics</em></a> by Prof. Martin Berz.</p>
-<p>This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (<a class="el" href="tpsa_8cpp.html" title="Automatic Differentiation Test.">tpsa.cpp</a> and <a class="el" href="tpsa_8h.html" title="Automatic Differentiation.">tpsa.h</a>) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in <a class="el" href="tpsa__extend_8cc.html" title="Extend the original tpsa.cpp file by Dr. Lingyun Yang.">tpsa_extend.cc</a>. Please get permission from Dr. Lingyun Yang before you redistribute <a class="el" href="tpsa_8cpp.html" title="Automatic Differentiation Test.">tpsa.cpp</a> and <a class="el" href="tpsa_8h.html" title="Automatic Differentiation.">tpsa.h</a>.</p>
+<p>This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (<a class="el" href="tpsa_8cpp.html" title="Automatic Differentiation Test.">tpsa.cpp</a> and <a class="el" href="tpsa_8h.html" title="Automatic Differentiation.">tpsa.h</a>) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in <a class="el" href="tpsa__extend_8cc.html" title="Extend the original tpsa.cpp file by Dr. Lingyun Yang.">tpsa_extend.cc</a>.</p>
 <p>The major change is the memory management. The current memory management works in the following way. Before any TPSA/DA calculation, one needs to reserve the memory for $n$ TPS vector. A memory pool is allocated in the heap, which can be considered as $n$ slots, each for one TPS vector. A linked list is created to reference the available (unused) slots. Two pointers point to the beginning and the end of the linked list respectively. When a new TPS vector is created, the first slot will be assigned to it and the beginning pointer points to the following slot in the linked list. When a TPS vector goes out of its scope, the slot will be reset to empty and liked to the end of the list. The end pointer will be updated and point to the new end. <br  />
 </p>
 <p><img src="doc/tpsa_memory_management.png" alt="Memory management" class="inline"/></p>
@@ -201,7 +201,7 @@ About this code</h1>
 <td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">$16.04$   </td></tr>
 </table>
 <p>More information is available at doc/doxygen/html/index.html.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 How to compile and use this code</h1>
 <p>You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows:</p>
 <ul>
@@ -228,19 +228,12 @@ How to compile and use this code</h1>
 <p class="startli"><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/tpsa</code></p>
 <p class="startli">Run the executable:</p>
 <p class="startli"><code>./tpsa_exp</code></p>
-<p class="startli">The result is shown as follows: V [16]&#160; &#160; &#160; &#160; &#160; &#160; &#160; <a class="el" href="struct_base.html" title="Bases for DA calculations. The i-th base can be accessed as base[i], where base is an object of Base.">Base</a>&#160; [ 4 / 286 ]</p>
 </li>
 </ul>
-<hr  />
-<p>1.000000000000000e+00&#160; &#160; &#160; 0&#160; 0&#160; 0&#160; &#160; &#160;0&#160;</p>
-<p>-1.000000000000000e+00&#160; &#160; &#160; 1&#160; 0&#160; 0&#160; &#160; &#160;1&#160; &#160;</p>
-<p>2.000000000000000e+00&#160; &#160; &#160; 0&#160; 1&#160; 0&#160; &#160; &#160;2&#160; &#160;</p>
-<p>5.000000000000000e-01&#160; &#160; &#160; &#160;0&#160; 0&#160; 1&#160; &#160; &#160;3</p>
-<p>......</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Acknowledgement</h1>
 <p>Thanks to Dr. Lingyun Yang for providing his tpsa code.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Contact</h1>
 <p>Contact the author by hezhang.AT.jlab.org. </p>
 </div></div><!-- contents -->
