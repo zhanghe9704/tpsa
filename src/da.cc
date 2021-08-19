@@ -1383,7 +1383,6 @@ std::complex<DAVector> pow(const std::complex<DAVector> &cd_vector, const int or
 
 std::complex<DAVector> pow(const std::complex<DAVector> &cd_vector, const double order) {
     std::complex<DAVector> res;
-    std::cout<<"pow cd"<<order<<" "<<std::floor(order)<<" "<<std::endl<<cd_vector<<std::endl;
     if (std::floor(order) == order) {//order is integer
         res = pow(cd_vector, static_cast<int>(order));
     }
