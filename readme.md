@@ -39,7 +39,7 @@ Math operator overloaded: (DA - DA vector, CD - complex DA vector)
 |   DA/CD   |    -     |   DA/CD    |
 |   DA/CD   |    -     |   double   |
 |  double   |    -     |   DA/CD    |
-|           |    -     |  DAVector  |
+|           |    -     |   DA/CD    |
 |   DA/CD   |    *     |   DA/CD    |
 |   DA/CD   |    *     |   double   |
 |  double   |    *     |   DA/CD    |
