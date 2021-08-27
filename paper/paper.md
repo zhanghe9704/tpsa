@@ -1,5 +1,5 @@
 ---
-title: 'cppTPSA/pyTPSA: a C++/python package for truncated power series algebra'
+title: 'cppTPSA/pyTPSA: a C++/Python package for truncated power series algebra'
 tags:
   - differential algebra
   - truncated power series algebra
@@ -21,7 +21,7 @@ bibliography: paper.bib
 
 # Summary
 
-The truncated power series algebra (TPSA), also referred to as differential algebra (DA), is a well-established and widely used method in particle accelerator physics and astronomy. The most straightforward usage of TPSA/DA is to calculate the Taylor expansion  of a given function at a specific point up to order $n$, based on which more sophisticated methods have been developed, *e.g.* symplectic tracking [@caprimap], normal form analysis [@monthnf], verified integration [@rdaint], global optimization [@go00], fast multipole method for pairwise interactions between particles [@FMMCPO2010]，*etc*.  The cppTPSA package implements the TPSA/DA in C++11 and provides the developers a convenient library to build the advanced TPSA/DA-based method. A Python 3 library, pyTPSA, has also been developed based on the C++ lib and is available in a separate GitHub repository [@pyTPSA].  
+The truncated power series algebra (TPSA), also referred to as differential algebra (DA), is a well-established and widely used method in particle accelerator physics and astronomy. The most straightforward usage of TPSA/DA is to calculate the Taylor expansion  of a given function at a specific point up to order $n$, based on which more sophisticated methods have been developed, *e.g.* symplectic tracking [@caprimap], normal form analysis [@monthnf], verified integration [@rdaint], global optimization [@go00], fast multipole method for pairwise interactions between particles [@FMMCPO2010]，*etc*.  The cppTPSA package implements the TPSA/DA in C++11 and provides the developers a convenient library to build the advanced TPSA/DA-based method [@cppTPSA]. A Python 3 library, pyTPSA, has also been developed based on the C++ lib and is available in a separate GitHub repository [@pyTPSA].  
 
 # Background
 
