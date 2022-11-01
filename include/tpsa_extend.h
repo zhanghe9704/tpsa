@@ -43,11 +43,15 @@ int ad_change_order(unsigned int new_order);//temporarily lower the TPS order.
 void ad_restore_order();//Restore the original TPS order, which is larger than the current one
 void ad_reserve(const unsigned int n);  //Reserve memory for n TPS vectors.
 void ad_clear(); //Destroy the TPS environment and release memory.
+void ad_pool_clean(); //Remove all of the TPS vectors from the memory pool except for the first gnv TPS vectors.
+void ad_pool_clean(unsigned int idx); //Remove all of the TPS vectors from the memory pool except for the first idx TPS vectors.
+void ad_pool_print();       //Print the available TPS pool.
 void ad_assign(unsigned int &i);    //Assign memory to a TPS vector. The length of the vector is zero.
 double ad_con(const TVEC iv); //Return the constant part of the TPS vector
 void ad_reset_const(const TVEC iv, double x); //Reset the TPS vector constant element as x and all other elements zero
 unsigned int ad_remain();       //Space (number) available for new TPS vectors.
 unsigned int ad_count();        //Number of TPS vectors allocated.
+unsigned int ad_poolsize(); //The maximum number of TPS vectors.
 void ad_mult_c(const TVEC iv, double c, TVEC ov); //Multiple the TPS vector iv with a constant number c, result stored in ov.
 void ad_substitute_const(const TVEC iv, unsigned int base_id, double x, TVEC ov);
 void ad_substitute(const TVEC iv, unsigned int base_id, const TVEC v, TVEC ov);

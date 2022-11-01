@@ -21,6 +21,7 @@ static unsigned int ad_end = 0;  ///< The index of the last available TPS vector
 ///Linked list for TPSA memory management. When ad_flag == adlist[ad_end], memory runs out!
 static std::vector <unsigned int> adlist;
 static TNVND gnd_record = 0; ///< Temporarily record the TSP order, used only when reducing and restoring the TSP order.
+static unsigned int ad_pool_size = 0; ///< The maximum number of TSP vectors.
 
 static ADOrderTable ad_order_table;
 
@@ -221,7 +222,22 @@ unsigned int ad_remain() {
     return i;
 }
 
-
+/** \brief Print out the available TPS pool.
+ *
+ * \return void.
+ *
+ */
+void ad_pool_print() {
+    std::cout<<"ad_flag: "<<ad_flag<<std::endl
+            <<"ad_end: "<<ad_end<<std::endl;
+    unsigned int tmp_flag = ad_flag;
+    std::cout<<ad_flag<<"  ";
+    while(tmp_flag != adlist.at(ad_end)) {
+        std::cout<<adlist.at(tmp_flag)<<"  ";
+        tmp_flag = adlist.at(tmp_flag);
+    }
+    std::cout<<std::endl;
+}
 
 /** \brief Find the value of the constant part of a given TPS vector.
  *
@@ -434,7 +450,53 @@ void ad_reserve(const unsigned int n)
     adveclen.resize(n,0);
     adlist.push_back(n);
     ad_end = n-1;
+
+    ad_pool_size = n;
 }
+
+/** \brief The maximum number of TPS vectors.
+ *
+ * \return unsigned int.
+ *
+ */
+unsigned int ad_poolsize() {
+    return ad_pool_size;
+}
+
+/** \brief Remove all of the TPS vectors from the memory pool except for the first gnv TPS vectors.
+ *
+ * \return void.
+ *
+ */
+void ad_pool_clean() {
+    ad_pool_clean(gnv);
+//    unsigned int n = ad_pool_size;
+//    memset(advecpool[gnv], 0, FULL_VEC_LEN*(n-gnv)*sizeof(double));
+//    ad_flag = gnv;
+//    for(size_t i=gnv-1; i<n; ++i) {
+//        adlist.at(i) = i+1;
+//    }
+//    std::fill(adveclen.begin()+gnv, adveclen.end(), 0);
+//    ad_end = n-1;
+}
+
+/** \brief Remove all of the TPS vectors from the memory pool except for the first idx TPS vectors.
+ *
+  * \param idx The first idx TPS vector will be untouched.
+ * \return void.
+ *
+ */
+void ad_pool_clean(unsigned int idx) {
+    unsigned int n = ad_pool_size;
+    memset(advecpool[idx], 0, FULL_VEC_LEN*(n-idx)*sizeof(double));
+    ad_flag = idx;
+    for(size_t i=idx-1; i<n; ++i) {
+        adlist.at(i) = i+1;
+    }
+    std::fill(adveclen.begin()+idx, adveclen.end(), 0);
+    ad_end = n-1;
+}
+
 
 /** \brief Destroy the TPS environment and release memory.
  *

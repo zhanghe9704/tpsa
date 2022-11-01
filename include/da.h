@@ -91,10 +91,15 @@ extern Base da; // Bases for DA calculations. The i-th base can be accessed as d
 //Initialize the environment for DA computation. Call this function before any DA computation.
 int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors, bool table=true);
 void da_clear(); //Destroy the DA environment and release memory.
+void da_pool_clean(); //Remove all the DA vectors from the memory pool except for the bases.Use with caution!
+void da_pool_clean(int n); //Remove all the DA vectors from the memory pool except for the first n DA vectors. Use with caution!
+void da_bubble(DAVector& v); //After da_pool_clean(), move alive DA variable on top of the pool. Use with caution!
+void da_pool_print(); //Print the available DA vector pool.
 int da_change_order(unsigned int new_order);    //Temporary lower the da order.
 int da_restore_order();                         //Restore the original da order.
 int da_count();                                 //Number of da variable allocated.
 int da_remain();                                //Space (number) available for new da variables.
+int da_poolsize();                              //The maximum number of DA vectors allowed.
 int da_full_length();                           //Full length of the da vector.
 std::vector<int>& da_element_orders(int i);     //Return the orders of each base as a vector for the i-th element.
 void da_set_eps(double eps);                    //Set the cut-off value for DA coefficients.

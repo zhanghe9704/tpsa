@@ -422,6 +422,52 @@ void da_clear() {
     ad_clear();
 }
 
+/** \brief Remove all the DAVectors from the memory pool except for the bases. Use with caution.
+ * \return void
+ *
+ */
+
+void da_pool_clean() {
+    ad_pool_clean();
+}
+
+/** \brief Remove all the DA vectors from the memory pool except for the first n DA vectors. Use with caution.
+ * \param n The first n DA vectors will be untouched.
+ * \return void
+ *
+ */
+
+void da_pool_clean(int n) {
+    ad_pool_clean(n);
+}
+
+/** \brief After da_pool_clean(), move an alive DA variable on top of the pool. Use with caution!
+ * \param n The DA vector to move.
+ * \return void
+ *
+ */
+void da_bubble(DAVector& v) {
+    ad_assign(v.da_vector_);
+}
+
+/** \brief Print the available DA vector pool.
+ * \return void
+ *
+ */
+
+void da_pool_print() {
+    ad_pool_print();
+}
+
+/** \brief The maximum number of DA vectors allowed.
+ * \return int
+ *
+ */
+
+int da_poolsize() {
+    return ad_poolsize();
+}
+
 ///Temporarily change the DA order.
 int da_change_order(unsigned int new_order) {
     int i = ad_change_order(new_order);
