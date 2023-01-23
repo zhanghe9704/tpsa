@@ -138,6 +138,12 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   ` ./tpsa_exp `
 
+
+
+## The Python wrapper
+
+This repository has only the C++ code included. A Python wrapper is provided in a separate [*repository*]([GitHub - zhanghe9704/tpsa-python](https://github.com/zhanghe9704/tpsa-python)). Please see the instruction there on how to compile the Python library. 
+
 ## Acknowledgement
 
 Thanks to Dr. Lingyun Yang for providing his tpsa code. 
