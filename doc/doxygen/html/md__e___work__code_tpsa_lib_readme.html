@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cppTPSA: C++ TPSA Lib</title>
+<title>cppTPSA: cppTPSA - C++ TPSA Lib</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,13 +83,11 @@ $(document).ready(function(){initNavTree('md__e___work__code_tpsa_lib_readme.htm
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">C++ TPSA Lib </div>  </div>
+<div class="title">cppTPSA - C++ TPSA Lib </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md10"></a>
-Announcement</h1>
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<div class="textblock"><p><a href="https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md10"></a>
 About this code</h1>
 <p>This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). A Python wrapper of this lib is hosted in <a href="https://github.com/zhanghe9704/tpsa-python">a separate repository</a>.</p>
 <p>For TPSA and DA, please refer to chapter 8 in <a href="http://inspirehep.net/record/595287/files/slac-pub-9574.pdf"><em>Lecture Notes on Special Topics in Accelerator Physics</em></a> by Prof. Alex Chao and chapter 2 in <a href="http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book"><em>Modern Map Methods in Particle Beam Physics</em></a> by Prof. Martin Berz.</p>
@@ -98,58 +96,58 @@ About this code</h1>
 </p>
 <p><img src="doc/tpsa_memory_management.png" alt="Memory management" class="inline"/></p>
 <p>A new data type <a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a> is created as a wrapper of the TPS vector. The following mathematical operator and functions are overloaded for <a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>, so that a variable of <a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a> type can be used as a intrinsic type in calculations.</p>
-<p>Math operator overloaded</p>
+<p>Math operator overloaded: (DA - DA vector, CD - complex DA vector)</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">Left hand   </th><th class="markdownTableHeadCenter">Operator   </th><th class="markdownTableHeadCenter">Right hand    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter">+   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter">-   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">*   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">*   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">*   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">*   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">*   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">*   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">/   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">/   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">/   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">/   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">/   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">double   </td><td class="markdownTableBodyCenter">/   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">=   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">=   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">=   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">=   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">+=   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">+=   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">+=   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">+=   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">-=   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">-=   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">-=   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">-=   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">*=   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">*=   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">*=   </td><td class="markdownTableBodyCenter">double    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">*=   </td><td class="markdownTableBodyCenter">double    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">/=   </td><td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>    </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">/=   </td><td class="markdownTableBodyCenter">DA/CD    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><a class="el" href="struct_d_a_vector.html" title="Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators...">DAVector</a>   </td><td class="markdownTableBodyCenter">/=   </td><td class="markdownTableBodyCenter">double   </td></tr>
+<td class="markdownTableBodyCenter">DA/CD   </td><td class="markdownTableBodyCenter">/=   </td><td class="markdownTableBodyCenter">double   </td></tr>
 </table>
 <p>Math functions overloaded:</p>
 <ul>
@@ -167,7 +165,7 @@ About this code</h1>
 <li>tanh</li>
 <li>pow</li>
 <li>abs</li>
-<li>erf</li>
+<li>erf (DA only)</li>
 </ul>
 <p>Some test results for efficiency are presented in the following. They are done in a Windows 10 desktop with Intel Xeon (R) E5-1620 processor at 3.60 GHz. Table 1 shows the time cost for composition of one DA/TPS vector of six bases with six DA/TPS vectors. First column shows the order of the vectors, second column the number of terms in each vector, third column the time using the DA data type with revised memory management, and the fourth column the time using the original code. Table 2 shows the time of composition of six DA vectors, each having six bases, with the other group of six DA vectors. The composition in group cost less time if compared with separate compositions.</p>
 <p>Table 1. Time (in second) of composition</p>
@@ -201,7 +199,7 @@ About this code</h1>
 <td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">$16.04$   </td></tr>
 </table>
 <p>More information is available at doc/doxygen/html/index.html.</p>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 How to compile and use this code</h1>
 <p>You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows:</p>
 <ul>
@@ -230,10 +228,10 @@ How to compile and use this code</h1>
 <p class="startli"><code>./tpsa_exp</code></p>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Acknowledgement</h1>
 <p>Thanks to Dr. Lingyun Yang for providing his tpsa code.</p>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Contact</h1>
 <p>Contact the author by hezhang.AT.jlab.org. </p>
 </div></div><!-- contents -->

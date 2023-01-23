@@ -26,12 +26,11 @@ var NAVTREE =
 [
   [ "cppTPSA", "index.html", [
     [ "LICENSE", "md__e___work__code_tpsa_lib__l_i_c_e_n_s_e.html", null ],
-    [ "C++ TPSA Lib", "md__e___work__code_tpsa_lib_readme.html", [
-      [ "Announcement", "md__e___work__code_tpsa_lib_readme.html#autotoc_md10", null ],
-      [ "About this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md11", null ],
-      [ "How to compile and use this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md12", null ],
-      [ "Acknowledgement", "md__e___work__code_tpsa_lib_readme.html#autotoc_md13", null ],
-      [ "Contact", "md__e___work__code_tpsa_lib_readme.html#autotoc_md14", null ]
+    [ "cppTPSA - C++ TPSA Lib", "md__e___work__code_tpsa_lib_readme.html", [
+      [ "About this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md10", null ],
+      [ "How to compile and use this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md11", null ],
+      [ "Acknowledgement", "md__e___work__code_tpsa_lib_readme.html#autotoc_md12", null ],
+      [ "Contact", "md__e___work__code_tpsa_lib_readme.html#autotoc_md13", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -58,7 +57,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "da_8h.html#afe47eaa37279ac25c2bbe0ce6cce859c",
-"tpsa__extend_8cc.html#ae144cee856ff78507680d9adf1033c44"
+"tpsa__extend_8cc.html#ae2355e27911916f0642c9420521cba8e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
