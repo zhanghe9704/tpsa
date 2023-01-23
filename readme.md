@@ -140,6 +140,14 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
 
 
+The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)), which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests. 
+
+Known issues:
+
+When running tests in Linux (tested in Ubuntu 18.04/20.04), a "segmentation fault" error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python.    
+
+
+
 ## The Python wrapper
 
 This repository has only the C++ code included. A Python wrapper is provided in a separate [*repository*]([GitHub - zhanghe9704/tpsa-python](https://github.com/zhanghe9704/tpsa-python)). Please see the instruction there on how to compile the Python library. 
