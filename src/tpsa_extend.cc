@@ -22,8 +22,14 @@ static unsigned int ad_end = 0;  ///< The index of the last available TPS vector
 static std::vector <unsigned int> adlist;
 static TNVND gnd_record = 0; ///< Temporarily record the TSP order, used only when reducing and restoring the TSP order.
 
+///The table showing the relation between the orders and the index of an element in a TPS vector.
 static ADOrderTable ad_order_table;
 
+/** \brief Create the ad_order_table.
+ *
+ * \return Void.
+ *
+ */
 void ADOrderTable::generate_order_table() {
     order_table.clear();
     order_index.clear();
@@ -41,32 +47,69 @@ void ADOrderTable::generate_order_table() {
     }
 }
 
+/** \brief Delete the ad_order_table.
+ *
+ * \return Void.
+ *
+ */
 void ADOrderTable::clear_order_table() {
     order_table.clear();
     order_index.clear();
     valid = false;
 }
 
+/** \brief Find the orders of an element by its index.
+ *
+ * \param an integer as the index of the element.
+ * \return The orders of all the variables in the element.
+ *
+ */
 std::vector<int>& ad_element_orders(int i) {
     return ad_order_table.orders(i);
 }
 
+/** \brief Return the iterator that points to the beginning of ad_order_table.
+ *
+ * \return The iterator.
+ *
+ */
 std::vector<std::vector<int>>::iterator ad_order_table_begin() {
     return ad_order_table.table_begin();
 }
 
+/** \brief Return the iterator that points to the end of ad_order_table.
+ *
+ * \return The iterator.
+ *
+ */
 std::vector<std::vector<int>>::iterator ad_order_table_end() {
     return ad_order_table.table_end();
 }
 
+/** \brief Check if the ad_order_table exists.
+ *
+ * \return True: exists; False: Not exists.
+ *
+ */
 bool ad_valid_order_table() {
     return ad_order_table.valid_table();
 }
 
+/** \brief Find index of an element by its orders
+ *
+ * \param Orders of an element. For exaple, the orders of x^3*y*z^2 in a 3D TPS vector is "3,1,2".
+ * \return index of the element.
+ *
+ */
 int ad_find_index(std::vector<int>& orders) {
     return ad_order_table.find_index(orders);
 }
 
+/** \brief Create the ad_order_table that shows the relation between the index and the orders of an element.
+ *
+ * \return void.
+ *
+ */
 void ad_generate_order_table()
 {
     ad_order_table.generate_order_table();
@@ -148,6 +191,11 @@ void ad_restore_order() {
     }
 }
 
+/** \brief Print out the orders and the index of all non-zero element in a given TPS vector.
+ *
+ * \return void
+ *
+ */
 void ad_list_order(const TVEC iv) {
     TNVND* p = base;
     for (size_t i=0; i<adveclen[iv]; ++i) {
@@ -163,6 +211,11 @@ void ad_list_order(const TVEC iv) {
     }
 }
 
+/** \brief Calculate the n-th power of a given TPS vector when n is an positive integer.
+ *
+ * \return The result.
+ *
+ */
 TVEC ad_pow_int_pos(const TVEC iv, std::vector<unsigned int> &power_v, const int order, unsigned int order_rec) {
     TVEC res;
     if (adveclen[power_v.at(order*order_rec)]>0) {
@@ -257,6 +310,12 @@ void ad_reset_const(const TVEC iv, double x) {
     adveclen[iv] = 1;
 }
 
+/** \brief Find the starting index of a given order
+ *
+ * \param the order.
+ * \return the index of the first element with the given order.
+ *
+ */
 unsigned int get_order_index(unsigned int i) {
     return order_index[i];
 }
@@ -1652,8 +1711,13 @@ void ad_clean(const TVEC& iv, const double eps)
     }
 }
 
-
-
+/** \brief Print a given TPS vector to screen or file.
+ *
+ * \param ii: the TPS vector.
+ * \param os: the output stream.
+ * \return void.
+ *
+ */
 void print_vec(unsigned int ii, std::ostream& os)
 {
     //unsigned int ii = *iv;
@@ -1699,7 +1763,14 @@ void print_vec(unsigned int ii, std::ostream& os)
     os.flags(prevflags);
 }
 
-
+/** \brief Print two given TPS vectors to screen or file.
+ *
+ * \param ii: the first TPS vector.
+ * \param ii: the second TPS vector.
+ * \param os: the output stream.
+ * \return void.
+ *
+ */
 void print_vec(unsigned int ii, unsigned int jj, std::ostream& os)
 {
     //unsigned int ii = *iv;

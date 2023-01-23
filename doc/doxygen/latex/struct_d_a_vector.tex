@@ -12,23 +12,20 @@ Differential Algebra (DA) Vector A TPS vector with methods. Can be used with mos
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a99e3cd385c2a8ba85a55283446eb47f0}\label{struct_d_a_vector_a99e3cd385c2a8ba85a55283446eb47f0}} 
-{\bfseries DAVector} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector_a47a3dafd63402c989e1a85ce9ef93039}{DAVector}} ()
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_aabf1ec2c14ca01aad172c4c85337803c}\label{struct_d_a_vector_aabf1ec2c14ca01aad172c4c85337803c}} 
-{\bfseries DAVector} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector_a99e3cd385c2a8ba85a55283446eb47f0}{DAVector}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a8cc9ed440ecd6c68b644f266f4aabd15}\label{struct_d_a_vector_a8cc9ed440ecd6c68b644f266f4aabd15}} 
-{\bfseries DAVector} (double x)
+\mbox{\hyperlink{struct_d_a_vector_aabf1ec2c14ca01aad172c4c85337803c}{DAVector}} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a4f699f6a45fb6bda50dd4389d7b33686}\label{struct_d_a_vector_a4f699f6a45fb6bda50dd4389d7b33686}} 
-{\bfseries DAVector} (int i)
+\mbox{\hyperlink{struct_d_a_vector_a8cc9ed440ecd6c68b644f266f4aabd15}{DAVector}} (double x)
+\item 
+\mbox{\hyperlink{struct_d_a_vector_a4f699f6a45fb6bda50dd4389d7b33686}{DAVector}} (int i)
 \item 
 void \mbox{\hyperlink{struct_d_a_vector_a6d5253e4312ca9ca5e68859f706f9f2c}{print}} () const
 \item 
 double \mbox{\hyperlink{struct_d_a_vector_a00ef34ddb1dce8bead6d43a24b3fb23e}{con}} () const
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a295d0ae4da5ab95ae2a367365d521f64}\label{struct_d_a_vector_a295d0ae4da5ab95ae2a367365d521f64}} 
 unsigned int \mbox{\hyperlink{struct_d_a_vector_a295d0ae4da5ab95ae2a367365d521f64}{length}} () const
 \begin{DoxyCompactList}\small\item\em Return the length of the DA vector. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{struct_d_a_vector_acc7180677f26baf2a1ac32efad7a2bf5}{n\+\_\+element}} () const
@@ -41,8 +38,7 @@ double \mbox{\hyperlink{struct_d_a_vector_aa2cabf406529dff2d2a27c340f60826e}{ele
 \begin{DoxyCompactList}\small\item\em Return the value of a specific element. Given the ordinal number of the element, return the value. The ordinal number starts from zero, following c++ tradition. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{struct_d_a_vector_a53070a432d184992aaaa69e1cb9f609d}{element}} (std\+::vector$<$ int $>$ idx)
 \begin{DoxyCompactList}\small\item\em Return the value of a specific element. Given the order pattern of the element, return the value. The size of the vector idx should be equal to the base number. For example, assuming the base number is three, idx = \{nx, ny, nz\} referring to the element (x$^\wedge$nx)$\ast$(y$^\wedge$ny)$\ast$(z$^\wedge$nz), where x, y, and z are the bases. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{struct_d_a_vector_a982ae9c1ff348c191a0c53018850bde6}\label{struct_d_a_vector_a982ae9c1ff348c191a0c53018850bde6}} 
-std\+::vector$<$ int $>$ \& {\bfseries element\+\_\+orders} (int i)
+std\+::vector$<$ int $>$ \& \mbox{\hyperlink{struct_d_a_vector_a982ae9c1ff348c191a0c53018850bde6}{element\+\_\+orders}} (int i)
 \item 
 double \mbox{\hyperlink{struct_d_a_vector_abe5e73d838b0178ecfa6910052a59fda}{norm}} ()
 \begin{DoxyCompactList}\small\item\em Return the norm of the DA vector, e.\+g. the maximum of the absolute value of the DA coefficients. \end{DoxyCompactList}\item 
@@ -54,7 +50,6 @@ void \mbox{\hyperlink{struct_d_a_vector_a4403b07be6cfbac43bfa05fef187caab}{set\+
 \begin{DoxyCompactList}\small\item\em Set the value of a specific element. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_d_a_vector_a0c85003e3b334ca94135b4874c36f7e3}{reset}} ()
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a104928f5ba59b6ce42636646670048c4}\label{struct_d_a_vector_a104928f5ba59b6ce42636646670048c4}} 
 void \mbox{\hyperlink{struct_d_a_vector_a104928f5ba59b6ce42636646670048c4}{reset\+\_\+const}} (double x=0)
 \begin{DoxyCompactList}\small\item\em Reset the value to the given number. Vector length is set to 1. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_d_a_vector_ad4d594d154f7e8ec5006e3e223e4cdea}{clean}} (const double \mbox{\hyperlink{struct_d_a_vector_a79bdbee2e35ef552cae7f673632c9f64}{eps}})
@@ -65,85 +60,63 @@ bool \mbox{\hyperlink{struct_d_a_vector_ab3c48a1bb5890cefaddbd88098e84025}{iszer
 \begin{DoxyCompactList}\small\item\em Check if all the abs value of the coefficients in the \mbox{\hyperlink{struct_d_a_vector}{DAVector}} are smaller than the cut-\/off value. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{struct_d_a_vector_a74a11746a3dad447e1c489f8f4edcaae}{iszero}} (double \mbox{\hyperlink{struct_d_a_vector_a79bdbee2e35ef552cae7f673632c9f64}{eps}}) const
 \begin{DoxyCompactList}\small\item\em Check if all the abs value of the coefficients in the \mbox{\hyperlink{struct_d_a_vector}{DAVector}} are smaller than the given value eps. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{struct_d_a_vector_a1536a5cbbff18cfdc30c63f600d8e31e}\label{struct_d_a_vector_a1536a5cbbff18cfdc30c63f600d8e31e}} 
-void {\bfseries clear} ()
+void \mbox{\hyperlink{struct_d_a_vector_a1536a5cbbff18cfdc30c63f600d8e31e}{clear}} ()
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a97e8151a620dabaec3ea3d817cfa62b8}\label{struct_d_a_vector_a97e8151a620dabaec3ea3d817cfa62b8}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator=} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a97e8151a620dabaec3ea3d817cfa62b8}{operator=}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a94691d8c67e45550f23b6560ad7f9a7d}\label{struct_d_a_vector_a94691d8c67e45550f23b6560ad7f9a7d}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator=} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a94691d8c67e45550f23b6560ad7f9a7d}{operator=}} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_ad918757f17d0e69d88faf409fa3e68d6}\label{struct_d_a_vector_ad918757f17d0e69d88faf409fa3e68d6}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator=} (double x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_ad918757f17d0e69d88faf409fa3e68d6}{operator=}} (double x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a07a4cac6079ac29055d8d68a87ae3ffe}\label{struct_d_a_vector_a07a4cac6079ac29055d8d68a87ae3ffe}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator=} (int x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a07a4cac6079ac29055d8d68a87ae3ffe}{operator=}} (int x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_afdf543a11ce6aa68ea01237f80b1eb17}\label{struct_d_a_vector_afdf543a11ce6aa68ea01237f80b1eb17}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator+=} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_afdf543a11ce6aa68ea01237f80b1eb17}{operator+=}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_ac506591d2371fad34a78092932452c8e}\label{struct_d_a_vector_ac506591d2371fad34a78092932452c8e}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator+=} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector\+\_\+)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_ac506591d2371fad34a78092932452c8e}{operator+=}} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&\mbox{\hyperlink{struct_d_a_vector_a359a2e0b8e48c6e481b48b5972e7631c}{da\+\_\+vector\+\_\+}})
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_ad2e0b5e4810812a426c15313d012eaa0}\label{struct_d_a_vector_ad2e0b5e4810812a426c15313d012eaa0}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator+=} (double x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_ad2e0b5e4810812a426c15313d012eaa0}{operator+=}} (double x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a16fdc56cf1dcc9107217796634255411}\label{struct_d_a_vector_a16fdc56cf1dcc9107217796634255411}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator+=} (int x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a16fdc56cf1dcc9107217796634255411}{operator+=}} (int x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_ab5a2280559d15f94508c47ed3db7436b}\label{struct_d_a_vector_ab5a2280559d15f94508c47ed3db7436b}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator-\/=} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_ab5a2280559d15f94508c47ed3db7436b}{operator-\/=}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a8084b5f039993f96df4f5c8b8b675d7a}\label{struct_d_a_vector_a8084b5f039993f96df4f5c8b8b675d7a}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator-\/=} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector\+\_\+)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a8084b5f039993f96df4f5c8b8b675d7a}{operator-\/=}} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&\mbox{\hyperlink{struct_d_a_vector_a359a2e0b8e48c6e481b48b5972e7631c}{da\+\_\+vector\+\_\+}})
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a6b69dccb8db6428d49a468b2a5ae1c5e}\label{struct_d_a_vector_a6b69dccb8db6428d49a468b2a5ae1c5e}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator-\/=} (double x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a6b69dccb8db6428d49a468b2a5ae1c5e}{operator-\/=}} (double x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a97d73e21b9f1beb87cd7d5819e7b06cf}\label{struct_d_a_vector_a97d73e21b9f1beb87cd7d5819e7b06cf}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator-\/=} (int x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a97d73e21b9f1beb87cd7d5819e7b06cf}{operator-\/=}} (int x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a3c73ba634615cfc08cbf1a2dccc286d3}\label{struct_d_a_vector_a3c73ba634615cfc08cbf1a2dccc286d3}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator$\ast$=} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a3c73ba634615cfc08cbf1a2dccc286d3}{operator$\ast$=}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a13f6488f351765b6953b1af7e4cc5412}\label{struct_d_a_vector_a13f6488f351765b6953b1af7e4cc5412}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator$\ast$=} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a13f6488f351765b6953b1af7e4cc5412}{operator$\ast$=}} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_af62cda4ffdc2e4971d5b235697a12269}\label{struct_d_a_vector_af62cda4ffdc2e4971d5b235697a12269}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator$\ast$=} (double x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_af62cda4ffdc2e4971d5b235697a12269}{operator$\ast$=}} (double x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_afb50bc07a621a5749e444fcc9c574026}\label{struct_d_a_vector_afb50bc07a621a5749e444fcc9c574026}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator$\ast$=} (int x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_afb50bc07a621a5749e444fcc9c574026}{operator$\ast$=}} (int x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_ac3993d1627af3e846bc8261e61770df7}\label{struct_d_a_vector_ac3993d1627af3e846bc8261e61770df7}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator/=} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_ac3993d1627af3e846bc8261e61770df7}{operator/=}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a98c9d829ed63f0cbd48dfb5381684df1}\label{struct_d_a_vector_a98c9d829ed63f0cbd48dfb5381684df1}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator/=} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a98c9d829ed63f0cbd48dfb5381684df1}{operator/=}} (\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a29099ee8cbc4cc93eb4c9dda43de4411}\label{struct_d_a_vector_a29099ee8cbc4cc93eb4c9dda43de4411}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator/=} (double x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a29099ee8cbc4cc93eb4c9dda43de4411}{operator/=}} (double x)
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a4ff7e67a21ac576a8d6aeed17e6a9ae2}\label{struct_d_a_vector_a4ff7e67a21ac576a8d6aeed17e6a9ae2}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& {\bfseries operator/=} (int x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& \mbox{\hyperlink{struct_d_a_vector_a4ff7e67a21ac576a8d6aeed17e6a9ae2}{operator/=}} (int x)
+\item 
+\mbox{\hyperlink{struct_d_a_vector_a7de44a8dd61f38fe5ae0b0c5b2cbd370}{$\sim$\+DAVector}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static int \mbox{\hyperlink{struct_d_a_vector_a1eeb99a92d75ddd495ba8d34ba7a665e}{dim}} ()
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a442d4b491a94164eb52936143b332345}\label{struct_d_a_vector_a442d4b491a94164eb52936143b332345}} 
-static int {\bfseries order} ()
+static int \mbox{\hyperlink{struct_d_a_vector_a442d4b491a94164eb52936143b332345}{order}} ()
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a68677512679c5151a59e0e6a2306fdee}\label{struct_d_a_vector_a68677512679c5151a59e0e6a2306fdee}} 
-static int {\bfseries full\+\_\+length} ()
+static int \mbox{\hyperlink{struct_d_a_vector_a68677512679c5151a59e0e6a2306fdee}{full\+\_\+length}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{struct_d_a_vector_a359a2e0b8e48c6e481b48b5972e7631c}\label{struct_d_a_vector_a359a2e0b8e48c6e481b48b5972e7631c}} 
-unsigned int {\bfseries da\+\_\+vector\+\_\+}
+unsigned int \mbox{\hyperlink{struct_d_a_vector_a359a2e0b8e48c6e481b48b5972e7631c}{da\+\_\+vector\+\_\+}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -154,6 +127,45 @@ static double \mbox{\hyperlink{struct_d_a_vector_a79bdbee2e35ef552cae7f673632c9f
 
 \doxysubsection{Detailed Description}
 Differential Algebra (DA) Vector A TPS vector with methods. Can be used with most numerical operators. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_d_a_vector_a47a3dafd63402c989e1a85ce9ef93039}\label{struct_d_a_vector_a47a3dafd63402c989e1a85ce9ef93039}} 
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{DAVector()}{DAVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily DAVector\+::\+DAVector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a99e3cd385c2a8ba85a55283446eb47f0}\label{struct_d_a_vector_a99e3cd385c2a8ba85a55283446eb47f0}} 
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{DAVector()}{DAVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily DAVector\+::\+DAVector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_aabf1ec2c14ca01aad172c4c85337803c}\label{struct_d_a_vector_aabf1ec2c14ca01aad172c4c85337803c}} 
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{DAVector()}{DAVector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily DAVector\+::\+DAVector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a8cc9ed440ecd6c68b644f266f4aabd15}\label{struct_d_a_vector_a8cc9ed440ecd6c68b644f266f4aabd15}} 
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{DAVector()}{DAVector()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily DAVector\+::\+DAVector (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a4f699f6a45fb6bda50dd4389d7b33686}\label{struct_d_a_vector_a4f699f6a45fb6bda50dd4389d7b33686}} 
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\index{DAVector@{DAVector}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{DAVector()}{DAVector()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily DAVector\+::\+DAVector (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a7de44a8dd61f38fe5ae0b0c5b2cbd370}\label{struct_d_a_vector_a7de44a8dd61f38fe5ae0b0c5b2cbd370}} 
+\index{DAVector@{DAVector}!````~DAVector@{$\sim$DAVector}}
+\index{````~DAVector@{$\sim$DAVector}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{$\sim$DAVector()}{~DAVector()}}
+{\footnotesize\ttfamily DAVector\+::$\sim$\+DAVector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{struct_d_a_vector_aa1494c69478b3b57d5973e86248a7e63}\label{struct_d_a_vector_aa1494c69478b3b57d5973e86248a7e63}} 
@@ -187,6 +199,12 @@ Set a coefficient in the DA Vector to be zero if the abs of the coefficient is l
 \begin{DoxyReturn}{Returns}
 void. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{struct_d_a_vector_a1536a5cbbff18cfdc30c63f600d8e31e}\label{struct_d_a_vector_a1536a5cbbff18cfdc30c63f600d8e31e}} 
+\index{DAVector@{DAVector}!clear@{clear}}
+\index{clear@{clear}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void DAVector\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{struct_d_a_vector_a00ef34ddb1dce8bead6d43a24b3fb23e}\label{struct_d_a_vector_a00ef34ddb1dce8bead6d43a24b3fb23e}} 
 \index{DAVector@{DAVector}!con@{con}}
 \index{con@{con}!DAVector@{DAVector}}
@@ -279,6 +297,18 @@ Return the value and the order pattern of the specific element. Given the ordina
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\mbox{\Hypertarget{struct_d_a_vector_a982ae9c1ff348c191a0c53018850bde6}\label{struct_d_a_vector_a982ae9c1ff348c191a0c53018850bde6}} 
+\index{DAVector@{DAVector}!element\_orders@{element\_orders}}
+\index{element\_orders@{element\_orders}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{element\_orders()}{element\_orders()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ \& DAVector\+::element\+\_\+orders (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a68677512679c5151a59e0e6a2306fdee}\label{struct_d_a_vector_a68677512679c5151a59e0e6a2306fdee}} 
+\index{DAVector@{DAVector}!full\_length@{full\_length}}
+\index{full\_length@{full\_length}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{full\_length()}{full\_length()}}
+{\footnotesize\ttfamily int DAVector\+::full\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{struct_d_a_vector_ab3c48a1bb5890cefaddbd88098e84025}\label{struct_d_a_vector_ab3c48a1bb5890cefaddbd88098e84025}} 
 \index{DAVector@{DAVector}!iszero@{iszero}}
 \index{iszero@{iszero}!DAVector@{DAVector}}
@@ -310,6 +340,16 @@ Check if all the abs value of the coefficients in the \mbox{\hyperlink{struct_d_
 \begin{DoxyReturn}{Returns}
 True or false. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{struct_d_a_vector_a295d0ae4da5ab95ae2a367365d521f64}\label{struct_d_a_vector_a295d0ae4da5ab95ae2a367365d521f64}} 
+\index{DAVector@{DAVector}!length@{length}}
+\index{length@{length}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily unsigned int DAVector\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return the length of the DA vector. 
+
 \mbox{\Hypertarget{struct_d_a_vector_acc7180677f26baf2a1ac32efad7a2bf5}\label{struct_d_a_vector_acc7180677f26baf2a1ac32efad7a2bf5}} 
 \index{DAVector@{DAVector}!n\_element@{n\_element}}
 \index{n\_element@{n\_element}!DAVector@{DAVector}}
@@ -329,6 +369,132 @@ Return the norm of the DA vector, e.\+g. the maximum of the absolute value of th
 \begin{DoxyReturn}{Returns}
 The norm of the DA vector. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{struct_d_a_vector_a3c73ba634615cfc08cbf1a2dccc286d3}\label{struct_d_a_vector_a3c73ba634615cfc08cbf1a2dccc286d3}} 
+\index{DAVector@{DAVector}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a13f6488f351765b6953b1af7e4cc5412}\label{struct_d_a_vector_a13f6488f351765b6953b1af7e4cc5412}} 
+\index{DAVector@{DAVector}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_af62cda4ffdc2e4971d5b235697a12269}\label{struct_d_a_vector_af62cda4ffdc2e4971d5b235697a12269}} 
+\index{DAVector@{DAVector}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_afb50bc07a621a5749e444fcc9c574026}\label{struct_d_a_vector_afb50bc07a621a5749e444fcc9c574026}} 
+\index{DAVector@{DAVector}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_afdf543a11ce6aa68ea01237f80b1eb17}\label{struct_d_a_vector_afdf543a11ce6aa68ea01237f80b1eb17}} 
+\index{DAVector@{DAVector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_ac506591d2371fad34a78092932452c8e}\label{struct_d_a_vector_ac506591d2371fad34a78092932452c8e}} 
+\index{DAVector@{DAVector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&}]{da\+\_\+vector\+\_\+ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_ad2e0b5e4810812a426c15313d012eaa0}\label{struct_d_a_vector_ad2e0b5e4810812a426c15313d012eaa0}} 
+\index{DAVector@{DAVector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator+= (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a16fdc56cf1dcc9107217796634255411}\label{struct_d_a_vector_a16fdc56cf1dcc9107217796634255411}} 
+\index{DAVector@{DAVector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator+= (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_ab5a2280559d15f94508c47ed3db7436b}\label{struct_d_a_vector_ab5a2280559d15f94508c47ed3db7436b}} 
+\index{DAVector@{DAVector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a8084b5f039993f96df4f5c8b8b675d7a}\label{struct_d_a_vector_a8084b5f039993f96df4f5c8b8b675d7a}} 
+\index{DAVector@{DAVector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&}]{da\+\_\+vector\+\_\+ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a6b69dccb8db6428d49a468b2a5ae1c5e}\label{struct_d_a_vector_a6b69dccb8db6428d49a468b2a5ae1c5e}} 
+\index{DAVector@{DAVector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator-\/= (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a97d73e21b9f1beb87cd7d5819e7b06cf}\label{struct_d_a_vector_a97d73e21b9f1beb87cd7d5819e7b06cf}} 
+\index{DAVector@{DAVector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator-\/= (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_ac3993d1627af3e846bc8261e61770df7}\label{struct_d_a_vector_ac3993d1627af3e846bc8261e61770df7}} 
+\index{DAVector@{DAVector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a98c9d829ed63f0cbd48dfb5381684df1}\label{struct_d_a_vector_a98c9d829ed63f0cbd48dfb5381684df1}} 
+\index{DAVector@{DAVector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a29099ee8cbc4cc93eb4c9dda43de4411}\label{struct_d_a_vector_a29099ee8cbc4cc93eb4c9dda43de4411}} 
+\index{DAVector@{DAVector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a4ff7e67a21ac576a8d6aeed17e6a9ae2}\label{struct_d_a_vector_a4ff7e67a21ac576a8d6aeed17e6a9ae2}} 
+\index{DAVector@{DAVector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator/= (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a97e8151a620dabaec3ea3d817cfa62b8}\label{struct_d_a_vector_a97e8151a620dabaec3ea3d817cfa62b8}} 
+\index{DAVector@{DAVector}!operator=@{operator=}}
+\index{operator=@{operator=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a94691d8c67e45550f23b6560ad7f9a7d}\label{struct_d_a_vector_a94691d8c67e45550f23b6560ad7f9a7d}} 
+\index{DAVector@{DAVector}!operator=@{operator=}}
+\index{operator=@{operator=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&\&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_ad918757f17d0e69d88faf409fa3e68d6}\label{struct_d_a_vector_ad918757f17d0e69d88faf409fa3e68d6}} 
+\index{DAVector@{DAVector}!operator=@{operator=}}
+\index{operator=@{operator=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator= (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a07a4cac6079ac29055d8d68a87ae3ffe}\label{struct_d_a_vector_a07a4cac6079ac29055d8d68a87ae3ffe}} 
+\index{DAVector@{DAVector}!operator=@{operator=}}
+\index{operator=@{operator=}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \& DAVector\+::operator= (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{struct_d_a_vector_a442d4b491a94164eb52936143b332345}\label{struct_d_a_vector_a442d4b491a94164eb52936143b332345}} 
+\index{DAVector@{DAVector}!order@{order}}
+\index{order@{order}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{order()}{order()}}
+{\footnotesize\ttfamily int DAVector\+::order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{struct_d_a_vector_a6d5253e4312ca9ca5e68859f706f9f2c}\label{struct_d_a_vector_a6d5253e4312ca9ca5e68859f706f9f2c}} 
 \index{DAVector@{DAVector}!print@{print}}
 \index{print@{print}!DAVector@{DAVector}}
@@ -341,7 +507,17 @@ Print out a DA vector. \mbox{\Hypertarget{struct_d_a_vector_a0c85003e3b334ca9413
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}}
 {\footnotesize\ttfamily void DAVector\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Reset all element to zero, vector length unchanged. \mbox{\Hypertarget{struct_d_a_vector_a08078f536d095d8c7423ea2989a7854c}\label{struct_d_a_vector_a08078f536d095d8c7423ea2989a7854c}} 
+Reset all element to zero, vector length unchanged. \mbox{\Hypertarget{struct_d_a_vector_a104928f5ba59b6ce42636646670048c4}\label{struct_d_a_vector_a104928f5ba59b6ce42636646670048c4}} 
+\index{DAVector@{DAVector}!reset\_const@{reset\_const}}
+\index{reset\_const@{reset\_const}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{reset\_const()}{reset\_const()}}
+{\footnotesize\ttfamily void DAVector\+::reset\+\_\+const (\begin{DoxyParamCaption}\item[{double}]{x = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Reset the value to the given number. Vector length is set to 1. 
+
+\mbox{\Hypertarget{struct_d_a_vector_a08078f536d095d8c7423ea2989a7854c}\label{struct_d_a_vector_a08078f536d095d8c7423ea2989a7854c}} 
 \index{DAVector@{DAVector}!set\_element@{set\_element}}
 \index{set\_element@{set\_element}!DAVector@{DAVector}}
 \doxysubsubsection{\texorpdfstring{set\_element()}{set\_element()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -402,6 +578,12 @@ The norm of the DA vector.
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_d_a_vector_a359a2e0b8e48c6e481b48b5972e7631c}\label{struct_d_a_vector_a359a2e0b8e48c6e481b48b5972e7631c}} 
+\index{DAVector@{DAVector}!da\_vector\_@{da\_vector\_}}
+\index{da\_vector\_@{da\_vector\_}!DAVector@{DAVector}}
+\doxysubsubsection{\texorpdfstring{da\_vector\_}{da\_vector\_}}
+{\footnotesize\ttfamily unsigned int DAVector\+::da\+\_\+vector\+\_\+}
+
 \mbox{\Hypertarget{struct_d_a_vector_a79bdbee2e35ef552cae7f673632c9f64}\label{struct_d_a_vector_a79bdbee2e35ef552cae7f673632c9f64}} 
 \index{DAVector@{DAVector}!eps@{eps}}
 \index{eps@{eps}!DAVector@{DAVector}}

@@ -84,36 +84,301 @@ $(document).ready(function(){initNavTree('class_a_d_order_table.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_a_d_order_table-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ADOrderTable Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A table that show the relation between the orders and the index of an element in a TPS vector. The orders of an TPS element is a vector of integers that shows the order of each variable in that element. For example, the element x^3*y*z^2 in a 3D TPS vector is "3,1,2".  
+ <a href="class_a_d_order_table.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tpsa__extend_8h_source.html">tpsa_extend.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a79bce963d4624eee0cee934a822fd0a2"><td class="memItemLeft" align="right" valign="top"><a id="a79bce963d4624eee0cee934a822fd0a2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>generate_order_table</b> ()</td></tr>
+<tr class="memitem:a79bce963d4624eee0cee934a822fd0a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#a79bce963d4624eee0cee934a822fd0a2">generate_order_table</a> ()</td></tr>
+<tr class="memdesc:a79bce963d4624eee0cee934a822fd0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the ad_order_table.  <a href="class_a_d_order_table.html#a79bce963d4624eee0cee934a822fd0a2">More...</a><br /></td></tr>
 <tr class="separator:a79bce963d4624eee0cee934a822fd0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2904f7055164020b3c57f844c5019b4"><td class="memItemLeft" align="right" valign="top"><a id="aa2904f7055164020b3c57f844c5019b4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear_order_table</b> ()</td></tr>
+<tr class="memitem:aa2904f7055164020b3c57f844c5019b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#aa2904f7055164020b3c57f844c5019b4">clear_order_table</a> ()</td></tr>
+<tr class="memdesc:aa2904f7055164020b3c57f844c5019b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the ad_order_table.  <a href="class_a_d_order_table.html#aa2904f7055164020b3c57f844c5019b4">More...</a><br /></td></tr>
 <tr class="separator:aa2904f7055164020b3c57f844c5019b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7a33812fa83049f3560b8d4c073abf0"><td class="memItemLeft" align="right" valign="top"><a id="aa7a33812fa83049f3560b8d4c073abf0"></a>
-std::vector&lt; std::vector&lt; int &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>table_begin</b> ()</td></tr>
+<tr class="memitem:aa7a33812fa83049f3560b8d4c073abf0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#aa7a33812fa83049f3560b8d4c073abf0">table_begin</a> ()</td></tr>
 <tr class="separator:aa7a33812fa83049f3560b8d4c073abf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5fc114196f9aa2c83a3afa841e35421"><td class="memItemLeft" align="right" valign="top"><a id="aa5fc114196f9aa2c83a3afa841e35421"></a>
-std::vector&lt; std::vector&lt; int &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>table_end</b> ()</td></tr>
+<tr class="memitem:aa5fc114196f9aa2c83a3afa841e35421"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#aa5fc114196f9aa2c83a3afa841e35421">table_end</a> ()</td></tr>
 <tr class="separator:aa5fc114196f9aa2c83a3afa841e35421"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62f754b060cb7bce03726242f0216e0a"><td class="memItemLeft" align="right" valign="top"><a id="a62f754b060cb7bce03726242f0216e0a"></a>
-std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>orders</b> (int i)</td></tr>
+<tr class="memitem:a62f754b060cb7bce03726242f0216e0a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#a62f754b060cb7bce03726242f0216e0a">orders</a> (int i)</td></tr>
 <tr class="separator:a62f754b060cb7bce03726242f0216e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae92006848dde2da52dee919d46ac27"><td class="memItemLeft" align="right" valign="top"><a id="a1ae92006848dde2da52dee919d46ac27"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>valid_table</b> ()</td></tr>
+<tr class="memitem:a1ae92006848dde2da52dee919d46ac27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#a1ae92006848dde2da52dee919d46ac27">valid_table</a> ()</td></tr>
+<tr class="memdesc:a1ae92006848dde2da52dee919d46ac27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the ad_order_table exist.  <a href="class_a_d_order_table.html#a1ae92006848dde2da52dee919d46ac27">More...</a><br /></td></tr>
 <tr class="separator:a1ae92006848dde2da52dee919d46ac27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43ae61cfafcd19c92d1689b0fc24ddc8"><td class="memItemLeft" align="right" valign="top"><a id="a43ae61cfafcd19c92d1689b0fc24ddc8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>find_index</b> (std::vector&lt; int &gt; &amp;orders)</td></tr>
+<tr class="memitem:a43ae61cfafcd19c92d1689b0fc24ddc8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#a43ae61cfafcd19c92d1689b0fc24ddc8">find_index</a> (std::vector&lt; int &gt; &amp;<a class="el" href="class_a_d_order_table.html#a62f754b060cb7bce03726242f0216e0a">orders</a>)</td></tr>
+<tr class="memdesc:a43ae61cfafcd19c92d1689b0fc24ddc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given the orders of an element, returns its index.  <a href="class_a_d_order_table.html#a43ae61cfafcd19c92d1689b0fc24ddc8">More...</a><br /></td></tr>
 <tr class="separator:a43ae61cfafcd19c92d1689b0fc24ddc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a42be8476db013666d2f2618d2666b418"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#a42be8476db013666d2f2618d2666b418">order_table</a></td></tr>
+<tr class="memdesc:a42be8476db013666d2f2618d2666b418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to find the orders by the index.  <a href="class_a_d_order_table.html#a42be8476db013666d2f2618d2666b418">More...</a><br /></td></tr>
+<tr class="separator:a42be8476db013666d2f2618d2666b418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f77b9966b5f7802cf841e3330ec3e0"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::vector&lt; int &gt;, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#aa9f77b9966b5f7802cf841e3330ec3e0">order_index</a></td></tr>
+<tr class="memdesc:aa9f77b9966b5f7802cf841e3330ec3e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to find the index by the orders.  <a href="class_a_d_order_table.html#aa9f77b9966b5f7802cf841e3330ec3e0">More...</a><br /></td></tr>
+<tr class="separator:aa9f77b9966b5f7802cf841e3330ec3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907e973a05ff95c6d8165f87f9f29f87"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_d_order_table.html#a907e973a05ff95c6d8165f87f9f29f87">valid</a> = false</td></tr>
+<tr class="memdesc:a907e973a05ff95c6d8165f87f9f29f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows whether this table exists. Default value is false.  <a href="class_a_d_order_table.html#a907e973a05ff95c6d8165f87f9f29f87">More...</a><br /></td></tr>
+<tr class="separator:a907e973a05ff95c6d8165f87f9f29f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A table that show the relation between the orders and the index of an element in a TPS vector. The orders of an TPS element is a vector of integers that shows the order of each variable in that element. For example, the element x^3*y*z^2 in a 3D TPS vector is "3,1,2". </p>
+<p>The index of an TPS element shows the position of this element in the TPS vector. The index starts from 0. Whence the dimension and the highest order are given, the relation between the index and the orders is determined, which is not related to the value of a specific TPS vector.</p>
+<p>The purpose of this table is to provide a method to quickly find the orders using the index and vice versa. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa2904f7055164020b3c57f844c5019b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2904f7055164020b3c57f844c5019b4">&#9670;&nbsp;</a></span>clear_order_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ADOrderTable::clear_order_table </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete the ad_order_table. </p>
+<dl class="section return"><dt>Returns</dt><dd>Void. </dd></dl>
+
+</div>
+</div>
+<a id="a43ae61cfafcd19c92d1689b0fc24ddc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43ae61cfafcd19c92d1689b0fc24ddc8">&#9670;&nbsp;</a></span>find_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ADOrderTable::find_index </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>orders</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Given the orders of an element, returns its index. </p>
+<dl class="section return"><dt>Returns</dt><dd>Index. </dd></dl>
+
+</div>
+</div>
+<a id="a79bce963d4624eee0cee934a822fd0a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bce963d4624eee0cee934a822fd0a2">&#9670;&nbsp;</a></span>generate_order_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ADOrderTable::generate_order_table </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create the ad_order_table. </p>
+<dl class="section return"><dt>Returns</dt><dd>Void. </dd></dl>
+
+</div>
+</div>
+<a id="a62f754b060cb7bce03726242f0216e0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62f754b060cb7bce03726242f0216e0a">&#9670;&nbsp;</a></span>orders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt;&amp; ADOrderTable::orders </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7a33812fa83049f3560b8d4c073abf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7a33812fa83049f3560b8d4c073abf0">&#9670;&nbsp;</a></span>table_begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;int&gt; &gt;::iterator ADOrderTable::table_begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5fc114196f9aa2c83a3afa841e35421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5fc114196f9aa2c83a3afa841e35421">&#9670;&nbsp;</a></span>table_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;int&gt; &gt;::iterator ADOrderTable::table_end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ae92006848dde2da52dee919d46ac27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae92006848dde2da52dee919d46ac27">&#9670;&nbsp;</a></span>valid_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ADOrderTable::valid_table </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the ad_order_table exist. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa9f77b9966b5f7802cf841e3330ec3e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9f77b9966b5f7802cf841e3330ec3e0">&#9670;&nbsp;</a></span>order_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::vector&lt;int&gt;, int&gt; ADOrderTable::order_index</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to find the index by the orders. </p>
+
+</div>
+</div>
+<a id="a42be8476db013666d2f2618d2666b418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42be8476db013666d2f2618d2666b418">&#9670;&nbsp;</a></span>order_table</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;int&gt; &gt; ADOrderTable::order_table</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to find the orders by the index. </p>
+
+</div>
+</div>
+<a id="a907e973a05ff95c6d8165f87f9f29f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907e973a05ff95c6d8165f87f9f29f87">&#9670;&nbsp;</a></span>valid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ADOrderTable::valid = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shows whether this table exists. Default value is false. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>E:/Work/Code/tpsa_lib/include/<a class="el" href="tpsa__extend_8h_source.html">tpsa_extend.h</a></li>
 <li>E:/Work/Code/tpsa_lib/src/<a class="el" href="tpsa__extend_8cc.html">tpsa_extend.cc</a></li>

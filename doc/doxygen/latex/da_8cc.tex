@@ -27,13 +27,10 @@ void \mbox{\hyperlink{da_8cc_afce2e888b1204dc16e0c1f43311b4b85}{da\+\_\+int}} (c
 \begin{DoxyCompactList}\small\item\em Take derivative of a da vector w.\+r.\+t. a specific base. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_ab36b8038e76c52468949f8707d3d53cf}{da\+\_\+int}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, unsigned int base\+\_\+id)
 \begin{DoxyCompactList}\small\item\em Integrate a da vector w.\+r.\+t. a specific base. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_af5bdfa781e8d2130cdd9c17fbb72ae63}\label{da_8cc_af5bdfa781e8d2130cdd9c17fbb72ae63}} 
 int \mbox{\hyperlink{da_8cc_af5bdfa781e8d2130cdd9c17fbb72ae63}{da\+\_\+full\+\_\+length}} ()
 \begin{DoxyCompactList}\small\item\em Return the full length of the da vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_a105988256f52fb783f4309d85b9c59c0}\label{da_8cc_a105988256f52fb783f4309d85b9c59c0}} 
 std\+::vector$<$ int $>$ \& \mbox{\hyperlink{da_8cc_a105988256f52fb783f4309d85b9c59c0}{da\+\_\+element\+\_\+orders}} (int i)
 \begin{DoxyCompactList}\small\item\em Return the orders of each base as a vector for the i-\/th element. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_af27498d9051f38e37638962320f465e2}\label{da_8cc_af27498d9051f38e37638962320f465e2}} 
 int \mbox{\hyperlink{da_8cc_af27498d9051f38e37638962320f465e2}{da\+\_\+count}} ()
 \begin{DoxyCompactList}\small\item\em Count the number of existing DA Vectors, including the bases. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{da_8cc_a7ce0828d83881579af4e2bf2f1c0ae48}{da\+\_\+remain}} ()
@@ -42,10 +39,8 @@ int \mbox{\hyperlink{da_8cc_a43618ade7b96ce742e3c2f505bc7a7e6}{da\+\_\+init}} (u
 \begin{DoxyCompactList}\small\item\em Initialize the DA environment. This function initialize the DA environment w.\+r.\+t. the given DA order and the number of bases. A memory pool is created for the given number of DA vectors, which should be large enough for perspective calculations. \mbox{\hyperlink{struct_base}{Base}} vectors are also created. The i-\/th base can be accessed as da\mbox{[}i\mbox{]}. This function should be called before any DA calculation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{da_8cc_a4ce8ca67305300c7278dc9f4c56483db}{da\+\_\+clear}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the DA environment and release memory. This function should only be called when all the DAVectors are out of scope. Otherwise it will cause a segment fault. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_a66dc266cb3b691feba5cc6d2caa0a439}\label{da_8cc_a66dc266cb3b691feba5cc6d2caa0a439}} 
 int \mbox{\hyperlink{da_8cc_a66dc266cb3b691feba5cc6d2caa0a439}{da\+\_\+change\+\_\+order}} (unsigned int new\+\_\+order)
 \begin{DoxyCompactList}\small\item\em Temporarily change the DA order. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_a6a7bb906427228e825194f28c1ab9e7d}\label{da_8cc_a6a7bb906427228e825194f28c1ab9e7d}} 
 int \mbox{\hyperlink{da_8cc_a6a7bb906427228e825194f28c1ab9e7d}{da\+\_\+restore\+\_\+order}} ()
 \begin{DoxyCompactList}\small\item\em Restore the original DA order. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{da_8cc_aada7a3f3aba16d78f60b99266b10e5fa}{da\+\_\+substitute\+\_\+const}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&iv, unsigned int base\+\_\+id, double x, \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&ov)
@@ -62,262 +57,177 @@ void \mbox{\hyperlink{da_8cc_adc6fca2f8f28480b828974eb3fc69fee}{da\+\_\+composit
 \begin{DoxyCompactList}\small\item\em Submitting all the bases for a group of DA vectors with given values. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{da_8cc_af02c5d525c7bebcec8d951edef18fd22}{da\+\_\+composition}} (std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&ivecs, std\+::vector$<$ std\+::complex$<$ double $>$$>$ \&v, std\+::vector$<$ std\+::complex$<$ double $>$$>$ \&ovecs)
 \begin{DoxyCompactList}\small\item\em Submitting all the bases for a group of DA vectors with given complex values. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_a6529f002136dccb8ac2e2a9a55c8eb6f}\label{da_8cc_a6529f002136dccb8ac2e2a9a55c8eb6f}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \& {\bfseries complex\+\_\+da\+\_\+pow\+\_\+int\+\_\+pos} (const complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&iv, std\+::vector$<$ complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&power\+\_\+v, const int order, int order\+\_\+rec)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \& \mbox{\hyperlink{da_8cc_a6529f002136dccb8ac2e2a9a55c8eb6f}{complex\+\_\+da\+\_\+pow\+\_\+int\+\_\+pos}} (const complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&iv, std\+::vector$<$ complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&power\+\_\+v, const int order, int order\+\_\+rec)
 \item 
-\mbox{\Hypertarget{da_8cc_ae1e45f461004cd005a7a314cca60a002}\label{da_8cc_ae1e45f461004cd005a7a314cca60a002}} 
-void {\bfseries cd\+\_\+composition} (std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&ivecs, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&v, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ovecs)
+void \mbox{\hyperlink{da_8cc_ae1e45f461004cd005a7a314cca60a002}{cd\+\_\+composition}} (std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&ivecs, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&v, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ovecs)
 \item 
-\mbox{\Hypertarget{da_8cc_a1cb8817d3375a316f4c25148e92d54c4}\label{da_8cc_a1cb8817d3375a316f4c25148e92d54c4}} 
-void {\bfseries cd\+\_\+composition} (std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ivecs, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&v, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ovecs)
+void \mbox{\hyperlink{da_8cc_a1cb8817d3375a316f4c25148e92d54c4}{cd\+\_\+composition}} (std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ivecs, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&v, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ovecs)
 \item 
-\mbox{\Hypertarget{da_8cc_acf09c9381cc7aacd0ad910e41dce7d8d}\label{da_8cc_acf09c9381cc7aacd0ad910e41dce7d8d}} 
-void {\bfseries cd\+\_\+composition} (std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ivecs, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&v, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ovecs)
+void \mbox{\hyperlink{da_8cc_acf09c9381cc7aacd0ad910e41dce7d8d}{cd\+\_\+composition}} (std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ivecs, std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&v, std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&ovecs)
 \item 
-\mbox{\Hypertarget{da_8cc_a380412f4590bd9ad029acab14b71a32c}\label{da_8cc_a380412f4590bd9ad029acab14b71a32c}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator+} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a380412f4590bd9ad029acab14b71a32c}{operator+}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_a76ac349ad9a4f8516abed244410856a7}\label{da_8cc_a76ac349ad9a4f8516abed244410856a7}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator+} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a76ac349ad9a4f8516abed244410856a7}{operator+}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_ac93da988fc1dc3b120eb9c40ae957fca}\label{da_8cc_ac93da988fc1dc3b120eb9c40ae957fca}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator+} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_ac93da988fc1dc3b120eb9c40ae957fca}{operator+}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_a0db14e1deea24a897a548a5f3b5e524b}\label{da_8cc_a0db14e1deea24a897a548a5f3b5e524b}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator+} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a0db14e1deea24a897a548a5f3b5e524b}{operator+}} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a5e45cfea600a7ee0ba297ca732b2dabd}\label{da_8cc_a5e45cfea600a7ee0ba297ca732b2dabd}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a5e45cfea600a7ee0ba297ca732b2dabd}{operator-\/}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_abe6947d8c31985f25a00d028aa6d0879}\label{da_8cc_abe6947d8c31985f25a00d028aa6d0879}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator-\/} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_abe6947d8c31985f25a00d028aa6d0879}{operator-\/}} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_acae7fa14c9f926a83a2d74977883fbd5}\label{da_8cc_acae7fa14c9f926a83a2d74977883fbd5}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_acae7fa14c9f926a83a2d74977883fbd5}{operator$\ast$}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_a2bf2ddebaca7af65ddd96e482d33f69f}\label{da_8cc_a2bf2ddebaca7af65ddd96e482d33f69f}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a2bf2ddebaca7af65ddd96e482d33f69f}{operator$\ast$}} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a52932c282516874ab6a1eb304b30e4fa}\label{da_8cc_a52932c282516874ab6a1eb304b30e4fa}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator/} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a52932c282516874ab6a1eb304b30e4fa}{operator/}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_add86f906806c6bd684a21ce32c002277}\label{da_8cc_add86f906806c6bd684a21ce32c002277}} 
-complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator/} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_add86f906806c6bd684a21ce32c002277}{operator/}} (std\+::complex$<$ double $>$ complex\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_aea4c82b978f10325b7fb6359a74e33e3}\label{da_8cc_aea4c82b978f10325b7fb6359a74e33e3}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator+} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_aea4c82b978f10325b7fb6359a74e33e3}{operator+}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
 \item 
-\mbox{\Hypertarget{da_8cc_ad747d7ab48404f2c25bbfa3258b310d1}\label{da_8cc_ad747d7ab48404f2c25bbfa3258b310d1}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator+} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_ad747d7ab48404f2c25bbfa3258b310d1}{operator+}} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a0cc40782469bece967f0de161d60c4ac}\label{da_8cc_a0cc40782469bece967f0de161d60c4ac}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator-\/} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a0cc40782469bece967f0de161d60c4ac}{operator-\/}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
 \item 
-\mbox{\Hypertarget{da_8cc_a58f4fa207a0d652c61a33060c1ba3edf}\label{da_8cc_a58f4fa207a0d652c61a33060c1ba3edf}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator-\/} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a58f4fa207a0d652c61a33060c1ba3edf}{operator-\/}} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_aa095d438f710ea05bb1ec5813e7cf71a}\label{da_8cc_aa095d438f710ea05bb1ec5813e7cf71a}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator$\ast$} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_aa095d438f710ea05bb1ec5813e7cf71a}{operator$\ast$}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
 \item 
-\mbox{\Hypertarget{da_8cc_ab2a79f050aac91d8ca176ffac425d59f}\label{da_8cc_ab2a79f050aac91d8ca176ffac425d59f}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator$\ast$} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_ab2a79f050aac91d8ca176ffac425d59f}{operator$\ast$}} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_af3a873589f18d9a593c137332324062e}\label{da_8cc_af3a873589f18d9a593c137332324062e}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator/} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_af3a873589f18d9a593c137332324062e}{operator/}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, double number)
 \item 
-\mbox{\Hypertarget{da_8cc_a9e6c2b721adcdcc824b68cdccc1f15b2}\label{da_8cc_a9e6c2b721adcdcc824b68cdccc1f15b2}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator/} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a9e6c2b721adcdcc824b68cdccc1f15b2}{operator/}} (double number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a9fb13c4ea6c76278d7404cacc032167c}\label{da_8cc_a9fb13c4ea6c76278d7404cacc032167c}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator+} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a9fb13c4ea6c76278d7404cacc032167c}{operator+}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_a35fe02dc9db2af129b09511aba0c1423}\label{da_8cc_a35fe02dc9db2af129b09511aba0c1423}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator+} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a35fe02dc9db2af129b09511aba0c1423}{operator+}} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_af247fb47bd6d4793239a9918b37e5dd7}\label{da_8cc_af247fb47bd6d4793239a9918b37e5dd7}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator-\/} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_af247fb47bd6d4793239a9918b37e5dd7}{operator-\/}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_a91936815447eaa209c5195a0945abd2a}\label{da_8cc_a91936815447eaa209c5195a0945abd2a}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator-\/} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a91936815447eaa209c5195a0945abd2a}{operator-\/}} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a8e9c1c7a3db000001d23962bd41bf9c6}\label{da_8cc_a8e9c1c7a3db000001d23962bd41bf9c6}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator$\ast$} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a8e9c1c7a3db000001d23962bd41bf9c6}{operator$\ast$}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_ad48468b2f9c8cee8fafbabd2cacca7d1}\label{da_8cc_ad48468b2f9c8cee8fafbabd2cacca7d1}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_ad48468b2f9c8cee8fafbabd2cacca7d1}{operator$\ast$}} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a2dcfa8c7a8dfebf08b13ccfb223e8cbb}\label{da_8cc_a2dcfa8c7a8dfebf08b13ccfb223e8cbb}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator/} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a2dcfa8c7a8dfebf08b13ccfb223e8cbb}{operator/}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ complex\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_aa6eb00ea923ae9229c86b449a7ab9fea}\label{da_8cc_aa6eb00ea923ae9229c86b449a7ab9fea}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator/} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_aa6eb00ea923ae9229c86b449a7ab9fea}{operator/}} (std\+::complex$<$ double $>$ complex\+\_\+number, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a056cd96d4fde5ac5b3b7bb1cc84ab0ea}\label{da_8cc_a056cd96d4fde5ac5b3b7bb1cc84ab0ea}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator+} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a056cd96d4fde5ac5b3b7bb1cc84ab0ea}{operator+}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_abacb423713b3505bf0a35ec5ac2e5953}\label{da_8cc_abacb423713b3505bf0a35ec5ac2e5953}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator-\/} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_abacb423713b3505bf0a35ec5ac2e5953}{operator-\/}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_a9d90daef98a4f872fcbc9711583f7caf}\label{da_8cc_a9d90daef98a4f872fcbc9711583f7caf}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator$\ast$} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a9d90daef98a4f872fcbc9711583f7caf}{operator$\ast$}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_a353189931e7f845293298a94b7dce27c}\label{da_8cc_a353189931e7f845293298a94b7dce27c}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries operator/} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a353189931e7f845293298a94b7dce27c}{operator/}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+1, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_aa3e35b22efe762e7024749f3797c6721}\label{da_8cc_aa3e35b22efe762e7024749f3797c6721}} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
+bool \mbox{\hyperlink{da_8cc_aa3e35b22efe762e7024749f3797c6721}{operator==}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_a6a3acf66023083a1958d945823f10407}\label{da_8cc_a6a3acf66023083a1958d945823f10407}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator+} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a6a3acf66023083a1958d945823f10407}{operator+}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_aae978b3d1dfc0cabd70bc4679c9044d4}\label{da_8cc_aae978b3d1dfc0cabd70bc4679c9044d4}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator$\ast$} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_aae978b3d1dfc0cabd70bc4679c9044d4}{operator$\ast$}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_a5c3ffacae0935fc15692fdbb0a8652df}\label{da_8cc_a5c3ffacae0935fc15692fdbb0a8652df}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator$\ast$} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a5c3ffacae0935fc15692fdbb0a8652df}{operator$\ast$}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a88d8d28af264a5b74f450aad24080f47}\label{da_8cc_a88d8d28af264a5b74f450aad24080f47}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator$\ast$} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a88d8d28af264a5b74f450aad24080f47}{operator$\ast$}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_a279411555358efa8242d6e1ab1ba5558}\label{da_8cc_a279411555358efa8242d6e1ab1ba5558}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator-\/} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a279411555358efa8242d6e1ab1ba5558}{operator-\/}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_a56b3db4bf81646c5fafb77ee67410d94}\label{da_8cc_a56b3db4bf81646c5fafb77ee67410d94}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator-\/} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a56b3db4bf81646c5fafb77ee67410d94}{operator-\/}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a0b3121d718d77a7721915c819dbf1a03}\label{da_8cc_a0b3121d718d77a7721915c819dbf1a03}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator-\/} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a0b3121d718d77a7721915c819dbf1a03}{operator-\/}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_a079613a06cbb7f8a22a310cc1c4b3eab}\label{da_8cc_a079613a06cbb7f8a22a310cc1c4b3eab}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator/} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a079613a06cbb7f8a22a310cc1c4b3eab}{operator/}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, double real\+\_\+number)
 \item 
-\mbox{\Hypertarget{da_8cc_af7fe1688315098b5de5b72a0e28711cd}\label{da_8cc_af7fe1688315098b5de5b72a0e28711cd}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator/} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_af7fe1688315098b5de5b72a0e28711cd}{operator/}} (double real\+\_\+number, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_aa640afa8a708a5b0c62ec69fcb7651d3}\label{da_8cc_aa640afa8a708a5b0c62ec69fcb7651d3}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator/} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_aa640afa8a708a5b0c62ec69fcb7651d3}{operator/}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+1, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector\+\_\+2)
 \item 
-\mbox{\Hypertarget{da_8cc_ac3661f6529213db43aba76db4fec8fb6}\label{da_8cc_ac3661f6529213db43aba76db4fec8fb6}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator-\/} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_ac3661f6529213db43aba76db4fec8fb6}{operator-\/}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a1495476caa72ac68ee3b6d23a7bece29}\label{da_8cc_a1495476caa72ac68ee3b6d23a7bece29}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries operator+} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a1495476caa72ac68ee3b6d23a7bece29}{operator+}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a2b3463ed8238ad69add0583e50b8dc59}\label{da_8cc_a2b3463ed8238ad69add0583e50b8dc59}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries sqrt} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a2b3463ed8238ad69add0583e50b8dc59}{sqrt}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a33a452b6c1f802b876c0df6c60487861}\label{da_8cc_a33a452b6c1f802b876c0df6c60487861}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries exp} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a33a452b6c1f802b876c0df6c60487861}{exp}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a48795a7128e306aecb580bacf1eab595}\label{da_8cc_a48795a7128e306aecb580bacf1eab595}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries log} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a48795a7128e306aecb580bacf1eab595}{log}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a1cf3c2f3379994543b99ccda65fe9fc6}\label{da_8cc_a1cf3c2f3379994543b99ccda65fe9fc6}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries tan} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a1cf3c2f3379994543b99ccda65fe9fc6}{tan}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
 \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_acd90e24b73c9d358830e7e69d9d630a6}{atan}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \begin{DoxyCompactList}\small\item\em Calculate the arctan of the given DA vector. Use formula 4.\+4.\+34 and 4.\+4.\+42 in the Handbook of Mathematical Functions by Milton Abramowitz and Irene A. Stegun. Assume z0 is the constant part of the given DA vector z and dz = z -\/ z0. In 4.\+4.\+34, let z1 = z0 and z2 = dz/(1+z$\ast$z0), then the right hand size of 4.\+4.\+34 is atan(z). So we get atan(z) = atan(z0) + atan(z2). Use 4.\+4.\+42 to calculate atan(z2). \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_aa8f78c203424415b0889942673353e64}\label{da_8cc_aa8f78c203424415b0889942673353e64}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries asin} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_aa8f78c203424415b0889942673353e64}{asin}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a949cd32d0319b9a4f43bcf6b192cd4a9}\label{da_8cc_a949cd32d0319b9a4f43bcf6b192cd4a9}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries acos} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a949cd32d0319b9a4f43bcf6b192cd4a9}{acos}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a749f5b1556c7f3d1af5b2d749ca749ee}\label{da_8cc_a749f5b1556c7f3d1af5b2d749ca749ee}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries sin} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a749f5b1556c7f3d1af5b2d749ca749ee}{sin}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}\label{da_8cc_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries cos} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}{cos}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_adc9373b83082540851aedcd529af14a8}\label{da_8cc_adc9373b83082540851aedcd529af14a8}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries sinh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_adc9373b83082540851aedcd529af14a8}{sinh}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a572743c13b696ecef93c10e74237969e}\label{da_8cc_a572743c13b696ecef93c10e74237969e}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries cosh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a572743c13b696ecef93c10e74237969e}{cosh}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_af63923c4fbe9c11020fc8ea26a2f946b}\label{da_8cc_af63923c4fbe9c11020fc8ea26a2f946b}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries tanh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_af63923c4fbe9c11020fc8ea26a2f946b}{tanh}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_ac1322dd7830ae7ca7137be0185a9d4af}\label{da_8cc_ac1322dd7830ae7ca7137be0185a9d4af}} 
-double {\bfseries abs} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+double \mbox{\hyperlink{da_8cc_ac1322dd7830ae7ca7137be0185a9d4af}{abs}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a4b793a27f1c468885e7752373e587648}\label{da_8cc_a4b793a27f1c468885e7752373e587648}} 
-double {\bfseries abs} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&complex\+\_\+dav)
+double \mbox{\hyperlink{da_8cc_a4b793a27f1c468885e7752373e587648}{abs}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&complex\+\_\+dav)
 \item 
-\mbox{\Hypertarget{da_8cc_a036daa4acbdbbdd9a6e4972f36fc2f1f}\label{da_8cc_a036daa4acbdbbdd9a6e4972f36fc2f1f}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries pow\+\_\+pos} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const int order)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a036daa4acbdbbdd9a6e4972f36fc2f1f}{pow\+\_\+pos}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const int order)
 \item 
-\mbox{\Hypertarget{da_8cc_ae3b2a03dc6ddba9015479e44672d0da7}\label{da_8cc_ae3b2a03dc6ddba9015479e44672d0da7}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries pow} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const int order)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_ae3b2a03dc6ddba9015479e44672d0da7}{pow}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const int order)
 \item 
-\mbox{\Hypertarget{da_8cc_a2b9c9a42379d4d6631ba82c1fa2d2981}\label{da_8cc_a2b9c9a42379d4d6631ba82c1fa2d2981}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries pow} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const double order)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a2b9c9a42379d4d6631ba82c1fa2d2981}{pow}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector, const double order)
 \item 
-\mbox{\Hypertarget{da_8cc_abbcdf340f5a9bd6a3b3adf395e721036}\label{da_8cc_abbcdf340f5a9bd6a3b3adf395e721036}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries asinh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_abbcdf340f5a9bd6a3b3adf395e721036}{asinh}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a53b6cccfdd1803d43c00602b8a8d454f}\label{da_8cc_a53b6cccfdd1803d43c00602b8a8d454f}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries acosh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_a53b6cccfdd1803d43c00602b8a8d454f}{acosh}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_aabc5bf90a94bb8598eda40e183d1710d}\label{da_8cc_aabc5bf90a94bb8598eda40e183d1710d}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries atanh} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_aabc5bf90a94bb8598eda40e183d1710d}{atanh}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a8090480320101808ffb0afc163cccaaf}\label{da_8cc_a8090480320101808ffb0afc163cccaaf}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries sqrt} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a8090480320101808ffb0afc163cccaaf}{sqrt}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_abecb8684a98269069a40cefa2fd3d426}\label{da_8cc_abecb8684a98269069a40cefa2fd3d426}} 
-\mbox{\hyperlink{struct_d_a_vector}{DAVector}} {\bfseries atan2} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&y, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&x)
+\mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_abecb8684a98269069a40cefa2fd3d426}{atan2}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&y, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&x)
 \item 
-\mbox{\Hypertarget{da_8cc_a95fb39ec63ad6a2e0820d8b34c6dbc3a}\label{da_8cc_a95fb39ec63ad6a2e0820d8b34c6dbc3a}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries log} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a95fb39ec63ad6a2e0820d8b34c6dbc3a}{log}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_a056315de2f4e9ed8eecabf986287696f}\label{da_8cc_a056315de2f4e9ed8eecabf986287696f}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries asin} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a056315de2f4e9ed8eecabf986287696f}{asin}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_adbac11505d4d68496396838c0d6d08dd}\label{da_8cc_adbac11505d4d68496396838c0d6d08dd}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries acos} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_adbac11505d4d68496396838c0d6d08dd}{acos}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_a0021d6e2db555ed124e8517d054ae221}\label{da_8cc_a0021d6e2db555ed124e8517d054ae221}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries atan} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a0021d6e2db555ed124e8517d054ae221}{atan}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_a9c910558ba980dd0555191686e12ac4c}\label{da_8cc_a9c910558ba980dd0555191686e12ac4c}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries asinh} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a9c910558ba980dd0555191686e12ac4c}{asinh}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_a6f41d8802cdb1d337c71e4cabb3e39c7}\label{da_8cc_a6f41d8802cdb1d337c71e4cabb3e39c7}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries acosh} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a6f41d8802cdb1d337c71e4cabb3e39c7}{acosh}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_a2811275f4739cedda8a457824726e05a}\label{da_8cc_a2811275f4739cedda8a457824726e05a}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries atanh} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a2811275f4739cedda8a457824726e05a}{atanh}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&c)
 \item 
-\mbox{\Hypertarget{da_8cc_ae0fb8ba0eae62884a38bdcb80a57f495}\label{da_8cc_ae0fb8ba0eae62884a38bdcb80a57f495}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow\+\_\+pos} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const int order)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_ae0fb8ba0eae62884a38bdcb80a57f495}{pow\+\_\+pos}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const int order)
 \item 
-\mbox{\Hypertarget{da_8cc_aae842e5d13643d4e1caae77c9fce1090}\label{da_8cc_aae842e5d13643d4e1caae77c9fce1090}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const int order)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_aae842e5d13643d4e1caae77c9fce1090}{pow}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const int order)
 \item 
-\mbox{\Hypertarget{da_8cc_a22d8a754191478a5a0d566c2479692a1}\label{da_8cc_a22d8a754191478a5a0d566c2479692a1}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const double order)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a22d8a754191478a5a0d566c2479692a1}{pow}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, const double order)
 \item 
-\mbox{\Hypertarget{da_8cc_a743f78cfac682a1862a9df11e610a590}\label{da_8cc_a743f78cfac682a1862a9df11e610a590}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ order)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a743f78cfac682a1862a9df11e610a590}{pow}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ order)
 \item 
-\mbox{\Hypertarget{da_8cc_a08fa5f9ec2e51c796f042f8e8b47ce6a}\label{da_8cc_a08fa5f9ec2e51c796f042f8e8b47ce6a}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ order)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_a08fa5f9ec2e51c796f042f8e8b47ce6a}{pow}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ double $>$ order)
 \item 
-\mbox{\Hypertarget{da_8cc_ac4ff595e1dc39a0b4a5246471bc1b89a}\label{da_8cc_ac4ff595e1dc39a0b4a5246471bc1b89a}} 
-std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ {\bfseries pow} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ int $>$ order)
+std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \mbox{\hyperlink{da_8cc_ac4ff595e1dc39a0b4a5246471bc1b89a}{pow}} (const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector, std\+::complex$<$ int $>$ order)
 \item 
-\mbox{\Hypertarget{da_8cc_a9bff008e98350cfb096c984c04bbd872}\label{da_8cc_a9bff008e98350cfb096c984c04bbd872}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
+std\+::ostream \& \mbox{\hyperlink{da_8cc_a9bff008e98350cfb096c984c04bbd872}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&da\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a93d12308faaf4935f2c4a72a05225b7f}\label{da_8cc_a93d12308faaf4935f2c4a72a05225b7f}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
+std\+::ostream \& \mbox{\hyperlink{da_8cc_a93d12308faaf4935f2c4a72a05225b7f}{operator$<$$<$}} (std\+::ostream \&os, const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&cd\+\_\+vector)
 \item 
-\mbox{\Hypertarget{da_8cc_a34a0badc7503262e177fad0a9ca1b46a}\label{da_8cc_a34a0badc7503262e177fad0a9ca1b46a}} 
-void {\bfseries \+\_\+ludcmp} (std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&a, const int n, std\+::vector$<$ int $>$ \&idx, int \&d)
+void \mbox{\hyperlink{da_8cc_a34a0badc7503262e177fad0a9ca1b46a}{\+\_\+ludcmp}} (std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&a, const int n, std\+::vector$<$ int $>$ \&idx, int \&d)
 \item 
-\mbox{\Hypertarget{da_8cc_af72a76ab858573da7b47ddeee7f671a7}\label{da_8cc_af72a76ab858573da7b47ddeee7f671a7}} 
-void {\bfseries \+\_\+lubksb} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&a, const int n, std\+::vector$<$ int $>$ \&idx, std\+::vector$<$ double $>$ \&b)
+void \mbox{\hyperlink{da_8cc_af72a76ab858573da7b47ddeee7f671a7}{\+\_\+lubksb}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&a, const int n, std\+::vector$<$ int $>$ \&idx, std\+::vector$<$ double $>$ \&b)
 \item 
 void \mbox{\hyperlink{da_8cc_a737a7c000a0972d5595ac0060dfffdec}{\+\_\+inv\+\_\+matrix}} (std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&a, const int n, std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&y)
 \begin{DoxyCompactList}\small\item\em Calculate the inverse of a square matrix by LU decomposition. The input matrix is destroyed after calculation. \end{DoxyCompactList}\item 
@@ -325,14 +235,11 @@ void \mbox{\hyperlink{da_8cc_aa3749e2d2d14985277e012363a78d3e7}{inv\+\_\+map}} (
 \begin{DoxyCompactList}\small\item\em Calculate the inverse map of a given map. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \mbox{\hyperlink{da_8cc_afe49af6192e3a686283d848f4a832b83}{erf}} (const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&x)
 \begin{DoxyCompactList}\small\item\em error function for a DA vector Calculate the error function value of the input DA vector. The \mbox{\hyperlink{da_8cc_afe49af6192e3a686283d848f4a832b83}{erf()}} in math.\+h is used to calculate the cosntant apart. 2/sqrt(pi)$\ast$exp(-\/x$^\wedge$2) is the derivative of the error function, by which the high order terms could be calculated. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{da_8cc_a3572f428f83c4b3e6c25f19722fb8bde}\label{da_8cc_a3572f428f83c4b3e6c25f19722fb8bde}} 
-void {\bfseries cd\+\_\+copy} (std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vs, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vo)
+void \mbox{\hyperlink{da_8cc_a3572f428f83c4b3e6c25f19722fb8bde}{cd\+\_\+copy}} (std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vs, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vo)
 \item 
-\mbox{\Hypertarget{da_8cc_afe47eaa37279ac25c2bbe0ce6cce859c}\label{da_8cc_afe47eaa37279ac25c2bbe0ce6cce859c}} 
-void {\bfseries cd\+\_\+copy} (std\+::complex$<$ double $>$ vs, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vo)
+void \mbox{\hyperlink{da_8cc_afe47eaa37279ac25c2bbe0ce6cce859c}{cd\+\_\+copy}} (std\+::complex$<$ double $>$ vs, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vo)
 \item 
-\mbox{\Hypertarget{da_8cc_a70d07e06f28f199228c91cea0a9fba69}\label{da_8cc_a70d07e06f28f199228c91cea0a9fba69}} 
-void {\bfseries cd\+\_\+copy} (double x, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vo)
+void \mbox{\hyperlink{da_8cc_a70d07e06f28f199228c91cea0a9fba69}{cd\+\_\+copy}} (double x, std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&vo)
 \item 
 string \mbox{\hyperlink{da_8cc_a344adcf523735c68a77bb7ac1171b3e7}{ltrim\+\_\+whitespace}} (string input\+\_\+line)
 \begin{DoxyCompactList}\small\item\em Trim the spaces at the head of the string. \end{DoxyCompactList}\item 
@@ -359,8 +266,7 @@ bool \mbox{\hyperlink{da_8cc_a1bf2bf9ee390a96ae6b0b2db05ca1fe1}{compare\+\_\+cd\
 \item 
 \mbox{\hyperlink{struct_base}{Base}} \mbox{\hyperlink{da_8cc_a3d82aa3a9e60ebd9953b16b9b7614e8e}{da}}
 \item 
-\mbox{\Hypertarget{da_8cc_a51f700013e987989f5950990234c47ce}\label{da_8cc_a51f700013e987989f5950990234c47ce}} 
-const std\+::string {\bfseries k\+\_\+whitespace} = \char`\"{} \textbackslash{}n\textbackslash{}r\textbackslash{}t\textbackslash{}v\textbackslash{}f\char`\"{}
+const std\+::string \mbox{\hyperlink{da_8cc_a51f700013e987989f5950990234c47ce}{k\+\_\+whitespace}} = \char`\"{} \textbackslash{}n\textbackslash{}r\textbackslash{}t\textbackslash{}v\textbackslash{}f\char`\"{}
 \end{DoxyCompactItemize}
 
 
@@ -393,10 +299,82 @@ Calculate the inverse of a square matrix by LU decomposition. The input matrix i
 \begin{DoxyReturn}{Returns}
 y Stores the output matrix. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_af72a76ab858573da7b47ddeee7f671a7}\label{da_8cc_af72a76ab858573da7b47ddeee7f671a7}} 
+\index{da.cc@{da.cc}!\_lubksb@{\_lubksb}}
+\index{\_lubksb@{\_lubksb}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{\_lubksb()}{\_lubksb()}}
+{\footnotesize\ttfamily void \+\_\+lubksb (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{a,  }\item[{const int}]{n,  }\item[{std\+::vector$<$ int $>$ \&}]{idx,  }\item[{std\+::vector$<$ double $>$ \&}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a34a0badc7503262e177fad0a9ca1b46a}\label{da_8cc_a34a0badc7503262e177fad0a9ca1b46a}} 
+\index{da.cc@{da.cc}!\_ludcmp@{\_ludcmp}}
+\index{\_ludcmp@{\_ludcmp}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{\_ludcmp()}{\_ludcmp()}}
+{\footnotesize\ttfamily void \+\_\+ludcmp (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&}]{a,  }\item[{const int}]{n,  }\item[{std\+::vector$<$ int $>$ \&}]{idx,  }\item[{int \&}]{d }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ac1322dd7830ae7ca7137be0185a9d4af}\label{da_8cc_ac1322dd7830ae7ca7137be0185a9d4af}} 
+\index{da.cc@{da.cc}!abs@{abs}}
+\index{abs@{abs}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double abs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a4b793a27f1c468885e7752373e587648}\label{da_8cc_a4b793a27f1c468885e7752373e587648}} 
+\index{da.cc@{da.cc}!abs@{abs}}
+\index{abs@{abs}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double abs (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{complex\+\_\+dav }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a949cd32d0319b9a4f43bcf6b192cd4a9}\label{da_8cc_a949cd32d0319b9a4f43bcf6b192cd4a9}} 
+\index{da.cc@{da.cc}!acos@{acos}}
+\index{acos@{acos}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{acos()}{acos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} acos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_adbac11505d4d68496396838c0d6d08dd}\label{da_8cc_adbac11505d4d68496396838c0d6d08dd}} 
+\index{da.cc@{da.cc}!acos@{acos}}
+\index{acos@{acos}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{acos()}{acos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ acos (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a53b6cccfdd1803d43c00602b8a8d454f}\label{da_8cc_a53b6cccfdd1803d43c00602b8a8d454f}} 
+\index{da.cc@{da.cc}!acosh@{acosh}}
+\index{acosh@{acosh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{acosh()}{acosh()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} acosh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a6f41d8802cdb1d337c71e4cabb3e39c7}\label{da_8cc_a6f41d8802cdb1d337c71e4cabb3e39c7}} 
+\index{da.cc@{da.cc}!acosh@{acosh}}
+\index{acosh@{acosh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{acosh()}{acosh()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ acosh (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aa8f78c203424415b0889942673353e64}\label{da_8cc_aa8f78c203424415b0889942673353e64}} 
+\index{da.cc@{da.cc}!asin@{asin}}
+\index{asin@{asin}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{asin()}{asin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} asin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a056315de2f4e9ed8eecabf986287696f}\label{da_8cc_a056315de2f4e9ed8eecabf986287696f}} 
+\index{da.cc@{da.cc}!asin@{asin}}
+\index{asin@{asin}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{asin()}{asin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ asin (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_abbcdf340f5a9bd6a3b3adf395e721036}\label{da_8cc_abbcdf340f5a9bd6a3b3adf395e721036}} 
+\index{da.cc@{da.cc}!asinh@{asinh}}
+\index{asinh@{asinh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{asinh()}{asinh()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} asinh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a9c910558ba980dd0555191686e12ac4c}\label{da_8cc_a9c910558ba980dd0555191686e12ac4c}} 
+\index{da.cc@{da.cc}!asinh@{asinh}}
+\index{asinh@{asinh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{asinh()}{asinh()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ asinh (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{da_8cc_acd90e24b73c9d358830e7e69d9d630a6}\label{da_8cc_acd90e24b73c9d358830e7e69d9d630a6}} 
 \index{da.cc@{da.cc}!atan@{atan}}
 \index{atan@{atan}!da.cc@{da.cc}}
-\doxysubsubsection{\texorpdfstring{atan()}{atan()}}
+\doxysubsubsection{\texorpdfstring{atan()}{atan()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} atan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
 
 
@@ -411,6 +389,66 @@ Calculate the arctan of the given DA vector. Use formula 4.\+4.\+34 and 4.\+4.\+
 \begin{DoxyReturn}{Returns}
 DA vector. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_a0021d6e2db555ed124e8517d054ae221}\label{da_8cc_a0021d6e2db555ed124e8517d054ae221}} 
+\index{da.cc@{da.cc}!atan@{atan}}
+\index{atan@{atan}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{atan()}{atan()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ atan (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_abecb8684a98269069a40cefa2fd3d426}\label{da_8cc_abecb8684a98269069a40cefa2fd3d426}} 
+\index{da.cc@{da.cc}!atan2@{atan2}}
+\index{atan2@{atan2}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{atan2()}{atan2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} atan2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{y,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aabc5bf90a94bb8598eda40e183d1710d}\label{da_8cc_aabc5bf90a94bb8598eda40e183d1710d}} 
+\index{da.cc@{da.cc}!atanh@{atanh}}
+\index{atanh@{atanh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{atanh()}{atanh()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} atanh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a2811275f4739cedda8a457824726e05a}\label{da_8cc_a2811275f4739cedda8a457824726e05a}} 
+\index{da.cc@{da.cc}!atanh@{atanh}}
+\index{atanh@{atanh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{atanh()}{atanh()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ atanh (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ae1e45f461004cd005a7a314cca60a002}\label{da_8cc_ae1e45f461004cd005a7a314cca60a002}} 
+\index{da.cc@{da.cc}!cd\_composition@{cd\_composition}}
+\index{cd\_composition@{cd\_composition}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cd\_composition()}{cd\_composition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void cd\+\_\+composition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{ivecs,  }\item[{std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{v,  }\item[{std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_acf09c9381cc7aacd0ad910e41dce7d8d}\label{da_8cc_acf09c9381cc7aacd0ad910e41dce7d8d}} 
+\index{da.cc@{da.cc}!cd\_composition@{cd\_composition}}
+\index{cd\_composition@{cd\_composition}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cd\_composition()}{cd\_composition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void cd\+\_\+composition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{ivecs,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{v,  }\item[{std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a1cb8817d3375a316f4c25148e92d54c4}\label{da_8cc_a1cb8817d3375a316f4c25148e92d54c4}} 
+\index{da.cc@{da.cc}!cd\_composition@{cd\_composition}}
+\index{cd\_composition@{cd\_composition}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cd\_composition()}{cd\_composition()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void cd\+\_\+composition (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{ivecs,  }\item[{std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{v,  }\item[{std\+::vector$<$ std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{ovecs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a70d07e06f28f199228c91cea0a9fba69}\label{da_8cc_a70d07e06f28f199228c91cea0a9fba69}} 
+\index{da.cc@{da.cc}!cd\_copy@{cd\_copy}}
+\index{cd\_copy@{cd\_copy}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cd\_copy()}{cd\_copy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void cd\+\_\+copy (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{vo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a3572f428f83c4b3e6c25f19722fb8bde}\label{da_8cc_a3572f428f83c4b3e6c25f19722fb8bde}} 
+\index{da.cc@{da.cc}!cd\_copy@{cd\_copy}}
+\index{cd\_copy@{cd\_copy}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cd\_copy()}{cd\_copy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void cd\+\_\+copy (\begin{DoxyParamCaption}\item[{std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{vs,  }\item[{std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{vo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_afe47eaa37279ac25c2bbe0ce6cce859c}\label{da_8cc_afe47eaa37279ac25c2bbe0ce6cce859c}} 
+\index{da.cc@{da.cc}!cd\_copy@{cd\_copy}}
+\index{cd\_copy@{cd\_copy}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cd\_copy()}{cd\_copy()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void cd\+\_\+copy (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{vs,  }\item[{std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{vo }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{da_8cc_acc57aeb4ed529889b0eb2eb856599eaf}\label{da_8cc_acc57aeb4ed529889b0eb2eb856599eaf}} 
 \index{da.cc@{da.cc}!compare\_cd\_vectors@{compare\_cd\_vectors}}
 \index{compare\_cd\_vectors@{compare\_cd\_vectors}!da.cc@{da.cc}}
@@ -499,6 +537,34 @@ Compare a DA vector with another one saved in a file.
 \begin{DoxyReturn}{Returns}
 True or false. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_a6529f002136dccb8ac2e2a9a55c8eb6f}\label{da_8cc_a6529f002136dccb8ac2e2a9a55c8eb6f}} 
+\index{da.cc@{da.cc}!complex\_da\_pow\_int\_pos@{complex\_da\_pow\_int\_pos}}
+\index{complex\_da\_pow\_int\_pos@{complex\_da\_pow\_int\_pos}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{complex\_da\_pow\_int\_pos()}{complex\_da\_pow\_int\_pos()}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$\& complex\+\_\+da\+\_\+pow\+\_\+int\+\_\+pos (\begin{DoxyParamCaption}\item[{const complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{iv,  }\item[{std\+::vector$<$ complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$$>$ \&}]{power\+\_\+v,  }\item[{const int}]{order,  }\item[{int}]{order\+\_\+rec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}\label{da_8cc_ab1a052ed75e7a4f6cd0403ad0aaa9d2f}} 
+\index{da.cc@{da.cc}!cos@{cos}}
+\index{cos@{cos}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cos()}{cos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} cos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a572743c13b696ecef93c10e74237969e}\label{da_8cc_a572743c13b696ecef93c10e74237969e}} 
+\index{da.cc@{da.cc}!cosh@{cosh}}
+\index{cosh@{cosh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{cosh()}{cosh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} cosh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a66dc266cb3b691feba5cc6d2caa0a439}\label{da_8cc_a66dc266cb3b691feba5cc6d2caa0a439}} 
+\index{da.cc@{da.cc}!da\_change\_order@{da\_change\_order}}
+\index{da\_change\_order@{da\_change\_order}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{da\_change\_order()}{da\_change\_order()}}
+{\footnotesize\ttfamily int da\+\_\+change\+\_\+order (\begin{DoxyParamCaption}\item[{unsigned int}]{new\+\_\+order }\end{DoxyParamCaption})}
+
+
+
+Temporarily change the DA order. 
+
 \mbox{\Hypertarget{da_8cc_a4ce8ca67305300c7278dc9f4c56483db}\label{da_8cc_a4ce8ca67305300c7278dc9f4c56483db}} 
 \index{da.cc@{da.cc}!da\_clear@{da\_clear}}
 \index{da\_clear@{da\_clear}!da.cc@{da.cc}}
@@ -578,6 +644,16 @@ Submitting all the bases for a group of DA vectors with given complex values.
 \begin{DoxyReturn}{Returns}
 void. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_af27498d9051f38e37638962320f465e2}\label{da_8cc_af27498d9051f38e37638962320f465e2}} 
+\index{da.cc@{da.cc}!da\_count@{da\_count}}
+\index{da\_count@{da\_count}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{da\_count()}{da\_count()}}
+{\footnotesize\ttfamily int da\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Count the number of existing DA Vectors, including the bases. 
+
 \mbox{\Hypertarget{da_8cc_a34a626191c5eb0ff6d9ad13f14fb0e13}\label{da_8cc_a34a626191c5eb0ff6d9ad13f14fb0e13}} 
 \index{da.cc@{da.cc}!da\_der@{da\_der}}
 \index{da\_der@{da\_der}!da.cc@{da.cc}}
@@ -620,6 +696,26 @@ Take derivative of a da vector w.\+r.\+t. a specific base.
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_a105988256f52fb783f4309d85b9c59c0}\label{da_8cc_a105988256f52fb783f4309d85b9c59c0}} 
+\index{da.cc@{da.cc}!da\_element\_orders@{da\_element\_orders}}
+\index{da\_element\_orders@{da\_element\_orders}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{da\_element\_orders()}{da\_element\_orders()}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$\& da\+\_\+element\+\_\+orders (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Return the orders of each base as a vector for the i-\/th element. 
+
+\mbox{\Hypertarget{da_8cc_af5bdfa781e8d2130cdd9c17fbb72ae63}\label{da_8cc_af5bdfa781e8d2130cdd9c17fbb72ae63}} 
+\index{da.cc@{da.cc}!da\_full\_length@{da\_full\_length}}
+\index{da\_full\_length@{da\_full\_length}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{da\_full\_length()}{da\_full\_length()}}
+{\footnotesize\ttfamily int da\+\_\+full\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the full length of the da vector. 
+
 \mbox{\Hypertarget{da_8cc_a43618ade7b96ce742e3c2f505bc7a7e6}\label{da_8cc_a43618ade7b96ce742e3c2f505bc7a7e6}} 
 \index{da.cc@{da.cc}!da\_init@{da\_init}}
 \index{da\_init@{da\_init}!da.cc@{da.cc}}
@@ -695,6 +791,16 @@ Check the remaining capacity in the DA pool.
 \begin{DoxyReturn}{Returns}
 The maximum number of DA vectors that can be created in the remaining place of the pool. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_a6a7bb906427228e825194f28c1ab9e7d}\label{da_8cc_a6a7bb906427228e825194f28c1ab9e7d}} 
+\index{da.cc@{da.cc}!da\_restore\_order@{da\_restore\_order}}
+\index{da\_restore\_order@{da\_restore\_order}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{da\_restore\_order()}{da\_restore\_order()}}
+{\footnotesize\ttfamily int da\+\_\+restore\+\_\+order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Restore the original DA order. 
+
 \mbox{\Hypertarget{da_8cc_a1fce1be893d2c00666779278f3ce0967}\label{da_8cc_a1fce1be893d2c00666779278f3ce0967}} 
 \index{da.cc@{da.cc}!da\_set\_eps@{da\_set\_eps}}
 \index{da\_set\_eps@{da\_set\_eps}!da.cc@{da.cc}}
@@ -847,6 +953,12 @@ error function for a DA vector Calculate the error function value of the input D
 \begin{DoxyReturn}{Returns}
 erf(x) as a DA vector. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_a33a452b6c1f802b876c0df6c60487861}\label{da_8cc_a33a452b6c1f802b876c0df6c60487861}} 
+\index{da.cc@{da.cc}!exp@{exp}}
+\index{exp@{exp}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{exp()}{exp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} exp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{da_8cc_aa3749e2d2d14985277e012363a78d3e7}\label{da_8cc_aa3749e2d2d14985277e012363a78d3e7}} 
 \index{da.cc@{da.cc}!inv\_map@{inv\_map}}
 \index{inv\_map@{inv\_map}!da.cc@{da.cc}}
@@ -869,6 +981,18 @@ Calculate the inverse map of a given map.
 \begin{DoxyReturn}{Returns}
 void. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_a48795a7128e306aecb580bacf1eab595}\label{da_8cc_a48795a7128e306aecb580bacf1eab595}} 
+\index{da.cc@{da.cc}!log@{log}}
+\index{log@{log}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a95fb39ec63ad6a2e0820d8b34c6dbc3a}\label{da_8cc_a95fb39ec63ad6a2e0820d8b34c6dbc3a}} 
+\index{da.cc@{da.cc}!log@{log}}
+\index{log@{log}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ log (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{da_8cc_a344adcf523735c68a77bb7ac1171b3e7}\label{da_8cc_a344adcf523735c68a77bb7ac1171b3e7}} 
 \index{da.cc@{da.cc}!ltrim\_whitespace@{ltrim\_whitespace}}
 \index{ltrim\_whitespace@{ltrim\_whitespace}!da.cc@{da.cc}}
@@ -887,6 +1011,330 @@ Trim the spaces at the head of the string.
 \begin{DoxyReturn}{Returns}
 The string with all the spaces at the head trimmed. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_aae978b3d1dfc0cabd70bc4679c9044d4}\label{da_8cc_aae978b3d1dfc0cabd70bc4679c9044d4}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_acae7fa14c9f926a83a2d74977883fbd5}\label{da_8cc_acae7fa14c9f926a83a2d74977883fbd5}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a88d8d28af264a5b74f450aad24080f47}\label{da_8cc_a88d8d28af264a5b74f450aad24080f47}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aa095d438f710ea05bb1ec5813e7cf71a}\label{da_8cc_aa095d438f710ea05bb1ec5813e7cf71a}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{double}]{number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a8e9c1c7a3db000001d23962bd41bf9c6}\label{da_8cc_a8e9c1c7a3db000001d23962bd41bf9c6}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a9d90daef98a4f872fcbc9711583f7caf}\label{da_8cc_a9d90daef98a4f872fcbc9711583f7caf}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+1,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ab2a79f050aac91d8ca176ffac425d59f}\label{da_8cc_ab2a79f050aac91d8ca176ffac425d59f}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{double}]{number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a5c3ffacae0935fc15692fdbb0a8652df}\label{da_8cc_a5c3ffacae0935fc15692fdbb0a8652df}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator$\ast$ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a2bf2ddebaca7af65ddd96e482d33f69f}\label{da_8cc_a2bf2ddebaca7af65ddd96e482d33f69f}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ad48468b2f9c8cee8fafbabd2cacca7d1}\label{da_8cc_ad48468b2f9c8cee8fafbabd2cacca7d1}} 
+\index{da.cc@{da.cc}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a1495476caa72ac68ee3b6d23a7bece29}\label{da_8cc_a1495476caa72ac68ee3b6d23a7bece29}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a380412f4590bd9ad029acab14b71a32c}\label{da_8cc_a380412f4590bd9ad029acab14b71a32c}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ac93da988fc1dc3b120eb9c40ae957fca}\label{da_8cc_ac93da988fc1dc3b120eb9c40ae957fca}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a6a3acf66023083a1958d945823f10407}\label{da_8cc_a6a3acf66023083a1958d945823f10407}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aea4c82b978f10325b7fb6359a74e33e3}\label{da_8cc_aea4c82b978f10325b7fb6359a74e33e3}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator+ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{double}]{number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a9fb13c4ea6c76278d7404cacc032167c}\label{da_8cc_a9fb13c4ea6c76278d7404cacc032167c}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator+ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a056cd96d4fde5ac5b3b7bb1cc84ab0ea}\label{da_8cc_a056cd96d4fde5ac5b3b7bb1cc84ab0ea}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator+ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+1,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ad747d7ab48404f2c25bbfa3258b310d1}\label{da_8cc_ad747d7ab48404f2c25bbfa3258b310d1}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator+ (\begin{DoxyParamCaption}\item[{double}]{number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a76ac349ad9a4f8516abed244410856a7}\label{da_8cc_a76ac349ad9a4f8516abed244410856a7}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator+ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a0db14e1deea24a897a548a5f3b5e524b}\label{da_8cc_a0db14e1deea24a897a548a5f3b5e524b}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator+ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a35fe02dc9db2af129b09511aba0c1423}\label{da_8cc_a35fe02dc9db2af129b09511aba0c1423}} 
+\index{da.cc@{da.cc}!operator+@{operator+}}
+\index{operator+@{operator+}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator+ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ac3661f6529213db43aba76db4fec8fb6}\label{da_8cc_ac3661f6529213db43aba76db4fec8fb6}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a279411555358efa8242d6e1ab1ba5558}\label{da_8cc_a279411555358efa8242d6e1ab1ba5558}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a5e45cfea600a7ee0ba297ca732b2dabd}\label{da_8cc_a5e45cfea600a7ee0ba297ca732b2dabd}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a0b3121d718d77a7721915c819dbf1a03}\label{da_8cc_a0b3121d718d77a7721915c819dbf1a03}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a0cc40782469bece967f0de161d60c4ac}\label{da_8cc_a0cc40782469bece967f0de161d60c4ac}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{double}]{number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_af247fb47bd6d4793239a9918b37e5dd7}\label{da_8cc_af247fb47bd6d4793239a9918b37e5dd7}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_abacb423713b3505bf0a35ec5ac2e5953}\label{da_8cc_abacb423713b3505bf0a35ec5ac2e5953}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+1,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a58f4fa207a0d652c61a33060c1ba3edf}\label{da_8cc_a58f4fa207a0d652c61a33060c1ba3edf}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator-\/ (\begin{DoxyParamCaption}\item[{double}]{number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a56b3db4bf81646c5fafb77ee67410d94}\label{da_8cc_a56b3db4bf81646c5fafb77ee67410d94}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator-\/ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_abe6947d8c31985f25a00d028aa6d0879}\label{da_8cc_abe6947d8c31985f25a00d028aa6d0879}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator-\/ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a91936815447eaa209c5195a0945abd2a}\label{da_8cc_a91936815447eaa209c5195a0945abd2a}} 
+\index{da.cc@{da.cc}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator-\/ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a079613a06cbb7f8a22a310cc1c4b3eab}\label{da_8cc_a079613a06cbb7f8a22a310cc1c4b3eab}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{double}]{real\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a52932c282516874ab6a1eb304b30e4fa}\label{da_8cc_a52932c282516874ab6a1eb304b30e4fa}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aa640afa8a708a5b0c62ec69fcb7651d3}\label{da_8cc_aa640afa8a708a5b0c62ec69fcb7651d3}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_af3a873589f18d9a593c137332324062e}\label{da_8cc_af3a873589f18d9a593c137332324062e}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator/ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{double}]{number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a2dcfa8c7a8dfebf08b13ccfb223e8cbb}\label{da_8cc_a2dcfa8c7a8dfebf08b13ccfb223e8cbb}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator/ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a353189931e7f845293298a94b7dce27c}\label{da_8cc_a353189931e7f845293298a94b7dce27c}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator/ (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+1,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a9e6c2b721adcdcc824b68cdccc1f15b2}\label{da_8cc_a9e6c2b721adcdcc824b68cdccc1f15b2}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator/ (\begin{DoxyParamCaption}\item[{double}]{number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_af7fe1688315098b5de5b72a0e28711cd}\label{da_8cc_af7fe1688315098b5de5b72a0e28711cd}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} operator/ (\begin{DoxyParamCaption}\item[{double}]{real\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_add86f906806c6bd684a21ce32c002277}\label{da_8cc_add86f906806c6bd684a21ce32c002277}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator/ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aa6eb00ea923ae9229c86b449a7ab9fea}\label{da_8cc_aa6eb00ea923ae9229c86b449a7ab9fea}} 
+\index{da.cc@{da.cc}!operator/@{operator/}}
+\index{operator/@{operator/}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ operator/ (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a9bff008e98350cfb096c984c04bbd872}\label{da_8cc_a9bff008e98350cfb096c984c04bbd872}} 
+\index{da.cc@{da.cc}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a93d12308faaf4935f2c4a72a05225b7f}\label{da_8cc_a93d12308faaf4935f2c4a72a05225b7f}} 
+\index{da.cc@{da.cc}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aa3e35b22efe762e7024749f3797c6721}\label{da_8cc_aa3e35b22efe762e7024749f3797c6721}} 
+\index{da.cc@{da.cc}!operator==@{operator==}}
+\index{operator==@{operator==}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+1,  }\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector\+\_\+2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a2b9c9a42379d4d6631ba82c1fa2d2981}\label{da_8cc_a2b9c9a42379d4d6631ba82c1fa2d2981}} 
+\index{da.cc@{da.cc}!pow@{pow}}
+\index{pow@{pow}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{const double}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ae3b2a03dc6ddba9015479e44672d0da7}\label{da_8cc_ae3b2a03dc6ddba9015479e44672d0da7}} 
+\index{da.cc@{da.cc}!pow@{pow}}
+\index{pow@{pow}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{const int}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a22d8a754191478a5a0d566c2479692a1}\label{da_8cc_a22d8a754191478a5a0d566c2479692a1}} 
+\index{da.cc@{da.cc}!pow@{pow}}
+\index{pow@{pow}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ pow (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{const double}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_aae842e5d13643d4e1caae77c9fce1090}\label{da_8cc_aae842e5d13643d4e1caae77c9fce1090}} 
+\index{da.cc@{da.cc}!pow@{pow}}
+\index{pow@{pow}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ pow (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{const int}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a743f78cfac682a1862a9df11e610a590}\label{da_8cc_a743f78cfac682a1862a9df11e610a590}} 
+\index{da.cc@{da.cc}!pow@{pow}}
+\index{pow@{pow}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ pow (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a08fa5f9ec2e51c796f042f8e8b47ce6a}\label{da_8cc_a08fa5f9ec2e51c796f042f8e8b47ce6a}} 
+\index{da.cc@{da.cc}!pow@{pow}}
+\index{pow@{pow}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ pow (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{std\+::complex$<$ double $>$}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ac4ff595e1dc39a0b4a5246471bc1b89a}\label{da_8cc_ac4ff595e1dc39a0b4a5246471bc1b89a}} 
+\index{da.cc@{da.cc}!pow@{pow}}
+\index{pow@{pow}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ pow (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{std\+::complex$<$ int $>$}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a036daa4acbdbbdd9a6e4972f36fc2f1f}\label{da_8cc_a036daa4acbdbbdd9a6e4972f36fc2f1f}} 
+\index{da.cc@{da.cc}!pow\_pos@{pow\_pos}}
+\index{pow\_pos@{pow\_pos}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow\_pos()}{pow\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} pow\+\_\+pos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector,  }\item[{const int}]{order }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_ae0fb8ba0eae62884a38bdcb80a57f495}\label{da_8cc_ae0fb8ba0eae62884a38bdcb80a57f495}} 
+\index{da.cc@{da.cc}!pow\_pos@{pow\_pos}}
+\index{pow\_pos@{pow\_pos}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{pow\_pos()}{pow\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ pow\+\_\+pos (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{cd\+\_\+vector,  }\item[{const int}]{order }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{da_8cc_a747e8c1a403a6100ea00a47d84756090}\label{da_8cc_a747e8c1a403a6100ea00a47d84756090}} 
 \index{da.cc@{da.cc}!read\_cd\_from\_file@{read\_cd\_from\_file}}
 \index{read\_cd\_from\_file@{read\_cd\_from\_file}!da.cc@{da.cc}}
@@ -945,6 +1393,42 @@ Trim the spaces at the tail of the string.
 \begin{DoxyReturn}{Returns}
 The string with all the spaces at the tail trimmed. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{da_8cc_a749f5b1556c7f3d1af5b2d749ca749ee}\label{da_8cc_a749f5b1556c7f3d1af5b2d749ca749ee}} 
+\index{da.cc@{da.cc}!sin@{sin}}
+\index{sin@{sin}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{sin()}{sin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} sin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_adc9373b83082540851aedcd529af14a8}\label{da_8cc_adc9373b83082540851aedcd529af14a8}} 
+\index{da.cc@{da.cc}!sinh@{sinh}}
+\index{sinh@{sinh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{sinh()}{sinh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} sinh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a2b3463ed8238ad69add0583e50b8dc59}\label{da_8cc_a2b3463ed8238ad69add0583e50b8dc59}} 
+\index{da.cc@{da.cc}!sqrt@{sqrt}}
+\index{sqrt@{sqrt}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{sqrt()}{sqrt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} sqrt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a8090480320101808ffb0afc163cccaaf}\label{da_8cc_a8090480320101808ffb0afc163cccaaf}} 
+\index{da.cc@{da.cc}!sqrt@{sqrt}}
+\index{sqrt@{sqrt}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{sqrt()}{sqrt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::complex$<$\mbox{\hyperlink{struct_d_a_vector}{DAVector}}$>$ sqrt (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ \mbox{\hyperlink{struct_d_a_vector}{DAVector}} $>$ \&}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_a1cf3c2f3379994543b99ccda65fe9fc6}\label{da_8cc_a1cf3c2f3379994543b99ccda65fe9fc6}} 
+\index{da.cc@{da.cc}!tan@{tan}}
+\index{tan@{tan}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{tan()}{tan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} tan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{da_8cc_af63923c4fbe9c11020fc8ea26a2f946b}\label{da_8cc_af63923c4fbe9c11020fc8ea26a2f946b}} 
+\index{da.cc@{da.cc}!tanh@{tanh}}
+\index{tanh@{tanh}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{tanh()}{tanh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_a_vector}{DAVector}} tanh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_a_vector}{DAVector}} \&}]{da\+\_\+vector }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{da_8cc_a639c9fb588c015dc76640cf52662a3b5}\label{da_8cc_a639c9fb588c015dc76640cf52662a3b5}} 
 \index{da.cc@{da.cc}!trim\_whitespace@{trim\_whitespace}}
 \index{trim\_whitespace@{trim\_whitespace}!da.cc@{da.cc}}
@@ -973,4 +1457,9 @@ The string with all the spaces at the head and the tail trimmed.
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_base}{Base}} da}
 
 Bases for DA calculations. The i-\/th base can be accessed as da\mbox{[}i\mbox{]}. ~\newline
- 
+ \mbox{\Hypertarget{da_8cc_a51f700013e987989f5950990234c47ce}\label{da_8cc_a51f700013e987989f5950990234c47ce}} 
+\index{da.cc@{da.cc}!k\_whitespace@{k\_whitespace}}
+\index{k\_whitespace@{k\_whitespace}!da.cc@{da.cc}}
+\doxysubsubsection{\texorpdfstring{k\_whitespace}{k\_whitespace}}
+{\footnotesize\ttfamily const std\+::string k\+\_\+whitespace = \char`\"{} \textbackslash{}n\textbackslash{}r\textbackslash{}t\textbackslash{}v\textbackslash{}f\char`\"{}}
+

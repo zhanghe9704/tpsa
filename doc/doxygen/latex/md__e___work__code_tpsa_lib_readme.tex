@@ -1,4 +1,4 @@
-\href{https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md}{\texttt{ }}\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md10}{}\doxysection{About this code}\label{md__e___work__code_tpsa_lib_readme_autotoc_md10}
+\href{https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md}{\texttt{ }}\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md1}{}\doxysection{About this code}\label{md__e___work__code_tpsa_lib_readme_autotoc_md1}
 This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). A Python wrapper of this lib is hosted in \href{https://github.com/zhanghe9704/tpsa-python}{\texttt{ a separate repository}}.
 
 For TPSA and DA, please refer to chapter 8 in \href{http://inspirehep.net/record/595287/files/slac-pub-9574.pdf}{\texttt{ {\itshape Lecture Notes on Special Topics in Accelerator Physics}}} by Prof. Alex Chao and chapter 2 in \href{http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book}{\texttt{ {\itshape Modern Map Methods in Particle Beam Physics}}} by Prof. Martin Berz.
@@ -114,7 +114,7 @@ Table 2. Time (in second) of group composition
 \end{longtabu}
 
 
-More information is available at doc/doxygen/html/index.\+html.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md11}{}\doxysection{How to compile and use this code}\label{md__e___work__code_tpsa_lib_readme_autotoc_md11}
+More information is available at doc/doxygen/html/index.\+html.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md2}{}\doxysection{How to compile and use this code}\label{md__e___work__code_tpsa_lib_readme_autotoc_md2}
 You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows\+:
 
 
@@ -147,11 +147,11 @@ libtpsa.\+a and libtpsaso.\+so
 
 Now you can use any of them to compile your file. Here let us compile the examples/examples.\+cc using libtpsa.\+a.
 
-{\ttfamily gcc examples/examples.\+cc -\/o tpsa\+\_\+exp -\/I ./include/ -\/L. -\/ltpsa -\/lstdc++ -\/lm -\/std=c++11}
+{\ttfamily gcc examples/examples.\+cc -\/o tpsa\+\_\+exp -\/I ./include/ -\/L. -\/ltpsa -\/lstdc++ -\/lm -\/std=c++14}
 
 You can also use libtpsaso.\+so.
 
-{\ttfamily gcc examples/examples.\+cc -\/o tpsa\+\_\+exp -\/std=c++11 -\/Iinclude -\/L. -\/ltpsaso -\/lstdc++ -\/lm}
+{\ttfamily gcc examples/examples.\+cc -\/o tpsa\+\_\+exp -\/std=c++14 -\/Iinclude -\/L. -\/ltpsaso -\/lstdc++ -\/lm}
 
 The executable file tpsa\+\_\+exp will be generated.
 
@@ -162,6 +162,14 @@ To run the tpsa\+\_\+exp file, tell the OS where to find the libtpsaso.\+so\+:
 Run the executable\+:
 
 {\ttfamily ./tpsa\+\_\+exp}
-\end{DoxyItemize}\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md12}{}\doxysection{Acknowledgement}\label{md__e___work__code_tpsa_lib_readme_autotoc_md12}
-Thanks to Dr. Lingyun Yang for providing his tpsa code.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md13}{}\doxysection{Contact}\label{md__e___work__code_tpsa_lib_readme_autotoc_md13}
+\end{DoxyItemize}
+
+The tests depend on \href{[GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)}{\texttt{ {\itshape Catch2}}}, which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests.
+
+Known issues\+:
+
+When running tests in Linux (tested in Ubuntu 18.\+04/20.04), a \char`\"{}segmentation fault\char`\"{} error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python. ~\newline
+\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md3}{}\doxysection{The Python wrapper}\label{md__e___work__code_tpsa_lib_readme_autotoc_md3}
+This repository has only the C++ code included. A Python wrapper is provided in a separate \href{[GitHub - zhanghe9704/tpsa-python](https://github.com/zhanghe9704/tpsa-python)}{\texttt{ {\itshape repository}}}. Please see the instruction there on how to compile the Python library.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md4}{}\doxysection{Acknowledgement}\label{md__e___work__code_tpsa_lib_readme_autotoc_md4}
+Thanks to Dr. Lingyun Yang for providing his tpsa code.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md5}{}\doxysection{Contact}\label{md__e___work__code_tpsa_lib_readme_autotoc_md5}
 Contact the author by hezhang.\+AT.\+jlab.\+org. 

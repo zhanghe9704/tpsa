@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['print_87',['print',['../struct_d_a_vector.html#a6d5253e4312ca9ca5e68859f706f9f2c',1,'DAVector']]],
-  ['print_5findex_88',['print_index',['../tpsa_8h.html#ad087b206b0ec782659ee6390d5c0b9f2',1,'print_index(std::ostream &amp;os):&#160;tpsa.cpp'],['../tpsa_8cpp.html#ad087b206b0ec782659ee6390d5c0b9f2',1,'print_index(std::ostream &amp;os):&#160;tpsa.cpp']]]
+  ['k_5fwhitespace_138',['k_whitespace',['../da_8cc.html#a51f700013e987989f5950990234c47ce',1,'da.cc']]]
 ];

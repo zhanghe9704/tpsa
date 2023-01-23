@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('md__e___work__code_tpsa_lib_readme.htm
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a href="https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/></a></p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md1"></a>
 About this code</h1>
 <p>This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). A Python wrapper of this lib is hosted in <a href="https://github.com/zhanghe9704/tpsa-python">a separate repository</a>.</p>
 <p>For TPSA and DA, please refer to chapter 8 in <a href="http://inspirehep.net/record/595287/files/slac-pub-9574.pdf"><em>Lecture Notes on Special Topics in Accelerator Physics</em></a> by Prof. Alex Chao and chapter 2 in <a href="http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book"><em>Modern Map Methods in Particle Beam Physics</em></a> by Prof. Martin Berz.</p>
@@ -199,7 +199,7 @@ About this code</h1>
 <td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">$16.04$   </td></tr>
 </table>
 <p>More information is available at doc/doxygen/html/index.html.</p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 How to compile and use this code</h1>
 <p>You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows:</p>
 <ul>
@@ -218,9 +218,9 @@ How to compile and use this code</h1>
 <p class="startli">Both the static lib and the shared lib of tpsa will be generated. You can find the following two files:</p>
 <p class="startli">libtpsa.a and libtpsaso.so</p>
 <p class="startli">Now you can use any of them to compile your file. Here let us compile the examples/examples.cc using libtpsa.a.</p>
-<p class="startli"><code>gcc examples/examples.cc -o tpsa_exp -I ./include/ -L. -ltpsa -lstdc++ -lm -std=c++11</code></p>
+<p class="startli"><code>gcc examples/examples.cc -o tpsa_exp -I ./include/ -L. -ltpsa -lstdc++ -lm -std=c++14</code></p>
 <p class="startli">You can also use libtpsaso.so.</p>
-<p class="startli"><code>gcc examples/examples.cc -o tpsa_exp -std=c++11 -Iinclude -L. -ltpsaso -lstdc++ -lm</code></p>
+<p class="startli"><code>gcc examples/examples.cc -o tpsa_exp -std=c++14 -Iinclude -L. -ltpsaso -lstdc++ -lm</code></p>
 <p class="startli">The executable file tpsa_exp will be generated.</p>
 <p class="startli">To run the tpsa_exp file, tell the OS where to find the libtpsaso.so:</p>
 <p class="startli"><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/tpsa</code></p>
@@ -228,10 +228,17 @@ How to compile and use this code</h1>
 <p class="startli"><code>./tpsa_exp</code></p>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<p>The tests depend on <a href="[GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)"><em>Catch2</em></a>, which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests.</p>
+<p>Known issues:</p>
+<p>When running tests in Linux (tested in Ubuntu 18.04/20.04), a "segmentation fault" error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python. <br  />
+</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+The Python wrapper</h1>
+<p>This repository has only the C++ code included. A Python wrapper is provided in a separate <a href="[GitHub - zhanghe9704/tpsa-python](https://github.com/zhanghe9704/tpsa-python)"><em>repository</em></a>. Please see the instruction there on how to compile the Python library.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Acknowledgement</h1>
 <p>Thanks to Dr. Lingyun Yang for providing his tpsa code.</p>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Contact</h1>
 <p>Contact the author by hezhang.AT.jlab.org. </p>
 </div></div><!-- contents -->
