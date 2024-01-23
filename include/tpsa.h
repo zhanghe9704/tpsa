@@ -1,9 +1,6 @@
 /*
  * Copyright(C) 2008 by Lingyun Yang
- * lingyun(.dot.]yang@gmail.com
- * http://www.lingyunyang.com
- *
- * Please get permission from Lingyun Yang before you redistribute this file.
+ * L. Yang, “Array Based Truncated Power Series Package”, Proc. ICAP'09, San Francisco, CA, USA, Aug.-Sep. 2009,
  *
  */
 //! \brief Automatic Differentiation
