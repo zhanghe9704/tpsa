@@ -19,31 +19,31 @@ A new data type DAVector is created as a wrapper of the TPS vector. The followin
 Math operator overloaded: (DA - DA vector, CD - complex DA vector)
 
 | Left hand | Operator | Right hand |
-|:---------:|:--------:|:----------:|
-| DA/CD     | +        | DA/CD      |
-| double    | +        | DA/CD      |
-| DA/CD     | +        | double     |
-|           | +        | DA/CD      |
-| DA/CD     | -        | DA/CD      |
-| DA/CD     | -        | double     |
-| double    | -        | DA/CD      |
-|           | -        | DA/CD      |
-| DA/CD     | *        | DA/CD      |
-| DA/CD     | *        | double     |
-| double    | *        | DA/CD      |
-| DA/CD     | /        | DA/CD      |
-| DA/CD     | /        | double     |
-| double    | /        | DA/CD      |
-| DA/CD     | =        | DA/CD      |
-| DA/CD     | =        | double     |
-| DA/CD     | +=       | DA/CD      |
-| DA/CD     | +=       | double     |
-| DA/CD     | -=       | DA/CD      |
-| DA/CD     | -=       | double     |
-| DA/CD     | *=       | DA/CD      |
-| DA/CD     | *=       | double     |
-| DA/CD     | /=       | DA/CD      |
-| DA/CD     | /=       | double     |
+| :-------: | :------: | :--------: |
+|   DA/CD   |    +     |   DA/CD    |
+|  double   |    +     |   DA/CD    |
+|   DA/CD   |    +     |   double   |
+|           |    +     |   DA/CD    |
+|   DA/CD   |    -     |   DA/CD    |
+|   DA/CD   |    -     |   double   |
+|  double   |    -     |   DA/CD    |
+|           |    -     |   DA/CD    |
+|   DA/CD   |    *     |   DA/CD    |
+|   DA/CD   |    *     |   double   |
+|  double   |    *     |   DA/CD    |
+|   DA/CD   |    /     |   DA/CD    |
+|   DA/CD   |    /     |   double   |
+|  double   |    /     |   DA/CD    |
+|   DA/CD   |    =     |   DA/CD    |
+|   DA/CD   |    =     |   double   |
+|   DA/CD   |    +=    |   DA/CD    |
+|   DA/CD   |    +=    |   double   |
+|   DA/CD   |    -=    |   DA/CD    |
+|   DA/CD   |    -=    |   double   |
+|   DA/CD   |    *=    |   DA/CD    |
+|   DA/CD   |    *=    |   double   |
+|   DA/CD   |    /=    |   DA/CD    |
+|   DA/CD   |    /=    |   double   |
 
 Math functions overloaded:
 
@@ -95,8 +95,8 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
 * The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
 
-* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 16.04 and in Ubuntu 18.04 (WSL2). 
-  
+* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 16.04, Ubuntu 18.04 (WSL2), and Ubuntu 20.04 (WSL2). 
+
   `cmake .` 
   `make`
 
@@ -118,15 +118,15 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   Both the static lib and the shared lib of tpsa will be generated. You can find the following two files:
 
-  libtpsa.a and libtpsaso.so
+  libtpsa.a and libtpsa.so
 
   Now you can use any of them to compile your file. Here let us compile the examples/examples.cc using libtpsa.a. 
 
   `gcc examples/examples.cc -o tpsa_exp -I ./include/ -L. -ltpsa -lstdc++ -lm -std=c++14`
 
-  You can also use libtpsaso.so. 
+  You can also use libtpsa.so. 
 
-  `gcc examples/examples.cc -o tpsa_exp -std=c++14 -Iinclude -L. -ltpsaso -lstdc++ -lm`
+  `gcc examples/examples.cc -o tpsa_exp -std=c++14 -Iinclude -L. -ltpsa -lstdc++ -lm`
 
   The executable file tpsa_exp will be generated. 
 
@@ -139,8 +139,23 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
   ` ./tpsa_exp `
 
 
-
 The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)), which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests. 
+
+### How to install
+
+The default installation path is /usr/lib. Use the following command to install to the default path:
+
+```shell
+sudo make install
+```
+
+To change the installation path, use the following command in cmake configuration:
+
+```shell
+  cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
+```
+
+The libs will be installed to YOURPATH/lib. 
 
 Known issues:
 
