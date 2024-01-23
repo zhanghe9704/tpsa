@@ -205,6 +205,7 @@ double abs(const DAVector &da_vector);
 double abs(const std::complex<DAVector> &complex_dav);
 DAVector erf(const DAVector& x);
 DAVector atan2(const DAVector& y, const DAVector& x);
+std::complex<DAVector> exp(const std::complex<DAVector>& c);
 std::complex<DAVector> sqrt(const std::complex<DAVector>& c);
 std::complex<DAVector> log(const std::complex<DAVector>& c);
 std::complex<DAVector> asin(const std::complex<DAVector>& c);

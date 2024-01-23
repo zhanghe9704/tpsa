@@ -1245,6 +1245,14 @@ DAVector atanh(const DAVector& da_vector) {
     return res;
 }
 
+std::complex<DAVector> exp(const std::complex<DAVector>& c) {
+	const DAVector& rc = get_real(c);
+    const DAVector& ic = get_imag(c);
+    const std::complex<double> ui(0.0,1.0);
+    std::complex<DAVector> res = exp(rc)*(cos(ic)+ui*sin(ic));
+    return res;
+}
+
 std::complex<DAVector> sqrt(const std::complex<DAVector>& c) {
     const DAVector& rc = get_real(c);
     const DAVector& ic = get_imag(c);
