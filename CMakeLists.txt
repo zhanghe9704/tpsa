@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(tpsa)
+
 set(CMAKE_BUILD_TYPE Release)
-set (CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_INSTALL_PREFIX /usr)
+project(tpsa)
 
 #Bring the headers into the project
 include_directories(include)
@@ -18,4 +20,4 @@ set_target_properties(tpsaStatic PROPERTIES OUTPUT_NAME "tpsa")
 
 #Set the location for library installation -- i.e., /usr/lib in this case
 #Use "sudo make install" to apply
-#install(TARGETS tpsaShared tpsaStatic DESTINATION /usr/lib)
+install(TARGETS tpsaShared tpsaStatic DESTINATION)
