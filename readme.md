@@ -1,10 +1,10 @@
-# cppTPSA - C++ TPSA Lib
+# cppTPSA/pyTPSA - C++ & Python TPSA Lib
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md)
 
 ## About this code
 
-This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). A Python wrapper of this lib is hosted in [a separate repository](https://github.com/zhanghe9704/tpsa-python). 
+This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA) in C++ and Python 3.x environment.
 
 For TPSA and DA, please refer to chapter 8 in [*Lecture Notes on Special Topics in Accelerator Physics*](http://inspirehep.net/record/595287/files/slac-pub-9574.pdf)  by  Prof. Alex Chao  and chapter 2 in [*Modern Map Methods in Particle Beam Physics*](http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book) by Prof. Martin Berz. 
 
@@ -87,7 +87,7 @@ Table 2. Time (in second) of group composition
 
 More information is available at doc/doxygen/html/index.html.
 
-## How to compile and use this code
+## How to compile and use cppTPSA
 
 You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows:
 
@@ -141,7 +141,7 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
 The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)), which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests. 
 
-### How to install
+### How to install cppTPSA
 
 The default installation path is /usr/lib. Use the following command to install to the default path:
 
@@ -152,7 +152,7 @@ sudo make install
 To change the installation path, use the following command in cmake configuration:
 
 ```shell
-  cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
+cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
 ```
 
 The libs will be installed to YOURPATH/lib. 
@@ -163,9 +163,9 @@ When running tests in Linux (tested in Ubuntu 18.04/20.04), a "segmentation faul
 
 
 
-## The Python wrapper
+## How to compile and install pyTPSA
 
-This repository has only the C++ code included. A Python wrapper is provided in a separate [*repository*]([GitHub - zhanghe9704/tpsa-python](https://github.com/zhanghe9704/tpsa-python)). Please see the instruction there on how to compile the Python library. 
+pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see the readme.md file in python-wrapper folder on how to compile, install, and use pyTPSA. 
 
 ## Acknowledgement
 
