@@ -1,12 +1,17 @@
 import unittest
 import tpsa
+import os
 
 class TestTPSA(unittest.TestCase):
     da_dim = 3
     da_order = 4
     n_vec = 4000
     eps = 1e-14
-    path = "../tpsa/test/"
+    
+    test_path = os.path.dirname(os.path.abspath(__file__))
+    py_wrapper_path = os.path.dirname(test_path)
+    tpsa_path = os.path.dirname(py_wrapper_path)
+    path = tpsa_path+'/test/'
 
     def test_00_DAIni(self):  
         init = tpsa.da_init(self.da_order, self.da_dim, self.n_vec)
