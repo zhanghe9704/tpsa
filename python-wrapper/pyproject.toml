@@ -5,7 +5,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "tpsa"
-version = "0.0.1"
+version = "1.0.0"
 description="Python wrapper for cppTPSA (with pybind11)"
 readme = "README.md"
 authors = [

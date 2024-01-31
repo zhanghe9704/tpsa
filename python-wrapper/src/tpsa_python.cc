@@ -8,7 +8,7 @@
 #include <functional>
 #include <tuple>
 #include <vector>
-#include "../tpsa/include/da.h"
+#include "da.h"
 
 
 namespace py=pybind11;
@@ -21,7 +21,7 @@ PYBIND11_MAKE_OPAQUE(std::complex<DAVector>);
 
 Base& get_base() {return da;}
 
-PYBIND11_MODULE(tpsa, m) {
+PYBIND11_MODULE(_core, m) {
     m.doc() = "TPSA/DA lib";
 
     py::class_<std::complex<DAVector>>(m, "CD")
