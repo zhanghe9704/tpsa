@@ -167,6 +167,10 @@ When running tests in Linux (tested in Ubuntu 18.04/20.04), a "segmentation faul
 
 pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see the readme.md file in python-wrapper folder on how to compile, install, and use pyTPSA. 
 
+### Guidelines for Third-Party Contributions, Issue Reporting, and Support
+
+See [here](https://github.com/zhanghe9704/tpsa/blob/master/.github/CONTRIBUTING.md).
+
 ## Acknowledgement
 
 Thanks to Dr. Lingyun Yang for providing his tpsa code. 
