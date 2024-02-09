@@ -85,7 +85,7 @@ Table 2. Time (in second) of group composition
 | 8     | $1.05$               |
 | 10    | $16.04$              |
 
-More information is available at doc/doxygen/html/index.html.
+More information on the code is available in [this doxygen document](https://zhanghe9704.github.io/tpsa/doc/doxygen/html/index.html).
 
 ## How to compile and use cppTPSA
 
@@ -165,7 +165,7 @@ When running tests in Linux (tested in Ubuntu 18.04/20.04), a "segmentation faul
 
 ## How to compile and install pyTPSA
 
-pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see the readme.md file in python-wrapper folder on how to compile, install, and use pyTPSA. 
+pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see [here](https://zhanghe9704.github.io/tpsa/python-wrapper/readme.html) on how to compile, install, and use pyTPSA. 
 
 ### Guidelines for Third-Party Contributions, Issue Reporting, and Support
 
