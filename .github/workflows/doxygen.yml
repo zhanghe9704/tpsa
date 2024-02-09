@@ -33,8 +33,8 @@ jobs:
 #        name: doxygen-docs
 #        path: web  # Assuming Doxygen outputs HTML docs to web
 
-    - name: Deploy Documentation
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./web  # Replace with the path to your generated documentation
+#    - name: Deploy Documentation
+#      uses: peaceiris/actions-gh-pages@v3
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
+#        publish_dir: ./web  # Replace with the path to your generated documentation
