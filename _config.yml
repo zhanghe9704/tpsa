@@ -11,4 +11,7 @@ exclude:
   - 'src'
   - 'include'
   - 'test'
+  - 'python-wrapper/tests'
+  - 'python-wrapper/src'
+  - 'python-wrapper/examples'
   
