@@ -1,0 +1,30 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches:
+      - main  # Run on pushes to main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'  # Match the Ruby version to your local development environment
+
+    - name: Build and test Jekyll site
+      run: |
+        gem install bundler
+        bundle install
+        bundle exec jekyll build
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./web
