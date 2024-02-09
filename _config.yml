@@ -1,6 +1,7 @@
 # _config.yml
 include:
   - readme.md
+  - .github/CONTRIBUTING.md
 
 exclude:
   - 'cbp'
@@ -14,4 +15,9 @@ exclude:
   - 'python-wrapper/tests'
   - 'python-wrapper/src'
   - 'python-wrapper/examples'
+  
+navigation:
+  - name: Home
+    link: /
+
   
