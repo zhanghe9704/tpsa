@@ -54,6 +54,7 @@ var da_8cc =
     [ "devide_by_element", "da_8cc.html#ad2fd76384773f1538658cdfebb4c4a08", null ],
     [ "erf", "da_8cc.html#afe49af6192e3a686283d848f4a832b83", null ],
     [ "exp", "da_8cc.html#a33a452b6c1f802b876c0df6c60487861", null ],
+    [ "exp", "da_8cc.html#ad9cc8a0685f5869d83c868c0a08af00c", null ],
     [ "inv_map", "da_8cc.html#aa3749e2d2d14985277e012363a78d3e7", null ],
     [ "log", "da_8cc.html#a48795a7128e306aecb580bacf1eab595", null ],
     [ "log", "da_8cc.html#a95fb39ec63ad6a2e0820d8b34c6dbc3a", null ],

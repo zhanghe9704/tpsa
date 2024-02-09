@@ -25,14 +25,6 @@
 var NAVTREE =
 [
   [ "cppTPSA", "index.html", [
-    [ "LICENSE", "md__e___work__code_tpsa_lib__l_i_c_e_n_s_e.html", null ],
-    [ "cppTPSA - C++ TPSA Lib", "md__e___work__code_tpsa_lib_readme.html", [
-      [ "About this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md1", null ],
-      [ "How to compile and use this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md2", null ],
-      [ "The Python wrapper", "md__e___work__code_tpsa_lib_readme.html#autotoc_md3", null ],
-      [ "Acknowledgement", "md__e___work__code_tpsa_lib_readme.html#autotoc_md4", null ],
-      [ "Contact", "md__e___work__code_tpsa_lib_readme.html#autotoc_md5", null ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -58,8 +50,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"da_8h.html#af63923c4fbe9c11020fc8ea26a2f946b",
-"tpsa__extend_8cc.html#a54f1ec7b69b89f2b4fcbc75ec5e625f8"
+"da_8h.html#af460971e8859a611012fb8a6acb68a3b",
+"tpsa__extend_8cc.html#a6d8d829771f1be30f50c50aad872e066"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
