@@ -18,6 +18,13 @@ jobs:
 
     - name: Generate Documentation
       run: doxygen doc/Doxyfile
+      
+    - name: Upload Documentation as Artifact
+	  uses: actions/upload-artifact@v1
+	  with:
+	    name: doxygen-docs
+	    path: web  # Assuming Doxygen outputs HTML docs to web
+
 
     - name: Deploy Documentation
       uses: peaceiris/actions-gh-pages@v3
