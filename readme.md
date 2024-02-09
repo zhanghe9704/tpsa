@@ -169,7 +169,7 @@ pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TP
 
 ## Guidelines for Third-Party Contributions, Issue Reporting, and Support
 
-See [here](https://zhanghe9704.github.io/tpsa/.github/readme.html).
+See [here](https://zhanghe9704.github.io/tpsa/contributing.html).
 
 ## Acknowledgement
 
