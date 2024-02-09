@@ -20,10 +20,10 @@ jobs:
       run: doxygen doc/Doxyfile
       
     - name: Upload
-	    uses: actions/upload-artifact@v1
-	    with:
-	      name: doxygen-docs
-	      path: web  # Assuming Doxygen outputs HTML docs to web
+      uses: actions/upload-artifact@v1
+      with:
+        name: doxygen-docs
+        path: web  # Assuming Doxygen outputs HTML docs to web
 
     - name: Deploy Documentation
       uses: peaceiris/actions-gh-pages@v3
