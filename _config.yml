@@ -1,0 +1,8 @@
+# _config.yml
+include:
+  - readme.md
+
+exclude:
+  - 'doc/doxygen'
+  - 'paper'
+  - 'web'
