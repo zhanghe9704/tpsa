@@ -23,7 +23,7 @@ jobs:
       run: |
         git config --global user.name 'GitHub Actions'
         git config --global user.email 'actions@github.com'
-        git add ./web  # Adjust this to the directory where Doxygen outputs the documentation
+        git add ./doc/doxygen  # Adjust this to the directory where Doxygen outputs the documentation
         git commit -m "Update documentation" || echo "No changes to commit"
         git push
       
@@ -37,4 +37,4 @@ jobs:
 #      uses: peaceiris/actions-gh-pages@v3
 #      with:
 #        github_token: ${{ secrets.GITHUB_TOKEN }}
-#        publish_dir: ./web  # Replace with the path to your generated documentation
+#        publish_dir: ./doc/doxygen  # Replace with the path to your generated documentation
