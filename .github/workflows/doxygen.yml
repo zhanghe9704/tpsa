@@ -19,11 +19,19 @@ jobs:
     - name: Generate Documentation
       run: doxygen doc/Doxyfile
       
-    - name: Upload
-      uses: actions/upload-artifact@v1
-      with:
-        name: doxygen-docs
-        path: web  # Assuming Doxygen outputs HTML docs to web
+    - name: Commit Documentation
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add ./web  # Adjust this to the directory where Doxygen outputs the documentation
+        git commit -m "Update documentation" || echo "No changes to commit"
+        git push
+      
+#    - name: Upload
+#      uses: actions/upload-artifact@v1
+#      with:
+#        name: doxygen-docs
+#        path: web  # Assuming Doxygen outputs HTML docs to web
 
     - name: Deploy Documentation
       uses: peaceiris/actions-gh-pages@v3
