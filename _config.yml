@@ -3,6 +3,12 @@ include:
   - readme.md
 
 exclude:
-  - 'doc/doxygen'
+  - 'cbp'
+  - 'CMakeFiles'
+  - 'examples'
   - 'paper'
   - 'web'
+  - 'src'
+  - 'include'
+  - 'test'
+  
