@@ -1,8 +1,9 @@
 # _config.yml
 include:
   - readme.md
-  - .github/CONTRIBUTING.md
-
+  - contributing.md
+#  - .github/CONTRIBUTING.md
+  
 exclude:
   - 'cbp'
   - 'CMakeFiles'
