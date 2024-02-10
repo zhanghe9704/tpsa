@@ -21,3 +21,7 @@ set_target_properties(tpsaStatic PROPERTIES OUTPUT_NAME "tpsa")
 #Set the location for library installation -- i.e., /usr/lib in this case
 #Use "sudo make install" to apply
 install(TARGETS tpsaShared tpsaStatic DESTINATION)
+
+#Install the header file
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/da.h DESTINATION include)
+
