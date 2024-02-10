@@ -1,0 +1,153 @@
+\hypertarget{class_a_d_order_table}{}\doxysection{ADOrder\+Table Class Reference}
+\label{class_a_d_order_table}\index{ADOrderTable@{ADOrderTable}}
+
+
+A table that show the relation between the orders and the index of an element in a TPS vector. The orders of an TPS element is a vector of integers that shows the order of each variable in that element. For example, the element x$^\wedge$3$\ast$y$\ast$z$^\wedge$2 in a 3D TPS vector is \char`\"{}3,1,2\char`\"{}.  
+
+
+
+
+{\ttfamily \#include $<$tpsa\+\_\+extend.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_d_order_table_a79bce963d4624eee0cee934a822fd0a2}{generate\+\_\+order\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Create the ad\+\_\+order\+\_\+table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_d_order_table_aa2904f7055164020b3c57f844c5019b4}{clear\+\_\+order\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Delete the ad\+\_\+order\+\_\+table. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$\+::iterator \mbox{\hyperlink{class_a_d_order_table_aa7a33812fa83049f3560b8d4c073abf0}{table\+\_\+begin}} ()
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$\+::iterator \mbox{\hyperlink{class_a_d_order_table_aa5fc114196f9aa2c83a3afa841e35421}{table\+\_\+end}} ()
+\item 
+std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_a_d_order_table_a62f754b060cb7bce03726242f0216e0a}{orders}} (int i)
+\item 
+bool \mbox{\hyperlink{class_a_d_order_table_a1ae92006848dde2da52dee919d46ac27}{valid\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Check if the ad\+\_\+order\+\_\+table exist. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_a_d_order_table_a43ae61cfafcd19c92d1689b0fc24ddc8}{find\+\_\+index}} (std\+::vector$<$ int $>$ \&\mbox{\hyperlink{class_a_d_order_table_a62f754b060cb7bce03726242f0216e0a}{orders}})
+\begin{DoxyCompactList}\small\item\em Given the orders of an element, returns its index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_a_d_order_table_a42be8476db013666d2f2618d2666b418}{order\+\_\+table}}
+\begin{DoxyCompactList}\small\item\em Used to find the orders by the index. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::vector$<$ int $>$, int $>$ \mbox{\hyperlink{class_a_d_order_table_aa9f77b9966b5f7802cf841e3330ec3e0}{order\+\_\+index}}
+\begin{DoxyCompactList}\small\item\em Used to find the index by the orders. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_d_order_table_a907e973a05ff95c6d8165f87f9f29f87}{valid}} = false
+\begin{DoxyCompactList}\small\item\em Shows whether this table exists. Default value is false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A table that show the relation between the orders and the index of an element in a TPS vector. The orders of an TPS element is a vector of integers that shows the order of each variable in that element. For example, the element x$^\wedge$3$\ast$y$\ast$z$^\wedge$2 in a 3D TPS vector is \char`\"{}3,1,2\char`\"{}. 
+
+The index of an TPS element shows the position of this element in the TPS vector. The index starts from 0. Whence the dimension and the highest order are given, the relation between the index and the orders is determined, which is not related to the value of a specific TPS vector.
+
+The purpose of this table is to provide a method to quickly find the orders using the index and vice versa. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_d_order_table_aa2904f7055164020b3c57f844c5019b4}\label{class_a_d_order_table_aa2904f7055164020b3c57f844c5019b4}} 
+\index{ADOrderTable@{ADOrderTable}!clear\_order\_table@{clear\_order\_table}}
+\index{clear\_order\_table@{clear\_order\_table}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{clear\_order\_table()}{clear\_order\_table()}}
+{\footnotesize\ttfamily void ADOrder\+Table\+::clear\+\_\+order\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Delete the ad\+\_\+order\+\_\+table. 
+
+\begin{DoxyReturn}{Returns}
+Void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_d_order_table_a43ae61cfafcd19c92d1689b0fc24ddc8}\label{class_a_d_order_table_a43ae61cfafcd19c92d1689b0fc24ddc8}} 
+\index{ADOrderTable@{ADOrderTable}!find\_index@{find\_index}}
+\index{find\_index@{find\_index}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{find\_index()}{find\_index()}}
+{\footnotesize\ttfamily int ADOrder\+Table\+::find\+\_\+index (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{orders }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Given the orders of an element, returns its index. 
+
+\begin{DoxyReturn}{Returns}
+Index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_d_order_table_a79bce963d4624eee0cee934a822fd0a2}\label{class_a_d_order_table_a79bce963d4624eee0cee934a822fd0a2}} 
+\index{ADOrderTable@{ADOrderTable}!generate\_order\_table@{generate\_order\_table}}
+\index{generate\_order\_table@{generate\_order\_table}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{generate\_order\_table()}{generate\_order\_table()}}
+{\footnotesize\ttfamily void ADOrder\+Table\+::generate\+\_\+order\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create the ad\+\_\+order\+\_\+table. 
+
+\begin{DoxyReturn}{Returns}
+Void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_d_order_table_a62f754b060cb7bce03726242f0216e0a}\label{class_a_d_order_table_a62f754b060cb7bce03726242f0216e0a}} 
+\index{ADOrderTable@{ADOrderTable}!orders@{orders}}
+\index{orders@{orders}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{orders()}{orders()}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$\& ADOrder\+Table\+::orders (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_d_order_table_aa7a33812fa83049f3560b8d4c073abf0}\label{class_a_d_order_table_aa7a33812fa83049f3560b8d4c073abf0}} 
+\index{ADOrderTable@{ADOrderTable}!table\_begin@{table\_begin}}
+\index{table\_begin@{table\_begin}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{table\_begin()}{table\_begin()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$\+::iterator ADOrder\+Table\+::table\+\_\+begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_d_order_table_aa5fc114196f9aa2c83a3afa841e35421}\label{class_a_d_order_table_aa5fc114196f9aa2c83a3afa841e35421}} 
+\index{ADOrderTable@{ADOrderTable}!table\_end@{table\_end}}
+\index{table\_end@{table\_end}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{table\_end()}{table\_end()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$\+::iterator ADOrder\+Table\+::table\+\_\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_d_order_table_a1ae92006848dde2da52dee919d46ac27}\label{class_a_d_order_table_a1ae92006848dde2da52dee919d46ac27}} 
+\index{ADOrderTable@{ADOrderTable}!valid\_table@{valid\_table}}
+\index{valid\_table@{valid\_table}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{valid\_table()}{valid\_table()}}
+{\footnotesize\ttfamily bool ADOrder\+Table\+::valid\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the ad\+\_\+order\+\_\+table exist. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_a_d_order_table_aa9f77b9966b5f7802cf841e3330ec3e0}\label{class_a_d_order_table_aa9f77b9966b5f7802cf841e3330ec3e0}} 
+\index{ADOrderTable@{ADOrderTable}!order\_index@{order\_index}}
+\index{order\_index@{order\_index}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{order\_index}{order\_index}}
+{\footnotesize\ttfamily std\+::map$<$std\+::vector$<$int$>$, int$>$ ADOrder\+Table\+::order\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Used to find the index by the orders. 
+
+\mbox{\Hypertarget{class_a_d_order_table_a42be8476db013666d2f2618d2666b418}\label{class_a_d_order_table_a42be8476db013666d2f2618d2666b418}} 
+\index{ADOrderTable@{ADOrderTable}!order\_table@{order\_table}}
+\index{order\_table@{order\_table}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{order\_table}{order\_table}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$ ADOrder\+Table\+::order\+\_\+table\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Used to find the orders by the index. 
+
+\mbox{\Hypertarget{class_a_d_order_table_a907e973a05ff95c6d8165f87f9f29f87}\label{class_a_d_order_table_a907e973a05ff95c6d8165f87f9f29f87}} 
+\index{ADOrderTable@{ADOrderTable}!valid@{valid}}
+\index{valid@{valid}!ADOrderTable@{ADOrderTable}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily bool ADOrder\+Table\+::valid = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Shows whether this table exists. Default value is false. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Work/\+Code/tpsa\+\_\+lib/include/\mbox{\hyperlink{tpsa__extend_8h}{tpsa\+\_\+extend.\+h}}\item 
+E\+:/\+Work/\+Code/tpsa\+\_\+lib/src/\mbox{\hyperlink{tpsa__extend_8cc}{tpsa\+\_\+extend.\+cc}}\end{DoxyCompactItemize}

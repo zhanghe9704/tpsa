@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7edavector',['~DAVector',['../struct_d_a_vector.html#a7de44a8dd61f38fe5ae0b0c5b2cbd370',1,'DAVector']]]
+  ['weighted_5fnorm_371',['weighted_norm',['../struct_d_a_vector.html#aeebbd9ec0e71c32141064721ba2f10cb',1,'DAVector']]]
 ];

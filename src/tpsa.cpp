@@ -1,9 +1,6 @@
 /*
  * Copyright(C) 2008 by Lingyun Yang
- * lingyun(.dot.]yang@gmail.com
- * http://www.lingyunyang.com
- *
- * Please get permission from Lingyun Yang before you redistribute this file.
+ * L. Yang, “Array Based Truncated Power Series Package”, Proc. ICAP'09, San Francisco, CA, USA, Aug.-Sep. 2009,
  *
  */
 
@@ -807,19 +804,19 @@ void ad_var(const unsigned int* ivec, const double* x, unsigned int* ibvec)
     //for (size_t k = 1; k < iv; ++k) v[k] = 0;
 }
 
-#ifdef MSVC_DLL
-_declspec(dllexport) void _stdcall ad_abs(const TVEC* iv, double* r)
-#else
-void ad_abs(const TVEC* iv, double* r)
-#endif
-{
-    *r = 0;
-    for (size_t i = 0; i < adveclen[*iv]; ++i) {
-        *r += std::abs(advec[*iv][i]);
-        //std::cout << advec[*iv][i] << ' ';
-    }
-    //std::cout << "abs: " << *r << std::endl;
-}
+//#ifdef MSVC_DLL
+//_declspec(dllexport) void _stdcall ad_abs(const TVEC* iv, double* r)
+//#else
+//void ad_abs(const TVEC* iv, double* r)
+//#endif
+//{
+//    *r = 0;
+//    for (size_t i = 0; i < adveclen[*iv]; ++i) {
+//        *r += std::abs(advec[*iv][i]);
+//        //std::cout << advec[*iv][i] << ' ';
+//    }
+//    //std::cout << "abs: " << *r << std::endl;
+//}
 
 #ifdef MSVC_DLL
 _declspec(dllexport) void _stdcall ad_truncate(const TVEC* iv, const TNVND* d)

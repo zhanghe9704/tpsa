@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['pow',['pow',['../da_8h.html#ae3b2a03dc6ddba9015479e44672d0da7',1,'pow(const DAVector &amp;da_vector, const int order):&#160;da.cc'],['../da_8h.html#a2b9c9a42379d4d6631ba82c1fa2d2981',1,'pow(const DAVector &amp;da_vector, const double order):&#160;da.cc'],['../da_8cc.html#ae3b2a03dc6ddba9015479e44672d0da7',1,'pow(const DAVector &amp;da_vector, const int order):&#160;da.cc'],['../da_8cc.html#a2b9c9a42379d4d6631ba82c1fa2d2981',1,'pow(const DAVector &amp;da_vector, const double order):&#160;da.cc']]],
-  ['pow_5fpos',['pow_pos',['../da_8cc.html#a036daa4acbdbbdd9a6e4972f36fc2f1f',1,'da.cc']]],
-  ['print',['print',['../struct_d_a_vector.html#a6d5253e4312ca9ca5e68859f706f9f2c',1,'DAVector']]],
-  ['print_5findex',['print_index',['../tpsa_8h.html#ad087b206b0ec782659ee6390d5c0b9f2',1,'print_index(std::ostream &amp;os):&#160;tpsa.cpp'],['../tpsa_8cpp.html#ad087b206b0ec782659ee6390d5c0b9f2',1,'print_index(std::ostream &amp;os):&#160;tpsa.cpp']]],
-  ['print_5fvec',['print_vec',['../tpsa_8cpp.html#a3a11c4717a8fd57067684807dd66b06b',1,'tpsa.cpp']]]
+  ['read_5fcd_5ffrom_5ffile_355',['read_cd_from_file',['../da_8h.html#a9c9745dc13a421ef599dbb4e928bf249',1,'read_cd_from_file(std::string filename, std::complex&lt; DAVector &gt; &amp;cd):&#160;da.h'],['../da_8cc.html#a747e8c1a403a6100ea00a47d84756090',1,'read_cd_from_file(string filename, complex&lt; DAVector &gt; &amp;cd):&#160;da.cc']]],
+  ['read_5fda_5ffrom_5ffile_356',['read_da_from_file',['../da_8h.html#ad3c745cb37524c30b599d338218628f9',1,'read_da_from_file(std::string filename, DAVector &amp;d):&#160;da.h'],['../da_8cc.html#a19d7e72abec2d4a7aa634fa2f78c92fb',1,'read_da_from_file(string filename, DAVector &amp;d):&#160;da.cc']]],
+  ['reset_357',['reset',['../struct_d_a_vector.html#a0c85003e3b334ca94135b4874c36f7e3',1,'DAVector']]],
+  ['reset_5fconst_358',['reset_const',['../struct_d_a_vector.html#a104928f5ba59b6ce42636646670048c4',1,'DAVector']]],
+  ['rtrim_5fwhitespace_359',['rtrim_whitespace',['../da_8cc.html#a8d96d479154ac1e5021968d328fb4936',1,'da.cc']]]
 ];

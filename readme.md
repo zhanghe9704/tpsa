@@ -1,61 +1,49 @@
-# C++ TPSA Lib
+# cppTPSA/pyTPSA - C++ & Python TPSA Lib
 
-## Announcement
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md)
 
 ## About this code
 
-This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). 
-
-
+This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA) in C++ and Python 3.x environment.
 
 For TPSA and DA, please refer to chapter 8 in [*Lecture Notes on Special Topics in Accelerator Physics*](http://inspirehep.net/record/595287/files/slac-pub-9574.pdf)  by  Prof. Alex Chao  and chapter 2 in [*Modern Map Methods in Particle Beam Physics*](http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book) by Prof. Martin Berz. 
 
-
-
-This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (tpsa.cpp and tpsa.h) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in tpsa_extend.cc. Please get permission from Dr. Lingyun Yang before you redistribute tpsa.cpp and tpsa.h.
-
-
+This code is developed based on Dr. Lingyun Yang's tpsa codes in C++ . His codes (tpsa.cpp and tpsa.h) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in tpsa_extend.cc. 
 
 The major change is the memory management. The current memory management works in the following way. Before any TPSA/DA calculation, one needs to reserve the memory for $n$ TPS vector. A memory pool is allocated in the heap, which can be considered as $n$ slots, each for one TPS vector. A linked list is created to reference the  available (unused) slots. Two pointers point to the beginning and the end of the linked list respectively. When a new TPS vector is created, the first slot will be assigned to it and the beginning pointer points to the  following slot in the linked list. When a TPS vector goes out of its scope, the slot will be reset to empty and liked to the end of the list. The end pointer will be updated and point to the new end.  
 
 ![Memory management](doc/tpsa_memory_management.png)
 
-
-
 A new data type DAVector is created as a wrapper of the TPS vector. The following mathematical operator and functions are overloaded for DAVector, so that a variable of DAVector type can be used as a intrinsic type in calculations. 
 
-
-
-Math operator overloaded
+Math operator overloaded: (DA - DA vector, CD - complex DA vector)
 
 | Left hand | Operator | Right hand |
 | :-------: | :------: | :--------: |
-| DAVector  |    +     |  DAVector  |
-|  double   |    +     |  DAVector  |
-| DAVector  |    +     |   double   |
-|           |    +     |  DAVector  |
-| DAVector  |    -     |  DAVector  |
-| DAVector  |    -     |   double   |
-|  double   |    -     |  DAVector  |
-|           |    -     |  DAVector  |
-| DAVector  |    *     |  DAVector  |
-| DAVector  |    *     |   double   |
-|  double   |    *     |  DAVector  |
-| DAVector  |    /     |  DAVector  |
-| DAVector  |    /     |   double   |
-|  double   |    /     |  DAVector  |
-| DAVector  |    =     |  DAVector  |
-| DAVector  |    =     |   double   |
-| DAVector  |    +=    |  DAVector  |
-| DAVector  |    +=    |   double   |
-| DAVector  |    -=    |  DAVector  |
-| DAVector  |    -=    |   double   |
-| DAVector  |    *=    |  DAVector  |
-| DAVector  |    *=    |   double   |
-| DAVector  |    /=    |  DAVector  |
-| DAVector  |    /=    |   double   |
+|   DA/CD   |    +     |   DA/CD    |
+|  double   |    +     |   DA/CD    |
+|   DA/CD   |    +     |   double   |
+|           |    +     |   DA/CD    |
+|   DA/CD   |    -     |   DA/CD    |
+|   DA/CD   |    -     |   double   |
+|  double   |    -     |   DA/CD    |
+|           |    -     |   DA/CD    |
+|   DA/CD   |    *     |   DA/CD    |
+|   DA/CD   |    *     |   double   |
+|  double   |    *     |   DA/CD    |
+|   DA/CD   |    /     |   DA/CD    |
+|   DA/CD   |    /     |   double   |
+|  double   |    /     |   DA/CD    |
+|   DA/CD   |    =     |   DA/CD    |
+|   DA/CD   |    =     |   double   |
+|   DA/CD   |    +=    |   DA/CD    |
+|   DA/CD   |    +=    |   double   |
+|   DA/CD   |    -=    |   DA/CD    |
+|   DA/CD   |    -=    |   double   |
+|   DA/CD   |    *=    |   DA/CD    |
+|   DA/CD   |    *=    |   double   |
+|   DA/CD   |    /=    |   DA/CD    |
+|   DA/CD   |    /=    |   double   |
 
 Math functions overloaded:
 
@@ -73,12 +61,9 @@ Math functions overloaded:
 - tanh
 - pow
 - abs
-- erf
-
+- erf (DA only)
 
 Some test results for efficiency are presented in the following. They are done in a Windows 10 desktop with Intel Xeon (R) E5-1620 processor at 3.60 GHz. Table 1 shows the time cost for composition of one DA/TPS vector of six bases with six DA/TPS vectors.  First column shows the order of the vectors, second column the number of terms in each vector, third column the time using the DA data type with revised memory management, and the fourth column the time using the original code. Table 2 shows the time of composition of six DA vectors, each having six bases, with the other group of six DA vectors. The composition in group cost less time if compared with separate compositions. 
-
-
 
 Table 1.  Time (in second) of composition 
 
@@ -90,8 +75,6 @@ Table 1.  Time (in second) of composition
 | 8     | 3003         | $9.90 \times 10^{-1}$ | $2.55$               |
 | 10    | 8008         | $15.49$               | $44.60$              |
 
-
-
 Table 2. Time (in second) of group composition 
 
 | Order | DA                   |
@@ -102,11 +85,9 @@ Table 2. Time (in second) of group composition
 | 8     | $1.05$               |
 | 10    | $16.04$              |
 
-
-
 More information is available at doc/doxygen/html/index.html.
 
-## How to compile and use this code
+## How to compile and use cppTPSA
 
 You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows:
 
@@ -114,12 +95,10 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
 * The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
 
-* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 16.04 and in Ubuntu 18.04 (WSL2). 
+* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 16.04, Ubuntu 18.04 (WSL2), and Ubuntu 20.04 (WSL2). 
 
   `cmake .` 
   `make`
-
-  
 
   Here is an example of compiling the code under Ubuntu 16.04. 
 
@@ -127,15 +106,11 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   $HOME/tpsa
 
-  
-
   Inside the above folder, run:
 
   `cmake .` 
 
   The Makefile will be generated. 
-
-  
 
   Then run:
 
@@ -143,25 +118,17 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   Both the static lib and the shared lib of tpsa will be generated. You can find the following two files:
 
-  libtpsa.a and libtpsaso.so
-
-  
+  libtpsa.a and libtpsa.so
 
   Now you can use any of them to compile your file. Here let us compile the examples/examples.cc using libtpsa.a. 
 
-  
+  `gcc examples/examples.cc -o tpsa_exp -I ./include/ -L. -ltpsa -lstdc++ -lm -std=c++14`
 
-  `gcc examples/examples.cc -o tpsa_exp -I ./include/ -L. -ltpsa -lstdc++ -lm -std=c++11`
+  You can also use libtpsa.so. 
 
-  
-
-  You can also use libtpsaso.so. 
-
-  `gcc examples/examples.cc -o tpsa_exp -std=c++11 -Iinclude -L. -ltpsaso -lstdc++ -lm`
+  `gcc examples/examples.cc -o tpsa_exp -std=c++14 -Iinclude -L. -ltpsa -lstdc++ -lm`
 
   The executable file tpsa_exp will be generated. 
-
-  
 
   To run the tpsa_exp file, tell the OS where to find the libtpsaso.so:
 
@@ -171,23 +138,38 @@ You will need a C++ compiler that supports C++ 11 standard. There are three ways
 
   ` ./tpsa_exp `
 
-  
 
-  The result is shown as follows:
-  V [16]              Base  [ 4 / 286 ]
+The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)), which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests. 
 
-  ---------------------------------------------
+### How to install cppTPSA
 
-   1.000000000000000e+00      0  0  0     0  
+The default installation path is /usr/lib. Use the following command to install to the default path:
 
-  -1.000000000000000e+00      1  0  0     1   
+```shell
+sudo make install
+```
 
-    2.000000000000000e+00      0  1  0     2   
+To change the installation path, use the following command in cmake configuration:
 
-    5.000000000000000e-01       0  0  1     3
-  
-  ......
+```shell
+cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
+```
 
+The libs will be installed to YOURPATH/lib. 
+
+Known issues:
+
+When running tests in Linux (tested in Ubuntu 18.04/20.04), a "segmentation fault" error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python.    
+
+
+
+## How to compile and install pyTPSA
+
+pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see the readme.md file in python-wrapper folder on how to compile, install, and use pyTPSA. 
+
+### Guidelines for Third-Party Contributions, Issue Reporting, and Support
+
+See [here](https://github.com/zhanghe9704/tpsa/blob/master/.github/CONTRIBUTING.md).
 
 ## Acknowledgement
 
@@ -196,4 +178,3 @@ Thanks to Dr. Lingyun Yang for providing his tpsa code.
 ## Contact
 
 Contact the author by hezhang.AT.jlab.org. 
-

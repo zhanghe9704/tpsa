@@ -1,0 +1,175 @@
+\href{https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md}{\texttt{ }}\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md1}{}\doxysection{About this code}\label{md__e___work__code_tpsa_lib_readme_autotoc_md1}
+This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA). A Python wrapper of this lib is hosted in \href{https://github.com/zhanghe9704/tpsa-python}{\texttt{ a separate repository}}.
+
+For TPSA and DA, please refer to chapter 8 in \href{http://inspirehep.net/record/595287/files/slac-pub-9574.pdf}{\texttt{ {\itshape Lecture Notes on Special Topics in Accelerator Physics}}} by Prof. Alex Chao and chapter 2 in \href{http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book}{\texttt{ {\itshape Modern Map Methods in Particle Beam Physics}}} by Prof. Martin Berz.
+
+This code is developed based on Dr. Lingyun Yang\textquotesingle{}s tpsa codes in C++ . His codes (\mbox{\hyperlink{tpsa_8cpp}{tpsa.\+cpp}} and \mbox{\hyperlink{tpsa_8h}{tpsa.\+h}}) are included in this repository. They are untouched, except for a few functions that are commented off and replaced by functions in \mbox{\hyperlink{tpsa__extend_8cc}{tpsa\+\_\+extend.\+cc}}.
+
+The major change is the memory management. The current memory management works in the following way. Before any TPSA/\+DA calculation, one needs to reserve the memory for \$n\$ TPS vector. A memory pool is allocated in the heap, which can be considered as \$n\$ slots, each for one TPS vector. A linked list is created to reference the available (unused) slots. Two pointers point to the beginning and the end of the linked list respectively. When a new TPS vector is created, the first slot will be assigned to it and the beginning pointer points to the following slot in the linked list. When a TPS vector goes out of its scope, the slot will be reset to empty and liked to the end of the list. The end pointer will be updated and point to the new end. ~\newline
+
+
+
+
+A new data type \mbox{\hyperlink{struct_d_a_vector}{DAVector}} is created as a wrapper of the TPS vector. The following mathematical operator and functions are overloaded for \mbox{\hyperlink{struct_d_a_vector}{DAVector}}, so that a variable of \mbox{\hyperlink{struct_d_a_vector}{DAVector}} type can be used as a intrinsic type in calculations.
+
+Math operator overloaded\+: (DA -\/ DA vector, CD -\/ complex DA vector)
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Left hand   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operator   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Right hand    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Left hand   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operator   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Right hand    }\\\cline{1-3}
+\endhead
+\PBS\centering DA/\+CD   &\PBS\centering +   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering double   &\PBS\centering +   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering +   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering &\PBS\centering +   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering -\/   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering -\/   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering double   &\PBS\centering -\/   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering &\PBS\centering -\/   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering $\ast$   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering $\ast$   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering double   &\PBS\centering $\ast$   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering /   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering /   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering double   &\PBS\centering /   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering =   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering =   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering +=   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering +=   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering -\/=   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering -\/=   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering $\ast$=   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering $\ast$=   &\PBS\centering double    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering /=   &\PBS\centering DA/\+CD    \\\cline{1-3}
+\PBS\centering DA/\+CD   &\PBS\centering /=   &\PBS\centering double   \\\cline{1-3}
+\end{longtabu}
+
+
+Math functions overloaded\+:
+
+
+\begin{DoxyItemize}
+\item sqrt
+\item exp
+\item log
+\item sin
+\item cos
+\item tan
+\item asin
+\item acos
+\item atan
+\item sinh
+\item cosh
+\item tanh
+\item pow
+\item abs
+\item erf (DA only)
+\end{DoxyItemize}
+
+Some test results for efficiency are presented in the following. They are done in a Windows 10 desktop with Intel Xeon (R) E5-\/1620 processor at 3.\+60 GHz. Table 1 shows the time cost for composition of one DA/\+TPS vector of six bases with six DA/\+TPS vectors. First column shows the order of the vectors, second column the number of terms in each vector, third column the time using the DA data type with revised memory management, and the fourth column the time using the original code. Table 2 shows the time of composition of six DA vectors, each having six bases, with the other group of six DA vectors. The composition in group cost less time if compared with separate compositions.
+
+Table 1. Time (in second) of composition
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Order   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ No. of terms   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ DA   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ TPSA    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Order   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ No. of terms   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ DA   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ TPSA    }\\\cline{1-4}
+\endhead
+2   &28   &\$7.\+57\textbackslash{}times 10$^\wedge$\{-\/6\}\$   &\$6.\+25\textbackslash{}times 10$^\wedge$\{-\/6\}\$    \\\cline{1-4}
+4   &210   &\$7.\+50\textbackslash{}times 10$^\wedge$\{-\/4\}\$   &\$1.\+44\textbackslash{}times 10$^\wedge$\{-\/2\}\$    \\\cline{1-4}
+6   &924   &\$4.\+48 \textbackslash{}times 10$^\wedge$\{-\/3\}\$   &\$8.\+39\textbackslash{}times 10$^\wedge$\{-\/2\}\$    \\\cline{1-4}
+8   &3003   &\$9.\+90 \textbackslash{}times 10$^\wedge$\{-\/1\}\$   &\$2.\+55\$    \\\cline{1-4}
+10   &8008   &\$15.\+49\$   &\$44.\+60\$   \\\cline{1-4}
+\end{longtabu}
+
+
+Table 2. Time (in second) of group composition
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Order   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ DA    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Order   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ DA    }\\\cline{1-2}
+\endhead
+2   &\$1.\+51\textbackslash{}times 10$^\wedge$\{-\/5\}\$    \\\cline{1-2}
+4   &\$1.\+04\textbackslash{}times 10$^\wedge$\{-\/3\}\$    \\\cline{1-2}
+6   &\$4.\+42\textbackslash{}times 10$^\wedge$\{-\/2\}\$    \\\cline{1-2}
+8   &\$1.\+05\$    \\\cline{1-2}
+10   &\$16.\+04\$   \\\cline{1-2}
+\end{longtabu}
+
+
+More information is available at doc/doxygen/html/index.\+html.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md2}{}\doxysection{How to compile and use this code}\label{md__e___work__code_tpsa_lib_readme_autotoc_md2}
+You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows\+:
+
+
+\begin{DoxyItemize}
+\item Download the source files. Include \char`\"{}tpsa\+\_\+extend.\+h\char`\"{} and \char`\"{}da.\+h\char`\"{} in your project and compile.
+\item The code is developed using Code\+::\+Blocks IDE. There are two C\+::B profiles under the cbp directory\+: tpsa\+\_\+lib.\+cbp and tpsa\+\_\+dll.\+cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler.
+\item You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 16.\+04 and in Ubuntu 18.\+04 (WSL2).
+
+{\ttfamily cmake .} {\ttfamily make}
+
+Here is an example of compiling the code under Ubuntu 16.\+04.
+
+Assume I have cloned the codes to the following folder\+:
+
+\$\+HOME/tpsa
+
+Inside the above folder, run\+:
+
+{\ttfamily cmake .}
+
+The Makefile will be generated.
+
+Then run\+:
+
+{\ttfamily make}
+
+Both the static lib and the shared lib of tpsa will be generated. You can find the following two files\+:
+
+libtpsa.\+a and libtpsaso.\+so
+
+Now you can use any of them to compile your file. Here let us compile the examples/examples.\+cc using libtpsa.\+a.
+
+{\ttfamily gcc examples/examples.\+cc -\/o tpsa\+\_\+exp -\/I ./include/ -\/L. -\/ltpsa -\/lstdc++ -\/lm -\/std=c++14}
+
+You can also use libtpsaso.\+so.
+
+{\ttfamily gcc examples/examples.\+cc -\/o tpsa\+\_\+exp -\/std=c++14 -\/Iinclude -\/L. -\/ltpsaso -\/lstdc++ -\/lm}
+
+The executable file tpsa\+\_\+exp will be generated.
+
+To run the tpsa\+\_\+exp file, tell the OS where to find the libtpsaso.\+so\+:
+
+{\ttfamily export LD\+\_\+\+LIBRARY\+\_\+\+PATH=\$\+LD\+\_\+\+LIBRARY\+\_\+\+PATH\+:\$\+HOME/tpsa}
+
+Run the executable\+:
+
+{\ttfamily ./tpsa\+\_\+exp}
+\end{DoxyItemize}
+
+The tests depend on \href{[GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)}{\texttt{ {\itshape Catch2}}}, which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests.
+
+Known issues\+:
+
+When running tests in Linux (tested in Ubuntu 18.\+04/20.04), a \char`\"{}segmentation fault\char`\"{} error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python. ~\newline
+\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md3}{}\doxysection{The Python wrapper}\label{md__e___work__code_tpsa_lib_readme_autotoc_md3}
+This repository has only the C++ code included. A Python wrapper is provided in a separate \href{[GitHub - zhanghe9704/tpsa-python](https://github.com/zhanghe9704/tpsa-python)}{\texttt{ {\itshape repository}}}. Please see the instruction there on how to compile the Python library.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md4}{}\doxysection{Acknowledgement}\label{md__e___work__code_tpsa_lib_readme_autotoc_md4}
+Thanks to Dr. Lingyun Yang for providing his tpsa code.\hypertarget{md__e___work__code_tpsa_lib_readme_autotoc_md5}{}\doxysection{Contact}\label{md__e___work__code_tpsa_lib_readme_autotoc_md5}
+Contact the author by hezhang.\+AT.\+jlab.\+org. 

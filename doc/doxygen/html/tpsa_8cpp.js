@@ -1,12 +1,11 @@
 var tpsa_8cpp =
 [
-    [ "ad_abs", "tpsa_8cpp.html#aee3cc81c7c008f5f0fae4f06ffc0611a", null ],
     [ "ad_add", "tpsa_8cpp.html#a7c3ef17c5d4bb1b73f6a840ce99f2041", null ],
     [ "ad_add_const", "tpsa_8cpp.html#af81d709d685093427012234701ba2bb0", null ],
     [ "ad_clean", "tpsa_8cpp.html#a14d7813be2e2ec86a5bd1a6c8f8210c3", null ],
     [ "ad_const", "tpsa_8cpp.html#a25f41349ba7f4f74da692834349ecf3b", null ],
     [ "ad_cos", "tpsa_8cpp.html#a7127c7553acec12be8d4f9d6e39bfa4b", null ],
-    [ "ad_count", "tpsa_8cpp.html#a4a7d65084add12655fd16ec9e515cda5", null ],
+    [ "ad_count", "tpsa_8cpp.html#ab76aa1315af4aa53b8157ec5508d2277", null ],
     [ "ad_derivative", "tpsa_8cpp.html#af61048119f09f7cd849d4b985eac44b8", null ],
     [ "ad_div", "tpsa_8cpp.html#a7b3c8f7e505c46d491d15981741208f7", null ],
     [ "ad_elem", "tpsa_8cpp.html#af8f699e5ad097f081829e9f9b695ad05", null ],
@@ -34,7 +33,6 @@ var tpsa_8cpp =
     [ "ad_truncate", "tpsa_8cpp.html#a706f781fd098cc1056f130391a929c86", null ],
     [ "ad_var", "tpsa_8cpp.html#a9f95d27cf468b3e830a79961d836ded5", null ],
     [ "print_index", "tpsa_8cpp.html#ad087b206b0ec782659ee6390d5c0b9f2", null ],
-    [ "print_vec", "tpsa_8cpp.html#a3a11c4717a8fd57067684807dd66b06b", null ],
     [ "advec", "tpsa_8cpp.html#a09082190e4974e986e38201985c36e90", null ],
     [ "adveclen", "tpsa_8cpp.html#a0168b7d485c55fc8b23a3fe9473dcb42", null ]
 ];
