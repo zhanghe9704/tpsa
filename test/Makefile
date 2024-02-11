@@ -1,4 +1,5 @@
-CC = g++
+#CC = g++
+CC = clang++
 INCDIR = ../include
 CFLAGS = -O3 -Wall -std=c++14 
 
