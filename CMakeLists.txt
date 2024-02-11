@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5.1)
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(CMAKE_INSTALL_PREFIX /usr)
+set(CMAKE_INSTALL_PREFIX /usr/local)
 project(tpsa)
 
 #Bring the headers into the project
@@ -14,11 +14,28 @@ file(GLOB SOURCES "src/*.cc")
 
 #Generate the shared library and the static llibary from the sources
 add_library(tpsaShared SHARED ${SOURCES})
-set_target_properties(tpsaShared PROPERTIES OUTPUT_NAME "tpsa")
+set_target_properties(tpsaShared PROPERTIES 
+    OUTPUT_NAME "tpsa"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 add_library(tpsaStatic STATIC ${SOURCES})
-set_target_properties(tpsaStatic PROPERTIES OUTPUT_NAME "tpsa")
+set_target_properties(tpsaStatic PROPERTIES 
+    OUTPUT_NAME "tpsa"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
 
-#Set the location for library installation -- i.e., /usr/lib in this case
+add_custom_target(build_examples
+    COMMAND ${CMAKE_MAKE_PROGRAM} INSTALL_DIR=${CMAKE_INSTALL_PREFIX} all
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/examples
+    COMMENT "Building examples using Makefile with custom INSTALL_DIR"
+)
+
+add_custom_target(build_tests
+    COMMAND ${CMAKE_MAKE_PROGRAM} INSTALL_DIR=${CMAKE_INSTALL_PREFIX} all
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
+    COMMENT "Building tests using Makefile with custom INSTALL_DIR"
+)
+
+#Set the location for library installation -- i.e., /usr/local/lib in this case
 #Use "sudo make install" to apply
 install(TARGETS tpsaShared tpsaStatic DESTINATION)
 
