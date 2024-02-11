@@ -1,7 +1,8 @@
 CC = g++
 
 INSTALL_DIR = ..
-CFLAGS = -O3 -Wall -std=c++14 
+#CFLAGS = -O3 -Wall -std=c++14 
+CFLAGS = -g -Wall -std=c++14 
 
 TPSA_LIBS = tpsa
 #LIBS = -L.. -l$(TPSA_LIBS) -lstdc++ -lm
