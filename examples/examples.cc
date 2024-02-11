@@ -1,4 +1,4 @@
-#include "../include/da.h"
+#include "da.h"
 #include <cmath>
 #include <fstream>
 #include <iostream>

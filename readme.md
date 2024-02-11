@@ -19,31 +19,31 @@ A new data type DAVector is created as a wrapper of the TPS vector. The followin
 Math operator overloaded: (DA - DA vector, CD - complex DA vector)
 
 | Left hand | Operator | Right hand |
-| :-------: | :------: | :--------: |
-|   DA/CD   |    +     |   DA/CD    |
-|  double   |    +     |   DA/CD    |
-|   DA/CD   |    +     |   double   |
-|           |    +     |   DA/CD    |
-|   DA/CD   |    -     |   DA/CD    |
-|   DA/CD   |    -     |   double   |
-|  double   |    -     |   DA/CD    |
-|           |    -     |   DA/CD    |
-|   DA/CD   |    *     |   DA/CD    |
-|   DA/CD   |    *     |   double   |
-|  double   |    *     |   DA/CD    |
-|   DA/CD   |    /     |   DA/CD    |
-|   DA/CD   |    /     |   double   |
-|  double   |    /     |   DA/CD    |
-|   DA/CD   |    =     |   DA/CD    |
-|   DA/CD   |    =     |   double   |
-|   DA/CD   |    +=    |   DA/CD    |
-|   DA/CD   |    +=    |   double   |
-|   DA/CD   |    -=    |   DA/CD    |
-|   DA/CD   |    -=    |   double   |
-|   DA/CD   |    *=    |   DA/CD    |
-|   DA/CD   |    *=    |   double   |
-|   DA/CD   |    /=    |   DA/CD    |
-|   DA/CD   |    /=    |   double   |
+|:---------:|:--------:|:----------:|
+| DA/CD     | +        | DA/CD      |
+| double    | +        | DA/CD      |
+| DA/CD     | +        | double     |
+|           | +        | DA/CD      |
+| DA/CD     | -        | DA/CD      |
+| DA/CD     | -        | double     |
+| double    | -        | DA/CD      |
+|           | -        | DA/CD      |
+| DA/CD     | *        | DA/CD      |
+| DA/CD     | *        | double     |
+| double    | *        | DA/CD      |
+| DA/CD     | /        | DA/CD      |
+| DA/CD     | /        | double     |
+| double    | /        | DA/CD      |
+| DA/CD     | =        | DA/CD      |
+| DA/CD     | =        | double     |
+| DA/CD     | +=       | DA/CD      |
+| DA/CD     | +=       | double     |
+| DA/CD     | -=       | DA/CD      |
+| DA/CD     | -=       | double     |
+| DA/CD     | *=       | DA/CD      |
+| DA/CD     | *=       | double     |
+| DA/CD     | /=       | DA/CD      |
+| DA/CD     | /=       | double     |
 
 Math functions overloaded:
 
@@ -89,79 +89,110 @@ More information on the code is available in [this doxygen document](https://zha
 
 ## How to compile and use cppTPSA
 
-You will need a C++ compiler that supports C++ 11 standard. There are three ways to use the code as follows:
+You will need a C++ compiler that supports C++ 14 standard. (C++14 is needed to compile examples and tests. C++11 is enough to generate the libs.) There are three ways to use the code as follows:
 
 * Download the source files. Include "tpsa_extend.h" and "da.h" in your project and compile. 
 
 * The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
 
-* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 16.04, Ubuntu 18.04 (WSL2), and Ubuntu 20.04 (WSL2). 
-
+* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 20.04 (WSL2), and Ubuntu 22.04 (WSL2). 
+  
   `cmake .` 
   `make`
-
-  Here is an example of compiling the code under Ubuntu 16.04. 
-
+  
+  Here is an example of compiling the code under Ubuntu 22.04. 
+  
   Assume I have cloned the codes to the following folder:
-
+  
   $HOME/tpsa
-
+  
   Inside the above folder, run:
-
-  `cmake .` 
-
+  
+  ```shell
+  cmake .
+  ```
+  
   The Makefile will be generated. 
-
+  
   Then run:
-
-  `make`
-
-  Both the static lib and the shared lib of tpsa will be generated. You can find the following two files:
-
+  
+  ```shell
+  make
+  ```
+  
+  
+  
+  Both the static lib and the shared lib of tpsa will be generated. In the subfolder "lib", you can find  the following two files:
+  
   libtpsa.a and libtpsa.so
+  
+  ### How to install cppTPSA
+  
+  The default installation path is /usr/local/lib. Use the following command to install to the default path:
+  
+  ```shell
+  sudo make install
+  ```
+  
+  Both libs will be installed to /usr/local/lib and the header file, da.h, will be installed to /usr/local/include.
+  
+  
+  
+  To change the installation path, use the following command in cmake configuration:
+  
+  ```shell
+  cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
+  ```
+  
+  The libs will be installed to YOURPATH/lib. 
+  
+  
+  
+  ### How to compile the exmaples and tests
+  
+  There are two ways to compile the examples. After installing the libs, you can run 
+  
+  ```shell
+   cmake --build . --target build_examples
+  ```
+  
+  The executable files will be generated inside the subfolder "examples". 
+  
+  Alternatively, you can jump into the examples folder and run make command:
+  
+  ```shell
+  cd examples
+  make
+  ```
+  
+  Similarly, to compile the tests, you can run the following command in the root folder
+  
+  ```shell
+  cmake --build . --target build_tests
+  ```
+  
+  or jump into the test folder to run
+  
+  ```shell
+  cd test
+  make
+  ```
+  
+  
+  
+  To run the executables, make sure the libs can be found by the OS. If the libs are installed in the default director, run 
+  
+  ```shell
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+  ```
+  
+  The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)) version 2.3.16 , which is a header only test framework for C++.  Make sure you run the tests inside the test folder, otherwise some tests will be failed. 
 
-  Now you can use any of them to compile your file. Here let us compile the examples/examples.cc using libtpsa.a. 
-
-  `gcc examples/examples.cc -o tpsa_exp -I ./include/ -L. -ltpsa -lstdc++ -lm -std=c++14`
-
-  You can also use libtpsa.so. 
-
-  `gcc examples/examples.cc -o tpsa_exp -std=c++14 -Iinclude -L. -ltpsa -lstdc++ -lm`
-
-  The executable file tpsa_exp will be generated. 
-
-  To run the tpsa_exp file, tell the OS where to find the libtpsaso.so:
-
-  `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/tpsa`
-
-  Run the executable:
-
-  ` ./tpsa_exp `
 
 
-The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)), which is a header only test framework for C++. Please use the Makefile inside the test folder to compile the tests. 
+**Known issues:**
 
-### How to install cppTPSA
-
-The default installation path is /usr/lib. Use the following command to install to the default path:
-
-```shell
-sudo make install
-```
-
-To change the installation path, use the following command in cmake configuration:
-
-```shell
-cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
-```
-
-The libs will be installed to YOURPATH/lib. 
-
-Known issues:
-
-When running tests in Linux (tested in Ubuntu 18.04/20.04), a "segmentation fault" error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python.    
-
-
+When running tests in Linux (tested in Ubuntu 18.04/20.04/22.04), a "segmentation fault" error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python.    
 
 ## How to compile and install pyTPSA
 
