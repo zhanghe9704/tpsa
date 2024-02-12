@@ -6,7 +6,7 @@ g(x) should be DA vector(s). f(x) could be float(s) or DA vector(s).
 
 import tpsa
 
-tpsa.da_init(4,2,100)
+tpsa.da_init(4,2,400)
 da = tpsa.base()
 
 print("g(f(x)) with f(x) floats: ")

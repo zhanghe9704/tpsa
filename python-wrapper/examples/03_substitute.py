@@ -7,7 +7,8 @@ Substitute DA vectors for variables in DA vectors.
 """
 
 import tpsa
-tpsa.da_init(4, 3, 100)
+
+tpsa.da_init(4, 3, 400)
 da = tpsa.base()
 
 print("1. substitute a float")
@@ -50,6 +51,7 @@ lz = tpsa.assign(2)
 tpsa.da_substitute(lx, idx, ly, lz)
 lz[0].print()
 lz[1].print()
+
 
 
 
