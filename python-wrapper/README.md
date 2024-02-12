@@ -6,28 +6,18 @@
 
 This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA) in python.
 
-
-
 For TPSA and DA, please refer to chapter 8 in [*Lecture Notes on Special Topics in Accelerator Physics*](http://inspirehep.net/record/595287/files/slac-pub-9574.pdf)  by  Prof. Alex Chao  and chapter 2 in [*Modern Map Methods in Particle Beam Physics*](http://bt.pa.msu.edu/cgi-bin/display.pl?name=AIEP108book) by Prof. Martin Berz. 
 
-
-
-## How to compile and install 
+## How to compile and install
 
 To compile the codes, you will need a C++ compiler that supports C++ 11 standard, make, python3, pybind11 and scikit-build-core.  If you do not have the above programs in your system, you can install them using the following commands. 
 
 ```
 sudo apt install build-essential 
 sudo apt install python python-dev python-pip  
-pip install pybind11 
-pip install scikit-build-core
 ```
 
-
-
 (Note: pybind11 works with python2.7, too. So in principle you can compile the code for python 2.7 and use the lib in python 2.7. However, I have not tried it. )
-
-
 
 Assuming you are in the "tpsa" folder, go to the "python-wrapper" folder to compile and install the lib using PIP. 
 
@@ -66,27 +56,25 @@ Each individual base can be accessed by da[i], where i is the index of the base.
 
 After we defined the bases, we can define other DA vectors and perform computations using the bases. 
 
- ```
+```
 >>> x = 0.5 + da[0] + 2.1*da[1]
 >>> y = tpsa.sin(x)
 >>> y.print()
-          V [27]              Base  [ 10 / 10 ]
+         V [27]              Base  [ 10 / 10 ]
 ----------------------------------------------
-   4.794255386042030e-01     0 0     0
-   8.775825618903728e-01     1 0     1
-   1.842923379969783e+00     0 1     2
-  -2.397127693021015e-01     2 0     3
-  -1.006793631068826e+00     1 1     4
-  -1.057133312622268e+00     0 2     5
-  -1.462637603150621e-01     3 0     6
-  -9.214616899848915e-01     2 1     7
-  -1.935069548968272e+00     1 2     8
-  -1.354548684277791e+00     0 3     9
- ```
+  4.794255386042030e-01     0 0     0
+  8.775825618903728e-01     1 0     1
+  1.842923379969783e+00     0 1     2
+ -2.397127693021015e-01     2 0     3
+ -1.006793631068826e+00     1 1     4
+ -1.057133312622268e+00     0 2     5
+ -1.462637603150621e-01     3 0     6
+ -9.214616899848915e-01     2 1     7
+ -1.935069548968272e+00     1 2     8
+ -1.354548684277791e+00     0 3     9
+```
 
 The list of mathematical operators and functions supported can be found in the following. 
-
-
 
 ### Substitute for variables in DA vectors
 
@@ -119,8 +107,6 @@ Now if we want to evaluate sin(1.2) using the above extension, we need to substi
 ```
 
 In the first line, we substitute 0.2 for the 1st variable in x and store the result in y. Generally, y is a DA vector, considering x can have more than one bases. But for this specific case, y is just a real number. 
-
-
 
 Besides substitute a real number, we can substitute a DA vector, too. 
 
@@ -252,36 +238,36 @@ For more examples of using this lib, please check out the files in the **example
 Currently, the tpsa lib supports the following operators and math functions. 
 
 - Math operator overloaded: (DA - DA vector, CD - complex DA vector)
-
+  
   | Left hand | Operator | Right hand |
-  | :-------: | :------: | :--------: |
-  |   DA/CD   |    +     |   DA/CD    |
-  |  double   |    +     |   DA/CD    |
-  |   DA/CD   |    +     |   double   |
-  |           |    +     |   DA/CD    |
-  |   DA/CD   |    -     |   DA/CD    |
-  |   DA/CD   |    -     |   double   |
-  |  double   |    -     |   DA/CD    |
-  |           |    -     |   DA/CD    |
-  |   DA/CD   |    *     |   DA/CD    |
-  |   DA/CD   |    *     |   double   |
-  |  double   |    *     |   DA/CD    |
-  |   DA/CD   |    /     |   DA/CD    |
-  |   DA/CD   |    /     |   double   |
-  |  double   |    /     |   DA/CD    |
-  |   DA/CD   |    =     |   DA/CD    |
-  |   DA/CD   |    =     |   double   |
-  |   DA/CD   |    +=    |   DA/CD    |
-  |   DA/CD   |    +=    |   double   |
-  |   DA/CD   |    -=    |   DA/CD    |
-  |   DA/CD   |    -=    |   double   |
-  |   DA/CD   |    *=    |   DA/CD    |
-  |   DA/CD   |    *=    |   double   |
-  |   DA/CD   |    /=    |   DA/CD    |
-  |   DA/CD   |    /=    |   double   |
-
+  |:---------:|:--------:|:----------:|
+  | DA/CD     | +        | DA/CD      |
+  | double    | +        | DA/CD      |
+  | DA/CD     | +        | double     |
+  |           | +        | DA/CD      |
+  | DA/CD     | -        | DA/CD      |
+  | DA/CD     | -        | double     |
+  | double    | -        | DA/CD      |
+  |           | -        | DA/CD      |
+  | DA/CD     | *        | DA/CD      |
+  | DA/CD     | *        | double     |
+  | double    | *        | DA/CD      |
+  | DA/CD     | /        | DA/CD      |
+  | DA/CD     | /        | double     |
+  | double    | /        | DA/CD      |
+  | DA/CD     | =        | DA/CD      |
+  | DA/CD     | =        | double     |
+  | DA/CD     | +=       | DA/CD      |
+  | DA/CD     | +=       | double     |
+  | DA/CD     | -=       | DA/CD      |
+  | DA/CD     | -=       | double     |
+  | DA/CD     | *=       | DA/CD      |
+  | DA/CD     | *=       | double     |
+  | DA/CD     | /=       | DA/CD      |
+  | DA/CD     | /=       | double     |
+  
   Math functions overloaded:
-
+  
   - sqrt
   - exp
   - log
@@ -302,8 +288,6 @@ Currently, the tpsa lib supports the following operators and math functions.
 
 1. When some temporary variables in the C++ lib go out of scope, the memory of them are not released immediately while they do in pure C++ environment, although eventually they will be released a few steps after the function call finishes. This means we may need a larger DA vector pool in Python than in C++. Usually a pool size of a few hundred to a few thousand should be large enough, which is not a problem for a modern personal computer.   
 
-
-
 ## Acknowledgement
 
 Thanks to Dr. Lingyun Yang for providing his tpsa code. 
@@ -313,4 +297,3 @@ Thanks to pybind11 developers.
 ## Contact
 
 Contact the author by hezhang.AT.jlab.org. 
-
