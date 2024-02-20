@@ -238,36 +238,36 @@ For more examples of using this lib, please check out the files in the **example
 Currently, the tpsa lib supports the following operators and math functions. 
 
 - Math operator overloaded: (DA - DA vector, CD - complex DA vector)
-  
+
   | Left hand | Operator | Right hand |
-  |:---------:|:--------:|:----------:|
-  | DA/CD     | +        | DA/CD      |
-  | double    | +        | DA/CD      |
-  | DA/CD     | +        | double     |
-  |           | +        | DA/CD      |
-  | DA/CD     | -        | DA/CD      |
-  | DA/CD     | -        | double     |
-  | double    | -        | DA/CD      |
-  |           | -        | DA/CD      |
-  | DA/CD     | *        | DA/CD      |
-  | DA/CD     | *        | double     |
-  | double    | *        | DA/CD      |
-  | DA/CD     | /        | DA/CD      |
-  | DA/CD     | /        | double     |
-  | double    | /        | DA/CD      |
-  | DA/CD     | =        | DA/CD      |
-  | DA/CD     | =        | double     |
-  | DA/CD     | +=       | DA/CD      |
-  | DA/CD     | +=       | double     |
-  | DA/CD     | -=       | DA/CD      |
-  | DA/CD     | -=       | double     |
-  | DA/CD     | *=       | DA/CD      |
-  | DA/CD     | *=       | double     |
-  | DA/CD     | /=       | DA/CD      |
-  | DA/CD     | /=       | double     |
-  
+  | :-------: | :------: | :--------: |
+  |   DA/CD   |    +     |   DA/CD    |
+  |  double   |    +     |   DA/CD    |
+  |   DA/CD   |    +     |   double   |
+  |           |    +     |   DA/CD    |
+  |   DA/CD   |    -     |   DA/CD    |
+  |   DA/CD   |    -     |   double   |
+  |  double   |    -     |   DA/CD    |
+  |           |    -     |   DA/CD    |
+  |   DA/CD   |    *     |   DA/CD    |
+  |   DA/CD   |    *     |   double   |
+  |  double   |    *     |   DA/CD    |
+  |   DA/CD   |    /     |   DA/CD    |
+  |   DA/CD   |    /     |   double   |
+  |  double   |    /     |   DA/CD    |
+  |   DA/CD   |    =     |   DA/CD    |
+  |   DA/CD   |    =     |   double   |
+  |   DA/CD   |    +=    |   DA/CD    |
+  |   DA/CD   |    +=    |   double   |
+  |   DA/CD   |    -=    |   DA/CD    |
+  |   DA/CD   |    -=    |   double   |
+  |   DA/CD   |    *=    |   DA/CD    |
+  |   DA/CD   |    *=    |   double   |
+  |   DA/CD   |    /=    |   DA/CD    |
+  |   DA/CD   |    /=    |   double   |
+
   Math functions overloaded:
-  
+
   - sqrt
   - exp
   - log
@@ -287,6 +287,26 @@ Currently, the tpsa lib supports the following operators and math functions.
 ## Known issues
 
 1. When some temporary variables in the C++ lib go out of scope, the memory of them are not released immediately while they do in pure C++ environment, although eventually they will be released a few steps after the function call finishes. This means we may need a larger DA vector pool in Python than in C++. Usually a pool size of a few hundred to a few thousand should be large enough, which is not a problem for a modern personal computer.   
+
+2. We observed "segmentation fault" error in the following two scenarios: (1) When running a TPSA script in the command line using 
+
+   ```shell
+   python my_tpsa_scrpt.py
+   ```
+
+   a segmentation fault may happen after the script is carried out. (2) When using the TPSA lib in a Python interactive environment, a segmentation fault may happen after the following command is called:
+
+   ```shell
+   exit()
+   ```
+
+    to quit the Python environment. Unfortunately, I do not know what exactly happen in the above scenarios. we suspect the segmentation error is caused by destructors in C++ to reset the memory slots of the exiting DA vectors. However, we observed the segmentation fault can be avoided by enlarge the memory pool when initializing the TPSA environment using the following command:
+
+   ```shell
+   tpsa.da_init(DA_Order, Variable_Number, DA_Vector_Number)
+   ```
+
+   Putting a large number for "DA_Vector_Number" tends to prevent the segmentation error from happening. 
 
 ## Acknowledgement
 
