@@ -119,76 +119,66 @@ You will need a C++ compiler that supports C++ 14 standard. (C++14 is needed to 
   ```shell
   make
   ```
-  
-  
-  
+
   Both the static lib and the shared lib of tpsa will be generated. In the subfolder "lib", you can find  the following two files:
-  
+
   libtpsa.a and libtpsa.so
-  
-  ### How to install cppTPSA
-  
+
+### How to install cppTPSA
+
   The default installation path is /usr/local/lib. Use the following command to install to the default path:
-  
-  ```shell
-  sudo make install
-  ```
-  
+
+```shell
+sudo make install
+```
+
   Both libs will be installed to /usr/local/lib and the header file, da.h, will be installed to /usr/local/include.
-  
-  
-  
+
   To change the installation path, use the following command in cmake configuration:
-  
-  ```shell
-  cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
-  ```
-  
+
+```shell
+cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
+```
+
   The libs will be installed to YOURPATH/lib. 
-  
-  
-  
-  ### How to compile the exmaples and tests
-  
+
+### How to compile the exmaples and tests
+
   There are two ways to compile the examples. After installing the libs, you can run 
-  
-  ```shell
-   cmake --build . --target build_examples
-  ```
-  
+
+```shell
+ cmake --build . --target build_examples
+```
+
   The executable files will be generated inside the subfolder "examples". 
-  
+
   Alternatively, you can jump into the examples folder and run make command:
-  
-  ```shell
-  cd examples
-  make
-  ```
-  
+
+```shell
+cd examples
+make
+```
+
   Similarly, to compile the tests, you can run the following command in the root folder
-  
-  ```shell
-  cmake --build . --target build_tests
-  ```
-  
+
+```shell
+cmake --build . --target build_tests
+```
+
   or jump into the test folder to run
-  
-  ```shell
-  cd test
-  make
-  ```
-  
-  
-  
+
+```shell
+cd test
+make
+```
+
   To run the executables, make sure the libs can be found by the OS. If the libs are installed in the default director, run 
-  
-  ```shell
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-  ```
-  
+
+```shell
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+```
+
   The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)) version 2.3.16 , which is a header only test framework for C++.  Make sure you run the tests inside the test folder, otherwise some tests will be failed. 
-
-
 
 **Known issues:**
 
@@ -204,7 +194,11 @@ See [here](https://zhanghe9704.github.io/tpsa/contributing.html).
 
 ## Acknowledgement
 
-Thanks to Dr. Lingyun Yang for providing his tpsa code. 
+Thanks to Dr. Lingyun Yang for providing his tpsa code.
+
+**This work is supported by the U.S. Department of Energy, Office of Science, Office of Nuclear Physics under contract DE-AC05-06OR23177.**
+
+
 
 ## Contact
 
