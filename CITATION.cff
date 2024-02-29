@@ -1,0 +1,9 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: Zhang
+  given-names: He
+orcid: https://orcid.org/0000-0001-7701-4118
+title:cppTPSA/pyTPSA: a C++/Python package for truncated power series algebra
+version: v1.1.1
+date-released: 2024-02-29
