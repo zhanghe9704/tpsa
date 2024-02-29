@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md)
 
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.04818/status.svg)](https://doi.org/10.21105/joss.04818)
+
 ## About this code
 
 This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA) in C++ and Python 3.x environment.
