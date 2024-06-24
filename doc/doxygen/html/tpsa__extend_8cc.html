@@ -237,6 +237,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a879c5b6c7bb1202c9abae1ed5f1d1230"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a879c5b6c7bb1202c9abae1ed5f1d1230">ad_copy</a> (const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *isrc, const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *idst)</td></tr>
 <tr class="memdesc:a879c5b6c7bb1202c9abae1ed5f1d1230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy TPS vector This function replaces the original one in <a class="el" href="tpsa_8cpp.html" title="Automatic Differentiation Test.">tpsa.cpp</a>.  <a href="tpsa__extend_8cc.html#a879c5b6c7bb1202c9abae1ed5f1d1230">More...</a><br /></td></tr>
 <tr class="separator:a879c5b6c7bb1202c9abae1ed5f1d1230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa40b75f38c878221d3f799ff4b6d405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#afa40b75f38c878221d3f799ff4b6d405">ad_copy</a> (const double *isrc, int length, const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *idst)</td></tr>
+<tr class="memdesc:afa40b75f38c878221d3f799ff4b6d405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy TPS vector from memory.  <a href="tpsa__extend_8cc.html#afa40b75f38c878221d3f799ff4b6d405">More...</a><br /></td></tr>
+<tr class="separator:afa40b75f38c878221d3f799ff4b6d405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a2160a9f53cddc433066c1714d5d58e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a0a2160a9f53cddc433066c1714d5d58e">ad_reset</a> (const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iv)</td></tr>
 <tr class="memdesc:a0a2160a9f53cddc433066c1714d5d58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset a TPS vector to a constant 0 This function replaces the original one in <a class="el" href="tpsa_8cpp.html" title="Automatic Differentiation Test.">tpsa.cpp</a>.  <a href="tpsa__extend_8cc.html#a0a2160a9f53cddc433066c1714d5d58e">More...</a><br /></td></tr>
 <tr class="separator:a0a2160a9f53cddc433066c1714d5d58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -746,8 +749,52 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afa40b75f38c878221d3f799ff4b6d405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa40b75f38c878221d3f799ff4b6d405">&#9670;&nbsp;</a></span>ad_copy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ad_copy </td>
+          <td>(</td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>isrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *&#160;</td>
+          <td class="paramname"><em>idst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy TPS vector from memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">isrc</td><td>starting address of the ememory </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>length (of double) to copy </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">idst</td><td>destination </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a879c5b6c7bb1202c9abae1ed5f1d1230"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a879c5b6c7bb1202c9abae1ed5f1d1230">&#9670;&nbsp;</a></span>ad_copy()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a879c5b6c7bb1202c9abae1ed5f1d1230">&#9670;&nbsp;</a></span>ad_copy() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

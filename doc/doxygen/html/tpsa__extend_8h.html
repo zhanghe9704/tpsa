@@ -232,6 +232,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a28b42590956a3bdcd9094b6be3892a9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#a28b42590956a3bdcd9094b6be3892a9a">print_vec</a> (unsigned int ii, unsigned int jj, std::ostream &amp;os)</td></tr>
 <tr class="memdesc:a28b42590956a3bdcd9094b6be3892a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print two given TPS vectors to screen or file.  <a href="tpsa__extend_8h.html#a28b42590956a3bdcd9094b6be3892a9a">More...</a><br /></td></tr>
 <tr class="separator:a28b42590956a3bdcd9094b6be3892a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa40b75f38c878221d3f799ff4b6d405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8h.html#afa40b75f38c878221d3f799ff4b6d405">ad_copy</a> (const double *isrc, int length, const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *idst)</td></tr>
+<tr class="memdesc:afa40b75f38c878221d3f799ff4b6d405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy TPS vector from memory.  <a href="tpsa__extend_8h.html#afa40b75f38c878221d3f799ff4b6d405">More...</a><br /></td></tr>
+<tr class="separator:afa40b75f38c878221d3f799ff4b6d405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extend the original <a class="el" href="tpsa_8h.html" title="Automatic Differentiation.">tpsa.h</a> file by Dr. Lingyun Yang. </p>
@@ -602,6 +605,50 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Value of the constant part of the given TPS vector. </dd></dl>
+
+</div>
+</div>
+<a id="afa40b75f38c878221d3f799ff4b6d405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa40b75f38c878221d3f799ff4b6d405">&#9670;&nbsp;</a></span>ad_copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ad_copy </td>
+          <td>(</td>
+          <td class="paramtype">const double *&#160;</td>
+          <td class="paramname"><em>isrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *&#160;</td>
+          <td class="paramname"><em>idst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy TPS vector from memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">isrc</td><td>starting address of the ememory </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>length (of double) to copy </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">idst</td><td>destination </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
