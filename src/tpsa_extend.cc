@@ -1510,6 +1510,18 @@ void ad_copy(const TVEC* isrc, const TVEC* idst) {
     adveclen[j] = adveclen[i];
 }
 
+/** \brief Copy TPS vector from memory
+ * \param[in] isrc starting address of the ememory
+ * \param[in] length length (of double) to copy
+ * \param[out] idst destination
+ */
+void ad_copy(const double* isrc, int length, const TVEC* idst) {
+    unsigned int j = *idst;
+    if (FULL_VEC_LEN<length) length = FULL_VEC_LEN;
+    memcpy(advec[j], isrc, length*sizeof(double));
+    adveclen[j] = length;
+}
+
 /** \brief Reset a TPS vector to a constant 0
  * This function replaces the original one in tpsa.cpp.
  * \param iv TPS vector.

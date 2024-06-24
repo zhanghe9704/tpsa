@@ -88,5 +88,6 @@ unsigned int ad_last_note();    //Index of the last available slot in the TPS ve
 unsigned int ad_next_note();    //Index of the next available slot in the TPS vector pool.
 void print_vec(unsigned int ii, std::ostream& os);
 void print_vec(unsigned int ii, unsigned int jj, std::ostream& os);
+void ad_copy(const double* isrc, int length, const TVEC* idst); //Copy a block of memeory of double numbers to construct a TPS vector
 #endif // TPSA_EXTEND
 
