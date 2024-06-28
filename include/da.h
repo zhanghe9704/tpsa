@@ -25,7 +25,7 @@ struct DAVector {
   DAVector(DAVector&& da_vector);
   DAVector(double x);
   DAVector(int i);
-  DAVector(std::vector<double> v);
+  DAVector(std::vector<double>& v);
 //  DAVector(bool b);
   void print() const;
   double con() const;
