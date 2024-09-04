@@ -21,31 +21,31 @@ A new data type DAVector is created as a wrapper of the TPS vector. The followin
 Math operator overloaded: (DA - DA vector, CD - complex DA vector)
 
 | Left hand | Operator | Right hand |
-|:---------:|:--------:|:----------:|
-| DA/CD     | +        | DA/CD      |
-| double    | +        | DA/CD      |
-| DA/CD     | +        | double     |
-|           | +        | DA/CD      |
-| DA/CD     | -        | DA/CD      |
-| DA/CD     | -        | double     |
-| double    | -        | DA/CD      |
-|           | -        | DA/CD      |
-| DA/CD     | *        | DA/CD      |
-| DA/CD     | *        | double     |
-| double    | *        | DA/CD      |
-| DA/CD     | /        | DA/CD      |
-| DA/CD     | /        | double     |
-| double    | /        | DA/CD      |
-| DA/CD     | =        | DA/CD      |
-| DA/CD     | =        | double     |
-| DA/CD     | +=       | DA/CD      |
-| DA/CD     | +=       | double     |
-| DA/CD     | -=       | DA/CD      |
-| DA/CD     | -=       | double     |
-| DA/CD     | *=       | DA/CD      |
-| DA/CD     | *=       | double     |
-| DA/CD     | /=       | DA/CD      |
-| DA/CD     | /=       | double     |
+| :-------: | :------: | :--------: |
+|   DA/CD   |    +     |   DA/CD    |
+|  double   |    +     |   DA/CD    |
+|   DA/CD   |    +     |   double   |
+|           |    +     |   DA/CD    |
+|   DA/CD   |    -     |   DA/CD    |
+|   DA/CD   |    -     |   double   |
+|  double   |    -     |   DA/CD    |
+|           |    -     |   DA/CD    |
+|   DA/CD   |    *     |   DA/CD    |
+|   DA/CD   |    *     |   double   |
+|  double   |    *     |   DA/CD    |
+|   DA/CD   |    /     |   DA/CD    |
+|   DA/CD   |    /     |   double   |
+|  double   |    /     |   DA/CD    |
+|   DA/CD   |    =     |   DA/CD    |
+|   DA/CD   |    =     |   double   |
+|   DA/CD   |    +=    |   DA/CD    |
+|   DA/CD   |    +=    |   double   |
+|   DA/CD   |    -=    |   DA/CD    |
+|   DA/CD   |    -=    |   double   |
+|   DA/CD   |    *=    |   DA/CD    |
+|   DA/CD   |    *=    |   double   |
+|   DA/CD   |    /=    |   DA/CD    |
+|   DA/CD   |    /=    |   double   |
 
 Math functions overloaded:
 
@@ -93,31 +93,31 @@ More information on the code is available in [this doxygen document](https://zha
 
 You will need a C++ compiler that supports C++ 14 standard. (C++14 is needed to compile examples and tests. C++11 is enough to generate the libs.) There are three ways to use the code as follows:
 
-* Download the source files. Include "tpsa_extend.h" and "da.h" in your project and compile. 
+* Download the source files. Include "tpsa_extend.h" and "da.h" in your project and compile. Please note: do NOT include tpsa.cpp directly in your compiling command. This file is automatically included in tpsa_extend.cc. Compiling it directly can cause compiling errors. 
 
 * The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
 
 * You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 20.04 (WSL2), and Ubuntu 22.04 (WSL2). 
-  
+
   `cmake .` 
   `make`
-  
+
   Here is an example of compiling the code under Ubuntu 22.04. 
-  
+
   Assume I have cloned the codes to the following folder:
-  
+
   $HOME/tpsa
-  
+
   Inside the above folder, run:
-  
+
   ```shell
   cmake .
   ```
-  
+
   The Makefile will be generated. 
-  
+
   Then run:
-  
+
   ```shell
   make
   ```
