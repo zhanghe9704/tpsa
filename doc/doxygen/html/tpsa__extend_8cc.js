@@ -15,6 +15,7 @@ var tpsa__extend_8cc =
     [ "ad_con", "tpsa__extend_8cc.html#abb04463f8347bacf3c2f6683113946bc", null ],
     [ "ad_copy", "tpsa__extend_8cc.html#afa40b75f38c878221d3f799ff4b6d405", null ],
     [ "ad_copy", "tpsa__extend_8cc.html#a879c5b6c7bb1202c9abae1ed5f1d1230", null ],
+    [ "ad_copy_to", "tpsa__extend_8cc.html#a840a49540de9b325ac346c528434fd00", null ],
     [ "ad_count", "tpsa__extend_8cc.html#a949ad6339b5976ea9e6779f6e1d4fe5c", null ],
     [ "ad_dim", "tpsa__extend_8cc.html#aa190b425c565e808b3a63561ab1660c0", null ],
     [ "ad_div_c", "tpsa__extend_8cc.html#ad38ef47aea4f0d5dffd6cfda67eb8f60", null ],

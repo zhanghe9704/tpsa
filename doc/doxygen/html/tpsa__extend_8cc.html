@@ -240,6 +240,9 @@ Functions</h2></td></tr>
 <tr class="memitem:afa40b75f38c878221d3f799ff4b6d405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#afa40b75f38c878221d3f799ff4b6d405">ad_copy</a> (const double *isrc, int length, const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *idst)</td></tr>
 <tr class="memdesc:afa40b75f38c878221d3f799ff4b6d405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy TPS vector from memory.  <a href="tpsa__extend_8cc.html#afa40b75f38c878221d3f799ff4b6d405">More...</a><br /></td></tr>
 <tr class="separator:afa40b75f38c878221d3f799ff4b6d405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840a49540de9b325ac346c528434fd00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a840a49540de9b325ac346c528434fd00">ad_copy_to</a> (const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *idrc, int length, double *idst)</td></tr>
+<tr class="memdesc:a840a49540de9b325ac346c528434fd00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy TPS vector to memory associated with a double pointer.  <a href="tpsa__extend_8cc.html#a840a49540de9b325ac346c528434fd00">More...</a><br /></td></tr>
+<tr class="separator:a840a49540de9b325ac346c528434fd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a2160a9f53cddc433066c1714d5d58e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa__extend_8cc.html#a0a2160a9f53cddc433066c1714d5d58e">ad_reset</a> (const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iv)</td></tr>
 <tr class="memdesc:a0a2160a9f53cddc433066c1714d5d58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset a TPS vector to a constant 0 This function replaces the original one in <a class="el" href="tpsa_8cpp.html" title="Automatic Differentiation Test.">tpsa.cpp</a>.  <a href="tpsa__extend_8cc.html#a0a2160a9f53cddc433066c1714d5d58e">More...</a><br /></td></tr>
 <tr class="separator:a0a2160a9f53cddc433066c1714d5d58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -823,6 +826,50 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">isrc</td><td>source </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">idst</td><td>destination </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a840a49540de9b325ac346c528434fd00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840a49540de9b325ac346c528434fd00">&#9670;&nbsp;</a></span>ad_copy_to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ad_copy_to </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *&#160;</td>
+          <td class="paramname"><em>idrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>idst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy TPS vector to memory associated with a double pointer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">isrc</td><td>TPS vector </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>length (of double) to copy </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">idst</td><td>destination </td></tr>
   </table>
   </dd>

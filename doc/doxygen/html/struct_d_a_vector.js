@@ -46,6 +46,8 @@ var struct_d_a_vector =
     [ "reset_const", "struct_d_a_vector.html#a104928f5ba59b6ce42636646670048c4", null ],
     [ "set_element", "struct_d_a_vector.html#a08078f536d095d8c7423ea2989a7854c", null ],
     [ "set_element", "struct_d_a_vector.html#a4403b07be6cfbac43bfa05fef187caab", null ],
+    [ "to_vector", "struct_d_a_vector.html#a7b084cc3d061b71537bc4695f04aaf69", null ],
+    [ "to_vector", "struct_d_a_vector.html#a4307db8ded66a51386ae71c056c6ae8a", null ],
     [ "weighted_norm", "struct_d_a_vector.html#aeebbd9ec0e71c32141064721ba2f10cb", null ],
     [ "da_vector_", "struct_d_a_vector.html#a359a2e0b8e48c6e481b48b5972e7631c", null ]
 ];
