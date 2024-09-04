@@ -1522,6 +1522,17 @@ void ad_copy(const double* isrc, int length, const TVEC* idst) {
     adveclen[j] = length;
 }
 
+/** \brief Copy TPS vector to memory associated with a double pointer
+ * \param[in] isrc TPS vector
+ * \param[in] length length (of double) to copy
+ * \param[out] idst destination
+ */
+void ad_copy_to(const TVEC* idrc, int length, double* idst) {
+    unsigned int j = *idrc;
+    if (FULL_VEC_LEN<length) length = FULL_VEC_LEN;
+    memcpy(idst, advec[j], length*sizeof(double));
+}
+
 /** \brief Reset a TPS vector to a constant 0
  * This function replaces the original one in tpsa.cpp.
  * \param iv TPS vector.

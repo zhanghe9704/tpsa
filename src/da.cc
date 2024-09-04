@@ -65,6 +65,18 @@ void DAVector::clear() {
     ad_free(&da_vector_);
 }
 
+void DAVector::to_vector(std::vector<double>& v){
+    int length = ad_full_length();
+    v.resize(length);
+    ad_copy_to(&da_vector_, length, v.data());
+}
+
+void DAVector::to_vector(int length, std::vector<double>& v){
+    if (length>ad_full_length()) length == ad_full_length();
+    v.resize(length);
+    ad_copy_to(&da_vector_, length, v.data());
+}
+
 void DAVector::print() const { ad_print(&da_vector_);}      /**< Print out a DA vector. */
 double DAVector::con() const {return ad_con(da_vector_);}   /**< Return the constant element of a DA vector. */
 int DAVector::n_element() const {return ad_n_element(da_vector_);} /**< Return the number of non-zero element a DA vector. */

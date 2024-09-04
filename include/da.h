@@ -51,6 +51,8 @@ struct DAVector {
   static int order();
   static int full_length();
   static double eps;
+  void to_vector(std::vector<double>& v);
+  void to_vector(int length, std::vector<double>& v);
   DAVector& operator=(const DAVector& da_vector);
   DAVector& operator=(DAVector&& da_vector);
   DAVector& operator=(double x);
