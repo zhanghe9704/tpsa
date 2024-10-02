@@ -183,6 +183,41 @@ void DAVector::element(unsigned int i, unsigned int *c, double& elem) const {
   	ad_elem(&da_vector_, &ii, c, &elem);
 }
 
+
+/** \brief Return the value and the order pattern of the specific partial derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition,
+ * the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be
+ * equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] i The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] elem The value of the partial derivative.
+ * \return
+ *
+ */
+void DAVector::derivative(unsigned int i, std::vector<unsigned int>& c, double& elem) const {
+    unsigned int ii = i+1;
+    if (i<0) ii = 0;
+    ad_elem(da_vector_, ii, c, elem);
+}
+
+/** \brief Return the value and the order pattern of the specific partial derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition,
+ * the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be
+ * equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] i The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] elem The value of the partial derivative.
+ * \return
+ *
+ */
+void DAVector::derivative(unsigned int i, unsigned int *c, double& elem) const {
+    unsigned int ii = i+1;
+    if (i<0) ii = 0;
+    ad_elem(&da_vector_, &ii, c, &elem);
+}
+
 /** \brief Return the value of a specific element.
  * Given the ordinal number of the element, return the value. The ordinal number starts from zero, following c++ tradition.
  * \param i The ordinal number of the element.
@@ -210,6 +245,18 @@ double DAVector::element(int i) {
  */
 double DAVector::element(std::vector<int>idx) {
     return ad_elem(da_vector_, idx);
+}
+
+/** \brief Return the value of a specific partial derivative.
+ * Given the order pattern of the element, return the value. The size of the vector idx should be equal to the base number.
+ * For example, assuming the base number is three, idx = {nx, ny, nz} referring to the element (x^nx)*(y^ny)*(z^nz),
+ * where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param idx The order pattern of the element.
+ * \return The value of the partial derivative.
+ *
+ */
+double DAVector::derivative(std::vector<int> idx) {
+    return ad_derivative(da_vector_, idx);
 }
 
 std::vector<int>& DAVector::element_orders(int i) {

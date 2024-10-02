@@ -33,8 +33,11 @@ struct DAVector {
   int n_element() const;
   void element(unsigned int i, unsigned int *c, double& elem) const;
   void element(unsigned int i, std::vector<unsigned int>& c, double& elem) const;
+  void derivative(unsigned int i, unsigned int *c, double& elem) const;
+  void derivative(unsigned int i, std::vector<unsigned int>& c, double& elem) const;
   double element(int i);
   double element(std::vector<int> idx);
+  double derivative(std::vector<int> idx);
   std::vector<int>& element_orders(int i);
   double norm();
   double weighted_norm(double w);

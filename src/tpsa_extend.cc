@@ -11,6 +11,7 @@
 
 #include "../include/tpsa_extend.h"
 #include <algorithm>
+#include <array>
 #include <cassert>
 #include <cstring>
 #include "tpsa.cpp"
@@ -46,6 +47,14 @@ void ADOrderTable::generate_order_table() {
         order_index.insert(std::pair<std::vector<int>, int>(orders,i));
     }
 }
+
+// Define a static std::array of factorial values up to 20.
+static const std::array<long long, 21> FACT20 = {
+    1LL, 1LL, 2LL, 6LL, 24LL, 120LL, 720LL, 5040LL, 40320LL, 362880LL,
+    3628800LL, 39916800LL, 479001600LL, 6227020800LL, 87178291200LL,
+    1307674368000LL, 20922789888000LL, 355687428096000LL, 6402373705728000LL,
+    121645100408832000LL, 2432902008176640000LL
+};
 
 /** \brief Delete the ad_order_table.
  *
@@ -1398,15 +1407,57 @@ void ad_sub(const unsigned int idst, const unsigned int jsrc, TVEC ov) {
  * Given the ordinal number of an element, return the value and order pattern of the element. The size of vector c should be
  * equal to the number of bases. For example, if idx matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
  * x, y, and z are the bases.
+ * \param[in] vec The TPS vector
  * \param[in] idx The ordinal number of the element.
  * \param[out] c The order pattern of the element.
- * \param[out] elem The value of the element.
+ * \param[out] x The value of the element.
  * \return
  *
  */
 void ad_elem(const TVEC &vec, unsigned int idx, std::vector<unsigned int>& c, double& x) {
     ad_elem(&vec, &idx, &(*c.begin()), &x);
 }
+
+/** \brief Return the value and the order pattern of the specific derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the derivative. The size of vector c should be
+ * equal to the number of bases. For example, if idx matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] vec The TPS vector
+ * \param[in] idx The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] x The value of the derivative.
+ * \return
+ *
+ */
+void ad_derivative(const TVEC &vec, unsigned int idx, std::vector<unsigned int>& c, double& x) {
+    ad_elem(&vec, &idx, &(*c.begin()), &x);
+    double coef = 1;
+    for(auto i:c) {
+        coef *= static_cast<double>(FACT20.at(i));
+    }
+    x *= coef;
+}
+
+/** \brief Return the value and the order pattern of the specific derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the derivative. The size of vector c should be
+ * equal to the number of bases. For example, if idx matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] vec The TPS vector
+ * \param[in] idx The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] x The value of the derivative.
+ * \return
+ *
+ */
+void ad_derivative(const TVEC &vec, unsigned int idx, unsigned int* c, double& x) {
+    ad_elem(&vec, &idx, c, &x);
+    double coef = 1;
+    for(int i=0; i<gnv; ++i) {
+        coef *= static_cast<double>(FACT20.at(c[i]));
+    }
+    x *= coef;
+}
+
 
 /** \brief Return value of a specific element in a TPS vector
  * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz}, the function returns the
@@ -1439,6 +1490,45 @@ double ad_elem(const TVEC &vec, std::vector<int> &idx) {
     }
     return advec[vec][k];
 }
+
+
+/** \brief Return value of a specific partical derivative in a TPS vector
+ * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz}, the function returns the
+ * value of the element (x^nx)*(n^ny)*(z^nz) multiplied by factorial(nx)*factorial(ny)*factorial(nz) in the TPS vector.
+ * This is an alternative function for the original one in tpsa.cpp.
+ * \param vec A TPS vector.
+ * \param idx Order pattern of the element.
+ * \return Value of the derivative.
+ *
+ */
+double ad_derivative(const TVEC &vec, std::vector<int> &idx) {
+    assert(gnv==idx.size()&&"Error in ad_elem: No. of indexes NOT EQUAL to No. of bases!");
+    for(auto& v: idx) {
+        assert((v<=ad_order() && v>=0 && "Error in ad_elem: value of indexes out of range"));
+    }
+
+    double c = 1;
+    for(auto i:idx) {
+        c *= static_cast<double>(FACT20.at(i));
+    }
+    //Find the index of the element
+    if(ad_order_table.valid_table()) {
+        return c*advec[vec][ad_order_table.find_index(idx)];
+    }
+    unsigned int d = 0;
+    for (unsigned int i = 0; i < gnv; ++i) {
+        d += idx.at(i);
+    }
+
+    unsigned int k = 0;
+    for (unsigned int i = 0; i < gnv; ++i){
+        auto b = d;
+        d -= idx.at(i);
+        k += H[gnv-i][b];
+    }
+    return c*advec[vec][k];
+}
+
 
 /** \brief Change the value of a specific element in a TPS vector
  * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz} and a value x, the function

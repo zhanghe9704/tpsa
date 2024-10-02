@@ -74,7 +74,10 @@ void ad_add(const unsigned int idst, const unsigned int jsrc, unsigned int ov);
 void ad_sub(const unsigned int idst, const unsigned int jsrc, TVEC ov);
 void ad_add_const(const TVEC i, double r, TVEC ov);
 double ad_elem(const TVEC &vec, std::vector<int> &idx);
+double ad_derivative(const TVEC &vec, std::vector<int> &idx);
 void ad_elem(const TVEC &vec, unsigned int idx, std::vector<unsigned int>& c, double& x);
+void ad_derivative(const TVEC &vec, unsigned int idx, std::vector<unsigned int>& c, double& x) ;
+void ad_derivative(const TVEC &vec, unsigned int idx, unsigned int* c, double& x);
 void ad_pok(const TVEC &vec, std::vector<int> &idx, double x);
 int ad_order(); //Return the order of the TPS environment.
 void ad_clean(const TVEC &iv, const double eps); //Set the coefficients smaller than eps to zero.
