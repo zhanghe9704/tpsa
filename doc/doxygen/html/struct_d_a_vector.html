@@ -127,12 +127,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3c5a753fb040155746a04f5cd01b0c8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a3c5a753fb040155746a04f5cd01b0c8b">element</a> (unsigned int i, std::vector&lt; unsigned int &gt; &amp;c, double &amp;elem) const</td></tr>
 <tr class="memdesc:a3c5a753fb040155746a04f5cd01b0c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value and the order pattern of the specific element. Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition, the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of vector c should be equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where x, y, and z are the bases.  <a href="struct_d_a_vector.html#a3c5a753fb040155746a04f5cd01b0c8b">More...</a><br /></td></tr>
 <tr class="separator:a3c5a753fb040155746a04f5cd01b0c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51443234b9b24ed0201047eeb199d278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a51443234b9b24ed0201047eeb199d278">derivative</a> (unsigned int i, unsigned int *c, double &amp;elem) const</td></tr>
+<tr class="memdesc:a51443234b9b24ed0201047eeb199d278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value and the order pattern of the specific partial derivative. Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition, the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)  <a href="struct_d_a_vector.html#a51443234b9b24ed0201047eeb199d278">More...</a><br /></td></tr>
+<tr class="separator:a51443234b9b24ed0201047eeb199d278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aee5debadba34a259a5ff4104276d95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a8aee5debadba34a259a5ff4104276d95">derivative</a> (unsigned int i, std::vector&lt; unsigned int &gt; &amp;c, double &amp;elem) const</td></tr>
+<tr class="memdesc:a8aee5debadba34a259a5ff4104276d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value and the order pattern of the specific partial derivative. Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition, the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)  <a href="struct_d_a_vector.html#a8aee5debadba34a259a5ff4104276d95">More...</a><br /></td></tr>
+<tr class="separator:a8aee5debadba34a259a5ff4104276d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2cabf406529dff2d2a27c340f60826e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#aa2cabf406529dff2d2a27c340f60826e">element</a> (int i)</td></tr>
 <tr class="memdesc:aa2cabf406529dff2d2a27c340f60826e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific element. Given the ordinal number of the element, return the value. The ordinal number starts from zero, following c++ tradition.  <a href="struct_d_a_vector.html#aa2cabf406529dff2d2a27c340f60826e">More...</a><br /></td></tr>
 <tr class="separator:aa2cabf406529dff2d2a27c340f60826e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53070a432d184992aaaa69e1cb9f609d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a53070a432d184992aaaa69e1cb9f609d">element</a> (std::vector&lt; int &gt; idx)</td></tr>
 <tr class="memdesc:a53070a432d184992aaaa69e1cb9f609d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific element. Given the order pattern of the element, return the value. The size of the vector idx should be equal to the base number. For example, assuming the base number is three, idx = {nx, ny, nz} referring to the element (x^nx)*(y^ny)*(z^nz), where x, y, and z are the bases.  <a href="struct_d_a_vector.html#a53070a432d184992aaaa69e1cb9f609d">More...</a><br /></td></tr>
 <tr class="separator:a53070a432d184992aaaa69e1cb9f609d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a2828f5555dd1038f4b06c377b16e5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a82a2828f5555dd1038f4b06c377b16e5">derivative</a> (std::vector&lt; int &gt; idx)</td></tr>
+<tr class="memdesc:a82a2828f5555dd1038f4b06c377b16e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific partial derivative. Given the order pattern of the element, return the value. The size of the vector idx should be equal to the base number. For example, assuming the base number is three, idx = {nx, ny, nz} referring to the element (x^nx)*(y^ny)*(z^nz), where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)  <a href="struct_d_a_vector.html#a82a2828f5555dd1038f4b06c377b16e5">More...</a><br /></td></tr>
+<tr class="separator:a82a2828f5555dd1038f4b06c377b16e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a982ae9c1ff348c191a0c53018850bde6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a982ae9c1ff348c191a0c53018850bde6">element_orders</a> (int i)</td></tr>
 <tr class="separator:a982ae9c1ff348c191a0c53018850bde6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe5e73d838b0178ecfa6910052a59fda"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#abe5e73d838b0178ecfa6910052a59fda">norm</a> ()</td></tr>
@@ -439,6 +448,123 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Return the constant element of a DA vector. </p>
+
+</div>
+</div>
+<a id="a82a2828f5555dd1038f4b06c377b16e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82a2828f5555dd1038f4b06c377b16e5">&#9670;&nbsp;</a></span>derivative() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DAVector::derivative </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the value of a specific partial derivative. Given the order pattern of the element, return the value. The size of the vector idx should be equal to the base number. For example, assuming the base number is three, idx = {nx, ny, nz} referring to the element (x^nx)*(y^ny)*(z^nz), where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The order pattern of the element. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the partial derivative. </dd></dl>
+
+</div>
+</div>
+<a id="a8aee5debadba34a259a5ff4104276d95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aee5debadba34a259a5ff4104276d95">&#9670;&nbsp;</a></span>derivative() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DAVector::derivative </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>elem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the value and the order pattern of the specific partial derivative. Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition, the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>The ordinal number of the element. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>The order pattern of the element. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">elem</td><td>The value of the partial derivative. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a51443234b9b24ed0201047eeb199d278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51443234b9b24ed0201047eeb199d278">&#9670;&nbsp;</a></span>derivative() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DAVector::derivative </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>elem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the value and the order pattern of the specific partial derivative. Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition, the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>The ordinal number of the element. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>The order pattern of the element. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">elem</td><td>The value of the partial derivative. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
