@@ -191,7 +191,9 @@ When running tests in Linux (tested in Ubuntu 18.04/20.04/22.04), a "segmentatio
 pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see [**HERE**](https://zhanghe9704.github.io/tpsa/python-wrapper/readme.html) on how to compile, install, and use pyTPSA. 
 
 ## How to compile and install juliaTPSA
-By now, juliaTPSA has only been tested under Ubuntu 20.04. Make sure you can call julia from command line and CxxWrap package has been added to julia. 
+Make sure you can call julia from command line and CxxWrap package has been added to julia. 
+
+### Linux (Ubuntu 20.04)
 
 ```shell
 cd julia-wrapper
@@ -199,6 +201,15 @@ mkdir build
 cd build
 cmake ..
 make
+```
+
+### Windows 11
+```shell
+cd julia-wrapper
+mkdir build
+cd build
+cmake ..
+mingw32-make  -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
 ```
 
 ## Guidelines for Third-Party Contributions, Issue Reporting, and Support
