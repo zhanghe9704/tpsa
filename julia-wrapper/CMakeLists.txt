@@ -1,5 +1,5 @@
 # Set the minimum CMake version
-cmake_minimum_required(VERSION 3.5.1)
+cmake_minimum_required(VERSION 3.22.1)
 
 # Set the project name
 project(TPSAJuliaWrapper)
@@ -44,10 +44,12 @@ include_directories(${JULIA_INCLUDE_DIR})
 include_directories(${CxxWrap_INCLUDE_DIRS})
 
 # Set the source files
-file(GLOB SOURCES "{CMAKE_SOURCE_DIR}/../src/*.cc")
+file(GLOB SOURCES "${CMAKE_SOURCE_DIR}/../src/*.cc")
+# message(STATUS "SOURCES: ${SOURCES}")
 list(APPEND SOURCES
     ${CMAKE_SOURCE_DIR}/julia-wrapper.cc
 )
+# message(STATUS "SOURCES: ${SOURCES}")
 
 # Add the library to build the shared object (libtpsajuliawrapper.so)
 add_library(juliaTPSA SHARED ${SOURCES})
