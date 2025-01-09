@@ -1,19 +1,21 @@
 CC = g++
-INCDIR = ../include
+INSTALL_DIR = ..
 CFLAGS = -O3 -Wall -std=c++14 
 
 TPSA_LIBS = tpsa
-LIBS = -L.. -l$(TPSA_LIBS) -lstdc++ -lm
+LIBS = -L$(INSTALL_DIR)/lib -l$(TPSA_LIBS) -lstdc++ -lm
+INCLUDES = -I$(INSTALL_DIR)/include/
+
+
 
 SRC = $(wildcard *.cc)
 TARGET = $(SRC:.cc=)
-DEPS =$(INCDIR)/da.h
 
 .PHONY: all
 all: $(TARGET)
 
 .cc:
-	$(CC) -o $@ $< $(LIBS)  $(CFLAGS) 
+	$(CC) -o $@ $< $(INCLUDES) $(LIBS)  $(CFLAGS) 
 
 .PHONY: clean
 clean:

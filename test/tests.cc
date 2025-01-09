@@ -1,6 +1,6 @@
 //#define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-#include "../include/da.h"
+#include "da.h"
 
 #include <algorithm>
 #include <complex>

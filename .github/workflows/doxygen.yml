@@ -1,0 +1,40 @@
+name: Generate and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - master  # Adjust this to your default branch
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Doxygen
+      run: sudo apt-get install doxygen
+
+    - name: Generate Documentation
+      run: doxygen doc/Doxyfile
+      
+    - name: Commit Documentation
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add ./doc/doxygen  # Adjust this to the directory where Doxygen outputs the documentation
+        git commit -m "Update documentation" || echo "No changes to commit"
+        git push
+      
+#    - name: Upload
+#      uses: actions/upload-artifact@v1
+#      with:
+#        name: doxygen-docs
+#        path: web  # Assuming Doxygen outputs HTML docs to web
+
+#    - name: Deploy Documentation
+#      uses: peaceiris/actions-gh-pages@v3
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
+#        publish_dir: ./doc/doxygen  # Replace with the path to your generated documentation

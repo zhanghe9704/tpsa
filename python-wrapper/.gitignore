@@ -1,0 +1,8 @@
+*.layout
+*.depend
+*.o
+
+cbp/bin
+cbp/obj
+
+*.so

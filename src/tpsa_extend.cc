@@ -11,6 +11,7 @@
 
 #include "../include/tpsa_extend.h"
 #include <algorithm>
+#include <array>
 #include <cassert>
 #include <cstring>
 #include "tpsa.cpp"
@@ -22,8 +23,14 @@ static unsigned int ad_end = 0;  ///< The index of the last available TPS vector
 static std::vector <unsigned int> adlist;
 static TNVND gnd_record = 0; ///< Temporarily record the TSP order, used only when reducing and restoring the TSP order.
 
+///The table showing the relation between the orders and the index of an element in a TPS vector.
 static ADOrderTable ad_order_table;
 
+/** \brief Create the ad_order_table.
+ *
+ * \return Void.
+ *
+ */
 void ADOrderTable::generate_order_table() {
     order_table.clear();
     order_index.clear();
@@ -41,32 +48,77 @@ void ADOrderTable::generate_order_table() {
     }
 }
 
+// Define a static std::array of factorial values up to 20.
+static const std::array<long long, 21> FACT20 = {
+    1LL, 1LL, 2LL, 6LL, 24LL, 120LL, 720LL, 5040LL, 40320LL, 362880LL,
+    3628800LL, 39916800LL, 479001600LL, 6227020800LL, 87178291200LL,
+    1307674368000LL, 20922789888000LL, 355687428096000LL, 6402373705728000LL,
+    121645100408832000LL, 2432902008176640000LL
+};
+
+/** \brief Delete the ad_order_table.
+ *
+ * \return Void.
+ *
+ */
 void ADOrderTable::clear_order_table() {
     order_table.clear();
     order_index.clear();
     valid = false;
 }
 
+/** \brief Find the orders of an element by its index.
+ *
+ * \param an integer as the index of the element.
+ * \return The orders of all the variables in the element.
+ *
+ */
 std::vector<int>& ad_element_orders(int i) {
     return ad_order_table.orders(i);
 }
 
+/** \brief Return the iterator that points to the beginning of ad_order_table.
+ *
+ * \return The iterator.
+ *
+ */
 std::vector<std::vector<int>>::iterator ad_order_table_begin() {
     return ad_order_table.table_begin();
 }
 
+/** \brief Return the iterator that points to the end of ad_order_table.
+ *
+ * \return The iterator.
+ *
+ */
 std::vector<std::vector<int>>::iterator ad_order_table_end() {
     return ad_order_table.table_end();
 }
 
+/** \brief Check if the ad_order_table exists.
+ *
+ * \return True: exists; False: Not exists.
+ *
+ */
 bool ad_valid_order_table() {
     return ad_order_table.valid_table();
 }
 
+/** \brief Find index of an element by its orders
+ *
+ * \param Orders of an element. For exaple, the orders of x^3*y*z^2 in a 3D TPS vector is "3,1,2".
+ * \return index of the element.
+ *
+ */
 int ad_find_index(std::vector<int>& orders) {
     return ad_order_table.find_index(orders);
 }
 
+/** \brief Create the ad_order_table that shows the relation between the index and the orders of an element.
+ *
+ * \return void.
+ *
+ */
 void ad_generate_order_table()
 {
     ad_order_table.generate_order_table();
@@ -148,6 +200,11 @@ void ad_restore_order() {
     }
 }
 
+/** \brief Print out the orders and the index of all non-zero element in a given TPS vector.
+ *
+ * \return void
+ *
+ */
 void ad_list_order(const TVEC iv) {
     TNVND* p = base;
     for (size_t i=0; i<adveclen[iv]; ++i) {
@@ -163,6 +220,11 @@ void ad_list_order(const TVEC iv) {
     }
 }
 
+/** \brief Calculate the n-th power of a given TPS vector when n is an positive integer.
+ *
+ * \return The result.
+ *
+ */
 TVEC ad_pow_int_pos(const TVEC iv, std::vector<unsigned int> &power_v, const int order, unsigned int order_rec) {
     TVEC res;
     if (adveclen[power_v.at(order*order_rec)]>0) {
@@ -257,6 +319,12 @@ void ad_reset_const(const TVEC iv, double x) {
     adveclen[iv] = 1;
 }
 
+/** \brief Find the starting index of a given order
+ *
+ * \param the order.
+ * \return the index of the first element with the given order.
+ *
+ */
 unsigned int get_order_index(unsigned int i) {
     return order_index[i];
 }
@@ -1339,15 +1407,57 @@ void ad_sub(const unsigned int idst, const unsigned int jsrc, TVEC ov) {
  * Given the ordinal number of an element, return the value and order pattern of the element. The size of vector c should be
  * equal to the number of bases. For example, if idx matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
  * x, y, and z are the bases.
+ * \param[in] vec The TPS vector
  * \param[in] idx The ordinal number of the element.
  * \param[out] c The order pattern of the element.
- * \param[out] elem The value of the element.
+ * \param[out] x The value of the element.
  * \return
  *
  */
 void ad_elem(const TVEC &vec, unsigned int idx, std::vector<unsigned int>& c, double& x) {
     ad_elem(&vec, &idx, &(*c.begin()), &x);
 }
+
+/** \brief Return the value and the order pattern of the specific derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the derivative. The size of vector c should be
+ * equal to the number of bases. For example, if idx matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] vec The TPS vector
+ * \param[in] idx The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] x The value of the derivative.
+ * \return
+ *
+ */
+void ad_derivative(const TVEC &vec, unsigned int idx, std::vector<unsigned int>& c, double& x) {
+    ad_elem(&vec, &idx, &(*c.begin()), &x);
+    double coef = 1;
+    for(auto i:c) {
+        coef *= static_cast<double>(FACT20.at(i));
+    }
+    x *= coef;
+}
+
+/** \brief Return the value and the order pattern of the specific derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the derivative. The size of vector c should be
+ * equal to the number of bases. For example, if idx matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] vec The TPS vector
+ * \param[in] idx The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] x The value of the derivative.
+ * \return
+ *
+ */
+void ad_derivative(const TVEC &vec, unsigned int idx, unsigned int* c, double& x) {
+    ad_elem(&vec, &idx, c, &x);
+    double coef = 1;
+    for(int i=0; i<gnv; ++i) {
+        coef *= static_cast<double>(FACT20.at(c[i]));
+    }
+    x *= coef;
+}
+
 
 /** \brief Return value of a specific element in a TPS vector
  * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz}, the function returns the
@@ -1380,6 +1490,45 @@ double ad_elem(const TVEC &vec, std::vector<int> &idx) {
     }
     return advec[vec][k];
 }
+
+
+/** \brief Return value of a specific partical derivative in a TPS vector
+ * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz}, the function returns the
+ * value of the element (x^nx)*(n^ny)*(z^nz) multiplied by factorial(nx)*factorial(ny)*factorial(nz) in the TPS vector.
+ * This is an alternative function for the original one in tpsa.cpp.
+ * \param vec A TPS vector.
+ * \param idx Order pattern of the element.
+ * \return Value of the derivative.
+ *
+ */
+double ad_derivative(const TVEC &vec, std::vector<int> &idx) {
+    assert(gnv==idx.size()&&"Error in ad_elem: No. of indexes NOT EQUAL to No. of bases!");
+    for(auto& v: idx) {
+        assert((v<=ad_order() && v>=0 && "Error in ad_elem: value of indexes out of range"));
+    }
+
+    double c = 1;
+    for(auto i:idx) {
+        c *= static_cast<double>(FACT20.at(i));
+    }
+    //Find the index of the element
+    if(ad_order_table.valid_table()) {
+        return c*advec[vec][ad_order_table.find_index(idx)];
+    }
+    unsigned int d = 0;
+    for (unsigned int i = 0; i < gnv; ++i) {
+        d += idx.at(i);
+    }
+
+    unsigned int k = 0;
+    for (unsigned int i = 0; i < gnv; ++i){
+        auto b = d;
+        d -= idx.at(i);
+        k += H[gnv-i][b];
+    }
+    return c*advec[vec][k];
+}
+
 
 /** \brief Change the value of a specific element in a TPS vector
  * Take a TPS vector with three bases as an example. Given the order pattern idx = {nx,ny,nz} and a value x, the function
@@ -1449,6 +1598,29 @@ void ad_copy(const TVEC* isrc, const TVEC* idst) {
     if (i == j) return;
     memcpy(advec[j], advec[i], FULL_VEC_LEN*sizeof(double));
     adveclen[j] = adveclen[i];
+}
+
+/** \brief Copy TPS vector from memory
+ * \param[in] isrc starting address of the ememory
+ * \param[in] length length (of double) to copy
+ * \param[out] idst destination
+ */
+void ad_copy(const double* isrc, int length, const TVEC* idst) {
+    unsigned int j = *idst;
+    if (FULL_VEC_LEN<length) length = FULL_VEC_LEN;
+    memcpy(advec[j], isrc, length*sizeof(double));
+    adveclen[j] = length;
+}
+
+/** \brief Copy TPS vector to memory associated with a double pointer
+ * \param[in] isrc TPS vector
+ * \param[in] length length (of double) to copy
+ * \param[out] idst destination
+ */
+void ad_copy_to(const TVEC* idrc, int length, double* idst) {
+    unsigned int j = *idrc;
+    if (FULL_VEC_LEN<length) length = FULL_VEC_LEN;
+    memcpy(idst, advec[j], length*sizeof(double));
 }
 
 /** \brief Reset a TPS vector to a constant 0
@@ -1652,8 +1824,13 @@ void ad_clean(const TVEC& iv, const double eps)
     }
 }
 
-
-
+/** \brief Print a given TPS vector to screen or file.
+ *
+ * \param ii: the TPS vector.
+ * \param os: the output stream.
+ * \return void.
+ *
+ */
 void print_vec(unsigned int ii, std::ostream& os)
 {
     //unsigned int ii = *iv;
@@ -1699,7 +1876,14 @@ void print_vec(unsigned int ii, std::ostream& os)
     os.flags(prevflags);
 }
 
-
+/** \brief Print two given TPS vectors to screen or file.
+ *
+ * \param ii: the first TPS vector.
+ * \param ii: the second TPS vector.
+ * \param os: the output stream.
+ * \return void.
+ *
+ */
 void print_vec(unsigned int ii, unsigned int jj, std::ostream& os)
 {
     //unsigned int ii = *iv;

@@ -52,6 +52,7 @@ var da_8h =
     [ "devide_by_element", "da_8h.html#ad2fd76384773f1538658cdfebb4c4a08", null ],
     [ "erf", "da_8h.html#afe49af6192e3a686283d848f4a832b83", null ],
     [ "exp", "da_8h.html#a33a452b6c1f802b876c0df6c60487861", null ],
+    [ "exp", "da_8h.html#ad9cc8a0685f5869d83c868c0a08af00c", null ],
     [ "get_imag", "da_8h.html#abca43db4fa48da827e9786429baf4478", null ],
     [ "get_imag", "da_8h.html#aefbb070ca45de4747c7c48e81d90df2e", null ],
     [ "get_real", "da_8h.html#ad89bde943db0203812411b181fac4e2b", null ],
