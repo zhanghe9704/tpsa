@@ -29,6 +29,11 @@ TEST_CASE("DA FUNCTIONS") {
         REQUIRE(compare_da_with_file("exp_da.txt", y, eps));
     }
 
+    y = sqrt(x);
+    SECTION("SQRT") {
+        REQUIRE(compare_da_with_file("sqrt_da.txt", y, eps));
+    }
+
 	DAVector z;
     da_substitute(y, 0, 1, z);
 
