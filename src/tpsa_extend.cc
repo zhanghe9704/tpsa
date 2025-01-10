@@ -451,6 +451,19 @@ double ad_weighted_norm(TVEC v, double w) {
     }
     double* pv = advec[v];
     double norm = 0;
+    if(ad_order_table.valid_table()) {
+        for (size_t i = 0; i < adveclen[v]; ++i) {
+            double coef = pv[i];
+            if (std::abs(coef) < std::numeric_limits<double>::min()) continue;
+            std::vector<int> os = ad_order_table.orders(i);
+            int order = 0;
+            for(int o : os) order += o;           
+            double value = fabs(coef*ww.at(order));
+            if(value>norm) norm = value;
+        }
+        return norm;
+    }
+
     for (size_t i = 0; i < adveclen[v]; ++i) {
         if (std::abs(pv[i]) < std::numeric_limits<double>::min()) {
             p += gnv;
