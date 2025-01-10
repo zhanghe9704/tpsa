@@ -7,10 +7,89 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 using std::complex;
 using std::string;
 using namespace std::complex_literals;
+using std::vector;
+
+bool read_da_from_file_c(string filename, DAVector& d) {
+    d.reset();
+    std::fstream input;
+    input.open(filename, std::ios::in | std::ios::out | std::ios::app);
+    string line;
+
+    bool reading = false;
+    bool read_success = false;
+    int n_terms = 0;
+    while(std::getline(input, line)) {
+        if(!line.empty() && line[line.size()-1] == '\r') line.erase(line.size()-1);
+        if (!line.empty()) {
+            line = trim_whitespace(line);
+            if(reading) {
+                int i = std::stoi(line.substr(line.length()-6));
+                line.erase(line.end()-6, line.end());
+                double elem = 0;
+                std::vector<int> idx;
+
+                std::istringstream iss(line);
+                string word;
+                iss >> word;
+                iss >> word;
+                elem = std::stod(word);
+                while(!iss.eof()) {
+                    int index = 0;
+                    iss >> word;
+                    index = std::stoi(word);
+                    idx.push_back(index);
+                }
+                d.set_element(idx, elem);
+                if(n_terms-i == 1) read_success = true;
+            }
+            else {
+                auto pi = line.find_last_of("/");
+                auto pf = line.find_last_of("[");
+                if(pi!=string::npos && pf!=string::npos) {
+                    n_terms = std::stoi(line.substr(pi+1,pf));
+                    continue;
+                }
+                line.erase(std::remove(line.begin(), line.end(), '-'), line.end());
+                if(line.empty()) {
+                    reading = true;
+                    continue;
+                }
+            }
+        }
+    }
+    return read_success;
+}
+
+DAVector devide_by_element_c(DAVector& t, DAVector& b) {
+    DAVector r;
+    int l = t.length();
+    if(l<b.length()) l = b.length();
+    // for(int i=0; i<DAVector::full_length(); ++i) {
+    for(int i=0; i<l; ++i) {
+        double te = t.element(i);
+        double be = b.element(i);
+        if(std::abs(be)>std::numeric_limits<double>::min()) {
+            r.set_element(r.element_orders(i), te/be);
+        }
+        else {
+            r.set_element(r.element_orders(i), te);
+        }
+    }
+    return r;
+}
+
+bool compare_da_vectors_c(DAVector& a, DAVector& b, double eps) {
+    DAVector r;
+    r = a - b;
+    r = devide_by_element_c(r, b);
+    return r.iszero(eps);
+}
+
 
 TEST_CASE("INITIALIZE DA ENVIRONMENT") {
     int da_dim = 3;
@@ -22,16 +101,45 @@ TEST_CASE("INITIALIZE DA ENVIRONMENT") {
 
 TEST_CASE("DA FUNCTIONS") {
     DAVector x = 1 + da[0] + 2*da[1] + 5*da[2];
-    DAVector y = exp(x);
     double eps = 1e-14;
 
-    SECTION("EXP") {
-        REQUIRE(compare_da_with_file("exp_da.txt", y, eps));
-    }
-
-    y = sqrt(x);
+    DAVector y = sqrt(x);
     SECTION("SQRT") {
         REQUIRE(compare_da_with_file("sqrt_da.txt", y, eps));
+    }
+
+    y = log(x);
+    SECTION("LOG") {
+        REQUIRE(compare_da_with_file("log_da.txt", y, eps));
+    }
+
+    y = da_int(y,1);
+    DAVector m;
+    read_da_from_file_c("da_int.txt", m);
+    SECTION("DA_INT") {
+        REQUIRE(compare_da_vectors_c(m, y, eps));
+    }
+    y = log(x);
+    y = da_der(y,1);
+    read_da_from_file_c("da_der.txt", m);
+    SECTION("DA_DER") {
+        REQUIRE(compare_da_vectors_c(m, y, eps));
+    }
+
+    y = pow(x,3);
+    read_da_from_file_c("pow3_da.txt", m);
+    SECTION("POW(x,3)") {
+        REQUIRE(compare_da_vectors_c(m, y, eps));
+    }
+    
+    y = pow(x,0.3);
+    SECTION("POW(x,0.3)") {
+        REQUIRE(compare_da_with_file("pow0p3_da.txt", y, eps));
+    }
+
+    y = exp(x);
+    SECTION("EXP") {
+        REQUIRE(compare_da_with_file("exp_da.txt", y, eps));
     }
 
 	DAVector z;
