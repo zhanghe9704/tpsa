@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['read_5fcd_5ffrom_5ffile_89',['read_cd_from_file',['../da_8cc.html#a747e8c1a403a6100ea00a47d84756090',1,'da.cc']]],
-  ['read_5fda_5ffrom_5ffile_90',['read_da_from_file',['../da_8cc.html#a19d7e72abec2d4a7aa634fa2f78c92fb',1,'da.cc']]],
-  ['reset_91',['reset',['../struct_d_a_vector.html#a0c85003e3b334ca94135b4874c36f7e3',1,'DAVector']]],
-  ['reset_5fconst_92',['reset_const',['../struct_d_a_vector.html#a104928f5ba59b6ce42636646670048c4',1,'DAVector']]],
-  ['rtrim_5fwhitespace_93',['rtrim_whitespace',['../da_8cc.html#a8d96d479154ac1e5021968d328fb4936',1,'da.cc']]]
+  ['length_141',['length',['../struct_d_a_vector.html#a295d0ae4da5ab95ae2a367365d521f64',1,'DAVector']]],
+  ['log_142',['log',['../da_8h.html#a48795a7128e306aecb580bacf1eab595',1,'log(const DAVector &amp;da_vector):&#160;da.cc'],['../da_8h.html#a95fb39ec63ad6a2e0820d8b34c6dbc3a',1,'log(const std::complex&lt; DAVector &gt; &amp;c):&#160;da.cc'],['../da_8cc.html#a48795a7128e306aecb580bacf1eab595',1,'log(const DAVector &amp;da_vector):&#160;da.cc'],['../da_8cc.html#a95fb39ec63ad6a2e0820d8b34c6dbc3a',1,'log(const std::complex&lt; DAVector &gt; &amp;c):&#160;da.cc']]],
+  ['ltrim_5fwhitespace_143',['ltrim_whitespace',['../da_8cc.html#a344adcf523735c68a77bb7ac1171b3e7',1,'da.cc']]]
 ];

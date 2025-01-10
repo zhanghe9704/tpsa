@@ -25,14 +25,6 @@
 var NAVTREE =
 [
   [ "cppTPSA", "index.html", [
-    [ "LICENSE", "md__e___work__code_tpsa_lib__l_i_c_e_n_s_e.html", null ],
-    [ "C++ TPSA Lib", "md__e___work__code_tpsa_lib_readme.html", [
-      [ "Announcement", "md__e___work__code_tpsa_lib_readme.html#autotoc_md10", null ],
-      [ "About this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md11", null ],
-      [ "How to compile and use this code", "md__e___work__code_tpsa_lib_readme.html#autotoc_md12", null ],
-      [ "Acknowledgement", "md__e___work__code_tpsa_lib_readme.html#autotoc_md13", null ],
-      [ "Contact", "md__e___work__code_tpsa_lib_readme.html#autotoc_md14", null ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -45,10 +37,11 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", "globals_func" ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -57,8 +50,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"da_8h.html#afe47eaa37279ac25c2bbe0ce6cce859c",
-"tpsa__extend_8cc.html#ae144cee856ff78507680d9adf1033c44"
+"da_8h.html#af460971e8859a611012fb8a6acb68a3b",
+"tpsa__extend_8cc.html#a49c1069d4a7ba8c2e42d2ad68d31665c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

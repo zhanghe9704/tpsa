@@ -25,6 +25,7 @@ struct DAVector {
   DAVector(DAVector&& da_vector);
   DAVector(double x);
   DAVector(int i);
+  DAVector(std::vector<double>& v);
 //  DAVector(bool b);
   void print() const;
   double con() const;
@@ -32,8 +33,11 @@ struct DAVector {
   int n_element() const;
   void element(unsigned int i, unsigned int *c, double& elem) const;
   void element(unsigned int i, std::vector<unsigned int>& c, double& elem) const;
+  void derivative(unsigned int i, unsigned int *c, double& elem) const;
+  void derivative(unsigned int i, std::vector<unsigned int>& c, double& elem) const;
   double element(int i);
   double element(std::vector<int> idx);
+  double derivative(std::vector<int> idx);
   std::vector<int>& element_orders(int i);
   double norm();
   double weighted_norm(double w);
@@ -50,6 +54,8 @@ struct DAVector {
   static int order();
   static int full_length();
   static double eps;
+  void to_vector(std::vector<double>& v);
+  void to_vector(int length, std::vector<double>& v);
   DAVector& operator=(const DAVector& da_vector);
   DAVector& operator=(DAVector&& da_vector);
   DAVector& operator=(double x);
@@ -210,6 +216,7 @@ double abs(const DAVector &da_vector);
 double abs(const std::complex<DAVector> &complex_dav);
 DAVector erf(const DAVector& x);
 DAVector atan2(const DAVector& y, const DAVector& x);
+std::complex<DAVector> exp(const std::complex<DAVector>& c);
 std::complex<DAVector> sqrt(const std::complex<DAVector>& c);
 std::complex<DAVector> log(const std::complex<DAVector>& c);
 std::complex<DAVector> asin(const std::complex<DAVector>& c);

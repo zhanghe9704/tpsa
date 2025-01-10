@@ -1,0 +1,24 @@
+# _config.yml
+include:
+  - readme.md
+  - contributing.md
+#  - .github/CONTRIBUTING.md
+  
+exclude:
+  - 'cbp'
+  - 'CMakeFiles'
+  - 'examples'
+  - 'paper'
+  - 'web'
+  - 'src'
+  - 'include'
+  - 'test'
+  - 'python-wrapper/tests'
+  - 'python-wrapper/src'
+  - 'python-wrapper/examples'
+  
+navigation:
+  - name: Home
+    link: /
+
+  

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['print_190',['print',['../struct_d_a_vector.html#a6d5253e4312ca9ca5e68859f706f9f2c',1,'DAVector']]],
-  ['print_5findex_191',['print_index',['../tpsa_8h.html#ad087b206b0ec782659ee6390d5c0b9f2',1,'print_index(std::ostream &amp;os):&#160;tpsa.cpp'],['../tpsa_8cpp.html#ad087b206b0ec782659ee6390d5c0b9f2',1,'print_index(std::ostream &amp;os):&#160;tpsa.cpp']]]
+  ['inv_5fmap_329',['inv_map',['../da_8h.html#aa3749e2d2d14985277e012363a78d3e7',1,'inv_map(std::vector&lt; DAVector &gt; &amp;ivecs, int dim, std::vector&lt; DAVector &gt; &amp;ovecs):&#160;da.cc'],['../da_8cc.html#aa3749e2d2d14985277e012363a78d3e7',1,'inv_map(std::vector&lt; DAVector &gt; &amp;ivecs, int dim, std::vector&lt; DAVector &gt; &amp;ovecs):&#160;da.cc']]],
+  ['iszero_330',['iszero',['../struct_d_a_vector.html#ab3c48a1bb5890cefaddbd88098e84025',1,'DAVector::iszero() const'],['../struct_d_a_vector.html#a74a11746a3dad447e1c489f8f4edcaae',1,'DAVector::iszero(double eps) const']]]
 ];
