@@ -360,6 +360,18 @@ void ad_int(TVEC iv, unsigned int base_id, TVEC ov) {
     ad_var(&v, &x, &base_id);
     ad_mult(&iv, &v, &ov);
 
+    if(ad_order_table.valid_table()) {
+        for (size_t i=0; i<adveclen[ov]; ++i) {
+            if (std::abs(advec[ov][i]) < std::numeric_limits<double>::min()) {
+                continue;
+            }
+            std::vector<int> c = ad_order_table.orders(i);
+            advec[ov][i] /= c[base_id];
+        }
+        ad_free(&v);
+        return;
+    }
+
     TNVND* p = base;
     std::vector<unsigned int> c(gnv);
 
