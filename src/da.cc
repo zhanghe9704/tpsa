@@ -388,7 +388,7 @@ void da_set_eps(double eps) {
  */
 void da_der(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_der) {
     assert(base_id>=0&&base_id<DAVector::dim()&&"Base out of limits in DA_DER!");
-    ad_derivative(&da_vector.da_vector_, &base_id, &da_vector_der.da_vector_);
+    ad_der(&da_vector.da_vector_, &base_id, &da_vector_der.da_vector_);
 }
 
 /** \brief Integrate a da vector w.r.t. a specific base
@@ -414,7 +414,7 @@ void da_int(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector
 DAVector da_der(const DAVector &da_vector, unsigned int base_id) {
     DAVector res;
     assert(base_id>=0&&base_id<DAVector::dim()&&"Base out of limits in da_der!");
-    ad_derivative(&da_vector.da_vector_, &base_id, &res.da_vector_);
+    ad_der(&da_vector.da_vector_, &base_id, &res.da_vector_);
     return res;
 }
 

@@ -97,5 +97,6 @@ void print_vec(unsigned int ii, std::ostream& os);
 void print_vec(unsigned int ii, unsigned int jj, std::ostream& os);
 void ad_copy(const double* isrc, int length, const TVEC* idst); //Copy a block of memeory of double numbers to construct a TPS vector
 void ad_copy_to(const TVEC* idrc, int length, double* idst); //Copy a block of memory of a TPS vector to a double pointer
+void ad_der(const TVEC* iv, unsigned int* expo, const TVEC* iret);  //Take derivative of a TPS vector w.r.t. a specific base
 #endif // TPSA_EXTEND
 

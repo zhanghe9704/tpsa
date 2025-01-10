@@ -19,6 +19,7 @@
 
 static unsigned int ad_flag = 0; ///< The index of the next available TPS vector
 static unsigned int ad_end = 0;  ///< The index of the last available TPS vector.
+static unsigned int ad_pool_size = 0;  ///< The size of the TPS vector pool.
 ///Linked list for TPSA memory management. When ad_flag == adlist[ad_end], memory runs out!
 static std::vector <unsigned int> adlist;
 static TNVND gnd_record = 0; ///< Temporarily record the TSP order, used only when reducing and restoring the TSP order.
@@ -1993,4 +1994,97 @@ void print_vec(unsigned int ii, unsigned int jj, std::ostream& os)
     os << std::endl;
 
     os.flags(prevflags);
+}
+
+
+void ad_der(const TVEC* iv, unsigned int* expo, const TVEC* iret){
+    TNVND* p = base;
+    //size_t k = 0;
+    unsigned int iexpo = *expo;
+
+    unsigned int *cef = new unsigned int[gnv];
+    unsigned int *bv = new unsigned int[gnv];
+    unsigned int d = 0, jexp;
+
+    ad_reset(iret);
+    advec[*iret][0] = 0;
+    adveclen[*iret] = 1;
+
+    if(ad_order_table.valid_table()) {
+        int k = 0;
+        for (size_t i = 1; i < adveclen[*iv]; ++i) {
+            if(std::abs(advec[*iv][i]) < std::numeric_limits<double>::min()) continue;
+            vector<int> orders = ad_order_table.orders(i);
+            int oi = orders.at(iexpo);
+            if(oi>0){
+                orders.at(iexpo) = oi-1;
+                int idx = ad_order_table.find_index(orders);
+                if(idx>k) k=idx;
+                advec[*iret][idx] = advec[*iv][i]*oi;
+            }            
+        }
+        adveclen[*iret] = k+1;
+        return;
+    }
+
+    for (size_t i = 0; i < adveclen[*iv]; ++i) {
+        d = 0;
+        for (size_t j = 0; j < gnv-1; ++j) {
+            //std::cout << " " << c[i];
+            cef[j] = *p - *(p+1);
+            ++p;
+            d += cef[j];
+        }
+        cef[gnv-1] = *p;
+        d += *p;
+        ++p;
+
+     #ifdef DEBUG_ALL
+        for(size_t j=0; j < gnv; ++j) {
+            std::cout << ' ' << cef[j];
+        }
+        std::cout << "  order: " << d << std::endl;
+     #endif
+
+        if (cef[iexpo] <= 0) {
+            advec[*iret][i] = 0;
+            continue;
+        }
+
+        jexp = cef[iexpo];
+
+        cef[iexpo] -= 1;
+        --d;
+
+     #ifdef DEBUG_ALL
+        std::cout << " --> ";
+        for (size_t j = 0; j < gnv; ++j) std::cout << ' ' << cef[j];
+        std::cout << "  order: " << d << std::endl;
+     #endif
+
+        size_t k = 0;
+
+        //std::cout << "order: " << (unsigned int)d << std::endl;
+        for (size_t j = 0; j < gnv; ++j){
+            bv[j] = d;
+            d -= cef[j];
+            k += H[gnv-j][bv[j]];
+        }
+        //std::cout << std::endl;
+        //std::cout << k << std::endl;
+
+        advec[*iret][k] = advec[*iv][i] * 1.0 * jexp;
+        if (k >= adveclen[*iret]) adveclen[*iret] = k+1;
+     #ifdef DEBUG_ALL
+        std::cout << "Set: " << k << ' ' << advec[*iret][k] << "  len: " << adveclen[*iret] << std::endl;
+     #endif
+    }
+
+    //if (adveclen[*iret] == 0) {
+    //    adveclen[*iret] = 1;
+    //    advec[*iret] = 0;
+    //}
+
+    delete []bv;
+    delete []cef;
 }
