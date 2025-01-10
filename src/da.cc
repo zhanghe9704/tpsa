@@ -1861,7 +1861,10 @@ bool read_cd_from_file(string filename, complex<DAVector>& cd) {
  */
 DAVector devide_by_element(DAVector& t, DAVector& b) {
     DAVector r;
-    for(int i=0; i<DAVector::full_length(); ++i) {
+    int l = t.length();
+    if(l<b.length()) l = b.length();
+    // for(int i=0; i<DAVector::full_length(); ++i) {
+    for(int i=0; i<l; ++i) {
         double te = t.element(i);
         double be = b.element(i);
         if(std::abs(be)>std::numeric_limits<double>::min()) {
