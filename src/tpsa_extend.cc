@@ -1566,13 +1566,13 @@ double ad_elem(const TVEC &vec, std::vector<int> &idx) {
     }
     unsigned int d = 0;
     for (unsigned int i = 0; i < gnv; ++i) {
-        d += idx.at(i);
+        d += idx[i];
     }
 
     unsigned int k = 0;
     for (unsigned int i = 0; i < gnv; ++i){
         auto b = d;
-        d -= idx.at(i);
+        d -= idx[i];
         k += H[gnv-i][b];
     }
     return advec[vec][k];
@@ -1604,13 +1604,13 @@ double ad_derivative(const TVEC &vec, std::vector<int> &idx) {
     }
     unsigned int d = 0;
     for (unsigned int i = 0; i < gnv; ++i) {
-        d += idx.at(i);
+        d += idx[i];
     }
 
     unsigned int k = 0;
     for (unsigned int i = 0; i < gnv; ++i){
         auto b = d;
-        d -= idx.at(i);
+        d -= idx[i];
         k += H[gnv-i][b];
     }
     return c*advec[vec][k];
