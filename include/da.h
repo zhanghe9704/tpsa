@@ -95,7 +95,7 @@ struct Base {
 extern Base da; // Bases for DA calculations. The i-th base can be accessed as da[i].
 
 //Initialize the environment for DA computation. Call this function before any DA computation.
-int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors, bool table=true);
+int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int num_da_vectors, bool table=false);
 void da_clear(); //Destroy the DA environment and release memory.
 void da_pool_clean(); //Remove all the DA vectors from the memory pool except for the bases.Use with caution!
 void da_pool_clean(int n); //Remove all the DA vectors from the memory pool except for the first n DA vectors. Use with caution!
