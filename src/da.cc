@@ -388,7 +388,7 @@ void da_set_eps(double eps) {
  */
 void da_der(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_der) {
     assert(base_id>=0&&base_id<DAVector::dim()&&"Base out of limits in DA_DER!");
-    ad_derivative(&da_vector.da_vector_, &base_id, &da_vector_der.da_vector_);
+    ad_der(&da_vector.da_vector_, &base_id, &da_vector_der.da_vector_);
 }
 
 /** \brief Integrate a da vector w.r.t. a specific base
@@ -414,7 +414,7 @@ void da_int(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector
 DAVector da_der(const DAVector &da_vector, unsigned int base_id) {
     DAVector res;
     assert(base_id>=0&&base_id<DAVector::dim()&&"Base out of limits in da_der!");
-    ad_derivative(&da_vector.da_vector_, &base_id, &res.da_vector_);
+    ad_der(&da_vector.da_vector_, &base_id, &res.da_vector_);
     return res;
 }
 
@@ -484,6 +484,52 @@ int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int n
 void da_clear() {
     da.base.clear();
     ad_clear();
+}
+
+/** \brief Remove all the DAVectors from the memory pool except for the bases. Use with caution.
+ * \return void
+ *
+ */
+
+void da_pool_clean() {
+    ad_pool_clean();
+}
+
+/** \brief Remove all the DA vectors from the memory pool except for the first n DA vectors. Use with caution.
+ * \param n The first n DA vectors will be untouched.
+ * \return void
+ *
+ */
+
+void da_pool_clean(int n) {
+    ad_pool_clean(n);
+}
+
+/** \brief After da_pool_clean(), move an alive DA variable on top of the pool. Use with caution!
+ * \param n The DA vector to move.
+ * \return void
+ *
+ */
+void da_bubble(DAVector& v) {
+    ad_assign(v.da_vector_);
+}
+
+/** \brief Print the available DA vector pool.
+ * \return void
+ *
+ */
+
+void da_pool_print() {
+    ad_pool_print();
+}
+
+/** \brief The maximum number of DA vectors allowed.
+ * \return int
+ *
+ */
+
+int da_poolsize() {
+    return ad_poolsize();
 }
 
 ///Temporarily change the DA order.
@@ -1861,7 +1907,10 @@ bool read_cd_from_file(string filename, complex<DAVector>& cd) {
  */
 DAVector devide_by_element(DAVector& t, DAVector& b) {
     DAVector r;
-    for(int i=0; i<DAVector::full_length(); ++i) {
+    int l = t.length();
+    if(l<b.length()) l = b.length();
+    // for(int i=0; i<DAVector::full_length(); ++i) {
+    for(int i=0; i<l; ++i) {
         double te = t.element(i);
         double be = b.element(i);
         if(std::abs(be)>std::numeric_limits<double>::min()) {
