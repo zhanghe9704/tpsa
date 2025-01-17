@@ -32,8 +32,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Prepare Contributing Guidelines
         run: cp .github/CONTRIBUTING.md contributing.md
-      - name: Prepare python-wrapper readme
-        run: cp python-wrapper/README.md python-wrapper-readme.md
+#      - name: Prepare python-wrapper readme
+#        run: cp python-wrapper/README.md python-wrapper-readme.md
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
