@@ -128,8 +128,6 @@ Macros</h2></td></tr>
 <tr class="separator:a3fa86c82256ee6ae03ea0c52f2a984ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87d678373b14a538cc3a60948047c26" id="r_af87d678373b14a538cc3a60948047c26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa_8h.html#af87d678373b14a538cc3a60948047c26">ad_length</a>&#160;&#160;&#160;ad_length_</td></tr>
 <tr class="separator:af87d678373b14a538cc3a60948047c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab120defc7abb5aa568e045429835d633" id="r_ab120defc7abb5aa568e045429835d633"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa_8h.html#ab120defc7abb5aa568e045429835d633">ad_derivative</a>&#160;&#160;&#160;ad_derivative_</td></tr>
-<tr class="separator:ab120defc7abb5aa568e045429835d633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6246b982b68a771011facb4c9656d05a" id="r_a6246b982b68a771011facb4c9656d05a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa_8h.html#a6246b982b68a771011facb4c9656d05a">ad_subst</a>&#160;&#160;&#160;ad_subst_</td></tr>
 <tr class="separator:a6246b982b68a771011facb4c9656d05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58435ccae9127f0d3cd45d8a78303e70" id="r_a58435ccae9127f0d3cd45d8a78303e70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa_8h.html#a58435ccae9127f0d3cd45d8a78303e70">ad_cos</a>&#160;&#160;&#160;ad_cos_</td></tr>
@@ -284,8 +282,6 @@ Functions</h2></td></tr>
 <tr class="separator:a9bfad92601b7c4c81bb14e51e0016672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7127c7553acec12be8d4f9d6e39bfa4b" id="r_a7127c7553acec12be8d4f9d6e39bfa4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa_8h.html#a7127c7553acec12be8d4f9d6e39bfa4b">ad_cos</a> (const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iv, const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iret)</td></tr>
 <tr class="separator:a7127c7553acec12be8d4f9d6e39bfa4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af61048119f09f7cd849d4b985eac44b8" id="r_af61048119f09f7cd849d4b985eac44b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa_8h.html#af61048119f09f7cd849d4b985eac44b8">ad_derivative</a> (const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iv, unsigned int *expo, const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iret)</td></tr>
-<tr class="separator:af61048119f09f7cd849d4b985eac44b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac54d6dd59ba6d00ab5a802cae7e95cb7" id="r_ac54d6dd59ba6d00ab5a802cae7e95cb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tpsa_8h.html#ac54d6dd59ba6d00ab5a802cae7e95cb7">ad_tra</a> (const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iv, unsigned int *expo, const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *iret)</td></tr>
 <tr class="memdesc:ac54d6dd59ba6d00ab5a802cae7e95cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">similar to ad_derivative, but doesn't multiply the exponent part of x_{expo}  <br /></td></tr>
 <tr class="separator:ac54d6dd59ba6d00ab5a802cae7e95cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -450,20 +446,6 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define ad_count&#160;&#160;&#160;ad_count_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab120defc7abb5aa568e045429835d633" name="ab120defc7abb5aa568e045429835d633"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab120defc7abb5aa568e045429835d633">&#9670;&#160;</a></span>ad_derivative</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ad_derivative&#160;&#160;&#160;ad_derivative_</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1217,40 +1199,6 @@ Functions</h2></td></tr>
 <p>&zwj;** </p>
 <p>Allocate space for one TPS vector. &zwj;** Copy TPS vector</p>
 <p>Count how many vectors has been allocated </p>
-
-</div>
-</div>
-<a id="af61048119f09f7cd849d4b985eac44b8" name="af61048119f09f7cd849d4b985eac44b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af61048119f09f7cd849d4b985eac44b8">&#9670;&#160;</a></span>ad_derivative()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ad_derivative </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *&#160;</td>
-          <td class="paramname"><em>iv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int *&#160;</td>
-          <td class="paramname"><em>expo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="tpsa_8h.html#a36fc79ba14099c25d212e5412c95806f">TVEC</a> *&#160;</td>
-          <td class="paramname"><em>iret</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
