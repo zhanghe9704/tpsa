@@ -1,6 +1,6 @@
 /*
  * Copyright(C) 2008 by Lingyun Yang
- * L. Yang, “Array Based Truncated Power Series Package”, Proc. ICAP'09, San Francisco, CA, USA, Aug.-Sep. 2009,
+ * L. Yang, ï¿½Array Based Truncated Power Series Packageï¿½, Proc. ICAP'09, San Francisco, CA, USA, Aug.-Sep. 2009,
  *
  */
 //! \brief Automatic Differentiation
@@ -20,7 +20,7 @@
 #define ad_read_block ad_read_block_
 #define ad_nvar       ad_nvar_
 #define ad_length     ad_length_
-#define ad_derivative ad_derivative_
+// #define ad_derivative ad_derivative_
 #define ad_subst      ad_subst_
 #define ad_cos        ad_cos_
 #define ad_sin        ad_sin_
@@ -60,7 +60,7 @@
 #define ad_read_block AD_READ_BLOCK
 #define ad_nvar       AD_NVAR
 #define ad_length     AD_LENGTH
-#define ad_derivative AD_DERIVATIVE
+// #define ad_derivative AD_DERIVATIVE
 #define ad_subst      AD_SUBST
 #define ad_cos        AD_COS
 #define ad_sin        AD_SIN
@@ -152,7 +152,7 @@ extern "C" {
     _declspec(dllexport) void _stdcall ad_sin(const TVEC* iv, const TVEC* iret);
     _declspec(dllexport) void _stdcall ad_cos(const TVEC* iv, const TVEC* iret);
 
-    _declspec(dllexport) void _stdcall ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret);
+   //  _declspec(dllexport) void _stdcall ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret);
     _declspec(dllexport) void _stdcall ad_tra(const TVEC* iv, unsigned int* expo, const TVEC* iret);
     _declspec(dllexport) void _stdcall ad_shift(const TVEC* iv, unsigned int* ishift, const TVEC* iret, const double* eps);
 
@@ -210,7 +210,7 @@ extern "C" {
     void ad_sin(const TVEC* iv, const TVEC* iret);
     void ad_cos(const TVEC* iv, const TVEC* iret);
 
-    void ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret);
+   //  void ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret);
     void ad_tra(const TVEC* iv, unsigned int* expo, const TVEC* iret);
     void ad_shift(const TVEC* iv, unsigned int* ishift, const TVEC* iret, const double* eps);
 
