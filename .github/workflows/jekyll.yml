@@ -39,6 +39,22 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+      # --- STEP 1: Build README in `python-wrapper` folder with Jekyll ---
+      - name: Build README with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./python-wrapper         # The folder containing README.md
+          destination: ./python-wrapper/_site  # Where Jekyll outputs HTML
+
+      # --- STEP 2: Copy the resulting README.html back into python-wrapper ---
+      - name: Move built README to python-wrapper
+        run: |
+          # The Jekyll build will name it README.html (matching README.md).
+          # Copy or rename as needed:
+          cp python-wrapper/_site/README.html python-wrapper/README.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
