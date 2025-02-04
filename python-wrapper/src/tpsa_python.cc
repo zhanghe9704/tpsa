@@ -90,7 +90,7 @@ PYBIND11_MODULE(_core, m) {
         .def("length", &DAVector::length)
         .def("n_element", &DAVector::n_element)
         .def("element", (double (DAVector::*)(int)) &DAVector::element, "i"_a)
-        .def("index_element", [](const DAVector& v, unsigned int idx){std::vector<unsigned int> c; double elem; v.element(idx, c, elem);
+        .def("index_element", [](const DAVector& v, unsigned int idx){std::vector<unsigned int> c; double elem; c.resize(v.dim()); v.element(idx, c, elem);
             return std::make_tuple(c,elem);}, "idx"_a)
         .def("element", (double (DAVector::*)(std::vector<int>)) &DAVector::element, "idx"_a)
         .def("set_element", (void (DAVector::*)(std::vector<int>, double)) &DAVector::set_element, "idx"_a, "elem"_a, py::return_value_policy::reference)
