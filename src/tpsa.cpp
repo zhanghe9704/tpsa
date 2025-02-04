@@ -1,6 +1,6 @@
 /*
  * Copyright(C) 2008 by Lingyun Yang
- * L. Yang, “Array Based Truncated Power Series Package”, Proc. ICAP'09, San Francisco, CA, USA, Aug.-Sep. 2009,
+ * L. Yang, ï¿½Array Based Truncated Power Series Packageï¿½, Proc. ICAP'09, San Francisco, CA, USA, Aug.-Sep. 2009,
  *
  */
 
@@ -1471,92 +1471,92 @@ void ad_cos(const TVEC* iv, const TVEC* iret)
 
 }
 
-#ifdef MSVC_DLL
-_declspec(dllexport) void _stdcall ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret)
-#else
-void ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret)
-#endif
-{
-    TNVND* p = base;
-    //size_t k = 0;
-    unsigned int iexpo = *expo;
+// #ifdef MSVC_DLL
+// _declspec(dllexport) void _stdcall ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret)
+// #else
+// void ad_derivative(const TVEC* iv, unsigned int* expo, const TVEC* iret)
+// #endif
+// {
+//     TNVND* p = base;
+//     //size_t k = 0;
+//     unsigned int iexpo = *expo;
 
-    unsigned int *cef = new unsigned int[gnv];
-    unsigned int *bv = new unsigned int[gnv];
-    unsigned int d = 0, jexp;
+//     unsigned int *cef = new unsigned int[gnv];
+//     unsigned int *bv = new unsigned int[gnv];
+//     unsigned int d = 0, jexp;
 
-    ad_reset(iret);
-    advec[*iret][0] = 0;
-    adveclen[*iret] = 1;
+//     ad_reset(iret);
+//     advec[*iret][0] = 0;
+//     adveclen[*iret] = 1;
 
-    // const part was kept
-    //if (adveclen[*iv] > 0) {
-    //    advec[*iret][0] = advec[*iv][0];
-    //    adveclen[*iret] = 1;
-    //}
+//     // const part was kept
+//     //if (adveclen[*iv] > 0) {
+//     //    advec[*iret][0] = advec[*iv][0];
+//     //    adveclen[*iret] = 1;
+//     //}
 
-    for (size_t i = 0; i < adveclen[*iv]; ++i) {
-        d = 0;
-        for (size_t j = 0; j < gnv-1; ++j) {
-            //std::cout << " " << c[i];
-            cef[j] = *p - *(p+1);
-            ++p;
-            d += cef[j];
-        }
-        cef[gnv-1] = *p;
-        d += *p;
-        ++p;
+//     for (size_t i = 0; i < adveclen[*iv]; ++i) {
+//         d = 0;
+//         for (size_t j = 0; j < gnv-1; ++j) {
+//             //std::cout << " " << c[i];
+//             cef[j] = *p - *(p+1);
+//             ++p;
+//             d += cef[j];
+//         }
+//         cef[gnv-1] = *p;
+//         d += *p;
+//         ++p;
 
-     #ifdef DEBUG_ALL
-        for(size_t j=0; j < gnv; ++j) {
-            std::cout << ' ' << cef[j];
-        }
-        std::cout << "  order: " << d << std::endl;
-     #endif
+//      #ifdef DEBUG_ALL
+//         for(size_t j=0; j < gnv; ++j) {
+//             std::cout << ' ' << cef[j];
+//         }
+//         std::cout << "  order: " << d << std::endl;
+//      #endif
 
-        if (cef[iexpo] <= 0) {
-            advec[*iret][i] = 0;
-            continue;
-        }
+//         if (cef[iexpo] <= 0) {
+//             advec[*iret][i] = 0;
+//             continue;
+//         }
 
-        jexp = cef[iexpo];
+//         jexp = cef[iexpo];
 
-        cef[iexpo] -= 1;
-        --d;
+//         cef[iexpo] -= 1;
+//         --d;
 
-     #ifdef DEBUG_ALL
-        std::cout << " --> ";
-        for (size_t j = 0; j < gnv; ++j) std::cout << ' ' << cef[j];
-        std::cout << "  order: " << d << std::endl;
-     #endif
+//      #ifdef DEBUG_ALL
+//         std::cout << " --> ";
+//         for (size_t j = 0; j < gnv; ++j) std::cout << ' ' << cef[j];
+//         std::cout << "  order: " << d << std::endl;
+//      #endif
 
-        size_t k = 0;
+//         size_t k = 0;
 
-        //std::cout << "order: " << (unsigned int)d << std::endl;
-        for (size_t j = 0; j < gnv; ++j){
-            bv[j] = d;
-            d -= cef[j];
-            k += H[gnv-j][bv[j]];
-        }
-        //std::cout << std::endl;
-        //std::cout << k << std::endl;
+//         //std::cout << "order: " << (unsigned int)d << std::endl;
+//         for (size_t j = 0; j < gnv; ++j){
+//             bv[j] = d;
+//             d -= cef[j];
+//             k += H[gnv-j][bv[j]];
+//         }
+//         //std::cout << std::endl;
+//         //std::cout << k << std::endl;
 
-        advec[*iret][k] = advec[*iv][i] * 1.0 * jexp;
-        if (k >= adveclen[*iret]) adveclen[*iret] = k+1;
-     #ifdef DEBUG_ALL
-        std::cout << "Set: " << k << ' ' << advec[*iret][k] << "  len: " << adveclen[*iret] << std::endl;
-     #endif
-    }
+//         advec[*iret][k] = advec[*iv][i] * 1.0 * jexp;
+//         if (k >= adveclen[*iret]) adveclen[*iret] = k+1;
+//      #ifdef DEBUG_ALL
+//         std::cout << "Set: " << k << ' ' << advec[*iret][k] << "  len: " << adveclen[*iret] << std::endl;
+//      #endif
+//     }
 
-    //if (adveclen[*iret] == 0) {
-    //    adveclen[*iret] = 1;
-    //    advec[*iret] = 0;
-    //}
+//     //if (adveclen[*iret] == 0) {
+//     //    adveclen[*iret] = 1;
+//     //    advec[*iret] = 0;
+//     //}
 
-    delete []bv;
-    delete []cef;
+//     delete []bv;
+//     delete []cef;
 
-}
+// }
 
 //! similar to ad_derivative, but doesn't multiply the exponent part of x_{expo}
 #ifdef MSVC_DLL

@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/zhanghe9704/tpsa/blob/master/LICENSE.md)
 
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.04818/status.svg)](https://doi.org/10.21105/joss.04818)
+
 ## About this code
 
 This code allows users to do computations using Truncated Power Series Algebra (TPSA) and/or Differential Algebra (DA) in C++ and Python 3.x environment.
@@ -19,31 +21,31 @@ A new data type DAVector is created as a wrapper of the TPS vector. The followin
 Math operator overloaded: (DA - DA vector, CD - complex DA vector)
 
 | Left hand | Operator | Right hand |
-|:---------:|:--------:|:----------:|
-| DA/CD     | +        | DA/CD      |
-| double    | +        | DA/CD      |
-| DA/CD     | +        | double     |
-|           | +        | DA/CD      |
-| DA/CD     | -        | DA/CD      |
-| DA/CD     | -        | double     |
-| double    | -        | DA/CD      |
-|           | -        | DA/CD      |
-| DA/CD     | *        | DA/CD      |
-| DA/CD     | *        | double     |
-| double    | *        | DA/CD      |
-| DA/CD     | /        | DA/CD      |
-| DA/CD     | /        | double     |
-| double    | /        | DA/CD      |
-| DA/CD     | =        | DA/CD      |
-| DA/CD     | =        | double     |
-| DA/CD     | +=       | DA/CD      |
-| DA/CD     | +=       | double     |
-| DA/CD     | -=       | DA/CD      |
-| DA/CD     | -=       | double     |
-| DA/CD     | *=       | DA/CD      |
-| DA/CD     | *=       | double     |
-| DA/CD     | /=       | DA/CD      |
-| DA/CD     | /=       | double     |
+| :-------: | :------: | :--------: |
+|   DA/CD   |    +     |   DA/CD    |
+|  double   |    +     |   DA/CD    |
+|   DA/CD   |    +     |   double   |
+|           |    +     |   DA/CD    |
+|   DA/CD   |    -     |   DA/CD    |
+|   DA/CD   |    -     |   double   |
+|  double   |    -     |   DA/CD    |
+|           |    -     |   DA/CD    |
+|   DA/CD   |    *     |   DA/CD    |
+|   DA/CD   |    *     |   double   |
+|  double   |    *     |   DA/CD    |
+|   DA/CD   |    /     |   DA/CD    |
+|   DA/CD   |    /     |   double   |
+|  double   |    /     |   DA/CD    |
+|   DA/CD   |    =     |   DA/CD    |
+|   DA/CD   |    =     |   double   |
+|   DA/CD   |    +=    |   DA/CD    |
+|   DA/CD   |    +=    |   double   |
+|   DA/CD   |    -=    |   DA/CD    |
+|   DA/CD   |    -=    |   double   |
+|   DA/CD   |    *=    |   DA/CD    |
+|   DA/CD   |    *=    |   double   |
+|   DA/CD   |    /=    |   DA/CD    |
+|   DA/CD   |    /=    |   double   |
 
 Math functions overloaded:
 
@@ -91,104 +93,94 @@ More information on the code is available in [this doxygen document](https://zha
 
 You will need a C++ compiler that supports C++ 14 standard. (C++14 is needed to compile examples and tests. C++11 is enough to generate the libs.) There are three ways to use the code as follows:
 
-* Download the source files. Include "tpsa_extend.h" and "da.h" in your project and compile. 
+* Download the source files. Include "tpsa_extend.h" and "da.h" in your project and compile. Please note: do NOT include tpsa.cpp directly in your compiling command. This file is automatically included in tpsa_extend.cc. Compiling it directly can cause compiling errors. 
 
 * The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
 
 * You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 20.04 (WSL2), and Ubuntu 22.04 (WSL2). 
-  
+
   `cmake .` 
   `make`
-  
+
   Here is an example of compiling the code under Ubuntu 22.04. 
-  
+
   Assume I have cloned the codes to the following folder:
-  
+
   $HOME/tpsa
-  
+
   Inside the above folder, run:
-  
+
   ```shell
   cmake .
   ```
-  
+
   The Makefile will be generated. 
-  
+
   Then run:
-  
+
   ```shell
   make
   ```
-  
-  
-  
+
   Both the static lib and the shared lib of tpsa will be generated. In the subfolder "lib", you can find  the following two files:
-  
+
   libtpsa.a and libtpsa.so
-  
-  ### How to install cppTPSA
-  
+
+### How to install cppTPSA
+
   The default installation path is /usr/local/lib. Use the following command to install to the default path:
-  
-  ```shell
-  sudo make install
-  ```
-  
+
+```shell
+sudo make install
+```
+
   Both libs will be installed to /usr/local/lib and the header file, da.h, will be installed to /usr/local/include.
-  
-  
-  
+
   To change the installation path, use the following command in cmake configuration:
-  
-  ```shell
-  cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
-  ```
-  
+
+```shell
+cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
+```
+
   The libs will be installed to YOURPATH/lib. 
-  
-  
-  
-  ### How to compile the exmaples and tests
-  
+
+### How to compile the exmaples and tests
+
   There are two ways to compile the examples. After installing the libs, you can run 
-  
-  ```shell
-   cmake --build . --target build_examples
-  ```
-  
+
+```shell
+ cmake --build . --target build_examples
+```
+
   The executable files will be generated inside the subfolder "examples". 
-  
+
   Alternatively, you can jump into the examples folder and run make command:
-  
-  ```shell
-  cd examples
-  make
-  ```
-  
+
+```shell
+cd examples
+make
+```
+
   Similarly, to compile the tests, you can run the following command in the root folder
-  
-  ```shell
-  cmake --build . --target build_tests
-  ```
-  
+
+```shell
+cmake --build . --target build_tests
+```
+
   or jump into the test folder to run
-  
-  ```shell
-  cd test
-  make
-  ```
-  
-  
-  
+
+```shell
+cd test
+make
+```
+
   To run the executables, make sure the libs can be found by the OS. If the libs are installed in the default director, run 
-  
-  ```shell
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-  ```
-  
+
+```shell
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+```
+
   The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)) version 2.3.16 , which is a header only test framework for C++.  Make sure you run the tests inside the test folder, otherwise some tests will be failed. 
-
-
 
 **Known issues:**
 
@@ -196,7 +188,7 @@ When running tests in Linux (tested in Ubuntu 18.04/20.04/22.04), a "segmentatio
 
 ## How to compile and install pyTPSA
 
-pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see [**HERE**](https://zhanghe9704.github.io/tpsa/python-wrapper/readme.html) on how to compile, install, and use pyTPSA. 
+pyTPSA is the Python wrapper of cppTPSA. It generates a Python 3.x module for TPSA calculations. Source files of the wrapper, together with examples and tests, are in the subfolder "python-wrapper". Please see [**HERE**](https://zhanghe9704.github.io/tpsa/python-wrapper/index.html) on how to compile, install, and use pyTPSA. 
 
 ## Guidelines for Third-Party Contributions, Issue Reporting, and Support
 
@@ -204,7 +196,11 @@ See [here](https://zhanghe9704.github.io/tpsa/contributing.html).
 
 ## Acknowledgement
 
-Thanks to Dr. Lingyun Yang for providing his tpsa code. 
+Thanks to Dr. Lingyun Yang for providing his tpsa code.
+
+**This work is supported by the U.S. Department of Energy, Office of Science, Office of Nuclear Physics under contract DE-AC05-06OR23177.**
+
+
 
 ## Contact
 

@@ -52,12 +52,29 @@ DAVector::DAVector(int i) {
     ad_reset_const(da_vector_, i);
 }
 
+DAVector::DAVector(std::vector<double>& v) {
+    ad_alloc(&da_vector_);
+    ad_copy(v.data(), v.size(), &da_vector_);
+}
+
 DAVector::~DAVector() {
     ad_free(&da_vector_);
 }
 
 void DAVector::clear() {
     ad_free(&da_vector_);
+}
+
+void DAVector::to_vector(std::vector<double>& v){
+    int length = ad_full_length();
+    v.resize(length);
+    ad_copy_to(&da_vector_, length, v.data());
+}
+
+void DAVector::to_vector(int length, std::vector<double>& v){
+    if (length>ad_full_length()) length == ad_full_length();
+    v.resize(length);
+    ad_copy_to(&da_vector_, length, v.data());
 }
 
 void DAVector::print() const { ad_print(&da_vector_);}      /**< Print out a DA vector. */
@@ -166,6 +183,41 @@ void DAVector::element(unsigned int i, unsigned int *c, double& elem) const {
   	ad_elem(&da_vector_, &ii, c, &elem);
 }
 
+
+/** \brief Return the value and the order pattern of the specific partial derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition,
+ * the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be
+ * equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] i The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] elem The value of the partial derivative.
+ * \return
+ *
+ */
+void DAVector::derivative(unsigned int i, std::vector<unsigned int>& c, double& elem) const {
+    unsigned int ii = i+1;
+    if (i<0) ii = 0;
+    ad_elem(da_vector_, ii, c, elem);
+}
+
+/** \brief Return the value and the order pattern of the specific partial derivative.
+ * Given the ordinal number of an element, return the value and order pattern of the element. Following the c++ tradition,
+ * the ordinal number, i, starts from zero. (In ad_elem, the ordinal number starts from one.) The size of array c should be
+ * equal to the number of bases. For example, if i matches the element (x^nx)*(n^ny)*(z^nz), c = {nx, ny, nz}, where
+ * x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param[in] i The ordinal number of the element.
+ * \param[out] c The order pattern of the element.
+ * \param[out] elem The value of the partial derivative.
+ * \return
+ *
+ */
+void DAVector::derivative(unsigned int i, unsigned int *c, double& elem) const {
+    unsigned int ii = i+1;
+    if (i<0) ii = 0;
+    ad_elem(&da_vector_, &ii, c, &elem);
+}
+
 /** \brief Return the value of a specific element.
  * Given the ordinal number of the element, return the value. The ordinal number starts from zero, following c++ tradition.
  * \param i The ordinal number of the element.
@@ -193,6 +245,18 @@ double DAVector::element(int i) {
  */
 double DAVector::element(std::vector<int>idx) {
     return ad_elem(da_vector_, idx);
+}
+
+/** \brief Return the value of a specific partial derivative.
+ * Given the order pattern of the element, return the value. The size of the vector idx should be equal to the base number.
+ * For example, assuming the base number is three, idx = {nx, ny, nz} referring to the element (x^nx)*(y^ny)*(z^nz),
+ * where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)
+ * \param idx The order pattern of the element.
+ * \return The value of the partial derivative.
+ *
+ */
+double DAVector::derivative(std::vector<int> idx) {
+    return ad_derivative(da_vector_, idx);
 }
 
 std::vector<int>& DAVector::element_orders(int i) {
@@ -324,7 +388,7 @@ void da_set_eps(double eps) {
  */
 void da_der(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_der) {
     assert(base_id>=0&&base_id<DAVector::dim()&&"Base out of limits in DA_DER!");
-    ad_derivative(&da_vector.da_vector_, &base_id, &da_vector_der.da_vector_);
+    ad_der(&da_vector.da_vector_, &base_id, &da_vector_der.da_vector_);
 }
 
 /** \brief Integrate a da vector w.r.t. a specific base
@@ -350,7 +414,7 @@ void da_int(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector
 DAVector da_der(const DAVector &da_vector, unsigned int base_id) {
     DAVector res;
     assert(base_id>=0&&base_id<DAVector::dim()&&"Base out of limits in da_der!");
-    ad_derivative(&da_vector.da_vector_, &base_id, &res.da_vector_);
+    ad_der(&da_vector.da_vector_, &base_id, &res.da_vector_);
     return res;
 }
 
@@ -420,6 +484,52 @@ int da_init(unsigned int da_order, unsigned int num_da_variables, unsigned int n
 void da_clear() {
     da.base.clear();
     ad_clear();
+}
+
+/** \brief Remove all the DAVectors from the memory pool except for the bases. Use with caution.
+ * \return void
+ *
+ */
+
+void da_pool_clean() {
+    ad_pool_clean();
+}
+
+/** \brief Remove all the DA vectors from the memory pool except for the first n DA vectors. Use with caution.
+ * \param n The first n DA vectors will be untouched.
+ * \return void
+ *
+ */
+
+void da_pool_clean(int n) {
+    ad_pool_clean(n);
+}
+
+/** \brief After da_pool_clean(), move an alive DA variable on top of the pool. Use with caution!
+ * \param n The DA vector to move.
+ * \return void
+ *
+ */
+void da_bubble(DAVector& v) {
+    ad_assign(v.da_vector_);
+}
+
+/** \brief Print the available DA vector pool.
+ * \return void
+ *
+ */
+
+void da_pool_print() {
+    ad_pool_print();
+}
+
+/** \brief The maximum number of DA vectors allowed.
+ * \return int
+ *
+ */
+
+int da_poolsize() {
+    return ad_poolsize();
 }
 
 ///Temporarily change the DA order.
@@ -1797,7 +1907,10 @@ bool read_cd_from_file(string filename, complex<DAVector>& cd) {
  */
 DAVector devide_by_element(DAVector& t, DAVector& b) {
     DAVector r;
-    for(int i=0; i<DAVector::full_length(); ++i) {
+    int l = t.length();
+    if(l<b.length()) l = b.length();
+    // for(int i=0; i<DAVector::full_length(); ++i) {
+    for(int i=0; i<l; ++i) {
         double te = t.element(i);
         double be = b.element(i);
         if(std::abs(be)>std::numeric_limits<double>::min()) {

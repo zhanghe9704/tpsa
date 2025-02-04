@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['davector_192',['DAVector',['../struct_d_a_vector.html',1,'']]]
+  ['davector_0',['DAVector',['../struct_d_a_vector.html',1,'']]]
 ];

@@ -1,9 +1,11 @@
 #on: [push]
 
 on:
-  push:
-    branches:
-      - main  # Adjust this to your default branch
+  workflow_dispatch:
+
+  # push:
+  #   branches:
+  #     - master  # Adjust this to your default branch
 
 jobs:
   paper:
