@@ -1,14 +1,15 @@
-cmake_minimum_required(VERSION 3.5.1)
+cmake_minimum_required(VERSION 3.15.0)
 
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_INSTALL_PREFIX /usr)
+
 # Scikit-build-core sets these values for you, or you can just hard-code the
 # name and version.
 project(
   tpsa
-  VERSION 1.0.0
+  VERSION 1.0.1
   LANGUAGES CXX)
   
 # Find the module development requirements (requires FindPython from 3.17 or
