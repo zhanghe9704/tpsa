@@ -95,14 +95,11 @@ You will need a C++ compiler that supports C++ 14 standard. (C++14 is needed to 
 
 * Download the source files. Include "tpsa_extend.h" and "da.h" in your project and compile. Please note: do NOT include tpsa.cpp directly in your compiling command. This file is automatically included in tpsa_extend.cc. Compiling it directly can cause compiling errors. 
 
-* The code is developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. 
+* （Deprecated） The code is originally developed using Code::Blocks IDE. There are two C::B profiles under the cbp directory: tpsa_lib.cbp and tpsa_dll.cbp for static library and dynamic library respectively. The cbp files are tested in Windows 10 with gcc compiler. Now we suggest using cmake as explained in the following. 
 
-* You can also use cmake to compile the code into both a static library and a dynamic library. This has been tested in Ubuntu 20.04 (WSL2), and Ubuntu 22.04 (WSL2). 
+* You can use cmake to compile the code into both a static library and a dynamic library. 
 
-  `cmake .` 
-  `make`
-
-  Here is an example of compiling the code under Ubuntu 22.04. 
+### Compile and install cppTPSA in Linux
 
   Assume I have cloned the codes to the following folder:
 
@@ -111,7 +108,9 @@ You will need a C++ compiler that supports C++ 14 standard. (C++14 is needed to 
   Inside the above folder, run:
 
   ```shell
-  cmake .
+  mkdir build
+  cd build
+  cmake ..
   ```
 
   The Makefile will be generated. 
@@ -126,9 +125,7 @@ You will need a C++ compiler that supports C++ 14 standard. (C++14 is needed to 
 
   libtpsa.a and libtpsa.so
 
-### How to install cppTPSA
-
-  The default installation path is /usr/local/lib. Use the following command to install to the default path:
+  Use the following command to install to the default path:
 
 ```shell
 sudo make install
@@ -143,6 +140,55 @@ cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
 ```
 
   The libs will be installed to YOURPATH/lib. 
+
+### Compile and install cppTPSA in Windows
+We suggest using mingw-w64-x86_64-toolchain and cmake to compile and install cppTPSA. One convenient way to set up them is to use [MSYS2](https://www.msys2.org/). First, download and install MSYS2. Then open mingw32.exe in the root folder of MSYS2. In the mingw32 command line, run
+```shell
+pacman -S mingw-w64-x86_64-toolchain
+pacman -S mingw-w64-x86_64-cmake
+ln -s /mingw64/bin/mingw32-make.exe /mingw64/bin/make.exe
+```
+If you installed MSYS2 in C:\MSYS2, your compiler, make and cmake are installed in C:\msys64\mingw64\bin. Add this directory to the beginning of the environment variable PATH.
+
+To set "MinGW Makefiles" as the default cmake generator, create an environment variable CMAKE_GENERATOR and set the value as MinGW Makefiles. Now you are ready to compile and install the cppTPSA lib.
+
+Go to the root folder of the cppTPSA lib, open the command line terminal, and run:
+
+  ```shell
+  mkdir build
+  cd build
+  cmake ..
+  ```
+
+  The Makefile will be generated. 
+
+  Then run:
+
+  ```shell
+  make
+  ```
+
+  Both the static lib and the shared lib of tpsa will be generated. In the subfolder "lib", you can find  the following three files:
+  libtpsa.a, libtpsa.dll and libtpsa.dll.a
+
+  By default, the libs will be installed to C:\Program Files (x86). Open your terminal as Administrator and run:
+  ```shell
+  make install
+  ```
+
+  If you have [gsudo](https://github.com/gerardog/gsudo) installed, you can run the following command in a normal terminal:
+  ```shell
+  gsudo make install
+  ```
+
+  After installing, add C:\Program Files (x86)\tpsa\bin to your PATH,  C:\Program Files (x86)\tpsa\include to your CPATH, and add C:\Program Files (x86)\tpsa\lib to your LIBRARY_PATH, so that your gnu compiler can find them automatically.
+
+  To change the installation path, use the following command in cmake configuration:
+
+```shell
+cmake -DCMAKE_INSTALL_PREFIX=YOURPATH ..
+
+
 
 ### How to compile the exmaples and tests
 
@@ -170,7 +216,7 @@ cmake --build . --target build_tests
   or jump into the test folder to run
 
 ```shell
-cd test
+cd ../test
 make
 ```
 
