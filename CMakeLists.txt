@@ -15,11 +15,14 @@ include_directories(include)
 #However, the file(GLOB...) allows for wildcard additions:
 file(GLOB SOURCES "src/*.cc")
 
-#Generate the shared library and the static llibary from the sources
+#Generate the shared library and the static library from the sources
 add_library(tpsaShared SHARED ${SOURCES})
 set_target_properties(tpsaShared PROPERTIES 
     OUTPUT_NAME "tpsa"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
 add_library(tpsaStatic STATIC ${SOURCES})
 set_target_properties(tpsaStatic PROPERTIES 
     OUTPUT_NAME "tpsa"
