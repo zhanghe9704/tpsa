@@ -5,8 +5,7 @@ INSTALL_DIR = ..
 CFLAGS = -g -Wall -std=c++14 
 
 TPSA_LIBS = tpsa
-#LIBS = -L.. -l$(TPSA_LIBS) -lstdc++ -lm
-LIBS = -L$(INSTALL_DIR)/lib -l$(TPSA_LIBS) -lstdc++ -lm
+LIBS = -L$(INSTALL_DIR)/lib -l$(TPSA_LIBS) -lgcc -lstdc++ -lm
 
 INCLUDES = -I$(INSTALL_DIR)/include/
 
@@ -26,13 +25,14 @@ OBJ2 = $(filter-out catch_main.o, $(OBJ))
 all: $(TARGET) 
 
 $(TARGET): $(OBJ)
-	$(CC) -o $@ $^ $(INCLUDES) $(LIBS)  $(CFLAGS)
+	$(CC) -o $@ $^ $(INCLUDES)  $(CFLAGS)  $(LIBS)
 	
 %.o: %.cc
-	$(CC) -c $< 
-
-#$(CC) -o $@ $< $(LIBS)  $(CFLAGS)		
+	$(CC) -c $< 	
 
 .PHONY: clean
 clean:
 	rm -f $(TARGET) $(OBJ2)
+.PHONY: clean_all
+clean_all:
+	rm -f $(TARGET) $(OBJ)
