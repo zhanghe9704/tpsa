@@ -148,42 +148,42 @@ pacman -S mingw-w64-x86_64-toolchain
 pacman -S mingw-w64-x86_64-cmake
 ln -s /mingw64/bin/mingw32-make.exe /mingw64/bin/make.exe
 ```
-If you installed MSYS2 in C:\MSYS2, your compiler, make and cmake are installed in C:\msys64\mingw64\bin. Add this directory to the beginning of the environment variable PATH.
+If you installed MSYS2 in C:\msys64, your compiler, make and cmake are installed in C:\msys64\mingw64\bin. Add this directory to the beginning of the environment variable PATH.
 
 To set "MinGW Makefiles" as the default cmake generator, create an environment variable CMAKE_GENERATOR and set the value as MinGW Makefiles. Now you are ready to compile and install the cppTPSA lib.
 
 Go to the root folder of the cppTPSA lib, open the command line terminal, and run:
 
-  ```shell
-  mkdir build
-  cd build
-  cmake ..
-  ```
+```shell
+mkdir build
+cd build
+cmake ..
+```
 
-  The Makefile will be generated. 
+The Makefile will be generated. 
 
-  Then run:
+Then run:
 
-  ```shell
-  make
-  ```
+```shell
+make
+```
 
-  Both the static lib and the shared lib of tpsa will be generated. In the subfolder "lib", you can find  the following three files:
-  libtpsa.a, libtpsa.dll and libtpsa.dll.a
+Both the static lib and the shared lib of tpsa will be generated. In the subfolder "lib", you can find  the following three files:
+libtpsa.a, libtpsa.dll and libtpsa.dll.a
 
-  By default, the libs will be installed to C:\Program Files (x86). Open your terminal as Administrator and run:
-  ```shell
-  make install
-  ```
+Run: 
+```shell
+make install
+```
+The libs and the header file will be installed to the following directory by default:
+```shell
+-- Installing: C:/msys64/mingw64/lib/libtpsa.dll.a
+-- Installing: C:/msys64/mingw64/bin/libtpsa.dll
+-- Installing: C:/msys64/mingw64/lib/libtpsa.a
+-- Installing: C:/msys64/mingw64/include/da.h
+```
 
-  If you have [gsudo](https://github.com/gerardog/gsudo) installed, you can run the following command in a normal terminal:
-  ```shell
-  gsudo make install
-  ```
-
-  After installing, add C:\Program Files (x86)\tpsa\bin to your PATH,  C:\Program Files (x86)\tpsa\include to your CPATH, and add C:\Program Files (x86)\tpsa\lib to your LIBRARY_PATH, so that your gnu compiler can find them automatically.
-
-  To change the installation path, use the following command in cmake configuration:
+To change the installation path, use the following command in cmake configuration:
 
 ```shell
 cmake -DCMAKE_INSTALL_PREFIX=YOURPATH ..
