@@ -39,11 +39,34 @@ add_custom_target(build_examples
     COMMENT "Building examples using Makefile with custom INSTALL_DIR"
 )
 
+# Target to clean examples
+add_custom_target(clean_examples
+    COMMAND ${CMAKE_MAKE_PROGRAM} clean
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/examples
+    COMMENT "Cleaning examples"
+)
+
 add_custom_target(build_tests
     COMMAND ${CMAKE_MAKE_PROGRAM} INSTALL_DIR=${CMAKE_INSTALL_PREFIX} all
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
     COMMENT "Building tests using Makefile with custom INSTALL_DIR"
 )
+
+# Target to clean tests
+add_custom_target(clean_tests
+    COMMAND ${CMAKE_MAKE_PROGRAM} clean
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
+    COMMENT "Cleaning tests"
+)
+
+# Target to clean tests, including removing catch_main.o
+add_custom_target(clean_tests_all
+    COMMAND ${CMAKE_MAKE_PROGRAM} clean
+    COMMAND ${CMAKE_COMMAND} -E rm -f ${CMAKE_SOURCE_DIR}/test/catch_main.o
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
+    COMMENT "Cleaning tests and removing catch_main.o"
+)
+
 
 #Set the location for library installation -- i.e., /usr/local/lib in this case
 #Use "sudo make install" to apply
