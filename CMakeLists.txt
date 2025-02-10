@@ -29,6 +29,10 @@ set_target_properties(tpsaStatic PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
 )
 
+if(WIN32)
+    set(CMAKE_INSTALL_PREFIX "C:/msys64/mingw64")
+endif()
+
 add_custom_target(build_examples
     COMMAND ${CMAKE_MAKE_PROGRAM} INSTALL_DIR=${CMAKE_INSTALL_PREFIX} all
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/examples
