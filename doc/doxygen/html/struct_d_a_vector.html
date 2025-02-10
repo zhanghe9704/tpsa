@@ -148,8 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a82a2828f5555dd1038f4b06c377b16e5" id="r_a82a2828f5555dd1038f4b06c377b16e5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a82a2828f5555dd1038f4b06c377b16e5">derivative</a> (std::vector&lt; int &gt; idx)</td></tr>
 <tr class="memdesc:a82a2828f5555dd1038f4b06c377b16e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific partial derivative. Given the order pattern of the element, return the value. The size of the vector idx should be equal to the base number. For example, assuming the base number is three, idx = {nx, ny, nz} referring to the element (x^nx)*(y^ny)*(z^nz), where x, y, and z are the bases. The parital derivative is the element multiplied by (nx!)*(ny!)*(nz!)  <br /></td></tr>
 <tr class="separator:a82a2828f5555dd1038f4b06c377b16e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a982ae9c1ff348c191a0c53018850bde6" id="r_a982ae9c1ff348c191a0c53018850bde6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a982ae9c1ff348c191a0c53018850bde6">element_orders</a> (int i)</td></tr>
-<tr class="separator:a982ae9c1ff348c191a0c53018850bde6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eb03cced8965f5744ed0afbbddc1943" id="r_a3eb03cced8965f5744ed0afbbddc1943"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#a3eb03cced8965f5744ed0afbbddc1943">element_orders</a> (int i)</td></tr>
+<tr class="separator:a3eb03cced8965f5744ed0afbbddc1943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe5e73d838b0178ecfa6910052a59fda" id="r_abe5e73d838b0178ecfa6910052a59fda"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_a_vector.html#abe5e73d838b0178ecfa6910052a59fda">norm</a> ()</td></tr>
 <tr class="memdesc:abe5e73d838b0178ecfa6910052a59fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the norm of the DA vector, e.g. the maximum of the absolute value of the DA coefficients.  <br /></td></tr>
 <tr class="separator:abe5e73d838b0178ecfa6910052a59fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -744,14 +744,14 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a982ae9c1ff348c191a0c53018850bde6" name="a982ae9c1ff348c191a0c53018850bde6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a982ae9c1ff348c191a0c53018850bde6">&#9670;&#160;</a></span>element_orders()</h2>
+<a id="a3eb03cced8965f5744ed0afbbddc1943" name="a3eb03cced8965f5744ed0afbbddc1943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eb03cced8965f5744ed0afbbddc1943">&#9670;&#160;</a></span>element_orders()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; int &gt; &amp; DAVector::element_orders </td>
+          <td class="memname">const std::vector&lt; int &gt; &amp; DAVector::element_orders </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
