@@ -49,7 +49,7 @@ public :
 //Create the ad_order_table that shows the relation between the index and the orders of an element in a TPS vector.
 void ad_generate_order_table();
 bool ad_valid_order_table(); // Check if the ad_order_table exists.
-std::vector<int>& ad_element_orders(int i); //Return the orders of an element given its index.
+const std::vector<int>& ad_element_orders(int i); //Return the orders of an element given its index.
 
 unsigned int ad_dim(); //Return the TPS base number.
 void ad_reset_vector(const TVEC iv); //Reset all the elements to zero, still keep the length of the vector.

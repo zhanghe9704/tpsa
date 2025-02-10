@@ -38,7 +38,7 @@ struct DAVector {
   double element(int i);
   double element(std::vector<int> idx);
   double derivative(std::vector<int> idx);
-  std::vector<int>& element_orders(int i);
+  const std::vector<int>& element_orders(int i);
   double norm();
   double weighted_norm(double w);
   void set_element(int *c, double elem);
@@ -107,7 +107,7 @@ int da_count();                                 //Number of da variable allocate
 int da_remain();                                //Space (number) available for new da variables.
 int da_poolsize();                              //The maximum number of DA vectors allowed.
 int da_full_length();                           //Full length of the da vector.
-std::vector<int>& da_element_orders(int i);     //Return the orders of each base as a vector for the i-th element.
+const std::vector<int>& da_element_orders(int i);     //Return the orders of each base as a vector for the i-th element.
 void da_set_eps(double eps);                    //Set the cut-off value for DA coefficients.
 //Take derivative w.r.t. a specific base.
 void da_der(const DAVector &da_vector, unsigned int base_id, DAVector &da_vector_der);

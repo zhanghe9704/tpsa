@@ -74,8 +74,20 @@ void ADOrderTable::clear_order_table() {
  * \return The orders of all the variables in the element.
  *
  */
-std::vector<int>& ad_element_orders(int i) {
-    return ad_order_table.orders(i);
+const std::vector<int>& ad_element_orders(int i) {
+    if (ad_order_table.valid_table()) {
+        return ad_order_table.orders(i);
+    }
+    else {
+        static std::vector<int> orders(gnv, 0);
+        TNVND* p = base + gnv*i;
+        for (size_t j = 0; j < gnv-1; ++j) {
+            orders.at(j) = (int)(*p-*(p+1));
+            ++p;
+        }
+        orders.at(gnv-1) = (int)*p;
+        return orders;
+    }
 }
 
 /** \brief Return the iterator that points to the beginning of ad_order_table.

@@ -259,7 +259,7 @@ double DAVector::derivative(std::vector<int> idx) {
     return ad_derivative(da_vector_, idx);
 }
 
-std::vector<int>& DAVector::element_orders(int i) {
+const std::vector<int>& DAVector::element_orders(int i) {
     return ad_element_orders(i);
 }
 
@@ -438,7 +438,7 @@ int da_full_length() {
 }
 
 ///Return the orders of each base as a vector for the i-th element.
-std::vector<int>& da_element_orders(int i) {
+const std::vector<int>& da_element_orders(int i) {
     return ad_element_orders(i);
 }
 
