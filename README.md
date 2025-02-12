@@ -142,7 +142,7 @@ cmake -DCMAKE_INSTALL_PREFIX=YOURPATH .
   The libs will be installed to YOURPATH/lib. 
 
 ### Compile and install cppTPSA in Windows
-We suggest using mingw-w64-x86_64-toolchain and cmake to compile and install cppTPSA. One convenient way to set up them is to use [MSYS2](https://www.msys2.org/). First, download and install MSYS2. Then open mingw32.exe in the root folder of MSYS2. In the mingw32 command line, run
+We suggest using mingw-w64-x86_64-toolchain and cmake to compile and install cppTPSA. One convenient way to set up them is to use [MSYS2](https://www.msys2.org/). First, download and install MSYS2. Then open mingw64.exe in the root folder of MSYS2. In the mingw64 command line, run
 ```shell
 pacman -S mingw-w64-x86_64-toolchain
 pacman -S mingw-w64-x86_64-cmake
