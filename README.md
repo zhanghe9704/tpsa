@@ -226,11 +226,7 @@ make
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ```
 
-  The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)) version 2.3.16 , which is a header only test framework for C++.  Make sure you run the tests inside the test folder, otherwise some tests will be failed. 
-
-**Known issues:**
-
-When running tests in Linux (tested in Ubuntu 18.04/20.04/22.04), a "segmentation fault" error will be reported after passing all the tests. The does not happen when running the tests on Windows, and in Linux it does not happen when I used the lib in other programs in C++ or in Python.    
+  The tests depend on [*Catch2*]([GitHub - catchorg/Catch2: A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)](https://github.com/catchorg/Catch2)) version 2.3.16 , which is a header only test framework for C++.  Make sure you run the tests inside the test folder, otherwise some tests will be failed.   
 
 ## How to compile and install pyTPSA
 
