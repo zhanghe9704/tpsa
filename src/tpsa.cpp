@@ -45,7 +45,8 @@ static unsigned int FULL_VEC_LEN;
 static unsigned int* order_index;
 
 
-static unsigned int** H;
+// static unsigned int** H;
+static std::vector<std::vector<unsigned int>> H;
 
 //! base vector.
 //! e.g. (000) to (004) if 4th order 3 variables, C(nv+nd,nd)
@@ -180,11 +181,13 @@ void init_prod_index(unsigned int nv, unsigned int nd)
 
     TNVND* vtmp = new TNVND[nv+1];
     // hash table
-    H = new unsigned int*[nv+1];
+    // H = new unsigned int*[nv+1];
+    H.resize(nv+1);
 
     vtmp[0] = 0;
     for (TNVND i = 0; i < nv+1; ++i) {
-        H[i] = new unsigned int[nd+2];
+        // H[i] = new unsigned int[nd+2];
+        H[i].resize(nd+2);
 
         m[i][0] = H[i][0] = 0;
         m[i][1] = H[i][1] = 1;
@@ -240,6 +243,10 @@ void init_prod_index(unsigned int nv, unsigned int nd)
         }
     }
     tblsize = NS;
+    delete[] vtmp;
+    for(int i=0; i < nv+1; ++i) {
+        delete[] m[i];
+    }
     //std::cout << "Mem: " << NS << std::endl;
 }
 

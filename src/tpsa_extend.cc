@@ -611,8 +611,8 @@ void ad_pool_clean(unsigned int idx) {
 
 void ad_clear() {
 
-    for(int i=0; i<gnv+1; ++i) delete[] H[i];
-    delete[] H;
+    // for(int i=0; i<gnv+1; ++i) delete[] H[i];
+    // delete[] H;
     for(int i=0; i<FULL_VEC_LEN; ++i) delete[] prdidx[i];
     delete[] prdidx;
     delete[] base;
@@ -1740,6 +1740,7 @@ void ad_reset(const TVEC* iv) {
  *
  */
 void ad_free(const TVEC* i) {
+    if(*i<gnv) return;
     if(adlist.empty()) return;
     ad_reset(i);
     adlist.at(*i) = adlist.at(ad_end);
